@@ -1,0 +1,37 @@
+﻿Ext.define('ProjetoGarage.model.contaPagar.Pagamento', {
+    extend: 'Ext.data.Model',
+    fields: [{
+        name: 'ContaPagarPagamentoId',
+        type: 'INT'
+    }, {
+        name: 'ContaPagarId',
+        type: 'INT'
+    }, {
+        name: 'Documento',
+        type: 'STRING'
+    }, {
+        name: 'TipoPagamentoId',
+        type: 'INT'
+    }, {
+        name: 'TipoPagamentoNome',
+        type: 'STRING'
+    }, {
+        name: 'DataPagamento',
+        type: 'DATE'
+    }, {
+        name: 'ValorPago',
+        type: 'FLOAT'
+    }, {
+        name: 'UsuarioId',
+        type: 'INT'
+    }, {
+        name: 'UsuarioNome',
+        type: 'STRING'
+    }, {
+        name: 'DataHora',
+        type: 'DATE'
+    }, {
+        name: 'Estornado',
+        type: 'BOOL'
+    }]
+});

@@ -1,0 +1,103 @@
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\csc.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\csc.exe.config
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\csc.rsp
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\csi.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\csi.rsp
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\System.AppContext.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\vbc.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\vbc.exe.config
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\vbc.rsp
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\VBCSCompiler.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\IMPP.dll.config
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\IMPP.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\IMPP.pdb
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\IMPP.BL.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\IMPP.BL.pdb
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\obj\Debug\IMPP.csprojResolveAssemblyReference.cache
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\obj\Debug\IMPP.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2017\Projects\IMPP\IMPP\obj\Debug\IMPP.pdb
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csc.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csc.exe.config
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csc.rsp
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csi.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csi.rsp
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.AppContext.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\vbc.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\vbc.exe.config
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\vbc.rsp
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\VBCSCompiler.exe
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\IMPP.dll.config
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\IMPP.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\IMPP.pdb
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\obj\Debug\IMPP.csprojResolveAssemblyReference.cache
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\obj\Debug\IMPP.dll
+C:\Users\Renan Soares\Documents\Visual Studio 2015\Projects\TCC\IMPP\obj\Debug\IMPP.pdb
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csc.exe
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csc.exe.config
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csc.rsp
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csi.exe
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\csi.rsp
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.AppContext.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\vbc.exe
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\vbc.exe.config
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\vbc.rsp
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\VBCSCompiler.exe
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\IMPP.dll.config
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\IMPP.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\IMPP.pdb
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\obj\Debug\IMPP.csprojResolveAssemblyReference.cache
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\obj\Debug\IMPP.dll
+C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\obj\Debug\IMPP.pdb

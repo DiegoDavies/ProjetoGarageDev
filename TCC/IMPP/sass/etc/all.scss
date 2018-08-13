@@ -1,0 +1,39 @@
+﻿$base-color: #dc6900;
+
+.x-tree-noicon .x-tree-icon-leaf {
+    display: none !important;
+}
+
+.x-tree-nodetext .x-tree-node-text {
+    padding-left: 0;
+}
+
+body {
+    background-color: orangered;
+}
+
+ButtonLogin .button {
+    border-radius: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+}
+
+TxtLogin .textfield {
+    font-size: large;
+    font-weight: bold;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+ContainerLogin .container {
+    background-image: url(/resources/images/loginWpp.png);
+    background-color: white;
+}
+
+LabelLogin .label {
+    color: blue;
+    text-decoration: underline;
+}
