@@ -168,7 +168,9 @@
     <Content Include="app\view\formacao\Grid.js" />
     <Content Include="app\view\formacao\Window.js" />
     <Content Include="app\view\formacao\Tela.js" />
+    <Content Include="app\view\fornecedor\Form.js" />
     <Content Include="app\view\fornecedor\Grid.js" />
+    <Content Include="app\view\fornecedor\Panel.js" />
     <Content Include="app\view\fornecedor\Tela.js" />
     <Content Include="app\view\funcao\Grid.js" />
     <Content Include="app\view\funcao\Window.js" />

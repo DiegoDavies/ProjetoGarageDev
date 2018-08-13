@@ -14,23 +14,23 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioId'
+                dataIndex: 'FornecedorId'
             }, {
-                text: 'Nome',
+                text: 'Razão Social',
                 flex: 1,
                 minWidth: 250,
                 style: 'text-align: center;',
-                dataIndex: 'Nome'
+                dataIndex: 'RazaoSocial'
             }, {
-                text: 'Situação',
+                text: 'CNPJ/CPF',
+                width: 150,
+                style: 'text-align: center;',
+                dataIndex: 'CnpjCpf'
+            }, {
+                text: 'Status',
                 width: 120,
                 style: 'text-align: center;',
-                dataIndex: 'SituacaoNome'
-            }, {
-                text: 'CPF',
-                width: 100,
-                style: 'text-align: center;',
-                dataIndex: 'Cpf'
+                dataIndex: 'StatusNome'
             }, {
                 text: 'Email',
                 width: 180,
@@ -123,10 +123,10 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'fornecedor-panel',
-            title: 'Funcionário: ' + record.get('Nome'),
+            title: 'Fornecedor: ' + record.get('Fantasia'),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
-            itemId: 'Funcionario' + record.get('FuncionarioId'),
+            itemId: 'Fornecedor' + record.get('FornecedorId'),
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -139,7 +139,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Funcionario' + record.get('FuncionarioId'));
+        me.tela.tabPrincipal.setActiveTab('Fornecedor' + record.get('FornecedorId'));
         return false;
     },
     onBtnNovoClick: function () {
@@ -147,10 +147,10 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'fornecedor-panel',
-            title: 'Cadastro de Funcionário',
+            title: 'Cadastro de Fornecedor',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
-            itemId: 'CadastroFuncionario',
+            itemId: 'CadastroFornecedor',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me
@@ -162,7 +162,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroFuncionario');
+        me.tela.tabPrincipal.setActiveTab('CadastroFornecedor');
         return false;
     },
     onBtnRelatorioClick: function () {

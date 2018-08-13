@@ -38,7 +38,8 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.orcamento.Tela',
         'ProjetoGarage.view.servico.Tela',
         'ProjetoGarage.view.contaPagar.Tela',
-        'ProjetoGarage.view.contaReceber.Tela'
+        'ProjetoGarage.view.contaReceber.Tela',
+        'ProjetoGarage.view.fornecedor.Tela'
     ],
 
     stores: [
