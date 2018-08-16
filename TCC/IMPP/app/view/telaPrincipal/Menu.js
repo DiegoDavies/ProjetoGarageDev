@@ -57,6 +57,13 @@
                 className: 'ProjetoGarage.view.parentesco.Tela',
                 xtype: 'parentesco-tela',
                 leaf: true
+            }, {
+                text: 'Banco',
+                titleM: 'Banco',
+                name: 'Banco',
+                className: 'ProjetoGarage.view.banco.Tela',
+                xtype: 'banco-tela',
+                leaf: true
             }]
         }, {
             text: 'Fornecedores',
@@ -67,6 +74,20 @@
                 name: 'Fornecedores',
                 className: 'ProjetoGarage.view.fornecedor.Tela',
                 xtype: 'fornecedor-tela',
+                leaf: true
+            }, {
+                text: 'Banco',
+                titleM: 'Banco',
+                name: 'Banco',
+                className: 'ProjetoGarage.view.banco.Tela',
+                xtype: 'banco-tela',
+                leaf: true
+            }, {
+                text: 'Status Fornecedor',
+                titleM: 'Status',
+                name: 'Status',
+                className: 'ProjetoGarage.view.statusFornecedor.Tela',
+                xtype: 'statusFornecedor-tela',
                 leaf: true
             }]
         }, {

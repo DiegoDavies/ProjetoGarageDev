@@ -22,7 +22,15 @@
                     name: 'Nome',
                     itemId: 'txtNome',
                     width: 300,
-                    labelAlign: 'top'
+                    labelAlign: 'top',
+                    enableKeyEvents: true,
+                    listeners: {
+                        keyup: function (txt, e, eOpts) {
+                            if (e.keyCode == 13) {
+                                me.btnSalvar.fireEvent('click', this);
+                            }
+                        }
+                    }
                 }]
             }],
             bbar: ['->', {

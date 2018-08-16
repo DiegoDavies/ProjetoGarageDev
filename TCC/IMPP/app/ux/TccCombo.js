@@ -2,6 +2,7 @@
     extend: 'Ext.form.field.ComboBox',
     xtype: 'tcc-combo',
     typeAhead: true,
+    enableKeyEvents: true,
     minChars: 2,
     listConfig: {
         loadingText: 'Procurando...',

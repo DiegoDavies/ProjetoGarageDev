@@ -1,8 +1,8 @@
-﻿Ext.define('ProjetoGarage.view.funcionario.WindowHistoricoOcupacional', {
+﻿Ext.define('ProjetoGarage.view.fornecedor.WindowPagamento', {
     extend: 'Ext.window.Window',
-    xtype: 'funcionario-windowHistoricoOcupacional',
+    xtype: 'fornecedor-windowPagamento',
     requires: [
-        'ProjetoGarage.view.funcionario.FormHistoricoOcupacional'
+        'ProjetoGarage.view.fornecedor.FormPagamento'
     ],
     layout: 'fit',
     initComponent: function () {
@@ -11,7 +11,7 @@
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'funcionario-formHistoricoOcupacional',
+                xtype: 'fornecedor-formPagamento',
                 window: me
             }],
             bbar: ['->', {
@@ -29,13 +29,10 @@
     addReferences: function () {
         var me = this;
 
-        me.form = me.down('funcionario-formHistoricoOcupacional');
+        me.form = me.down('fornecedor-formPagamento');
 
-        me.dtDataOcorrencia = me.down('#dtDataOcorrencia');
-        me.rgTipo = me.down('#rgTipo');
-        me.txtSalario = me.down('#txtSalario');
-        me.cboFuncao = me.down('#cboFuncao');
-        me.txtObservacao = me.down('#txtObservacao');
+        me.txtNome = me.down('#txtNome');
+        me.cboBanco = me.down('#cboBanco');
 
         me.btnSalvar = me.down('#btnSalvar');
     },
@@ -56,21 +53,21 @@
     onShowWindow: function () {
         var me = this;
 
-        me.dtDataOcorrencia.focus();
+        me.txtNome.focus();
     },
     onBoxReady: function () {
         var me = this;
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
-            me.cboFuncao.store.load();
+            me.cboBanco.store.load();
         }
     },
     onBtnSalvarClick: function () {
         var me = this;
 
         if (me.extraData.formType === 'Cadastrar') {
-            var model = Ext.create('ProjetoGarage.model.funcionario.HistoricoOcupacional');
+            var model = Ext.create('ProjetoGarage.model.fornecedor.Pagamento');
             me.form.updateRecord(model);
             me.extraData.grid.store.add(model);
         } else {
@@ -93,4 +90,4 @@
             }
         });
     }
-})
+});

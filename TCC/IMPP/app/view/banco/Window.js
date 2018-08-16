@@ -1,6 +1,6 @@
-﻿Ext.define('ProjetoGarage.view.etnia.Window', {
+﻿Ext.define('ProjetoGarage.view.banco.Window', {
     extend: 'Ext.window.Window',
-    xtype: 'etnia-window',
+    xtype: 'banco-window',
     requires: [
 
     ],
@@ -17,6 +17,21 @@
                 width: '100%',
                 height: '100%',
                 items: [{
+                    fieldLabel: 'Código',
+                    xtype: 'textfield',
+                    name: 'Codigo',
+                    itemId: 'txtCodigo',
+                    width: 300,
+                    labelAlign: 'top',
+                    enableKeyEvents: true,
+                    listeners: {
+                        keyup: function (txt, e, eOpts) {
+                            if (e.keyCode == 13) {
+                                me.btnSalvar.fireEvent('click', this);
+                            }
+                        }
+                    }
+                }, {
                     fieldLabel: 'Nome',
                     xtype: 'textfield',
                     name: 'Nome',
@@ -50,6 +65,7 @@
 
         me.form = me.down('#frmDados');
         me.txtNome = me.down('#txtNome');
+        me.txtCodigo = me.down('#txtCodigo');
         //
         me.btnSalvar = me.down('#btnSalvar');
     },
@@ -73,7 +89,7 @@
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
         }
-        me.txtNome.focus();
+        me.txtCodigo.focus();
     },
     onBeforeClose: function () {
         var me = this;
@@ -85,7 +101,7 @@
 
         me.getEl().mask('Salvando...');
         if (me.extraData.formType === 'Cadastrar') {
-            var model = Ext.create('ProjetoGarage.model.etnia.Model');
+            var model = Ext.create('ProjetoGarage.model.banco.Model');
             me.form.updateRecord(model);
             me.extraData.grid.store.add(model);
         } else {

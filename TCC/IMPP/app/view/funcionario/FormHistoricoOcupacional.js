@@ -21,7 +21,15 @@
                 format: 'd/m/Y',
                 fieldLabel: 'Data',
                 itemId: 'dtDataOcorrencia',
-                name: 'DataOcorrencia'
+                name: 'DataOcorrencia',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode == 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }, {
                 xtype: 'radiogroup',
                 fieldLabel: 'Tipo',
@@ -52,7 +60,15 @@
                 itemId: 'txtSalario',
                 fieldStyle: 'text-align:right;',
                 allowDecimals: true,
-                decimalSeparator: ','
+                decimalSeparator: ',',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode == 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }, {
                 xtype: 'tcc-combo',
                 flex: 1,
@@ -67,7 +83,15 @@
                 name: 'Observacao',
                 fieldLabel: 'Observação',
                 rows: 5,
-                itemId: 'txtObservacao'
+                itemId: 'txtObservacao',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode == 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }]
         });
 

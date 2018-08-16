@@ -19,7 +19,15 @@
                 xtype: 'textfield',
                 name: 'Nome',
                 fieldLabel: 'Nome',
-                itemId: 'txtNome'
+                itemId: 'txtNome',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode == 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }, {
                 xtype: 'textfield',
                 name: 'CPF',
@@ -27,14 +35,30 @@
                 fieldLabel: 'CPF',
                 plugins: [
                     new ProjetoGarage.ux.InputTextMask('999.999.999-99')
-                ]
+                ],
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode == 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }, {
                 xtype: 'datefield',
                 altFormats: 'd/m/Y|dmy|dmY',
                 format: 'd/m/Y',
                 fieldLabel: 'Data Nascimento',
                 itemId: 'dtDataNasc',
-                name: 'DataNascimento'
+                name: 'DataNascimento',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode == 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }, {
                 xtype: 'tcc-combo',
                 flex: 1,

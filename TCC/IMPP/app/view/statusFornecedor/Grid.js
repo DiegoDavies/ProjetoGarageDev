@@ -1,43 +1,25 @@
-﻿Ext.define('ProjetoGarage.view.funcionario.GridPagamento', {
+﻿Ext.define('ProjetoGarage.view.statusFornecedor.Grid', {
     extend: 'ProjetoGarage.view.GridDefault',
-    xtype: 'funcionario-gridPagamento',
+    xtype: 'statusFornecedor-grid',
     requires: [
-        'ProjetoGarage.view.funcionario.WindowPagamento'
+        'ProjetoGarage.view.statusFornecedor.Window'
     ],
-    esconderAtualizar: false,
     initComponent: function () {
         var me = this;
 
         Ext.apply(me, {
-            store: Ext.create('ProjetoGarage.store.funcionario.Pagamento'),
+            store: Ext.create('ProjetoGarage.store.statusFornecedor.Store'),
             columns: [{
                 text: 'Código',
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioPagamentoId'
+                dataIndex: 'StatusFornecedorId'
             }, {
                 text: 'Nome',
                 flex: 1,
-                minWidth: 150,
                 style: 'text-align: center;',
                 dataIndex: 'Nome'
-            }, {
-                text: 'Banco',
-                flex: 1,
-                minWidth: 150,
-                style: 'text-align: center;',
-                dataIndex: 'BancoNome'
-            }, {
-                text: 'Agencia',
-                width: 150,
-                style: 'text-align: center;',
-                dataIndex: 'Agencia'
-            }, {
-                text: 'Conta',
-                width: 150,
-                style: 'text-align: center;',
-                dataIndex: 'Conta'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -84,7 +66,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid');
+        me.toolbar = me.down('#pagingToolbarGrid')
         me.btnNovo = me.down('#btnNovoGrid');
         me.btnDelete = me.down('#btnDeleteGrid');
         me.btnRelatorio = me.down('#btnRelatorioGrid');
@@ -96,8 +78,8 @@
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady,
-            itemdblclick: me.onItemDblClick
+            itemdblclick: me.onItemDblClick,
+            boxready: me.onBoxReady
         });
 
         me.btnNovo.on({
@@ -108,17 +90,14 @@
     onBoxReady: function () {
         var me = this;
 
-        me.toolbar.hide();
         me.btnRelatorio.hide();
-        me.txtQuery.hide();
-        me.btnPesquisar.hide();
         me.store.load();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
-            title: 'Conta: ' + record.get('Nome'),
+        Ext.create('ProjetoGarage.view.statusFornecedor.Window', {
+            title: 'Status: ' + record.get('Nome'),
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -130,8 +109,8 @@
     onBtnNovoClick: function () {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
-            title: 'Cadastro de Conta',
+        Ext.create('ProjetoGarage.view.statusFornecedor.Window', {
+            title: 'Cadastro de Status',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

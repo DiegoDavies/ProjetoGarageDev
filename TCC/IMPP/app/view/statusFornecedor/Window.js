@@ -1,18 +1,37 @@
-﻿Ext.define('ProjetoGarage.view.funcionario.WindowHistoricoOcupacional', {
+﻿Ext.define('ProjetoGarage.view.statusFornecedor.Window', {
     extend: 'Ext.window.Window',
-    xtype: 'funcionario-windowHistoricoOcupacional',
+    xtype: 'statusFornecedor-window',
     requires: [
-        'ProjetoGarage.view.funcionario.FormHistoricoOcupacional'
+
     ],
     layout: 'fit',
+    varWidth: 0,
     initComponent: function () {
         var me = this;
 
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'funcionario-formHistoricoOcupacional',
-                window: me
+                xtype: 'form',
+                itemId: 'frmDados',
+                width: '100%',
+                height: '100%',
+                items: [{
+                    fieldLabel: 'Nome',
+                    xtype: 'textfield',
+                    name: 'Nome',
+                    itemId: 'txtNome',
+                    width: 300,
+                    labelAlign: 'top',
+                    enableKeyEvents: true,
+                    listeners: {
+                        keyup: function (txt, e, eOpts) {
+                            if (e.keyCode == 13) {
+                                me.btnSalvar.fireEvent('click', this);
+                            }
+                        }
+                    }
+                }]
             }],
             bbar: ['->', {
                 xtype: 'button',
@@ -29,14 +48,9 @@
     addReferences: function () {
         var me = this;
 
-        me.form = me.down('funcionario-formHistoricoOcupacional');
-
-        me.dtDataOcorrencia = me.down('#dtDataOcorrencia');
-        me.rgTipo = me.down('#rgTipo');
-        me.txtSalario = me.down('#txtSalario');
-        me.cboFuncao = me.down('#cboFuncao');
-        me.txtObservacao = me.down('#txtObservacao');
-
+        me.form = me.down('#frmDados');
+        me.txtNome = me.down('#txtNome');
+        //
         me.btnSalvar = me.down('#btnSalvar');
     },
     addEventHandler: function () {
@@ -45,7 +59,7 @@
         me.on({
             scope: me,
             boxready: me.onBoxReady,
-            show: me.onShowWindow
+            beforeclose: me.onBeforeClose
         });
 
         me.btnSalvar.on({
@@ -53,24 +67,25 @@
             click: me.onBtnSalvarClick
         });
     },
-    onShowWindow: function () {
-        var me = this;
-
-        me.dtDataOcorrencia.focus();
-    },
     onBoxReady: function () {
         var me = this;
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
-            me.cboFuncao.store.load();
         }
+        me.txtNome.focus();
+    },
+    onBeforeClose: function () {
+        var me = this;
+
+
     },
     onBtnSalvarClick: function () {
         var me = this;
 
+        me.getEl().mask('Salvando...');
         if (me.extraData.formType === 'Cadastrar') {
-            var model = Ext.create('ProjetoGarage.model.funcionario.HistoricoOcupacional');
+            var model = Ext.create('ProjetoGarage.model.statusFornecedor.Model');
             me.form.updateRecord(model);
             me.extraData.grid.store.add(model);
         } else {
@@ -83,14 +98,9 @@
                 me.close();
             },
             failure: function () {
-                Ext.Msg.show({
-                    title: 'Problema',
-                    msg: 'Ocorreu um erro ao realizar a operação!',
-                    buttons: Ext.Msg.OK,
-                    icon: Ext.Msg.ERROR
-                });
                 me.extraData.grid.store.rejectChanges();
+                me.getEl().unmask();
             }
         });
     }
-})
+});

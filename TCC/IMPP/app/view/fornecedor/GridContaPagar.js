@@ -1,43 +1,26 @@
-﻿Ext.define('ProjetoGarage.view.funcionario.GridPagamento', {
+﻿Ext.define('ProjetoGarage.view.fornecedor.GridContaPagar', {
     extend: 'ProjetoGarage.view.GridDefault',
-    xtype: 'funcionario-gridPagamento',
+    xtype: 'fornecedor-gridContaPagar',
     requires: [
-        'ProjetoGarage.view.funcionario.WindowPagamento'
     ],
     esconderAtualizar: false,
     initComponent: function () {
         var me = this;
 
         Ext.apply(me, {
-            store: Ext.create('ProjetoGarage.store.funcionario.Pagamento'),
+            store: Ext.create('ProjetoGarage.store.fornecedor.ContaPagar'),
             columns: [{
                 text: 'Código',
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioPagamentoId'
+                dataIndex: 'FornecedorContaPagarId'
             }, {
                 text: 'Nome',
                 flex: 1,
                 minWidth: 150,
                 style: 'text-align: center;',
                 dataIndex: 'Nome'
-            }, {
-                text: 'Banco',
-                flex: 1,
-                minWidth: 150,
-                style: 'text-align: center;',
-                dataIndex: 'BancoNome'
-            }, {
-                text: 'Agencia',
-                width: 150,
-                style: 'text-align: center;',
-                dataIndex: 'Agencia'
-            }, {
-                text: 'Conta',
-                width: 150,
-                style: 'text-align: center;',
-                dataIndex: 'Conta'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -96,13 +79,7 @@
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady,
-            itemdblclick: me.onItemDblClick
-        });
-
-        me.btnNovo.on({
-            scope: me,
-            click: me.onBtnNovoClick
+            boxready: me.onBoxReady
         });
     },
     onBoxReady: function () {
@@ -112,31 +89,8 @@
         me.btnRelatorio.hide();
         me.txtQuery.hide();
         me.btnPesquisar.hide();
+        me.btnNovo.hide();
+        me.btnDelete.hide();
         me.store.load();
-    },
-    onItemDblClick: function (grid, record, item, index, e, eOpts) {
-        var me = this;
-
-        Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
-            title: 'Conta: ' + record.get('Nome'),
-            extraData: {
-                formType: 'Alterar',
-                grid: me,
-                record: record
-            }
-        }).show();
-        return false;
-    },
-    onBtnNovoClick: function () {
-        var me = this;
-
-        Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
-            title: 'Cadastro de Conta',
-            extraData: {
-                formType: 'Cadastrar',
-                grid: me
-            }
-        }).show();
-        return false;
     }
 });

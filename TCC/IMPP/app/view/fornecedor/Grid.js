@@ -22,10 +22,10 @@
                 style: 'text-align: center;',
                 dataIndex: 'RazaoSocial'
             }, {
-                text: 'CNPJ/CPF',
+                text: 'CNPJ',
                 width: 150,
                 style: 'text-align: center;',
-                dataIndex: 'CnpjCpf'
+                dataIndex: 'Cnpj'
             }, {
                 text: 'Status',
                 width: 120,
@@ -123,7 +123,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'fornecedor-panel',
-            title: 'Fornecedor: ' + record.get('Fantasia'),
+            title: 'Fornecedor: ' + (record.get('Fantasia') !== '' ? record.get('Fantasia') : record.get('RazaoSocial')),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Fornecedor' + record.get('FornecedorId'),

@@ -1,21 +1,21 @@
-﻿Ext.define('ProjetoGarage.view.funcionario.GridPagamento', {
+﻿Ext.define('ProjetoGarage.view.fornecedor.GridPagamento', {
     extend: 'ProjetoGarage.view.GridDefault',
-    xtype: 'funcionario-gridPagamento',
+    xtype: 'fornecedor-gridPagamento',
     requires: [
-        'ProjetoGarage.view.funcionario.WindowPagamento'
+        'ProjetoGarage.view.fornecedor.WindowPagamento'
     ],
     esconderAtualizar: false,
     initComponent: function () {
         var me = this;
 
         Ext.apply(me, {
-            store: Ext.create('ProjetoGarage.store.funcionario.Pagamento'),
+            store: Ext.create('ProjetoGarage.store.fornecedor.Pagamento'),
             columns: [{
                 text: 'Código',
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioPagamentoId'
+                dataIndex: 'FornecedorPagamentoId'
             }, {
                 text: 'Nome',
                 flex: 1,
@@ -117,7 +117,7 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
+        Ext.create('ProjetoGarage.view.fornecedor.WindowPagamento', {
             title: 'Conta: ' + record.get('Nome'),
             extraData: {
                 formType: 'Alterar',
@@ -130,7 +130,7 @@
     onBtnNovoClick: function () {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
+        Ext.create('ProjetoGarage.view.fornecedor.WindowPagamento', {
             title: 'Cadastro de Conta',
             extraData: {
                 formType: 'Cadastrar',

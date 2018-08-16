@@ -36,20 +36,26 @@
         me.form = me.down('fornecedor-form');
         //
         me.txtCodigo = me.down('#txtCodigo');
+        me.cboSituacao = me.down('#cboSituacao');
+        me.txtRazaoSocial = me.down('#txtRazaoSocial');
+        me.txtFantasia = me.down('#txtFantasia');
+        me.cboStatus = me.down('#cboStatus')
         me.txtCep = me.down('#txtCep');
         me.txtEndereco = me.down('#txtEndereco');
         me.txtNumero = me.down('#txtNumero');
         me.txtComplemento = me.down('#txtComplemento');
         me.txtBairro = me.down('#txtBairro');
-        me.cboSituacao = me.down('#cboSituacao');
-        me.cboSexo = me.down('#cboSexo');
         me.cboEstado = me.down('#cboEstado');
         me.cboCidade = me.down('#cboCidade');
-        me.cboEstadoNasc = me.down('#cboEstadoNasc');
-        me.cboCidadeNasc = me.down('#cboCidadeNasc');
-        me.cboEstadoCivil = me.down('#cboEstadoCivil');
-        me.cboFormacao = me.down('#cboFormacao');
-        me.cboEtnia = me.down('#cboEtnia');
+        me.txtCnj = me.down('#txtCnpj');
+        me.txtCpf = me.down('#txtCpf');
+        me.txtInscricaoEstadual = me.down('#txtInscricaoEstadual');
+        me.txtRg = me.down('#txtRg');
+        me.txtEmail = me.down('#txtEmail');
+        me.txtTelefone = me.down('#txtTelefone');
+        me.txtCelular = me.down('#txtCelular');
+        me.txtSite = me.down('#txtSite');
+        me.txtObservacao = me.down('#txtObservacao');
         me.tabPanel = me.down('fornecedor-tabPanel');
         me.gridHistorico = me.tabPanel.down('fornecedor-gridHistorico');
         //
@@ -79,12 +85,6 @@
             select: me.onCboEstadoSelect,
             beforedeselect: me.onCboEstadoDeselect
         });
-
-        me.cboEstadoNasc.on({
-            scope: me,
-            select: me.onCboEstadoNascSelect,
-            beforedeselect: me.onCboEstadoNascDeselect
-        });
     },
     onBoxReady: function () {
         var me = this;
@@ -96,20 +96,12 @@
             me.txtCodigo.up().show();
             me.txtCodigo.focus();
             me.cboSituacao.store.load();
-            me.cboSexo.store.load();
+            me.cboStatus.store.load();
             me.cboEstado.store.load();
             me.cboCidade.store.setParams({
                 EstadoId: me.cboEstado.getValue() ? me.cboEstado.getValue() : 0
             });
             me.cboCidade.store.load();
-            me.cboEstadoNasc.store.load();
-            me.cboCidadeNasc.store.setParams({
-                EstadoId: me.cboEstadoNasc.getValue() ? me.cboEstadoNasc.getValue() : 0
-            });
-            me.cboCidadeNasc.store.load();
-            me.cboEstadoCivil.store.load();
-            me.cboFormacao.store.load();
-            me.cboEtnia.store.load();
         } else {
             me.tabPanel.hide();
             me.txtCodigo.up().hide();
@@ -265,22 +257,5 @@
         me.cboCidade.store.setParams({
         });
         me.cboCidade.store.load();
-    },
-    onCboEstadoNascSelect: function (combo, records, eOpts) {
-        var me = this;
-
-        me.cboCidadeNasc.setValue('');
-        me.cboCidadeNasc.store.setParams({
-            EstadoId: me.cboEstadoNasc.getValue()
-        });
-        me.cboCidadeNasc.store.load();
-    },
-    onCboEstadoNascDeselect: function (combo, record, index, eOpts) {
-        var me = this;
-
-        me.cboCidadeNasc.setValue('');
-        me.cboCidadeNasc.store.setParams({
-        });
-        me.cboCidadeNasc.store.load();
     }
 });

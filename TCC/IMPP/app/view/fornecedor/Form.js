@@ -1,9 +1,9 @@
-﻿Ext.define('ProjetoGarage.view.funcionario.Form', {
+﻿Ext.define('ProjetoGarage.view.fornecedor.Form', {
     extend: 'Ext.form.Panel',
     requires: [
-        'ProjetoGarage.view.funcionario.TabPanelFilho'
+        'ProjetoGarage.view.fornecedor.TabPanelFilho'
     ],
-    xtype: 'funcionario-form',
+    xtype: 'fornecedor-form',
     width: '100%',
     height: '100%',
     layout: {
@@ -17,14 +17,14 @@
             items: [{
                 xtype: 'container',
                 padding: 10,
-                width: 410,
+                width: 420,
                 border: 5,
                 height: '100%',
                 layout: 'vbox',
                 autoScroll: true,
                 defaults: {
-                    labelWidth: 105,
-                    width: 390
+                    labelWidth: 110,
+                    width: 400
                 },
                 items: [{
                     xtype: 'container',
@@ -32,11 +32,11 @@
                     margin: '0 0 8 0',
                     items: [{
                         xtype: 'displayfield',
-                        name: 'FuncionarioId',
+                        name: 'FornecedorId',
                         fieldLabel: 'Código',
                         itemId: 'txtCodigo',
                         margin: '0 15 0 0',
-                        labelWidth: 105,
+                        labelWidth: 110,
                         width: 145
                     }, {
                         xtype: 'tcc-combo',
@@ -51,18 +51,23 @@
                     }]
                 }, {
                     xtype: 'textfield',
-                    name: 'Nome',
-                    fieldLabel: 'Nome',
-                    itemId: 'txtNome',
+                    name: 'RazaoSocial',
+                    fieldLabel: 'Razão Social',
+                    itemId: 'txtRazaoSocial',
                     allowBlank: false
                 }, {
+                    xtype: 'textfield',
+                    name: 'Fantasia',
+                    fieldLabel: 'Fantasia',
+                    itemId: 'txtFantasia'
+                }, {
                     xtype: 'tcc-combo',
-                    name: 'SexoId',
-                    fieldLabel: 'Sexo',
-                    itemId: 'cboSexo',
+                    name: 'StatusId',
+                    fieldLabel: 'Status',
+                    itemId: 'cboStatus',
                     displayField: 'Nome',
-                    valueField: 'SexoId',
-                    store: Ext.create('ProjetoGarage.store.combos.Sexo'),
+                    valueField: 'StatusFornecedorId',
+                    store: Ext.create('ProjetoGarage.store.combos.StatusFornecedor'),
                     allowBlank: false
                 }, {
                     xtype: 'textfield',
@@ -83,7 +88,7 @@
                         fieldLabel: 'Endereço',
                         itemId: 'txtEndereco',
                         margin: '0 10 0 0',
-                        labelWidth: 105
+                        labelWidth: 110
                     }, {
                         xtype: 'numberfield',
                         name: 'Numero',
@@ -115,7 +120,7 @@
                         itemId: 'cboEstado',
                         fieldLabel: 'Estado',
                         margin: '0 10 0 0',
-                        labelWidth: 105,
+                        labelWidth: 110,
                         width: 172,
                         displayField: 'Nome',
                         valueField: 'EstadoId',
@@ -137,22 +142,26 @@
                     margin: '0 0 5 0',
                     items: [{
                         xtype: 'textfield',
-                        name: 'Cpf',
-                        itemId: 'txtCpf',
-                        fieldLabel: 'CPF',
-                        labelWidth: 105,
+                        name: 'Cnpj',
+                        itemId: 'txtCnpj',
+                        fieldLabel: 'CNPJ',
+                        labelWidth: 110,
                         margin: '0 10 0 0',
                         flex: 1,
                         plugins: [
-                            new ProjetoGarage.ux.InputTextMask('999.999.999-99')
+                            new ProjetoGarage.ux.InputTextMask('99.999.999/9999-99')
                         ]
                     }, {
                         xtype: 'textfield',
-                        name: 'Rg',
-                        itemId: 'txtRg',
-                        fieldLabel: 'RG',
-                        flex: 0.6,
-                        labelWidth: 30
+                        name: 'Cpf',
+                        itemId: 'txtCpf',
+                        fieldLabel: 'CPF',
+                        labelWidth: 30,
+                        margin: '0 0 0 0',
+                        flex: 0.55,
+                        plugins: [
+                            new ProjetoGarage.ux.InputTextMask('999.999.999-99')
+                        ]
                     }]
                 }, {
                     xtype: 'container',
@@ -160,24 +169,19 @@
                     margin: '0 0 5 0',
                     items: [{
                         xtype: 'textfield',
-                        name: 'EstadoRg',
-                        itemId: 'txtEstadoRg',
-                        fieldLabel: 'Estado (RG)',
-                        labelWidth: 105,
+                        name: 'InscricaoEstadual',
+                        itemId: 'txtInscricaoEstadual',
+                        fieldLabel: 'Inscrição Estadual',
                         margin: '0 10 0 0',
                         flex: 1,
-                        displayField: 'Nome',
-                        valueField: 'EstadoId',
-                        store: Ext.create('ProjetoGarage.store.combos.Estado')
+                        labelWidth: 110
                     }, {
-                        xtype: 'datefield',
-                        fieldLabel: 'Emissão',
-                        itemId: 'dtEmissaoRg',
-                        name: 'DataEmissaoRg',
-                        labelWidth: 52,
-                        width: 160,
-                        format: 'd/m/Y',
-                        altFormats: 'd/m/Y|dmy|dmY'
+                        xtype: 'textfield',
+                        name: 'Rg',
+                        itemId: 'txtRg',
+                        fieldLabel: 'RG',
+                        flex: 0.55,
+                        labelWidth: 25
                     }]
                 }, {
                     xtype: 'textfield',
@@ -195,7 +199,7 @@
                         name: 'Telefone',
                         itemId: 'txtTelefone',
                         fieldLabel: 'Telefone',
-                        labelWidth: 105,
+                        labelWidth: 110,
                         margin: '0 10 0 0',
                         plugins: [
                             new ProjetoGarage.ux.InputTextMask('(99)9999-9999')
@@ -213,164 +217,21 @@
                         flex: 0.8
                     }]
                 }, {
-                    xtype: 'datefield',
-                    altFormats: 'd/m/Y|dmy|dmY',
-                    format: 'd/m/Y',
-                    name: 'DataNascimento',
-                    fieldLabel: 'Data Nascimento',
-                    itemId: 'dtDataNasc'
-                }, {
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 5 0',
-                    items: [{
-                        xtype: 'tcc-combo',
-                        name: 'EstadoNascId',
-                        itemId: 'cboEstadoNasc',
-                        fieldLabel: 'Estado Nasc.',
-                        margin: '0 10 0 0',
-                        labelWidth: 105,
-                        width: 172,
-                        displayField: 'Nome',
-                        valueField: 'EstadoId',
-                        store: Ext.create('ProjetoGarage.store.combos.Estado')
-                    }, {
-                        xtype: 'tcc-combo',
-                        name: 'CidadeNascId',
-                        fieldLabel: 'Cidade',
-                        labelWidth: 50,
-                        flex: 1,
-                        itemId: 'cboCidadeNasc',
-                        displayField: 'Nome',
-                        valueField: 'CidadeId',
-                        store: Ext.create('ProjetoGarage.store.combos.Cidade')
-                    }]
-                }, {
-                    xtype: 'tcc-combo',
-                    name: 'EstadoCivilId',
-                    fieldLabel: 'Estado Civil',
-                    itemId: 'cboEstadoCivil',
-                    displayField: 'Nome',
-                    valueField: 'EstadoCivilId',
-                    store: Ext.create('ProjetoGarage.store.combos.EstadoCivil')
-                }, {
                     xtype: 'textfield',
-                    name: 'NomeConjuge',
-                    fieldLabel: 'Nome Cônjuge',
-                    itemId: 'txtNomeConjuge'
+                    name: 'Website',
+                    vtype: 'url',
+                    vtypeText: 'Este campo deve conter um site no formato "https://www.exemplo.com"',
+                    itemId: 'txtSite',
+                    fieldLabel: 'WebSite'
                 }, {
-                    xtype: 'textfield',
-                    name: 'NomePai',
-                    fieldLabel: 'Nome Pai',
-                    itemId: 'txtNomePai'
-                }, {
-                    xtype: 'textfield',
-                    name: 'NomeMae',
-                    fieldLabel: 'Nome Mãe',
-                    itemId: 'txtNomeMae'
-                }, {
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 5 0',
-                    items: [{
-                        xtype: 'textfield',
-                        fieldLabel: 'Número PIS',
-                        itemId: 'txtNumeroPis',
-                        name: 'NumeroPis',
-                        labelWidth: 105,
-                        margin: '0 10 0 0',
-                        flex: 1
-                    }, {
-                        xtype: 'datefield',
-                        fieldLabel: 'Emissão',
-                        itemId: 'dtEmissaoPis',
-                        name: 'DataEmissaoPis',
-                        labelWidth: 52,
-                        width: 160,
-                        format: 'd/m/Y',
-                        altFormats: 'd/m/Y|dmy|dmY'
-                    }]
-                }, {
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 5 0',
-                    items: [{
-                        xtype: 'textfield',
-                        fieldLabel: 'Reservista',
-                        itemId: 'txtReservista',
-                        name: 'Reservista',
-                        labelWidth: 105,
-                        flex: 1,
-                        margin: '0 10 0 0'
-                    }, {
-                        xtype: 'textfield',
-                        fieldLabel: 'Categoria',
-                        name: 'Categoria',
-                        width: 150,
-                        labelWidth: 58,
-                        itemId: 'txtCategoria'
-                    }]
-                }, {
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 5 0',
-                    items: [{
-                        xtype: 'textfield',
-                        fieldLabel: 'Titulo Eleitor',
-                        itemId: 'txtTituloEleitor',
-                        name: 'TituloEleitor',
-                        flex: 1,
-                        labelWidth: 105,
-                        margin: '0 10 0 0'
-                    }, {
-                        xtype: 'textfield',
-                        fieldLabel: 'Zona',
-                        name: 'ZonaEleitoral',
-                        itemId: 'txtZonaEleitor',
-                        width: 150,
-                        labelWidth: 40,
-                    }]
-                }, {
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 5 0',
-                    items: [{
-                        xtype: 'textfield',
-                        fieldLabel: 'Seção',
-                        name: 'SecaoEleitoral',
-                        itemId: 'txtSecaoEleitor',
-                        flex: 1,
-                        labelWidth: 105,
-                        margin: '0 10 0 0'
-                    }, {
-                        xtype: 'datefield',
-                        fieldLabel: 'Emissão',
-                        itemId: 'dtEmissaoEleitor',
-                        name: 'DataEmissaoEleitor',
-                        labelWidth: 52,
-                        width: 160,
-                        format: 'd/m/Y',
-                        altFormats: 'd/m/Y|dmy|dmY'
-                    }]
-                }, {
-                    xtype: 'tcc-combo',
-                    name: 'FormacaoId',
-                    fieldLabel: 'Formação',
-                    itemId: 'cboFormacao',
-                    displayField: 'Nome',
-                    valueField: 'FormacaoId',
-                    store: Ext.create('ProjetoGarage.store.combos.Formacao')
-                }, {
-                    xtype: 'tcc-combo',
-                    name: 'EtniaId',
-                    fieldLabel: 'Etnia',
-                    itemId: 'cboEtnia',
-                    displayField: 'Nome',
-                    valueField: 'EtniaId',
-                    store: Ext.create('ProjetoGarage.store.combos.Etnia')
+                    xtype: 'textareafield',
+                    name: 'Observacao',
+                    rows: 5,
+                    itemId: 'txtObservacao',
+                    fieldLabel: 'Observação'
                 }]
             }, {
-                xtype: 'funcionario-tabPanel',
+                xtype: 'fornecedor-tabPanel',
                 flex: 1,
                 margin: '0 0 0 0',
                 panel: me.panel

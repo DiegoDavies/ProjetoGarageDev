@@ -32,6 +32,8 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.situacao.Tela',
         'ProjetoGarage.view.funcao.Tela',
         'ProjetoGarage.view.estadoCivil.Tela',
+        'ProjetoGarage.view.banco.Tela',
+        'ProjetoGarage.view.statusFornecedor.Tela',
         'ProjetoGarage.view.formacao.Tela',
         'ProjetoGarage.view.etnia.Tela',
         'ProjetoGarage.view.parentesco.Tela',
@@ -53,12 +55,19 @@ Ext.define('ProjetoGarage.Application', {
         'combos.Formacao',
         'combos.Funcao',
         'combos.Parentesco',
+        'combos.StatusFornecedor',
+        'combos.Banco',
 
         'funcionario.Store',
         'funcionario.Historico',
         'funcionario.HistoricoOcupacional',
         'funcionario.Dependente',
         'funcionario.Pagamento',
+
+        'fornecedor.Store',
+        'fornecedor.Historico',
+        'fornecedor.Pagamento',
+        'fornecedor.ContaPagar',
 
         'situacao.Store',
 
@@ -69,6 +78,10 @@ Ext.define('ProjetoGarage.Application', {
         'formacao.Store',
 
         'etnia.Store',
+
+        'banco.Store',
+
+        'statusFornecedor.Store',
 
         'parentesco.Store',
 

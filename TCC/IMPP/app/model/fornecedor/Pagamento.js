@@ -1,13 +1,13 @@
-﻿Ext.define('ProjetoGarage.model.funcionario.Pagamento', {
+﻿Ext.define('ProjetoGarage.model.fornecedor.Pagamento', {
     extend: 'Ext.data.Model',
     fields: [{
-        name: 'FuncionarioPagamentoId',
+        name: 'FornecedorPagamentoId',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
         }
     }, {
-        name: 'FuncionarioId',
+        name: 'FornecedorId',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';

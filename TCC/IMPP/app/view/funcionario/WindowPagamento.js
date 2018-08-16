@@ -11,7 +11,8 @@
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'funcionario-formPagamento'
+                xtype: 'funcionario-formPagamento',
+                window: me
             }],
             bbar: ['->', {
                 xtype: 'button',
@@ -31,6 +32,7 @@
         me.form = me.down('funcionario-formPagamento');
 
         me.txtNome = me.down('#txtNome');
+        me.cboBanco = me.down('#cboBanco');
 
         me.btnSalvar = me.down('#btnSalvar');
     },
@@ -58,6 +60,7 @@
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
+            me.cboBanco.store.load();
         }
     },
     onBtnSalvarClick: function () {

@@ -11,7 +11,8 @@
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'funcionario-formDependente'
+                xtype: 'funcionario-formDependente',
+                window: me
             }],
             bbar: ['->', {
                 xtype: 'button',
