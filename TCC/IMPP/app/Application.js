@@ -25,6 +25,7 @@ Ext.define('ProjetoGarage.Application', {
 
     views: [
         'ProjetoGarage.view.login.Login',
+        'ProjetoGarage.view.login.WindowLogin',
         'ProjetoGarage.view.telaPrincipal.Viewport',
         'ProjetoGarage.view.GridDefault',
 
@@ -41,7 +42,8 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.servico.Tela',
         'ProjetoGarage.view.contaPagar.Tela',
         'ProjetoGarage.view.contaReceber.Tela',
-        'ProjetoGarage.view.fornecedor.Tela'
+        'ProjetoGarage.view.fornecedor.Tela',
+        'ProjetoGarage.view.cliente.Tela'
     ],
 
     stores: [
@@ -103,7 +105,8 @@ Ext.define('ProjetoGarage.Application', {
 
         'contaReceber.Store',
         'contaReceber.Ocorrencia',
-        'contaReceber.Recebimento'
+        'contaReceber.Recebimento',
+        'telaPrincipal.Menu'
     ]
 });
 

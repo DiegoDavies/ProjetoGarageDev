@@ -6,19 +6,23 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Web;
+using System.Web.Security;
+using System.Web.SessionState;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
 namespace ProjetoGarage.BL.Code
 {
-    public class Login : System.Web.UI.Page
+    public class Login : System.Web.UI.Page, IRequiresSessionState
     {
         public SqlConnection con;
 
         ConnectDB db = new ConnectDB();
 
-        public string Processar(string login, string senha)
+        [WebMethod(EnableSession = true)]
+        public string Processar(string login, string senha, HttpContext context)
         {
             con = db.OpenConnection();
             ModeloLogin modeloLogin = null;
@@ -37,6 +41,28 @@ namespace ProjetoGarage.BL.Code
                         PerfilId = dr.GetInt32(4),
                         Resultado = true
                     };
+
+                    FormsAuthenticationTicket authticket = new FormsAuthenticationTicket(1,
+                        modeloLogin.Login,
+                        DateTime.Now,
+                        DateTime.Now.AddMinutes(20),
+                        true,
+                        "",
+                        FormsAuthentication.FormsCookiePath);
+
+                    context.Session["login"] = modeloLogin.Login;
+                    context.Session["UsuarioId"] = modeloLogin.UsuarioId;
+                    context.Session["UsuarioNome"] = modeloLogin.Nome;
+                    context.Session["UsuarioPerfil"] = modeloLogin.PerfilId;
+
+                    string hash = FormsAuthentication.Encrypt(authticket);
+
+                    HttpCookie authcookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+
+                    authcookie.Expires = authticket.IsPersistent ? authticket.Expiration : authcookie.Expires;
+
+                    context.Response.Cookies.Add(authcookie);
+
                     //HttpContext.Current.Session.Add("SessionUser", modeloLogin.Login);
                     //Session.Add("SessionUser", modeloLogin);
                 }
@@ -51,6 +77,15 @@ namespace ProjetoGarage.BL.Code
                     PerfilId = 0,
                     Resultado = false
                 };
+
+                FormsAuthentication.SignOut();
+                context.Session.Abandon();
+                //
+                HttpCookie aspNetCookie = new HttpCookie("ASP.NET_SessionId", "");
+                aspNetCookie.Expires = DateTime.Now.AddYears(-1);
+                context.Response.Cookies.Add(aspNetCookie);
+                //
+                //context.Response.Redirect(context.Request.UrlReferrer.ToString());
             }
             dr.Close();
             db.CloseConnection(con);

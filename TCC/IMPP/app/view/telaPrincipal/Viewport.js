@@ -56,6 +56,8 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
         border: false,
         items: [{
             xtype: 'telaPrincipal-menu',
+            height: '100%',
+            width: '100%',
             viewport: this
         }],
         margin: '0 10 0 0'

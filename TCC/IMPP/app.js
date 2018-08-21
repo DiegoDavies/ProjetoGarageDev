@@ -68,7 +68,7 @@ Ext.application({
             },
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);
-                if (result.Logado) {
+                if (result.Logado.toUpperCase() === "TRUE") {
                     Ext.create('ProjetoGarage.view.telaPrincipal.Viewport');
                 }
                 else {

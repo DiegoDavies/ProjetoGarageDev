@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Security;
 using Newtonsoft.Json;
+using System.Web.SessionState;
 using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ProjetoGarage.BL.Handlers
 {
-    class VerificaSessao : IHttpHandler
+    class VerificaSessao : IHttpHandler, IRequiresSessionState
     {
         public void ProcessRequest(System.Web.HttpContext context)
         {
@@ -18,12 +20,25 @@ namespace ProjetoGarage.BL.Handlers
             if (!logout)
             {
                 bool logado = false;
-                string session;
-                if (HttpContext.Current.Session != null)
+                string session = string.Empty;
+                if (context.Session != null)
                 {
-                    if (HttpContext.Current.Session["SessionUser"] != null)
+                    if (Convert.ToDateTime(context.Session["DataExpires"]) <= DateTime.Now)
                     {
-                        session = HttpContext.Current.Session["SessionUser"].ToString();
+                        if (context.Session["UsuarioNome"] != null)
+                        {
+                            session = context.Session["UsuarioNome"].ToString();
+                        }
+                        FormsAuthentication.SignOut();
+                        context.Session.Abandon();
+                        //
+                        HttpCookie aspNetCookie = new HttpCookie("ASP.NET_SessionId", "");
+                        aspNetCookie.Expires = DateTime.Now.AddHours(-1);
+                        context.Response.Cookies.Add(aspNetCookie);
+                    }
+                    else if (context.Session["UsuarioNome"] != null)
+                    {
+                        session = context.Session["UsuarioNome"].ToString();
                         logado = true;
                     }
                 }
@@ -42,17 +57,23 @@ namespace ProjetoGarage.BL.Handlers
                 //    HttpContext.Current.Request.Cookies["cookie"].Expires = DateTime.Now.AddMinutes(1);
                 //    logado = false;
                 //}
-                var column = new Dictionary<string, bool>
+                var column = new Dictionary<string, string>
                 {
-                    { "Logado", logado }
+                    { "Logado", logado.ToString() },
+                    { "Session", session }
                 };
                 context.Response.Write(JsonConvert.SerializeObject(column));
             }
             else
             {
-                if (HttpContext.Current.Session["SessionUser"] != null)
+                if (context.Session["UsuarioNome"] != null)
                 {
-                    HttpContext.Current.Session.Remove("SessionUser");
+                    FormsAuthentication.SignOut();
+                    context.Session.Abandon();
+                    //
+                    HttpCookie aspNetCookie = new HttpCookie("ASP.NET_SessionId", "");
+                    aspNetCookie.Expires = DateTime.Now.AddHours(-1);
+                    context.Response.Cookies.Add(aspNetCookie);
                 }
             }
         }
