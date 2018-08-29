@@ -2,7 +2,7 @@
     extend: 'Ext.window.Window',
     xtype: 'banco-window',
     requires: [
-
+        'ProjetoGarage.view.banco.Form'
     ],
     layout: 'fit',
     varWidth: 0,
@@ -12,41 +12,11 @@
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'form',
+                xtype: 'banco-form',
                 itemId: 'frmDados',
                 width: '100%',
                 height: '100%',
-                items: [{
-                    fieldLabel: 'Código',
-                    xtype: 'textfield',
-                    name: 'Codigo',
-                    itemId: 'txtCodigo',
-                    width: 300,
-                    labelAlign: 'top',
-                    enableKeyEvents: true,
-                    listeners: {
-                        keyup: function (txt, e, eOpts) {
-                            if (e.keyCode == 13) {
-                                me.btnSalvar.fireEvent('click', this);
-                            }
-                        }
-                    }
-                }, {
-                    fieldLabel: 'Nome',
-                    xtype: 'textfield',
-                    name: 'Nome',
-                    itemId: 'txtNome',
-                    width: 300,
-                    labelAlign: 'top',
-                    enableKeyEvents: true,
-                    listeners: {
-                        keyup: function (txt, e, eOpts) {
-                            if (e.keyCode == 13) {
-                                me.btnSalvar.fireEvent('click', this);
-                            }
-                        }
-                    }
-                }]
+                window: me
             }],
             bbar: ['->', {
                 xtype: 'button',
@@ -74,7 +44,7 @@
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady,
+            show: me.onShowWindow,
             beforeclose: me.onBeforeClose
         });
 
@@ -83,7 +53,7 @@
             click: me.onBtnSalvarClick
         });
     },
-    onBoxReady: function () {
+    onShowWindow: function () {
         var me = this;
 
         if (me.extraData.formType === 'Alterar') {

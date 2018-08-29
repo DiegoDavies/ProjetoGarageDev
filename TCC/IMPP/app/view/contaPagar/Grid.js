@@ -18,7 +18,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'ContaPagarId'
+                dataIndex: 'ContaPagarId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Documento',
                 width: 120,

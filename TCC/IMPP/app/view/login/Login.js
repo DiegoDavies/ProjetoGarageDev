@@ -173,7 +173,9 @@ Ext.define('ProjetoGarage.view.login.Login', {
                             erro: ""
                         }
                     });
-                    Ext.create('ProjetoGarage.view.telaPrincipal.Viewport');
+                    Ext.create('ProjetoGarage.view.telaPrincipal.Viewport', {
+                        textUser: result.Nome
+                    });
                 } else {
                     Ext.Msg.show({
                         title: 'Problema',

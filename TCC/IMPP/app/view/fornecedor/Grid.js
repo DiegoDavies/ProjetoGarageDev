@@ -14,7 +14,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FornecedorId'
+                dataIndex: 'FornecedorId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Razão Social',
                 flex: 1,

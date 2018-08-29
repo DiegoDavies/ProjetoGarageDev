@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.funcionalidade.Store', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 50,
+    pageSize: 25,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_Funcionalidade_L',

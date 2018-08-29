@@ -172,7 +172,6 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
     useArrows: true,
     colspan: 1,
     rootVisible: false,
-    autoScroll: true,
     height: '100%',
     width: '100%',
     ok: false,

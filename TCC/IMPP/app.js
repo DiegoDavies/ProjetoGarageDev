@@ -42,7 +42,8 @@ Ext.application({
                 if (options.url !== '/GravaLog') {
                     var init = options.url.indexOf('procedure=') + 10,
                         finish = options.url.indexOf('&params'),
-                        procedure = options.url.substring(init, finish),
+                        finish1 = options.url.indexOf('&operation'),
+                        procedure = options.url.substring(init, (finish1 < finish && finish1 > 0 ? finish1 : finish)),
                         url = options.url.replace('/', '');
                     if (procedure || url) {
                         Ext.Ajax.request({
@@ -57,6 +58,15 @@ Ext.application({
                             }
                         });
                     }
+                    if (response.responseText) {
+                        var text = Ext.decode(response.responseText);
+                        Ext.Msg.show({
+                            title: 'Erro',
+                            msg: text.message,
+                            buttons: Ext.Msg.OK,
+                            icon: Ext.Msg.ERROR
+                        });
+                    }
                 }
             }
         });
@@ -69,7 +79,9 @@ Ext.application({
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);
                 if (result.Logado.toUpperCase() === "TRUE") {
-                    Ext.create('ProjetoGarage.view.telaPrincipal.Viewport');
+                    Ext.create('ProjetoGarage.view.telaPrincipal.Viewport', {
+                        textUser: result.Session
+                    });
                 }
                 else {
                     Ext.create('ProjetoGarage.view.login.Login', {

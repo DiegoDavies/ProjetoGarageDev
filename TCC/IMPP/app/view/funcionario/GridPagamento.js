@@ -15,7 +15,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioPagamentoId'
+                dataIndex: 'FuncionarioPagamentoId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Nome',
                 flex: 1,

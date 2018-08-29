@@ -14,7 +14,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioId'
+                dataIndex: 'FuncionarioId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Nome',
                 flex: 1,

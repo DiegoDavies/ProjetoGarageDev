@@ -15,7 +15,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionarioHistoricoOcupacionalId'
+                dataIndex: 'FuncionarioHistoricoOcupacionalId',
+                hidden: true,
+                hideable: false
             }, {
                 xtype: 'datecolumn',
                 text: 'Data',

@@ -2,7 +2,7 @@
     extend: 'Ext.window.Window',
     xtype: 'funcionalidade-window',
     requires: [
-
+        'ProjetoGarage.view.funcionalidade.Form'
     ],
     layout: 'fit',
     varWidth: 0,
@@ -12,68 +12,11 @@
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'form',
+                xtype: 'funcionalidade-form',
                 itemId: 'frmDados',
                 width: '100%',
                 height: '100%',
-                items: [{
-                    xtype: 'tcc-combo',
-                    name: 'ModuloId',
-                    fieldLabel: 'Módulo',
-                    itemId: 'cboModulo',
-                    displayField: 'Nome',
-                    valueField: 'ModuloId',
-                    store: Ext.create('ProjetoGarage.store.combos.Modulo'),
-                    allowBlank: false
-                }, {
-                    xtype: 'textfield',
-                    fieldLabel: 'Menu',
-                    name: 'Menu',
-                    itemId: 'txtMenu',
-                    width: 300,
-                    labelAlign: 'top',
-                    allowBlank: false,
-                    enableKeyEvents: true,
-                    listeners: {
-                        keyup: function (txt, e, eOpts) {
-                            if (e.keyCode == 13) {
-                                me.btnSalvar.fireEvent('click', this);
-                            }
-                        }
-                    }
-                }, {
-                    xtype: 'textfield',
-                    fieldLabel: 'Titulo',
-                    name: 'Titulo',
-                    itemId: 'txtTitulo',
-                    width: 300,
-                    labelAlign: 'top',
-                    allowBlank: false,
-                    enableKeyEvents: true,
-                    listeners: {
-                        keyup: function (txt, e, eOpts) {
-                            if (e.keyCode == 13) {
-                                me.btnSalvar.fireEvent('click', this);
-                            }
-                        }
-                    }
-                }, {
-                    xtype: 'textfield',
-                    fieldLabel: 'ClassName',
-                    name: 'ClassName',
-                    itemId: 'txtClassName',
-                    width: 300,
-                    labelAlign: 'top',
-                    allowBlank: false,
-                    enableKeyEvents: true,
-                    listeners: {
-                        keyup: function (txt, e, eOpts) {
-                            if (e.keyCode == 13) {
-                                me.btnSalvar.fireEvent('click', this);
-                            }
-                        }
-                    }
-                }]
+                window: me
             }],
             bbar: ['->', {
                 xtype: 'button',
@@ -103,7 +46,7 @@
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady,
+            show: me.onShowWindow,
             beforeclose: me.onBeforeClose
         });
 
@@ -112,7 +55,7 @@
             click: me.onBtnSalvarClick
         });
     },
-    onBoxReady: function () {
+    onShowWindow: function () {
         var me = this;
 
         if (me.extraData.formType === 'Alterar') {

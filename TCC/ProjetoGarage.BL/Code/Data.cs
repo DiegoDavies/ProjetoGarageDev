@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.SessionState;
 using System.Xml.Linq;
 
 namespace ProjetoGarage.BL.Code
 {
-    public class Data
+    public class Data : IHttpHandler, IRequiresSessionState
     {
-        public void ProcessRequet(HttpContext app)
+        public void ProcessRequest(HttpContext app)
         {
             var request = app.Request;
             var response = app.Response;
@@ -32,13 +33,13 @@ namespace ProjetoGarage.BL.Code
                     case "POST":
                     case "DELETE":
                         {
-                            response.Write(ProcessRequest(app));
+                            response.Write(ProcessRequests(app));
                             response.StatusCode = 200;
                             break;
                         }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ProcessError(ex, app);
             }
@@ -50,7 +51,7 @@ namespace ProjetoGarage.BL.Code
                 {
                     response.AddHeader("DateTime", DateTime.Now.ToString());
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
 
                 }
@@ -58,8 +59,9 @@ namespace ProjetoGarage.BL.Code
             }
         }
 
-        public string ProcessRequest(HttpContext app)
+        public string ProcessRequests(HttpContext app)
         {
+            string retorno = string.Empty;
             var postData = GetPostData(app);
             var queryString = app.Request.QueryString;
             string database = GetQueryValue(queryString, "database");
@@ -78,7 +80,7 @@ namespace ProjetoGarage.BL.Code
             string returnValue = string.Empty;
             IJSONReaderRequestBody jsonReaderRequestBody = new SQLJSONReaderRequestBody()
             {
-                UserId = 1,
+                UserId = app.Session["UsuarioId"] != null ? Convert.ToInt32(app.Session["UsuarioId"]) : 0,
                 UserCompanyId = 1,
                 Database = database,
                 Procedure = procedure,
@@ -97,7 +99,8 @@ namespace ProjetoGarage.BL.Code
                 ServerVariables = app.Request.ServerVariables
             };
             JSONHandler js = new JSONHandler();
-            return js.GetJson(jsonReaderRequestBody);
+            retorno = js.GetJson(jsonReaderRequestBody);
+            return retorno;
         }
 
         private string GetFallbackProcedure(HttpContext app)
@@ -143,7 +146,7 @@ namespace ProjetoGarage.BL.Code
 
         public void ProcessError(Exception ex, HttpContext app)
         {
-            if(ex.GetBaseException() != null)
+            if (ex.GetBaseException() != null)
             {
                 ex = ex.GetBaseException();
             }
@@ -154,7 +157,7 @@ namespace ProjetoGarage.BL.Code
             var sb = new StringBuilder();
             var sw = new StringWriter(sb);
 
-            using(JsonWriter jsonWriter = new JsonTextWriter(sw))
+            using (JsonWriter jsonWriter = new JsonTextWriter(sw))
             {
                 jsonWriter.Formatting = Formatting.Indented;
                 jsonWriter.WriteStartObject();
@@ -209,6 +212,14 @@ namespace ProjetoGarage.BL.Code
             jsonWriter.WritePropertyName("stackTrace");
             jsonWriter.WriteValue(ex.StackTrace);
 #endif
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
         }
     }
 }

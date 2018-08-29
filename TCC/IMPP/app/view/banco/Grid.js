@@ -14,7 +14,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'BancoId'
+                dataIndex: 'BancoId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Código Banco',
                 width: 130,

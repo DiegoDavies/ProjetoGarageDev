@@ -15,7 +15,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FornecedorPagamentoId'
+                dataIndex: 'FornecedorPagamentoId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Nome',
                 flex: 1,

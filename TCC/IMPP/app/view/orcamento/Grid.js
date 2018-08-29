@@ -18,7 +18,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'OrcamentoId'
+                dataIndex: 'OrcamentoId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Número',
                 flex: 1,

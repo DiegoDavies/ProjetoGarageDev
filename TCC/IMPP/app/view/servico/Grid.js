@@ -18,7 +18,9 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'ServicoId'
+                dataIndex: 'ServicoId',
+                hidden: true,
+                hideable: false
             }, {
                 text: 'Status',
                 width: 120,

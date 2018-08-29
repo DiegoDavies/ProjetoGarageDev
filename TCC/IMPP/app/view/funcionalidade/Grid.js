@@ -14,9 +14,11 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'FuncionalidadeId'
+                dataIndex: 'FuncionalidadeId',
+                hidden: true,
+                hideable: false
             }, {
-                text: 'Modulo',
+                text: 'Módulo',
                 flex: 1,
                 style: 'text-align: center;',
                 dataIndex: 'Modulo'
@@ -35,42 +37,6 @@
                 flex: 1,
                 style: 'text-align: center;',
                 dataIndex: 'ClassName'
-            }, {
-                text: 'Inclusão',
-                style: 'text-align: center;',
-                columns: [{
-                    text: 'Usuário',
-                    sortable: true,
-                    style: 'text-align: center;',
-                    dataIndex: 'UsuarioNomeInclusao'
-                }, {
-                    xtype: 'datecolumn',
-                    sortable: true,
-                    text: 'Data Hora',
-                    width: 150,
-                    align: 'center',
-                    style: 'text-align: center;',
-                    format: 'd/m/Y H:i:s',
-                    dataIndex: 'DataHoraInclusao'
-                }]
-            }, {
-                text: 'Alteração',
-                style: 'text-align: center;',
-                columns: [{
-                    text: 'Usuário',
-                    sortable: true,
-                    style: 'text-align: center;',
-                    dataIndex: 'UsuarioNomeAlteracao'
-                }, {
-                    xtype: 'datecolumn',
-                    sortable: true,
-                    text: 'Data Hora',
-                    width: 150,
-                    align: 'center',
-                    style: 'text-align: center;',
-                    format: 'd/m/Y H:i:s',
-                    dataIndex: 'DataHoraAlteracao'
-                }]
             }]
         });
 
@@ -107,6 +73,7 @@
 
         me.btnRelatorio.hide();
         me.store.load();
+        me.btnDelete.hide();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;

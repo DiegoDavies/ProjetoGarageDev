@@ -171,6 +171,7 @@
                                 var rec = batch.operations[0].records[0];
                                 me.extraData.formType = 'Alterar';
                                 me.extraData.record = rec;
+                                me.getEl().unmask();
                                 me.onBoxReady();
                             },
                             failure: function () {

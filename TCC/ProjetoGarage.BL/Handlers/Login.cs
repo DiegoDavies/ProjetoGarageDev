@@ -40,7 +40,6 @@ namespace ProjetoGarage.BL.Handlers
                         Nome = dr.GetString(1),
                         Login = dr.GetString(2),
                         Senha = dr.GetString(3),
-                        PerfilId = dr.GetInt32(4),
                         Resultado = true
                     };
 
@@ -55,7 +54,6 @@ namespace ProjetoGarage.BL.Handlers
                     context.Session["login"] = modeloLogin.Login;
                     context.Session["UsuarioId"] = modeloLogin.UsuarioId;
                     context.Session["UsuarioNome"] = modeloLogin.Nome;
-                    context.Session["UsuarioPerfil"] = modeloLogin.PerfilId;
                     context.Session["DataExpires"] = expires;
 
                     string hash = FormsAuthentication.Encrypt(authticket);
@@ -74,7 +72,6 @@ namespace ProjetoGarage.BL.Handlers
                     UsuarioId = 0,
                     Login = "",
                     Senha = "",
-                    PerfilId = 0,
                     Resultado = false
                 };
 

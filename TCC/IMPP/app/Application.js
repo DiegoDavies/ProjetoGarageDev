@@ -9,6 +9,7 @@ Ext.define('ProjetoGarage.Application', {
         'Ext.tab.Panel',
         'Ext.layout.container.Border',
         'Ext.layout.container.Column',
+        'Ext.container.ButtonGroup',
         'Ext.grid.*',
         'Ext.data.*',
         'Ext.util.*',
@@ -43,7 +44,11 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.contaPagar.Tela',
         'ProjetoGarage.view.contaReceber.Tela',
         'ProjetoGarage.view.fornecedor.Tela',
-        'ProjetoGarage.view.cliente.Tela'
+        'ProjetoGarage.view.cliente.Tela',
+        'ProjetoGarage.view.funcionalidade.Tela',
+        'ProjetoGarage.view.modulo.Tela',
+        'ProjetoGarage.view.usuario.Tela',
+        'ProjetoGarage.view.perfil.Tela'
     ],
 
     stores: [
@@ -59,6 +64,7 @@ Ext.define('ProjetoGarage.Application', {
         'combos.Parentesco',
         'combos.StatusFornecedor',
         'combos.Banco',
+        'combos.Modulo',
 
         'funcionario.Store',
         'funcionario.Historico',
@@ -71,6 +77,8 @@ Ext.define('ProjetoGarage.Application', {
         'fornecedor.Pagamento',
         'fornecedor.ContaPagar',
 
+        'funcionalidade.Store',
+
         'situacao.Store',
 
         'funcao.Store',
@@ -82,6 +90,8 @@ Ext.define('ProjetoGarage.Application', {
         'etnia.Store',
 
         'banco.Store',
+
+        'modulo.Store',
 
         'statusFornecedor.Store',
 
@@ -106,7 +116,14 @@ Ext.define('ProjetoGarage.Application', {
         'contaReceber.Store',
         'contaReceber.Ocorrencia',
         'contaReceber.Recebimento',
-        'telaPrincipal.Menu'
+
+        'telaPrincipal.Menu',
+
+        'usuario.Store',
+        'usuario.Perfil',
+
+        'perfil.Store',
+        'perfil.Funcionalidade'
     ]
 });
 
