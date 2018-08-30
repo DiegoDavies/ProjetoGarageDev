@@ -4,6 +4,9 @@
         name: 'FuncionalidadeId',
         type: 'INT'
     }, {
+        name: 'Modulo',
+        type: 'STRING'
+    }, {
         name: 'Nome',
         type: 'STRING',
         convert: function (v, rec) {

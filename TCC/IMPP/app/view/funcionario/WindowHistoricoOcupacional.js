@@ -67,30 +67,30 @@
         }
     },
     onBtnSalvarClick: function () {
-        var me = this;
+        var me = this,
+            store = me.extraData.grid.store;
 
         if (me.extraData.formType === 'Cadastrar') {
             var model = Ext.create('ProjetoGarage.model.funcionario.HistoricoOcupacional');
             me.form.updateRecord(model);
-            me.extraData.grid.store.add(model);
+            store.add(model);
         } else {
             me.form.updateRecord(me.extraData.record);
         }
 
-        me.extraData.grid.store.sync({
-            success: function () {
-                me.extraData.grid.store.load();
-                me.close();
-            },
-            failure: function () {
-                Ext.Msg.show({
-                    title: 'Problema',
-                    msg: 'Ocorreu um erro ao realizar a operação!',
-                    buttons: Ext.Msg.OK,
-                    icon: Ext.Msg.ERROR
-                });
-                me.extraData.grid.store.rejectChanges();
-            }
-        });
+        if (store.getModifiedRecords().length > 0 || store.getRemovedRecords().length > 0 || store.getNewRecords().length > 0) {
+            me.getEl().mask('Salvando...');
+            store.sync({
+                success: function () {
+                    store.load();
+                    me.getEl().unmask();
+                    me.close();
+                },
+                failure: function () {
+                    store.rejectChanges();
+                    me.getEl().unmask();
+                }
+            });
+        }
     }
 })

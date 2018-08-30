@@ -20,8 +20,14 @@
                 hidden: true,
                 hideable: false
             }, {
+                text: 'Módulo',
+                flex: 0.7,
+                minWidth: 120,
+                style: 'text-align: center;',
+                dataIndex: 'Modulo'
+            }, {
                 text: 'Funcionalidade',
-                flex: 1,
+                flex: 1.3,
                 minWidth: 200,
                 style: 'text-align: center;',
                 dataIndex: 'Nome'

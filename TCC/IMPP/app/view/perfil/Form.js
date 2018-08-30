@@ -19,7 +19,7 @@
                 fieldLabel: 'Nome',
                 name: 'Nome',
                 itemId: 'txtNome',
-                width: 400,
+                width: 500,
                 labelAlign: 'top',
                 allowBlank: false,
                 enableKeyEvents: true,
@@ -33,8 +33,8 @@
             }, {
                 xtype: 'perfil-gridFuncionalidade',
                 hidden: true,
-                width: 400,
-                height: 250,
+                width: 500,
+                height: 300,
                 window: me.window,
             }]
         });

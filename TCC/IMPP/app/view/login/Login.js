@@ -13,6 +13,16 @@ Ext.define('ProjetoGarage.view.login.Login', {
         var me = this;
 
         Ext.apply(me, {
+            style: {
+                backgroundImage: 'url(/resources/images/fundologin.jpg)',
+                backgroundSize: '100% 100%',
+                backgroundRepeat: 'no-repeat',
+                position: 'absolute'
+            },
+            overflowY: 'hidden',
+            overflowX: 'hidden',
+            autoScroll: false,
+            scroll: false,
             items: [{
                 xtype: 'container',
                 columnWidth: 0.35,
@@ -52,7 +62,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
                         width: '95%',
                         labelAlign: 'top',
                         margin: '10 5 10 10',
-                        height: 60,
+                        height: 50,
                         cls: 'TxtLogin',
                         emptyText: 'Login',
                         fieldStyle: 'border-radius: 4px;',
@@ -64,7 +74,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
                         labelAlign: 'top',
                         margin: '10 5 10 10',
                         inputType: 'password',
-                        height: 60,
+                        height: 50,
                         cls: 'TxtLogin',
                         emptyText: 'Senha',
                         fieldStyle: 'border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;',

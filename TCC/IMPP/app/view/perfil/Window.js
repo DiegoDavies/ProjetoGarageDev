@@ -69,29 +69,32 @@
         me.txtNome.focus();
     },
     onBtnSalvarClick: function () {
-        var me = this;
+        var me = this,
+            store = me.extraData.grid.store;
 
-        me.getEl().mask('Salvando...');
         if (me.extraData.formType === 'Cadastrar') {
             var model = Ext.create('ProjetoGarage.model.perfil.Model');
             me.form.updateRecord(model);
-            me.extraData.grid.store.add(model);
+            store.add(model);
         } else {
             me.form.updateRecord(me.extraData.record);
         }
 
-        me.extraData.grid.store.sync({
-            success: function (batch) {
-                var rec = batch.operations[0].records[0];
-                me.extraData.formType = 'Alterar';
-                me.extraData.record = rec;
-                me.getEl().unmask();
-                me.onShowWindow();
-            },
-            failure: function () {
-                me.extraData.grid.store.rejectChanges();
-                me.getEl().unmask();
-            }
-        });
+        if (store.getModifiedRecords().length > 0 || store.getRemovedRecords().length > 0 || store.getNewRecords().length > 0) {
+            me.getEl().mask('Salvando...');
+            store.sync({
+                success: function (batch) {
+                    var rec = batch.operations[0].records[0];
+                    me.extraData.formType = 'Alterar';
+                    me.extraData.record = rec;
+                    me.getEl().unmask();
+                    me.onShowWindow();
+                },
+                failure: function () {
+                    store.rejectChanges();
+                    me.getEl().unmask();
+                }
+            });
+        }
     }
 });
