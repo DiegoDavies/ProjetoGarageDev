@@ -281,19 +281,19 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
         }
     },
     abrirTela: function (tab, record) {
-        var me = this
-        texto = record.raw.titleM;
+        var me = this,
+            texto = record.raw.titleM,
+            tela = Ext.create(record.raw.className);
 
-        if (!tab.down('#funcionalidade' + record.raw.funcionalidadeId)) {
-            var tela = Ext.create(record.raw.className);
+        if (!tab.down(tela.xtype)) {
             tab.add({
                 xtype: tela.xtype,
                 title: texto,
                 closable: true,
                 tabPrincipal: tab,
-                itemId: 'funcionalidade' + record.raw.funcionalidadeId
+                itemId: 'funcionalidade' + tela.xtype
             });
         }
-        tab.setActiveTab('funcionalidade' + record.raw.funcionalidadeId);
+        tab.setActiveTab('funcionalidade' + tela.xtype);
     }
 });

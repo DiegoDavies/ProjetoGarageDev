@@ -41,13 +41,14 @@
                     }, {
                         xtype: 'tcc-combo',
                         flex: 1,
-                        name: 'SituacaoId',
-                        fieldLabel: 'Situação',
-                        itemId: 'cboSituacao',
-                        labelWidth: 55,
+                        name: 'StatusId',
+                        fieldLabel: 'Status',
+                        itemId: 'cboStatus',
+                        labelWidth: 45,
                         displayField: 'Nome',
-                        valueField: 'SituacaoId',
-                        store: Ext.create('ProjetoGarage.store.combos.Situacao')
+                        valueField: 'StatusFornecedorId',
+                        store: Ext.create('ProjetoGarage.store.combos.StatusFornecedor'),
+                        allowBlank: false
                     }]
                 }, {
                     xtype: 'textfield',
@@ -60,15 +61,6 @@
                     name: 'Fantasia',
                     fieldLabel: 'Fantasia',
                     itemId: 'txtFantasia'
-                }, {
-                    xtype: 'tcc-combo',
-                    name: 'StatusId',
-                    fieldLabel: 'Status',
-                    itemId: 'cboStatus',
-                    displayField: 'Nome',
-                    valueField: 'StatusFornecedorId',
-                    store: Ext.create('ProjetoGarage.store.combos.StatusFornecedor'),
-                    allowBlank: false
                 }, {
                     xtype: 'textfield',
                     name: 'Cep',
@@ -226,7 +218,7 @@
                 }, {
                     xtype: 'textareafield',
                     name: 'Observacao',
-                    rows: 5,
+                    rows: 7,
                     itemId: 'txtObservacao',
                     fieldLabel: 'Observação'
                 }]

@@ -65,12 +65,6 @@
                                                 grid.store.load();
                                             },
                                             failure: function () {
-                                                Ext.Msg.show({
-                                                    title: 'Problema',
-                                                    msg: 'Ocorreu um erro ao realizar a operação!',
-                                                    buttons: Ext.Msg.OK,
-                                                    icon: Ext.Msg.ERROR
-                                                });
                                                 grid.store.rejectChanges();
                                             }
                                         });

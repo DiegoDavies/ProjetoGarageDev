@@ -36,7 +36,6 @@
         me.form = me.down('fornecedor-form');
         //
         me.txtCodigo = me.down('#txtCodigo');
-        me.cboSituacao = me.down('#cboSituacao');
         me.txtRazaoSocial = me.down('#txtRazaoSocial');
         me.txtFantasia = me.down('#txtFantasia');
         me.cboStatus = me.down('#cboStatus')
@@ -95,7 +94,6 @@
             me.tabPanel.loadStores();
             me.txtCodigo.up().show();
             me.txtCodigo.focus();
-            me.cboSituacao.store.load();
             me.cboStatus.store.load();
             me.cboEstado.store.load();
             me.cboCidade.store.setParams({

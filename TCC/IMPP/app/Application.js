@@ -48,7 +48,10 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.funcionalidade.Tela',
         'ProjetoGarage.view.modulo.Tela',
         'ProjetoGarage.view.usuario.Tela',
-        'ProjetoGarage.view.perfil.Tela'
+        'ProjetoGarage.view.perfil.Tela',
+        'ProjetoGarage.view.login.WindowAlterar',
+        'ProjetoGarage.view.login.WindowSolicitar',
+        'ProjetoGarage.view.login.WindowResetar'
     ],
 
     stores: [
@@ -123,7 +126,11 @@ Ext.define('ProjetoGarage.Application', {
         'usuario.Perfil',
 
         'perfil.Store',
-        'perfil.Funcionalidade'
+        'perfil.Funcionalidade',
+
+        'login.AlterarSenha',
+        'login.SolicitarSenha',
+        'login.ConfirmarSenha'
     ]
 });
 

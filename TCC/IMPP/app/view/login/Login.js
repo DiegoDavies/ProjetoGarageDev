@@ -91,7 +91,9 @@ Ext.define('ProjetoGarage.view.login.Login', {
                         listeners: {
                             render: function (c) {
                                 c.getEl().on('click', function () {
-                                    window.open('http://www.youtube.com.br');
+                                    Ext.create('ProjetoGarage.view.login.WindowSolicitar', {
+                                        renderTo: Ext.getBody()
+                                    }).show();
                                 }, c);
                             }
                         }
@@ -189,7 +191,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
                 } else {
                     Ext.Msg.show({
                         title: 'Problema',
-                        msg: 'Usuário e/ou Senha não encontrados. Tente novamente!',
+                        msg: 'Usu\u00E1rio e/ou Senha n\u00E3o encontrados. Tente novamente!',
                         buttons: Ext.Msg.OK,
                         icons: Ext.Msg.WARNING,
                         fn: function () {

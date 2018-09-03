@@ -47,6 +47,8 @@
                 fieldLabel: 'Email',
                 xtype: 'textfield',
                 name: 'Email',
+                vtype: 'email',
+                vtypeText: 'Este campo deve conter um endereço de e-mail no formato "usuario@exemplo.com"',
                 itemId: 'txtEmail',
                 allowBlank: false,
                 listeners: {

@@ -1,25 +1,31 @@
-﻿Ext.define('ProjetoGarage.model.fornecedor.Model', {
+﻿Ext.define('ProjetoGarage.model.cliente.Model', {
     extend: 'Ext.data.Model',
     fields: [{
-        name: 'FornecedorId',
+        name: 'ClienteId',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
         }
     }, {
-        name: 'RazaoSocial',
+        name: 'Nome',
         type: 'STRING'
     }, {
-        name: 'Fantasia',
-        type: 'STRING'
-    }, {
-        name: 'StatusId',
+        name: 'SituacaoId',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
         }
     }, {
-        name: 'StatusNome',
+        name: 'SituacaoNome',
+        type: 'STRING'
+    }, {
+        name: 'SexoId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'SexoNome',
         type: 'STRING'
     }, {
         name: 'Cep',
@@ -58,19 +64,6 @@
         name: 'CidadeNome',
         type: 'STRING'
     }, {
-        name: 'Cnpj',
-        type: 'STRING',
-        convert: function (v, rec) {
-            if (v) {
-                v = v.toString();
-                if (v.length > 0) {
-                    v = Ext.String.leftPad(v, 14, '0');
-                    v = Ext.util.Format.substr(v, 0, 2) + '.' + Ext.util.Format.substr(v, 2, 3) + '.' + Ext.util.Format.substr(v, 5, 3) + '/' + Ext.util.Format.substr(v, 8, 4) + '-' + Ext.util.Format.substr(v, 12, 2);
-                }
-            }
-            return v;
-        }
-    }, {
         name: 'Cpf',
         type: 'STRING',
         convert: function (v, rec) {
@@ -84,11 +77,14 @@
             return v;
         }
     }, {
-        name: 'InscricaoEstadual',
-        type: 'STRING'
-    }, {
         name: 'Rg',
         type: 'STRING'
+    }, {
+        name: 'EstadoRg',
+        type: 'STRING'
+    }, {
+        name: 'DataEmissaoRg',
+        type: 'DATE'
     }, {
         name: 'Email',
         type: 'STRING'
@@ -99,10 +95,85 @@
         name: 'Celular',
         type: 'STRING'
     }, {
-        name: 'Website',
+        name: 'DataNascimento',
+        type: 'DATE'
+    }, {
+        name: 'EstadoNascId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'EstadoNascNome',
         type: 'STRING'
     }, {
-        name: 'Observacao',
+        name: 'CidadeNascId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'CidadeNascNome',
+        type: 'STRING'
+    }, {
+        name: 'EstadoCivilId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'EstadoCivilNome',
+        type: 'STRING'
+    }, {
+        name: 'NomeConjuge',
+        type: 'STRING'
+    }, {
+        name: 'NomePai',
+        type: 'STRING'
+    }, {
+        name: 'NomeMae',
+        type: 'STRING'
+    }, {
+        name: 'NumeroPis',
+        type: 'STRING'
+    }, {
+        name: 'DataEmissaoPis',
+        type: 'DATE'
+    }, {
+        name: 'Reservista',
+        type: 'STRING'
+    }, {
+        name: 'Categoria',
+        type: 'STRING'
+    }, {
+        name: 'TituloEleitor',
+        type: 'STRING'
+    }, {
+        name: 'ZonaEleitoral',
+        type: 'STRING'
+    }, {
+        name: 'SecaoEleitoral',
+        type: 'STRING'
+    }, {
+        name: 'DataEmissaoEleitoral',
+        type: 'DATE'
+    }, {
+        name: 'FormacaoId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'FormacaoNome',
+        type: 'STRING'
+    }, {
+        name: 'EtniaId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'EtniaNome',
         type: 'STRING'
     }, {
         name: 'UsuarioIdInclusao',

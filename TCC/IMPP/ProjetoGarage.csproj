@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,9 +42,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -66,15 +61,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\model\banco\Model.js" />
+    <Content Include="app\model\cliente\Model.js" />
+    <Content Include="app\model\combos\Banco.js" />
     <Content Include="app\model\combos\Cidade.js" />
     <Content Include="app\model\combos\Cliente.js" />
     <Content Include="app\model\combos\Estado.js" />
     <Content Include="app\model\combos\Etnia.js" />
     <Content Include="app\model\combos\Formacao.js" />
     <Content Include="app\model\combos\Funcao.js" />
+    <Content Include="app\model\combos\Modulo.js" />
     <Content Include="app\model\combos\Parentesco.js" />
     <Content Include="app\model\combos\Sexo.js" />
     <Content Include="app\model\combos\Situacao.js" />
+    <Content Include="app\model\combos\StatusFornecedor.js" />
     <Content Include="app\model\contaPagar\Model.js" />
     <Content Include="app\model\contaPagar\Ocorrencia.js" />
     <Content Include="app\model\contaPagar\Pagamento.js" />
@@ -84,34 +84,54 @@
     <Content Include="app\model\estadoCivil\Model.js" />
     <Content Include="app\model\etnia\Model.js" />
     <Content Include="app\model\formacao\Model.js" />
+    <Content Include="app\model\fornecedor\ContaPagar.js" />
+    <Content Include="app\model\fornecedor\Historico.js" />
+    <Content Include="app\model\fornecedor\Model.js" />
+    <Content Include="app\model\fornecedor\Pagamento.js" />
     <Content Include="app\model\funcao\Model.js" />
     <Content Include="app\model\combos\EstadoCivil.js" />
+    <Content Include="app\model\funcionalidade\Model.js" />
     <Content Include="app\model\funcionario\Dependente.js" />
     <Content Include="app\model\funcionario\Historico.js" />
     <Content Include="app\model\funcionario\HistoricoOcupacional.js" />
     <Content Include="app\model\funcionario\Model.js" />
     <Content Include="app\model\funcionario\Pagamento.js" />
+    <Content Include="app\model\login\AlterarSenha.js" />
+    <Content Include="app\model\login\ConfirmarSenha.js" />
+    <Content Include="app\model\login\SolicitarSenha.js" />
+    <Content Include="app\model\modulo\Model.js" />
     <Content Include="app\model\orcamento\Custos.js" />
     <Content Include="app\model\orcamento\Model.js" />
     <Content Include="app\model\orcamento\Ocorrencia.js" />
     <Content Include="app\model\orcamento\Produto.js" />
     <Content Include="app\model\orcamento\Veiculo.js" />
     <Content Include="app\model\parentesco\Model.js" />
+    <Content Include="app\model\perfil\Funcionalidade.js" />
+    <Content Include="app\model\perfil\Model.js" />
     <Content Include="app\model\servico\Custos.js" />
     <Content Include="app\model\servico\Model.js" />
     <Content Include="app\model\servico\Ocorrencia.js" />
     <Content Include="app\model\servico\Produto.js" />
     <Content Include="app\model\servico\Veiculo.js" />
     <Content Include="app\model\situacao\Model.js" />
+    <Content Include="app\model\statusFornecedor\Model.js" />
+    <Content Include="app\model\telaPrincipal\Menu.js" />
+    <Content Include="app\model\usuario\Model.js" />
+    <Content Include="app\model\usuario\Perfil.js" />
+    <Content Include="app\store\banco\Store.js" />
+    <Content Include="app\store\cliente\Store.js" />
+    <Content Include="app\store\combos\Banco.js" />
     <Content Include="app\store\combos\Cidade.js" />
     <Content Include="app\store\combos\Cliente.js" />
     <Content Include="app\store\combos\Estado.js" />
     <Content Include="app\store\combos\Etnia.js" />
     <Content Include="app\store\combos\Formacao.js" />
     <Content Include="app\store\combos\Funcao.js" />
+    <Content Include="app\store\combos\Modulo.js" />
     <Content Include="app\store\combos\Parentesco.js" />
     <Content Include="app\store\combos\Sexo.js" />
     <Content Include="app\store\combos\Situacao.js" />
+    <Content Include="app\store\combos\StatusFornecedor.js" />
     <Content Include="app\store\contaPagar\Ocorrencia.js" />
     <Content Include="app\store\contaPagar\Pagamento.js" />
     <Content Include="app\store\contaPagar\Store.js" />
@@ -121,30 +141,58 @@
     <Content Include="app\store\estadoCivil\Store.js" />
     <Content Include="app\store\etnia\Store.js" />
     <Content Include="app\store\formacao\Store.js" />
+    <Content Include="app\store\fornecedor\ContaPagar.js" />
+    <Content Include="app\store\fornecedor\Historico.js" />
+    <Content Include="app\store\fornecedor\Pagamento.js" />
+    <Content Include="app\store\fornecedor\Store.js" />
     <Content Include="app\store\funcao\Store.js" />
     <Content Include="app\store\combos\EstadoCivil.js" />
+    <Content Include="app\store\funcionalidade\Store.js" />
     <Content Include="app\store\funcionario\Dependente.js" />
     <Content Include="app\store\funcionario\Historico.js" />
     <Content Include="app\store\funcionario\HistoricoOcupacional.js" />
     <Content Include="app\store\funcionario\Pagamento.js" />
     <Content Include="app\store\funcionario\Store.js" />
+    <Content Include="app\store\login\AlterarSenha.js" />
+    <Content Include="app\store\login\ConfirmarSenha.js" />
+    <Content Include="app\store\login\SolicitarSenha.js" />
+    <Content Include="app\store\modulo\Store.js" />
     <Content Include="app\store\orcamento\Custos.js" />
     <Content Include="app\store\orcamento\Ocorrencia.js" />
     <Content Include="app\store\orcamento\Produto.js" />
     <Content Include="app\store\orcamento\Store.js" />
     <Content Include="app\store\orcamento\Veiculo.js" />
     <Content Include="app\store\parentesco\Store.js" />
+    <Content Include="app\store\perfil\Funcionalidade.js" />
+    <Content Include="app\store\perfil\Store.js" />
     <Content Include="app\store\servico\Custos.js" />
     <Content Include="app\store\servico\Ocorrencia.js" />
     <Content Include="app\store\servico\Produto.js" />
     <Content Include="app\store\servico\Store.js" />
     <Content Include="app\store\servico\Veiculo.js" />
     <Content Include="app\store\situacao\Store.js" />
+    <Content Include="app\store\statusFornecedor\Store.js" />
+    <Content Include="app\store\telaPrincipal\Menu.js" />
+    <Content Include="app\store\usuario\Perfil.js" />
+    <Content Include="app\store\usuario\Store.js" />
     <Content Include="app\ux\Data.js" />
     <Content Include="app\ux\DataSQLStore.js" />
     <Content Include="app\ux\DataStoreHandler.js" />
     <Content Include="app\ux\Store.js" />
     <Content Include="app\ux\TccCombo.js" />
+    <Content Include="app\view\banco\Form.js" />
+    <Content Include="app\view\banco\Grid.js" />
+    <Content Include="app\view\banco\Tela.js" />
+    <Content Include="app\view\banco\Window.js" />
+    <Content Include="app\view\cliente\Form.js" />
+    <Content Include="app\view\cliente\Grid.js" />
+    <Content Include="app\view\cliente\GridContaReceber.js" />
+    <Content Include="app\view\cliente\GridHistorico.js" />
+    <Content Include="app\view\cliente\GridServico.js" />
+    <Content Include="app\view\cliente\GridVeiculo.js" />
+    <Content Include="app\view\cliente\Panel.js" />
+    <Content Include="app\view\cliente\TabPanelFilho.js" />
+    <Content Include="app\view\cliente\Tela.js" />
     <Content Include="app\view\contaPagar\Form.js" />
     <Content Include="app\view\contaPagar\Grid.js" />
     <Content Include="app\view\contaPagar\GridOcorrencia.js" />
@@ -159,22 +207,36 @@
     <Content Include="app\view\contaReceber\Panel.js" />
     <Content Include="app\view\contaReceber\TabPanelFilho.js" />
     <Content Include="app\view\contaReceber\Tela.js" />
+    <Content Include="app\view\estadoCivil\Form.js" />
     <Content Include="app\view\estadoCivil\Grid.js" />
     <Content Include="app\view\estadoCivil\Window.js" />
     <Content Include="app\view\estadoCivil\Tela.js" />
+    <Content Include="app\view\etnia\Form.js" />
     <Content Include="app\view\etnia\Grid.js" />
     <Content Include="app\view\etnia\Window.js" />
     <Content Include="app\view\etnia\Tela.js" />
+    <Content Include="app\view\formacao\Form.js" />
     <Content Include="app\view\formacao\Grid.js" />
     <Content Include="app\view\formacao\Window.js" />
     <Content Include="app\view\formacao\Tela.js" />
     <Content Include="app\view\fornecedor\Form.js" />
+    <Content Include="app\view\fornecedor\FormPagamento.js" />
     <Content Include="app\view\fornecedor\Grid.js" />
+    <Content Include="app\view\fornecedor\GridContaPagar.js" />
+    <Content Include="app\view\fornecedor\GridHistorico.js" />
+    <Content Include="app\view\fornecedor\GridPagamento.js" />
     <Content Include="app\view\fornecedor\Panel.js" />
+    <Content Include="app\view\fornecedor\TabPanelFilho.js" />
     <Content Include="app\view\fornecedor\Tela.js" />
+    <Content Include="app\view\fornecedor\WindowPagamento.js" />
+    <Content Include="app\view\funcao\Form.js" />
     <Content Include="app\view\funcao\Grid.js" />
     <Content Include="app\view\funcao\Window.js" />
     <Content Include="app\view\funcao\Tela.js" />
+    <Content Include="app\view\funcionalidade\Form.js" />
+    <Content Include="app\view\funcionalidade\Grid.js" />
+    <Content Include="app\view\funcionalidade\Tela.js" />
+    <Content Include="app\view\funcionalidade\Window.js" />
     <Content Include="app\view\funcionario\Form.js" />
     <Content Include="app\view\funcionario\FormDependente.js" />
     <Content Include="app\view\funcionario\FormHistoricoOcupacional.js" />
@@ -191,6 +253,14 @@
     <Content Include="app\view\funcionario\WindowHistoricoOcupacional.js" />
     <Content Include="app\view\funcionario\WindowPagamento.js" />
     <Content Include="app\view\GridDefault.js" />
+    <Content Include="app\view\login\WindowAlterar.js" />
+    <Content Include="app\view\login\WindowLogin.js" />
+    <Content Include="app\view\login\WindowResetar.js" />
+    <Content Include="app\view\login\WindowSolicitar.js" />
+    <Content Include="app\view\modulo\Form.js" />
+    <Content Include="app\view\modulo\Grid.js" />
+    <Content Include="app\view\modulo\Tela.js" />
+    <Content Include="app\view\modulo\Window.js" />
     <Content Include="app\view\orcamento\Form.js" />
     <Content Include="app\view\orcamento\Grid.js" />
     <Content Include="app\view\orcamento\GridCustos.js" />
@@ -200,9 +270,15 @@
     <Content Include="app\view\orcamento\Panel.js" />
     <Content Include="app\view\orcamento\TabPanelFilho.js" />
     <Content Include="app\view\orcamento\Tela.js" />
+    <Content Include="app\view\parentesco\Form.js" />
     <Content Include="app\view\parentesco\Grid.js" />
     <Content Include="app\view\parentesco\Window.js" />
     <Content Include="app\view\parentesco\Tela.js" />
+    <Content Include="app\view\perfil\Form.js" />
+    <Content Include="app\view\perfil\Grid.js" />
+    <Content Include="app\view\perfil\GridFuncionalidade.js" />
+    <Content Include="app\view\perfil\Tela.js" />
+    <Content Include="app\view\perfil\Window.js" />
     <Content Include="app\view\servico\Form.js" />
     <Content Include="app\view\servico\Grid.js" />
     <Content Include="app\view\servico\GridCustos.js" />
@@ -212,11 +288,21 @@
     <Content Include="app\view\servico\Panel.js" />
     <Content Include="app\view\servico\TabPanelFilho.js" />
     <Content Include="app\view\servico\Tela.js" />
+    <Content Include="app\view\situacao\Form.js" />
     <Content Include="app\view\situacao\Grid.js" />
     <Content Include="app\view\situacao\Window.js" />
     <Content Include="app\view\situacao\Tela.js" />
+    <Content Include="app\view\statusFornecedor\Form.js" />
+    <Content Include="app\view\statusFornecedor\Grid.js" />
+    <Content Include="app\view\statusFornecedor\Tela.js" />
+    <Content Include="app\view\statusFornecedor\Window.js" />
     <Content Include="app\view\telaPrincipal\Menu.js" />
     <Content Include="app\ux\InputTextMask.js" />
+    <Content Include="app\view\usuario\Form.js" />
+    <Content Include="app\view\usuario\Grid.js" />
+    <Content Include="app\view\usuario\GridPerfil.js" />
+    <Content Include="app\view\usuario\Tela.js" />
+    <Content Include="app\view\usuario\Window.js" />
     <Content Include="bin\IMPP.BL.dll" />
     <Content Include="bin\IMPP.BL.pdb" />
     <Content Include="bin\IMPP.dll" />
@@ -5492,7 +5578,6 @@
     <Content Include="ext\src\XTemplateCompiler.js" />
     <Content Include="ext\src\XTemplateParser.js" />
     <Content Include="ext\src\ZIndexManager.js" />
-    <Content Include="packages.config" />
     <Content Include="app.json" />
     <Content Include="bootstrap.json" />
     <Content Include="resources\images\check.png" />
@@ -7190,6 +7275,7 @@
     <Content Include="ext\packages\ext-theme-neutral\src\Readme.md" />
     <Content Include="sass\etc\all.scss" />
     <Content Include="sass\var\Component.scss" />
+    <None Include="Properties\PublishProfiles\ProjetoGarage.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -7253,21 +7339,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\model\cliente\" />
-    <Folder Include="app\model\fornecedor\" />
     <Folder Include="app\model\produto\" />
-    <Folder Include="app\model\telaPrincipal\" />
-    <Folder Include="app\model\usuario\" />
     <Folder Include="app\model\veiculo\" />
-    <Folder Include="app\store\cliente\" />
-    <Folder Include="app\store\fornecedor\" />
     <Folder Include="app\store\produto\" />
-    <Folder Include="app\store\telaPrincipal\" />
-    <Folder Include="app\store\usuario\" />
     <Folder Include="app\store\veiculo\" />
-    <Folder Include="app\view\cliente\" />
     <Folder Include="app\view\produto\" />
-    <Folder Include="app\view\usuario\" />
     <Folder Include="app\view\veiculo\" />
   </ItemGroup>
   <ItemGroup>
@@ -7301,13 +7377,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

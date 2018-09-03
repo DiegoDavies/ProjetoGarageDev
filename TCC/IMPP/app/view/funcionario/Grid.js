@@ -25,12 +25,12 @@
                 dataIndex: 'Nome'
             }, {
                 text: 'Situação',
-                width: 120,
+                width: 100,
                 style: 'text-align: center;',
                 dataIndex: 'SituacaoNome'
             }, {
                 text: 'CPF',
-                width: 100,
+                width: 150,
                 style: 'text-align: center;',
                 dataIndex: 'Cpf'
             }, {

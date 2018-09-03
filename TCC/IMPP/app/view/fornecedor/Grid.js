@@ -20,7 +20,7 @@
             }, {
                 text: 'Razão Social',
                 flex: 1,
-                minWidth: 250,
+                minWidth: 300,
                 style: 'text-align: center;',
                 dataIndex: 'RazaoSocial'
             }, {

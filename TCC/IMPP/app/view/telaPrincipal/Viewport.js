@@ -43,7 +43,9 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                                     listeners: {
                                         scope: this,
                                         click: function () {
-
+                                            Ext.create('ProjetoGarage.view.login.WindowAlterar', {
+                                                renderTo: Ext.getBody()
+                                            }).show();
                                         }
                                     }
                                 }, {

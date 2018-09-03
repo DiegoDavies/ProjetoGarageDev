@@ -67,7 +67,7 @@
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady
+            show: me.onShowWindow
         });
 
         me.txtLogin.on({
@@ -85,7 +85,7 @@
             scope: me
         });
     },
-    onBoxReady: function () {
+    onShowWindow: function () {
         var me = this;
 
         if (me.extraData.usuario !== '') {

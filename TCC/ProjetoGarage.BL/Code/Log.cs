@@ -25,12 +25,12 @@ namespace ProjetoGarage.BL.Code
                     case "LOGIN":
                         acao = erro == "" ? "Realizando Login do Usuário " + usuario : "";
                         problema = erro == "" ? "" : "Problema ao realizar Login " + erro;
-                        query = string.Concat(query, string.Format("({0},'{1}','{2}','{3}')", usuarioId.ToString(), DateTime.Now, acao, problema));
+                        query = string.Concat(query, string.Format("({0},{1},'{2}','{3}')", usuarioId.ToString(), "GETDATE()", acao, problema));
                         break;
                     case "VERIFICASESSAO":
                         acao = erro == "" ? "Verificando Sessão do Usuário " + usuario : "";
                         problema = erro == "" ? "" : "Problema ao verificar Sessão " + erro;
-                        query = string.Concat(query, string.Format("({0},'{1}','{2}','{3}')", usuarioId.ToString(), DateTime.Now, acao, problema));
+                        query = string.Concat(query, string.Format("({0},{1},'{2}','{3}')", usuarioId.ToString(), "GETDATE()", acao, problema));
                         break;
                 }
             }
@@ -55,7 +55,7 @@ namespace ProjetoGarage.BL.Code
                         problema = erro == "" ? "" : "Erro ao realizar delete pela procedure " + procedure + " para o usuário " + usuario;
                         break;
                 }
-                query = string.Concat(query, string.Format("({0},'{1}','{2}','{3}')", usuarioId.ToString(), DateTime.Now, acao, problema));
+                query = string.Concat(query, string.Format("({0},{1},'{2}','{3}')", usuarioId.ToString(), "GETDATE()", acao, problema));
             }
             con = db.OpenConnection();
             SqlCommand cmd = new SqlCommand(query, con);

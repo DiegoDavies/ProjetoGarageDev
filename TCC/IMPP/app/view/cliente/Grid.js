@@ -8,7 +8,7 @@
         var me = this;
 
         Ext.apply(me, {
-            store: Ext.create('ProjetoGarage.store.funcionario.Store'),
+            store: Ext.create('ProjetoGarage.store.cliente.Store'),
             columns: [{
                 text: 'Código',
                 width: 100,
