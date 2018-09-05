@@ -56,6 +56,7 @@
         me.txtSite = me.down('#txtSite');
         me.txtObservacao = me.down('#txtObservacao');
         me.tabPanel = me.down('fornecedor-tabPanel');
+        me.mascaraCad = me.down('#fornecedorMasc');
         me.gridHistorico = me.tabPanel.down('fornecedor-gridHistorico');
         //
         me.btnSalvar = me.down('#btnSalvar');
@@ -90,6 +91,7 @@
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
+            me.mascaraCad.hide();
             me.tabPanel.show();
             me.tabPanel.loadStores();
             me.txtCodigo.up().show();
@@ -101,6 +103,7 @@
             });
             me.cboCidade.store.load();
         } else {
+            me.mascaraCad.show();
             me.tabPanel.hide();
             me.txtCodigo.up().hide();
             me.txtCodigo.focus();

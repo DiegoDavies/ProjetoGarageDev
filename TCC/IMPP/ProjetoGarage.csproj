@@ -62,7 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\model\banco\Model.js" />
+    <Content Include="app\model\cliente\ContaReceber.js" />
+    <Content Include="app\model\cliente\Historico.js" />
     <Content Include="app\model\cliente\Model.js" />
+    <Content Include="app\model\cliente\Servico.js" />
+    <Content Include="app\model\cliente\Veiculo.js" />
     <Content Include="app\model\combos\Banco.js" />
     <Content Include="app\model\combos\Cidade.js" />
     <Content Include="app\model\combos\Cliente.js" />
@@ -119,7 +123,11 @@
     <Content Include="app\model\usuario\Model.js" />
     <Content Include="app\model\usuario\Perfil.js" />
     <Content Include="app\store\banco\Store.js" />
+    <Content Include="app\store\cliente\ContaReceber.js" />
+    <Content Include="app\store\cliente\Historico.js" />
+    <Content Include="app\store\cliente\Servico.js" />
     <Content Include="app\store\cliente\Store.js" />
+    <Content Include="app\store\cliente\Veiculo.js" />
     <Content Include="app\store\combos\Banco.js" />
     <Content Include="app\store\combos\Cidade.js" />
     <Content Include="app\store\combos\Cliente.js" />
@@ -178,6 +186,7 @@
     <Content Include="app\ux\Data.js" />
     <Content Include="app\ux\DataSQLStore.js" />
     <Content Include="app\ux\DataStoreHandler.js" />
+    <Content Include="app\ux\MascaraTabPanel.js" />
     <Content Include="app\ux\Store.js" />
     <Content Include="app\ux\TccCombo.js" />
     <Content Include="app\view\banco\Form.js" />
@@ -303,6 +312,8 @@
     <Content Include="app\view\usuario\GridPerfil.js" />
     <Content Include="app\view\usuario\Tela.js" />
     <Content Include="app\view\usuario\Window.js" />
+    <Content Include="app\view\veiculo\Grid.js" />
+    <Content Include="app\view\veiculo\Tela.js" />
     <Content Include="bin\IMPP.BL.dll" />
     <Content Include="bin\IMPP.BL.pdb" />
     <Content Include="bin\IMPP.dll" />
@@ -7344,7 +7355,6 @@
     <Folder Include="app\store\produto\" />
     <Folder Include="app\store\veiculo\" />
     <Folder Include="app\view\produto\" />
-    <Folder Include="app\view\veiculo\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoGarage.BL\ProjetoGarage.BL.csproj">

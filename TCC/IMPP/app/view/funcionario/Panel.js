@@ -51,6 +51,7 @@
         me.cboFormacao = me.down('#cboFormacao');
         me.cboEtnia = me.down('#cboEtnia');
         me.tabPanel = me.down('funcionario-tabPanel');
+        me.mascaraCad = me.down('#funcionarioMasc');
         me.gridHistorico = me.tabPanel.down('funcionario-gridHistorico');
         //
         me.btnSalvar = me.down('#btnSalvar');
@@ -91,6 +92,7 @@
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
+            me.mascaraCad.hide();
             me.tabPanel.show();
             me.tabPanel.loadStores();
             me.txtCodigo.up().show();
@@ -111,6 +113,7 @@
             me.cboFormacao.store.load();
             me.cboEtnia.store.load();
         } else {
+            me.mascaraCad.show();
             me.tabPanel.hide();
             me.txtCodigo.up().hide();
             me.txtCodigo.focus();

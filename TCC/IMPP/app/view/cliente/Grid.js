@@ -2,7 +2,7 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-grid',
     requires: [
-        //'ProjetoGarage.view.cliente.Panel'
+        'ProjetoGarage.view.cliente.Panel'
     ],
     initComponent: function () {
         var me = this;
@@ -30,7 +30,7 @@
                 dataIndex: 'SituacaoNome'
             }, {
                 text: 'CPF',
-                width: 100,
+                width: 150,
                 style: 'text-align: center;',
                 dataIndex: 'Cpf'
             }, {

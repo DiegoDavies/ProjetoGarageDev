@@ -225,8 +225,16 @@
             }, {
                 xtype: 'fornecedor-tabPanel',
                 flex: 1,
+                hidden: true,
                 margin: '0 0 0 0',
                 panel: me.panel
+            }, {
+                xtype: 'tcc-mascaraTab',
+                itemId: 'fornecedorMasc',
+                flex: 1,
+                margin: '0 0 0 0',
+                width: '100%',
+                height: '100%'
             }]
         });
 

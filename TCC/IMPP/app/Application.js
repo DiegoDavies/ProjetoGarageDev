@@ -21,7 +21,8 @@ Ext.define('ProjetoGarage.Application', {
         //'Data',
         'ProjetoGarage.ux.DataStoreHandler',
         'ProjetoGarage.ux.DataSQLStore',
-        'ProjetoGarage.ux.TccCombo'
+        'ProjetoGarage.ux.TccCombo',
+        'ProjetoGarage.ux.MascaraTabPanel'
     ],
 
     views: [
@@ -130,7 +131,13 @@ Ext.define('ProjetoGarage.Application', {
 
         'login.AlterarSenha',
         'login.SolicitarSenha',
-        'login.ConfirmarSenha'
+        'login.ConfirmarSenha',
+
+        'cliente.Store',
+        'cliente.ContaReceber',
+        'cliente.Historico',
+        'cliente.Servico',
+        'cliente.Veiculo'
     ]
 });
 

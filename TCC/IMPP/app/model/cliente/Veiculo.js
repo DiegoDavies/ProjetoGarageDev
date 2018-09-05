@@ -1,4 +1,4 @@
-﻿Ext.define('ProjetoGarage.model.cliente.Model', {
+﻿Ext.define('ProjetoGarage.model.cliente.Veiculo', {
     extend: 'Ext.data.Model',
     fields: [{
         name: 'ClienteId',
@@ -95,14 +95,26 @@
         name: 'Celular',
         type: 'STRING'
     }, {
-        name: 'TelefoneAdc',
-        type: 'STRING'
-    }, {
-        name: 'CelularAdc',
-        type: 'STRING'
-    }, {
         name: 'DataNascimento',
         type: 'DATE'
+    }, {
+        name: 'EstadoNascId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'EstadoNascNome',
+        type: 'STRING'
+    }, {
+        name: 'CidadeNascId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'CidadeNascNome',
+        type: 'STRING'
     }, {
         name: 'EstadoCivilId',
         type: 'INT',
@@ -113,13 +125,55 @@
         name: 'EstadoCivilNome',
         type: 'STRING'
     }, {
-        name: 'FuncaoId',
+        name: 'NomeConjuge',
+        type: 'STRING'
+    }, {
+        name: 'NomePai',
+        type: 'STRING'
+    }, {
+        name: 'NomeMae',
+        type: 'STRING'
+    }, {
+        name: 'NumeroPis',
+        type: 'STRING'
+    }, {
+        name: 'DataEmissaoPis',
+        type: 'DATE'
+    }, {
+        name: 'Reservista',
+        type: 'STRING'
+    }, {
+        name: 'Categoria',
+        type: 'STRING'
+    }, {
+        name: 'TituloEleitor',
+        type: 'STRING'
+    }, {
+        name: 'ZonaEleitoral',
+        type: 'STRING'
+    }, {
+        name: 'SecaoEleitoral',
+        type: 'STRING'
+    }, {
+        name: 'DataEmissaoEleitoral',
+        type: 'DATE'
+    }, {
+        name: 'FormacaoId',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
         }
     }, {
-        name: 'FuncaoNome',
+        name: 'FormacaoNome',
+        type: 'STRING'
+    }, {
+        name: 'EtniaId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'EtniaNome',
         type: 'STRING'
     }, {
         name: 'UsuarioIdInclusao',
