@@ -74,6 +74,8 @@
     <Content Include="app\model\combos\Etnia.js" />
     <Content Include="app\model\combos\Formacao.js" />
     <Content Include="app\model\combos\Funcao.js" />
+    <Content Include="app\model\combos\Marca.js" />
+    <Content Include="app\model\combos\Modelo.js" />
     <Content Include="app\model\combos\Modulo.js" />
     <Content Include="app\model\combos\Parentesco.js" />
     <Content Include="app\model\combos\Sexo.js" />
@@ -103,6 +105,8 @@
     <Content Include="app\model\login\AlterarSenha.js" />
     <Content Include="app\model\login\ConfirmarSenha.js" />
     <Content Include="app\model\login\SolicitarSenha.js" />
+    <Content Include="app\model\marca\Model.js" />
+    <Content Include="app\model\modelo\Model.js" />
     <Content Include="app\model\modulo\Model.js" />
     <Content Include="app\model\orcamento\Custos.js" />
     <Content Include="app\model\orcamento\Model.js" />
@@ -119,9 +123,12 @@
     <Content Include="app\model\servico\Veiculo.js" />
     <Content Include="app\model\situacao\Model.js" />
     <Content Include="app\model\statusFornecedor\Model.js" />
+    <Content Include="app\model\telaPrincipal\Ajuda.js" />
     <Content Include="app\model\telaPrincipal\Menu.js" />
     <Content Include="app\model\usuario\Model.js" />
     <Content Include="app\model\usuario\Perfil.js" />
+    <Content Include="app\model\veiculo\Historico.js" />
+    <Content Include="app\model\veiculo\Model.js" />
     <Content Include="app\store\banco\Store.js" />
     <Content Include="app\store\cliente\ContaReceber.js" />
     <Content Include="app\store\cliente\Historico.js" />
@@ -135,6 +142,8 @@
     <Content Include="app\store\combos\Etnia.js" />
     <Content Include="app\store\combos\Formacao.js" />
     <Content Include="app\store\combos\Funcao.js" />
+    <Content Include="app\store\combos\Marca.js" />
+    <Content Include="app\store\combos\Modelo.js" />
     <Content Include="app\store\combos\Modulo.js" />
     <Content Include="app\store\combos\Parentesco.js" />
     <Content Include="app\store\combos\Sexo.js" />
@@ -164,6 +173,8 @@
     <Content Include="app\store\login\AlterarSenha.js" />
     <Content Include="app\store\login\ConfirmarSenha.js" />
     <Content Include="app\store\login\SolicitarSenha.js" />
+    <Content Include="app\store\marca\Store.js" />
+    <Content Include="app\store\modelo\Store.js" />
     <Content Include="app\store\modulo\Store.js" />
     <Content Include="app\store\orcamento\Custos.js" />
     <Content Include="app\store\orcamento\Ocorrencia.js" />
@@ -180,9 +191,12 @@
     <Content Include="app\store\servico\Veiculo.js" />
     <Content Include="app\store\situacao\Store.js" />
     <Content Include="app\store\statusFornecedor\Store.js" />
+    <Content Include="app\store\telaPrincipal\Ajuda.js" />
     <Content Include="app\store\telaPrincipal\Menu.js" />
     <Content Include="app\store\usuario\Perfil.js" />
     <Content Include="app\store\usuario\Store.js" />
+    <Content Include="app\store\veiculo\Historico.js" />
+    <Content Include="app\store\veiculo\Store.js" />
     <Content Include="app\ux\Data.js" />
     <Content Include="app\ux\DataSQLStore.js" />
     <Content Include="app\ux\DataStoreHandler.js" />
@@ -266,6 +280,14 @@
     <Content Include="app\view\login\WindowLogin.js" />
     <Content Include="app\view\login\WindowResetar.js" />
     <Content Include="app\view\login\WindowSolicitar.js" />
+    <Content Include="app\view\marca\Form.js" />
+    <Content Include="app\view\marca\Grid.js" />
+    <Content Include="app\view\marca\Tela.js" />
+    <Content Include="app\view\marca\Window.js" />
+    <Content Include="app\view\modelo\Form.js" />
+    <Content Include="app\view\modelo\Grid.js" />
+    <Content Include="app\view\modelo\Tela.js" />
+    <Content Include="app\view\modelo\Window.js" />
     <Content Include="app\view\modulo\Form.js" />
     <Content Include="app\view\modulo\Grid.js" />
     <Content Include="app\view\modulo\Tela.js" />
@@ -307,12 +329,17 @@
     <Content Include="app\view\statusFornecedor\Window.js" />
     <Content Include="app\view\telaPrincipal\Menu.js" />
     <Content Include="app\ux\InputTextMask.js" />
+    <Content Include="app\view\telaPrincipal\WindowAjuda.js" />
     <Content Include="app\view\usuario\Form.js" />
     <Content Include="app\view\usuario\Grid.js" />
     <Content Include="app\view\usuario\GridPerfil.js" />
     <Content Include="app\view\usuario\Tela.js" />
     <Content Include="app\view\usuario\Window.js" />
+    <Content Include="app\view\veiculo\Form.js" />
     <Content Include="app\view\veiculo\Grid.js" />
+    <Content Include="app\view\veiculo\GridHistorico.js" />
+    <Content Include="app\view\veiculo\Panel.js" />
+    <Content Include="app\view\veiculo\TabPanelFilho.js" />
     <Content Include="app\view\veiculo\Tela.js" />
     <Content Include="bin\IMPP.BL.dll" />
     <Content Include="bin\IMPP.BL.pdb" />
@@ -5596,8 +5623,13 @@
     <Content Include="resources\images\contract.png" />
     <Content Include="resources\images\delete16.gif" />
     <Content Include="resources\images\dependent.png" />
+    <Content Include="resources\images\edit_user.png" />
     <Content Include="resources\images\Fundoctn.png" />
+    <Content Include="resources\images\fundologin.jpg" />
+    <Content Include="resources\images\help-white.png" />
+    <Content Include="resources\images\help.png" />
     <Content Include="resources\images\history.png" />
+    <Content Include="resources\images\information.png" />
     <Content Include="resources\images\logout.png" />
     <Content Include="resources\images\refresh.png" />
     <Content Include="resources\images\report.png" />
@@ -7351,9 +7383,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\model\produto\" />
-    <Folder Include="app\model\veiculo\" />
     <Folder Include="app\store\produto\" />
-    <Folder Include="app\store\veiculo\" />
     <Folder Include="app\view\produto\" />
   </ItemGroup>
   <ItemGroup>

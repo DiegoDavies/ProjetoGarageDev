@@ -15,6 +15,7 @@
                 fieldLabel: 'Nome',
                 xtype: 'textfield',
                 name: 'Nome',
+                allowBlank: false,
                 itemId: 'txtNome',
                 width: 300,
                 labelAlign: 'top',

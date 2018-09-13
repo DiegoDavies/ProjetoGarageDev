@@ -3,5 +3,14 @@
     fields: [{
         name: 'Solicitacao',
         type: 'STRING'
+    }, {
+        name: 'Email',
+        type: 'STRING'
+    }, {
+        name: 'Nome',
+        type: 'STRING'
+    }, {
+        name: 'CodigoAlteracao',
+        type: 'STRING'
     }]
 });

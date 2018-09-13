@@ -130,14 +130,36 @@
                         me.storeSolicitar.add(model);
 
                         me.storeSolicitar.sync({
-                            success: function () {
-                                Ext.Msg.show({
-                                    title: 'Sucesso',
-                                    msg: 'Solicitação enviada com sucesso. Em instantes você receberá um email com o Código para alterar a senha!',
-                                    buttons: Ext.Msg.OK,
-                                    icon: Ext.Msg.INFO
+                            success: function (batch) {
+                                var rec = batch.operations[0].records[0];
+
+                                Ext.Ajax.request({
+                                    url: '/Email',
+                                    params: {
+                                        EmailDestino: rec.get('Email'),
+                                        TipoEmail: 3,
+                                        UsuarioNome: rec.get('Nome'),
+                                        ChaveAtivacao: rec.get('CodigoAlteracao')
+                                    },
+                                    success: function (response) {
+                                        Ext.Msg.show({
+                                            title: 'Sucesso',
+                                            msg: 'Solicitação enviada com sucesso. Em instantes você receberá um email com o Código para alterar a senha!',
+                                            buttons: Ext.Msg.OK,
+                                            icon: Ext.Msg.INFO
+                                        });
+                                        me.getEl().unmask();
+                                    },
+                                    failure: function (retorno, request) {
+                                        Ext.Msg.show({
+                                            title: 'Erro',
+                                            msg: 'Ocorreu um erro ao enviar o e-mail, Em breve um atendente te enviara os procedimentos por e-mail!',
+                                            buttons: Ext.Msg.OK,
+                                            icon: Ext.Msg.INFO
+                                        });
+                                    }
                                 });
-                                me.getEl().unmask();
+
                             },
                             failure: function () {
                                 me.storeSolicitar.rejectChanges();

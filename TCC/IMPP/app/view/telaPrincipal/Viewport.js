@@ -24,6 +24,20 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                     style: 'background-color: #dc6900',
                     items: ['->', {
                         xtype: 'button',
+                        icon: '/resources/images/help-white.png',
+                        itemId: 'btnAjuda',
+                        text: '<div style="color:white">Ajuda</div>',
+                        style: 'background:transparent;',
+                        listeners: {
+                            scope: this,
+                            click: function () {
+                                Ext.create('ProjetoGarage.view.telaPrincipal.WindowAjuda', {
+                                    renderTo: Ext.getBody()
+                                }).show();
+                            }
+                        }
+                    }, {
+                        xtype: 'button',
                         icon: '/resources/images/user.png',
                         itemId: 'btnUser',
                         text: '<div style="color:white">' + this.textUser + '</div>',

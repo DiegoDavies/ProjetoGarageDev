@@ -124,6 +124,7 @@
     <Compile Include="Code\Autentication.cs" />
     <Compile Include="Code\ConnectDB.cs" />
     <Compile Include="Code\Data.cs" />
+    <Compile Include="Code\EnvioEmail.cs" />
     <Compile Include="Code\IJSONReader.cs" />
     <Compile Include="Code\IJSONReaderRequestBody.cs" />
     <Compile Include="Code\JSONHandler.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Code\SQLJSONReaderRequestBody.cs" />
     <Compile Include="Handlers\Dados.cs" />
     <Compile Include="Handlers\Data.cs" />
+    <Compile Include="Handlers\EnvioEmail.cs" />
     <Compile Include="Handlers\Log.cs" />
     <Compile Include="Handlers\Login.cs" />
     <Compile Include="Handlers\Startup.cs" />
@@ -145,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NovoUser.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

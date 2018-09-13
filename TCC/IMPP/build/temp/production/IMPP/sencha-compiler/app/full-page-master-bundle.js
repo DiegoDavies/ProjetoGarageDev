@@ -1,2 +1,2 @@
 // @tag full-page
-// @require C:\Users\diego\Documents\Visual Studio 2015\Projects\TCC\IMPP\app.js
+// @require C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\IMPP\app.js

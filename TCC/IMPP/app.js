@@ -18,7 +18,7 @@ Ext.application({
         Ext.Ajax.on({
             requestcomplete: function (conn, response, options, eOpts) {
                 //adicionar funcionalidade para verificar a sessão
-                if (options.url !== '/GravaLog' && options.url !== '/Login') {
+                if (options.url !== '/GravaLog' && options.url !== '/Login' && options.url !== '/Email') {
                     var init = options.url.indexOf('procedure=') + 10,
                         finish = options.url.indexOf('&params'),
                         procedure = options.url.substring(init, finish),
@@ -39,7 +39,7 @@ Ext.application({
                 }
             },
             requestexception: function (conn, response, options, eOpts) {
-                if (options.url !== '/GravaLog') {
+                if (options.url !== '/GravaLog' && options.url !== '/Email') {
                     var init = options.url.indexOf('procedure=') + 10,
                         finish = options.url.indexOf('&params'),
                         finish1 = options.url.indexOf('&operation'),

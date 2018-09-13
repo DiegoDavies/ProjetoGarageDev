@@ -12,5 +12,8 @@
     }, {
         name: 'Email',
         type: 'STRING'
+    }, {
+        name: 'Senha',
+        type: 'STRING'
     }]
 });

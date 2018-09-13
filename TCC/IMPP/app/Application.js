@@ -30,6 +30,7 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.login.WindowLogin',
         'ProjetoGarage.view.telaPrincipal.Viewport',
         'ProjetoGarage.view.GridDefault',
+        'ProjetoGarage.view.telaPrincipal.WindowAjuda',
 
         'ProjetoGarage.view.funcionario.Tela',
         'ProjetoGarage.view.situacao.Tela',
@@ -52,7 +53,10 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.perfil.Tela',
         'ProjetoGarage.view.login.WindowAlterar',
         'ProjetoGarage.view.login.WindowSolicitar',
-        'ProjetoGarage.view.login.WindowResetar'
+        'ProjetoGarage.view.login.WindowResetar',
+        'ProjetoGarage.view.marca.Tela',
+        'ProjetoGarage.view.modelo.Tela',
+        'ProjetoGarage.view.veiculo.Tela'
     ],
 
     stores: [
@@ -69,6 +73,8 @@ Ext.define('ProjetoGarage.Application', {
         'combos.StatusFornecedor',
         'combos.Banco',
         'combos.Modulo',
+        'combos.Marca',
+        'combos.Modelo',
 
         'funcionario.Store',
         'funcionario.Historico',
@@ -137,7 +143,15 @@ Ext.define('ProjetoGarage.Application', {
         'cliente.ContaReceber',
         'cliente.Historico',
         'cliente.Servico',
-        'cliente.Veiculo'
+        'cliente.Veiculo',
+
+        'marca.Store',
+        'modelo.Store',
+
+        'telaPrincipal.Ajuda',
+
+        'veiculo.Store',
+        'veiculo.Historico'
     ]
 });
 

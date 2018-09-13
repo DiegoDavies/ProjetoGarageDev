@@ -20,8 +20,8 @@
                 name: 'Nome',
                 itemId: 'txtNome',
                 width: 500,
-                labelAlign: 'top',
                 allowBlank: false,
+                labelAlign: 'top',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {

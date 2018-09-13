@@ -2754,6 +2754,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtThemeNeptune.toolbar.Paging": [],
   "ExtThemeNeptune.toolbar.Toolbar": [],
   "ProjetoGarage.Application": [],
+  "ProjetoGarage.model.banco.Model": [],
+  "ProjetoGarage.model.cliente.ContaReceber": [],
+  "ProjetoGarage.model.cliente.Historico": [],
+  "ProjetoGarage.model.cliente.Model": [],
+  "ProjetoGarage.model.cliente.Servico": [],
+  "ProjetoGarage.model.cliente.Veiculo": [],
+  "ProjetoGarage.model.combos.Banco": [],
   "ProjetoGarage.model.combos.Cidade": [],
   "ProjetoGarage.model.combos.Cliente": [],
   "ProjetoGarage.model.combos.Estado": [],
@@ -2761,9 +2768,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.model.combos.Etnia": [],
   "ProjetoGarage.model.combos.Formacao": [],
   "ProjetoGarage.model.combos.Funcao": [],
+  "ProjetoGarage.model.combos.Marca": [],
+  "ProjetoGarage.model.combos.Modelo": [],
+  "ProjetoGarage.model.combos.Modulo": [],
   "ProjetoGarage.model.combos.Parentesco": [],
   "ProjetoGarage.model.combos.Sexo": [],
   "ProjetoGarage.model.combos.Situacao": [],
+  "ProjetoGarage.model.combos.StatusFornecedor": [],
   "ProjetoGarage.model.contaPagar.Model": [],
   "ProjetoGarage.model.contaPagar.Ocorrencia": [],
   "ProjetoGarage.model.contaPagar.Pagamento": [],
@@ -2773,24 +2784,51 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.model.estadoCivil.Model": [],
   "ProjetoGarage.model.etnia.Model": [],
   "ProjetoGarage.model.formacao.Model": [],
+  "ProjetoGarage.model.fornecedor.ContaPagar": [],
+  "ProjetoGarage.model.fornecedor.Historico": [],
+  "ProjetoGarage.model.fornecedor.Model": [],
+  "ProjetoGarage.model.fornecedor.Pagamento": [],
   "ProjetoGarage.model.funcao.Model": [],
+  "ProjetoGarage.model.funcionalidade.Model": [],
   "ProjetoGarage.model.funcionario.Dependente": [],
   "ProjetoGarage.model.funcionario.Historico": [],
   "ProjetoGarage.model.funcionario.HistoricoOcupacional": [],
   "ProjetoGarage.model.funcionario.Model": [],
   "ProjetoGarage.model.funcionario.Pagamento": [],
+  "ProjetoGarage.model.login.AlterarSenha": [],
+  "ProjetoGarage.model.login.ConfirmarSenha": [],
+  "ProjetoGarage.model.login.SolicitarSenha": [],
+  "ProjetoGarage.model.marca.Model": [],
+  "ProjetoGarage.model.modelo.Model": [],
+  "ProjetoGarage.model.modulo.Model": [],
   "ProjetoGarage.model.orcamento.Custos": [],
   "ProjetoGarage.model.orcamento.Model": [],
   "ProjetoGarage.model.orcamento.Ocorrencia": [],
   "ProjetoGarage.model.orcamento.Produto": [],
   "ProjetoGarage.model.orcamento.Veiculo": [],
   "ProjetoGarage.model.parentesco.Model": [],
+  "ProjetoGarage.model.perfil.Funcionalidade": [],
+  "ProjetoGarage.model.perfil.Model": [],
   "ProjetoGarage.model.servico.Custos": [],
   "ProjetoGarage.model.servico.Model": [],
   "ProjetoGarage.model.servico.Ocorrencia": [],
   "ProjetoGarage.model.servico.Produto": [],
   "ProjetoGarage.model.servico.Veiculo": [],
   "ProjetoGarage.model.situacao.Model": [],
+  "ProjetoGarage.model.statusFornecedor.Model": [],
+  "ProjetoGarage.model.telaPrincipal.Ajuda": [],
+  "ProjetoGarage.model.telaPrincipal.Menu": [],
+  "ProjetoGarage.model.usuario.Model": [],
+  "ProjetoGarage.model.usuario.Perfil": [],
+  "ProjetoGarage.model.veiculo.Historico": [],
+  "ProjetoGarage.model.veiculo.Model": [],
+  "ProjetoGarage.store.banco.Store": [],
+  "ProjetoGarage.store.cliente.ContaReceber": [],
+  "ProjetoGarage.store.cliente.Historico": [],
+  "ProjetoGarage.store.cliente.Servico": [],
+  "ProjetoGarage.store.cliente.Store": [],
+  "ProjetoGarage.store.cliente.Veiculo": [],
+  "ProjetoGarage.store.combos.Banco": [],
   "ProjetoGarage.store.combos.Cidade": [],
   "ProjetoGarage.store.combos.Cliente": [],
   "ProjetoGarage.store.combos.Estado": [],
@@ -2798,9 +2836,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.store.combos.Etnia": [],
   "ProjetoGarage.store.combos.Formacao": [],
   "ProjetoGarage.store.combos.Funcao": [],
+  "ProjetoGarage.store.combos.Marca": [],
+  "ProjetoGarage.store.combos.Modelo": [],
+  "ProjetoGarage.store.combos.Modulo": [],
   "ProjetoGarage.store.combos.Parentesco": [],
   "ProjetoGarage.store.combos.Sexo": [],
   "ProjetoGarage.store.combos.Situacao": [],
+  "ProjetoGarage.store.combos.StatusFornecedor": [],
   "ProjetoGarage.store.contaPagar.Ocorrencia": [],
   "ProjetoGarage.store.contaPagar.Pagamento": [],
   "ProjetoGarage.store.contaPagar.Store": [],
@@ -2810,31 +2852,65 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.store.estadoCivil.Store": [],
   "ProjetoGarage.store.etnia.Store": [],
   "ProjetoGarage.store.formacao.Store": [],
+  "ProjetoGarage.store.fornecedor.ContaPagar": [],
+  "ProjetoGarage.store.fornecedor.Historico": [],
+  "ProjetoGarage.store.fornecedor.Pagamento": [],
+  "ProjetoGarage.store.fornecedor.Store": [],
   "ProjetoGarage.store.funcao.Store": [],
+  "ProjetoGarage.store.funcionalidade.Store": [],
   "ProjetoGarage.store.funcionario.Dependente": [],
   "ProjetoGarage.store.funcionario.Historico": [],
   "ProjetoGarage.store.funcionario.HistoricoOcupacional": [],
   "ProjetoGarage.store.funcionario.Pagamento": [],
   "ProjetoGarage.store.funcionario.Store": [],
+  "ProjetoGarage.store.login.AlterarSenha": [],
+  "ProjetoGarage.store.login.ConfirmarSenha": [],
+  "ProjetoGarage.store.login.SolicitarSenha": [],
+  "ProjetoGarage.store.marca.Store": [],
+  "ProjetoGarage.store.modelo.Store": [],
+  "ProjetoGarage.store.modulo.Store": [],
   "ProjetoGarage.store.orcamento.Custos": [],
   "ProjetoGarage.store.orcamento.Ocorrencia": [],
   "ProjetoGarage.store.orcamento.Produto": [],
   "ProjetoGarage.store.orcamento.Store": [],
   "ProjetoGarage.store.orcamento.Veiculo": [],
   "ProjetoGarage.store.parentesco.Store": [],
+  "ProjetoGarage.store.perfil.Funcionalidade": [],
+  "ProjetoGarage.store.perfil.Store": [],
   "ProjetoGarage.store.servico.Custos": [],
   "ProjetoGarage.store.servico.Ocorrencia": [],
   "ProjetoGarage.store.servico.Produto": [],
   "ProjetoGarage.store.servico.Store": [],
   "ProjetoGarage.store.servico.Veiculo": [],
   "ProjetoGarage.store.situacao.Store": [],
+  "ProjetoGarage.store.statusFornecedor.Store": [],
+  "ProjetoGarage.store.telaPrincipal.Ajuda": [],
+  "ProjetoGarage.store.telaPrincipal.Menu": [],
+  "ProjetoGarage.store.usuario.Perfil": [],
+  "ProjetoGarage.store.usuario.Store": [],
+  "ProjetoGarage.store.veiculo.Historico": [],
+  "ProjetoGarage.store.veiculo.Store": [],
   "ProjetoGarage.ux.Data": [],
   "ProjetoGarage.ux.DataSQLStore": [],
   "ProjetoGarage.ux.DataStoreHandler": [],
   "ProjetoGarage.ux.InputTextMask": [],
+  "ProjetoGarage.ux.MascaraTabPanel": [],
   "ProjetoGarage.ux.Store": [],
   "ProjetoGarage.ux.TccCombo": [],
   "ProjetoGarage.view.GridDefault": [],
+  "ProjetoGarage.view.banco.Form": [],
+  "ProjetoGarage.view.banco.Grid": [],
+  "ProjetoGarage.view.banco.Tela": [],
+  "ProjetoGarage.view.banco.Window": [],
+  "ProjetoGarage.view.cliente.Form": [],
+  "ProjetoGarage.view.cliente.Grid": [],
+  "ProjetoGarage.view.cliente.GridContaReceber": [],
+  "ProjetoGarage.view.cliente.GridHistorico": [],
+  "ProjetoGarage.view.cliente.GridServico": [],
+  "ProjetoGarage.view.cliente.GridVeiculo": [],
+  "ProjetoGarage.view.cliente.Panel": [],
+  "ProjetoGarage.view.cliente.TabPanelFilho": [],
+  "ProjetoGarage.view.cliente.Tela": [],
   "ProjetoGarage.view.contaPagar.Form": [],
   "ProjetoGarage.view.contaPagar.Grid": [],
   "ProjetoGarage.view.contaPagar.GridOcorrencia": [],
@@ -2849,18 +2925,36 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.view.contaReceber.Panel": [],
   "ProjetoGarage.view.contaReceber.TabPanelFilho": [],
   "ProjetoGarage.view.contaReceber.Tela": [],
+  "ProjetoGarage.view.estadoCivil.Form": [],
   "ProjetoGarage.view.estadoCivil.Grid": [],
   "ProjetoGarage.view.estadoCivil.Tela": [],
   "ProjetoGarage.view.estadoCivil.Window": [],
+  "ProjetoGarage.view.etnia.Form": [],
   "ProjetoGarage.view.etnia.Grid": [],
   "ProjetoGarage.view.etnia.Tela": [],
   "ProjetoGarage.view.etnia.Window": [],
+  "ProjetoGarage.view.formacao.Form": [],
   "ProjetoGarage.view.formacao.Grid": [],
   "ProjetoGarage.view.formacao.Tela": [],
   "ProjetoGarage.view.formacao.Window": [],
+  "ProjetoGarage.view.fornecedor.Form": [],
+  "ProjetoGarage.view.fornecedor.FormPagamento": [],
+  "ProjetoGarage.view.fornecedor.Grid": [],
+  "ProjetoGarage.view.fornecedor.GridContaPagar": [],
+  "ProjetoGarage.view.fornecedor.GridHistorico": [],
+  "ProjetoGarage.view.fornecedor.GridPagamento": [],
+  "ProjetoGarage.view.fornecedor.Panel": [],
+  "ProjetoGarage.view.fornecedor.TabPanelFilho": [],
+  "ProjetoGarage.view.fornecedor.Tela": [],
+  "ProjetoGarage.view.fornecedor.WindowPagamento": [],
+  "ProjetoGarage.view.funcao.Form": [],
   "ProjetoGarage.view.funcao.Grid": [],
   "ProjetoGarage.view.funcao.Tela": [],
   "ProjetoGarage.view.funcao.Window": [],
+  "ProjetoGarage.view.funcionalidade.Form": [],
+  "ProjetoGarage.view.funcionalidade.Grid": [],
+  "ProjetoGarage.view.funcionalidade.Tela": [],
+  "ProjetoGarage.view.funcionalidade.Window": [],
   "ProjetoGarage.view.funcionario.Form": [],
   "ProjetoGarage.view.funcionario.FormDependente": [],
   "ProjetoGarage.view.funcionario.FormHistoricoOcupacional": [],
@@ -2877,6 +2971,22 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.view.funcionario.WindowHistoricoOcupacional": [],
   "ProjetoGarage.view.funcionario.WindowPagamento": [],
   "ProjetoGarage.view.login.Login": [],
+  "ProjetoGarage.view.login.WindowAlterar": [],
+  "ProjetoGarage.view.login.WindowLogin": [],
+  "ProjetoGarage.view.login.WindowResetar": [],
+  "ProjetoGarage.view.login.WindowSolicitar": [],
+  "ProjetoGarage.view.marca.Form": [],
+  "ProjetoGarage.view.marca.Grid": [],
+  "ProjetoGarage.view.marca.Tela": [],
+  "ProjetoGarage.view.marca.Window": [],
+  "ProjetoGarage.view.modelo.Form": [],
+  "ProjetoGarage.view.modelo.Grid": [],
+  "ProjetoGarage.view.modelo.Tela": [],
+  "ProjetoGarage.view.modelo.Window": [],
+  "ProjetoGarage.view.modulo.Form": [],
+  "ProjetoGarage.view.modulo.Grid": [],
+  "ProjetoGarage.view.modulo.Tela": [],
+  "ProjetoGarage.view.modulo.Window": [],
   "ProjetoGarage.view.orcamento.Form": [],
   "ProjetoGarage.view.orcamento.Grid": [],
   "ProjetoGarage.view.orcamento.GridCustos": [],
@@ -2886,9 +2996,15 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.view.orcamento.Panel": [],
   "ProjetoGarage.view.orcamento.TabPanelFilho": [],
   "ProjetoGarage.view.orcamento.Tela": [],
+  "ProjetoGarage.view.parentesco.Form": [],
   "ProjetoGarage.view.parentesco.Grid": [],
   "ProjetoGarage.view.parentesco.Tela": [],
   "ProjetoGarage.view.parentesco.Window": [],
+  "ProjetoGarage.view.perfil.Form": [],
+  "ProjetoGarage.view.perfil.Grid": [],
+  "ProjetoGarage.view.perfil.GridFuncionalidade": [],
+  "ProjetoGarage.view.perfil.Tela": [],
+  "ProjetoGarage.view.perfil.Window": [],
   "ProjetoGarage.view.servico.Form": [],
   "ProjetoGarage.view.servico.Grid": [],
   "ProjetoGarage.view.servico.GridCustos": [],
@@ -2898,11 +3014,28 @@ Ext.ClassManager.addNameAlternateMappings({
   "ProjetoGarage.view.servico.Panel": [],
   "ProjetoGarage.view.servico.TabPanelFilho": [],
   "ProjetoGarage.view.servico.Tela": [],
+  "ProjetoGarage.view.situacao.Form": [],
   "ProjetoGarage.view.situacao.Grid": [],
   "ProjetoGarage.view.situacao.Tela": [],
   "ProjetoGarage.view.situacao.Window": [],
+  "ProjetoGarage.view.statusFornecedor.Form": [],
+  "ProjetoGarage.view.statusFornecedor.Grid": [],
+  "ProjetoGarage.view.statusFornecedor.Tela": [],
+  "ProjetoGarage.view.statusFornecedor.Window": [],
   "ProjetoGarage.view.telaPrincipal.Menu": [],
-  "ProjetoGarage.view.telaPrincipal.Viewport": []
+  "ProjetoGarage.view.telaPrincipal.Viewport": [],
+  "ProjetoGarage.view.telaPrincipal.WindowAjuda": [],
+  "ProjetoGarage.view.usuario.Form": [],
+  "ProjetoGarage.view.usuario.Grid": [],
+  "ProjetoGarage.view.usuario.GridPerfil": [],
+  "ProjetoGarage.view.usuario.Tela": [],
+  "ProjetoGarage.view.usuario.Window": [],
+  "ProjetoGarage.view.veiculo.Form": [],
+  "ProjetoGarage.view.veiculo.Grid": [],
+  "ProjetoGarage.view.veiculo.GridHistorico": [],
+  "ProjetoGarage.view.veiculo.Panel": [],
+  "ProjetoGarage.view.veiculo.TabPanelFilho": [],
+  "ProjetoGarage.view.veiculo.Tela": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -3907,6 +4040,13 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtThemeNeptune.toolbar.Paging": [],
   "ExtThemeNeptune.toolbar.Toolbar": [],
   "ProjetoGarage.Application": [],
+  "ProjetoGarage.model.banco.Model": [],
+  "ProjetoGarage.model.cliente.ContaReceber": [],
+  "ProjetoGarage.model.cliente.Historico": [],
+  "ProjetoGarage.model.cliente.Model": [],
+  "ProjetoGarage.model.cliente.Servico": [],
+  "ProjetoGarage.model.cliente.Veiculo": [],
+  "ProjetoGarage.model.combos.Banco": [],
   "ProjetoGarage.model.combos.Cidade": [],
   "ProjetoGarage.model.combos.Cliente": [],
   "ProjetoGarage.model.combos.Estado": [],
@@ -3914,9 +4054,13 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.model.combos.Etnia": [],
   "ProjetoGarage.model.combos.Formacao": [],
   "ProjetoGarage.model.combos.Funcao": [],
+  "ProjetoGarage.model.combos.Marca": [],
+  "ProjetoGarage.model.combos.Modelo": [],
+  "ProjetoGarage.model.combos.Modulo": [],
   "ProjetoGarage.model.combos.Parentesco": [],
   "ProjetoGarage.model.combos.Sexo": [],
   "ProjetoGarage.model.combos.Situacao": [],
+  "ProjetoGarage.model.combos.StatusFornecedor": [],
   "ProjetoGarage.model.contaPagar.Model": [],
   "ProjetoGarage.model.contaPagar.Ocorrencia": [],
   "ProjetoGarage.model.contaPagar.Pagamento": [],
@@ -3926,24 +4070,51 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.model.estadoCivil.Model": [],
   "ProjetoGarage.model.etnia.Model": [],
   "ProjetoGarage.model.formacao.Model": [],
+  "ProjetoGarage.model.fornecedor.ContaPagar": [],
+  "ProjetoGarage.model.fornecedor.Historico": [],
+  "ProjetoGarage.model.fornecedor.Model": [],
+  "ProjetoGarage.model.fornecedor.Pagamento": [],
   "ProjetoGarage.model.funcao.Model": [],
+  "ProjetoGarage.model.funcionalidade.Model": [],
   "ProjetoGarage.model.funcionario.Dependente": [],
   "ProjetoGarage.model.funcionario.Historico": [],
   "ProjetoGarage.model.funcionario.HistoricoOcupacional": [],
   "ProjetoGarage.model.funcionario.Model": [],
   "ProjetoGarage.model.funcionario.Pagamento": [],
+  "ProjetoGarage.model.login.AlterarSenha": [],
+  "ProjetoGarage.model.login.ConfirmarSenha": [],
+  "ProjetoGarage.model.login.SolicitarSenha": [],
+  "ProjetoGarage.model.marca.Model": [],
+  "ProjetoGarage.model.modelo.Model": [],
+  "ProjetoGarage.model.modulo.Model": [],
   "ProjetoGarage.model.orcamento.Custos": [],
   "ProjetoGarage.model.orcamento.Model": [],
   "ProjetoGarage.model.orcamento.Ocorrencia": [],
   "ProjetoGarage.model.orcamento.Produto": [],
   "ProjetoGarage.model.orcamento.Veiculo": [],
   "ProjetoGarage.model.parentesco.Model": [],
+  "ProjetoGarage.model.perfil.Funcionalidade": [],
+  "ProjetoGarage.model.perfil.Model": [],
   "ProjetoGarage.model.servico.Custos": [],
   "ProjetoGarage.model.servico.Model": [],
   "ProjetoGarage.model.servico.Ocorrencia": [],
   "ProjetoGarage.model.servico.Produto": [],
   "ProjetoGarage.model.servico.Veiculo": [],
   "ProjetoGarage.model.situacao.Model": [],
+  "ProjetoGarage.model.statusFornecedor.Model": [],
+  "ProjetoGarage.model.telaPrincipal.Ajuda": [],
+  "ProjetoGarage.model.telaPrincipal.Menu": [],
+  "ProjetoGarage.model.usuario.Model": [],
+  "ProjetoGarage.model.usuario.Perfil": [],
+  "ProjetoGarage.model.veiculo.Historico": [],
+  "ProjetoGarage.model.veiculo.Model": [],
+  "ProjetoGarage.store.banco.Store": [],
+  "ProjetoGarage.store.cliente.ContaReceber": [],
+  "ProjetoGarage.store.cliente.Historico": [],
+  "ProjetoGarage.store.cliente.Servico": [],
+  "ProjetoGarage.store.cliente.Store": [],
+  "ProjetoGarage.store.cliente.Veiculo": [],
+  "ProjetoGarage.store.combos.Banco": [],
   "ProjetoGarage.store.combos.Cidade": [],
   "ProjetoGarage.store.combos.Cliente": [],
   "ProjetoGarage.store.combos.Estado": [],
@@ -3951,9 +4122,13 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.store.combos.Etnia": [],
   "ProjetoGarage.store.combos.Formacao": [],
   "ProjetoGarage.store.combos.Funcao": [],
+  "ProjetoGarage.store.combos.Marca": [],
+  "ProjetoGarage.store.combos.Modelo": [],
+  "ProjetoGarage.store.combos.Modulo": [],
   "ProjetoGarage.store.combos.Parentesco": [],
   "ProjetoGarage.store.combos.Sexo": [],
   "ProjetoGarage.store.combos.Situacao": [],
+  "ProjetoGarage.store.combos.StatusFornecedor": [],
   "ProjetoGarage.store.contaPagar.Ocorrencia": [],
   "ProjetoGarage.store.contaPagar.Pagamento": [],
   "ProjetoGarage.store.contaPagar.Store": [],
@@ -3963,24 +4138,44 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.store.estadoCivil.Store": [],
   "ProjetoGarage.store.etnia.Store": [],
   "ProjetoGarage.store.formacao.Store": [],
+  "ProjetoGarage.store.fornecedor.ContaPagar": [],
+  "ProjetoGarage.store.fornecedor.Historico": [],
+  "ProjetoGarage.store.fornecedor.Pagamento": [],
+  "ProjetoGarage.store.fornecedor.Store": [],
   "ProjetoGarage.store.funcao.Store": [],
+  "ProjetoGarage.store.funcionalidade.Store": [],
   "ProjetoGarage.store.funcionario.Dependente": [],
   "ProjetoGarage.store.funcionario.Historico": [],
   "ProjetoGarage.store.funcionario.HistoricoOcupacional": [],
   "ProjetoGarage.store.funcionario.Pagamento": [],
   "ProjetoGarage.store.funcionario.Store": [],
+  "ProjetoGarage.store.login.AlterarSenha": [],
+  "ProjetoGarage.store.login.ConfirmarSenha": [],
+  "ProjetoGarage.store.login.SolicitarSenha": [],
+  "ProjetoGarage.store.marca.Store": [],
+  "ProjetoGarage.store.modelo.Store": [],
+  "ProjetoGarage.store.modulo.Store": [],
   "ProjetoGarage.store.orcamento.Custos": [],
   "ProjetoGarage.store.orcamento.Ocorrencia": [],
   "ProjetoGarage.store.orcamento.Produto": [],
   "ProjetoGarage.store.orcamento.Store": [],
   "ProjetoGarage.store.orcamento.Veiculo": [],
   "ProjetoGarage.store.parentesco.Store": [],
+  "ProjetoGarage.store.perfil.Funcionalidade": [],
+  "ProjetoGarage.store.perfil.Store": [],
   "ProjetoGarage.store.servico.Custos": [],
   "ProjetoGarage.store.servico.Ocorrencia": [],
   "ProjetoGarage.store.servico.Produto": [],
   "ProjetoGarage.store.servico.Store": [],
   "ProjetoGarage.store.servico.Veiculo": [],
   "ProjetoGarage.store.situacao.Store": [],
+  "ProjetoGarage.store.statusFornecedor.Store": [],
+  "ProjetoGarage.store.telaPrincipal.Ajuda": [],
+  "ProjetoGarage.store.telaPrincipal.Menu": [],
+  "ProjetoGarage.store.usuario.Perfil": [],
+  "ProjetoGarage.store.usuario.Store": [],
+  "ProjetoGarage.store.veiculo.Historico": [],
+  "ProjetoGarage.store.veiculo.Store": [],
   "ProjetoGarage.ux.Data": [],
   "ProjetoGarage.ux.DataSQLStore": [
     "store.data-sqlstore"
@@ -3989,12 +4184,54 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.ux.InputTextMask": [
     "widget.ux-InputTextMask"
   ],
+  "ProjetoGarage.ux.MascaraTabPanel": [
+    "widget.tcc-mascaraTab"
+  ],
   "ProjetoGarage.ux.Store": [],
   "ProjetoGarage.ux.TccCombo": [
     "widget.tcc-combo"
   ],
   "ProjetoGarage.view.GridDefault": [
     "widget.gridDefault"
+  ],
+  "ProjetoGarage.view.banco.Form": [
+    "widget.banco-form"
+  ],
+  "ProjetoGarage.view.banco.Grid": [
+    "widget.banco-grid"
+  ],
+  "ProjetoGarage.view.banco.Tela": [
+    "widget.banco-tela"
+  ],
+  "ProjetoGarage.view.banco.Window": [
+    "widget.banco-window"
+  ],
+  "ProjetoGarage.view.cliente.Form": [
+    "widget.cliente-form"
+  ],
+  "ProjetoGarage.view.cliente.Grid": [
+    "widget.cliente-grid"
+  ],
+  "ProjetoGarage.view.cliente.GridContaReceber": [
+    "widget.cliente-gridContaReceber"
+  ],
+  "ProjetoGarage.view.cliente.GridHistorico": [
+    "widget.cliente-gridHistorico"
+  ],
+  "ProjetoGarage.view.cliente.GridServico": [
+    "widget.cliente-gridServico"
+  ],
+  "ProjetoGarage.view.cliente.GridVeiculo": [
+    "widget.cliente-gridVeiculo"
+  ],
+  "ProjetoGarage.view.cliente.Panel": [
+    "widget.cliente-panel"
+  ],
+  "ProjetoGarage.view.cliente.TabPanelFilho": [
+    "widget.cliente-tabPanel"
+  ],
+  "ProjetoGarage.view.cliente.Tela": [
+    "widget.cliente-tela"
   ],
   "ProjetoGarage.view.contaPagar.Form": [
     "widget.contaPagar-form"
@@ -4038,6 +4275,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.contaReceber.Tela": [
     "widget.contaReceber-tela"
   ],
+  "ProjetoGarage.view.estadoCivil.Form": [
+    "widget.estadoCivil-form"
+  ],
   "ProjetoGarage.view.estadoCivil.Grid": [
     "widget.estadoCivil-grid"
   ],
@@ -4046,6 +4286,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ProjetoGarage.view.estadoCivil.Window": [
     "widget.estadoCivil-window"
+  ],
+  "ProjetoGarage.view.etnia.Form": [
+    "widget.etnia-form"
   ],
   "ProjetoGarage.view.etnia.Grid": [
     "widget.etnia-grid"
@@ -4056,6 +4299,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.etnia.Window": [
     "widget.etnia-window"
   ],
+  "ProjetoGarage.view.formacao.Form": [
+    "widget.formacao-form"
+  ],
   "ProjetoGarage.view.formacao.Grid": [
     "widget.formacao-grid"
   ],
@@ -4065,6 +4311,39 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.formacao.Window": [
     "widget.formacao-window"
   ],
+  "ProjetoGarage.view.fornecedor.Form": [
+    "widget.fornecedor-form"
+  ],
+  "ProjetoGarage.view.fornecedor.FormPagamento": [
+    "widget.fornecedor-formPagamento"
+  ],
+  "ProjetoGarage.view.fornecedor.Grid": [
+    "widget.fornecedor-grid"
+  ],
+  "ProjetoGarage.view.fornecedor.GridContaPagar": [
+    "widget.fornecedor-gridContaPagar"
+  ],
+  "ProjetoGarage.view.fornecedor.GridHistorico": [
+    "widget.fornecedor-gridHistorico"
+  ],
+  "ProjetoGarage.view.fornecedor.GridPagamento": [
+    "widget.fornecedor-gridPagamento"
+  ],
+  "ProjetoGarage.view.fornecedor.Panel": [
+    "widget.fornecedor-panel"
+  ],
+  "ProjetoGarage.view.fornecedor.TabPanelFilho": [
+    "widget.fornecedor-tabPanel"
+  ],
+  "ProjetoGarage.view.fornecedor.Tela": [
+    "widget.fornecedor-tela"
+  ],
+  "ProjetoGarage.view.fornecedor.WindowPagamento": [
+    "widget.fornecedor-windowPagamento"
+  ],
+  "ProjetoGarage.view.funcao.Form": [
+    "widget.funcao-form"
+  ],
   "ProjetoGarage.view.funcao.Grid": [
     "widget.funcao-grid"
   ],
@@ -4073,6 +4352,18 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ProjetoGarage.view.funcao.Window": [
     "widget.funcao-window"
+  ],
+  "ProjetoGarage.view.funcionalidade.Form": [
+    "widget.funcionalidade-form"
+  ],
+  "ProjetoGarage.view.funcionalidade.Grid": [
+    "widget.funcionalidade-grid"
+  ],
+  "ProjetoGarage.view.funcionalidade.Tela": [
+    "widget.funcionalidade-tela"
+  ],
+  "ProjetoGarage.view.funcionalidade.Window": [
+    "widget.funcionalidade-window"
   ],
   "ProjetoGarage.view.funcionario.Form": [
     "widget.funcionario-form"
@@ -4122,6 +4413,54 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.login.Login": [
     "widget.loginContainer"
   ],
+  "ProjetoGarage.view.login.WindowAlterar": [
+    "widget.alterarWindow"
+  ],
+  "ProjetoGarage.view.login.WindowLogin": [
+    "widget.loginWindow"
+  ],
+  "ProjetoGarage.view.login.WindowResetar": [
+    "widget.resetarWindow"
+  ],
+  "ProjetoGarage.view.login.WindowSolicitar": [
+    "widget.solicitarWindow"
+  ],
+  "ProjetoGarage.view.marca.Form": [
+    "widget.marca-form"
+  ],
+  "ProjetoGarage.view.marca.Grid": [
+    "widget.marca-grid"
+  ],
+  "ProjetoGarage.view.marca.Tela": [
+    "widget.marca-tela"
+  ],
+  "ProjetoGarage.view.marca.Window": [
+    "widget.marca-window"
+  ],
+  "ProjetoGarage.view.modelo.Form": [
+    "widget.modelo-form"
+  ],
+  "ProjetoGarage.view.modelo.Grid": [
+    "widget.modelo-grid"
+  ],
+  "ProjetoGarage.view.modelo.Tela": [
+    "widget.modelo-tela"
+  ],
+  "ProjetoGarage.view.modelo.Window": [
+    "widget.modelo-window"
+  ],
+  "ProjetoGarage.view.modulo.Form": [
+    "widget.modulo-form"
+  ],
+  "ProjetoGarage.view.modulo.Grid": [
+    "widget.modulo-grid"
+  ],
+  "ProjetoGarage.view.modulo.Tela": [
+    "widget.modulo-tela"
+  ],
+  "ProjetoGarage.view.modulo.Window": [
+    "widget.modulo-window"
+  ],
   "ProjetoGarage.view.orcamento.Form": [
     "widget.orcamento-form"
   ],
@@ -4149,6 +4488,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.orcamento.Tela": [
     "widget.orcamento-tela"
   ],
+  "ProjetoGarage.view.parentesco.Form": [
+    "widget.parentesco-form"
+  ],
   "ProjetoGarage.view.parentesco.Grid": [
     "widget.parentesco-grid"
   ],
@@ -4157,6 +4499,21 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ProjetoGarage.view.parentesco.Window": [
     "widget.parentesco-window"
+  ],
+  "ProjetoGarage.view.perfil.Form": [
+    "widget.perfil-form"
+  ],
+  "ProjetoGarage.view.perfil.Grid": [
+    "widget.perfil-grid"
+  ],
+  "ProjetoGarage.view.perfil.GridFuncionalidade": [
+    "widget.perfil-gridFuncionalidade"
+  ],
+  "ProjetoGarage.view.perfil.Tela": [
+    "widget.perfil-tela"
+  ],
+  "ProjetoGarage.view.perfil.Window": [
+    "widget.perfil-window"
   ],
   "ProjetoGarage.view.servico.Form": [
     "widget.servico-form"
@@ -4185,6 +4542,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.servico.Tela": [
     "widget.servico-tela"
   ],
+  "ProjetoGarage.view.situacao.Form": [
+    "widget.situacao-form"
+  ],
   "ProjetoGarage.view.situacao.Grid": [
     "widget.situacao-grid"
   ],
@@ -4194,10 +4554,58 @@ Ext.ClassManager.addNameAliasMappings({
   "ProjetoGarage.view.situacao.Window": [
     "widget.situacao-window"
   ],
+  "ProjetoGarage.view.statusFornecedor.Form": [
+    "widget.statusFornecedor-form"
+  ],
+  "ProjetoGarage.view.statusFornecedor.Grid": [
+    "widget.statusFornecedor-grid"
+  ],
+  "ProjetoGarage.view.statusFornecedor.Tela": [
+    "widget.statusFornecedor-tela"
+  ],
+  "ProjetoGarage.view.statusFornecedor.Window": [
+    "widget.statusFornecedor-window"
+  ],
   "ProjetoGarage.view.telaPrincipal.Menu": [
     "widget.telaPrincipal-menu"
   ],
-  "ProjetoGarage.view.telaPrincipal.Viewport": []
+  "ProjetoGarage.view.telaPrincipal.Viewport": [],
+  "ProjetoGarage.view.telaPrincipal.WindowAjuda": [
+    "widget.ajudaWindow"
+  ],
+  "ProjetoGarage.view.usuario.Form": [
+    "widget.usuario-form"
+  ],
+  "ProjetoGarage.view.usuario.Grid": [
+    "widget.usuario-grid"
+  ],
+  "ProjetoGarage.view.usuario.GridPerfil": [
+    "widget.usuario-gridPerfil"
+  ],
+  "ProjetoGarage.view.usuario.Tela": [
+    "widget.usuario-tela"
+  ],
+  "ProjetoGarage.view.usuario.Window": [
+    "widget.usuario-window"
+  ],
+  "ProjetoGarage.view.veiculo.Form": [
+    "widget.veiculo-form"
+  ],
+  "ProjetoGarage.view.veiculo.Grid": [
+    "widget.veiculo-grid"
+  ],
+  "ProjetoGarage.view.veiculo.GridHistorico": [
+    "widget.veiculo-gridHistorico"
+  ],
+  "ProjetoGarage.view.veiculo.Panel": [
+    "widget.veiculo-panel"
+  ],
+  "ProjetoGarage.view.veiculo.TabPanelFilho": [
+    "widget.veiculo-tabPanel"
+  ],
+  "ProjetoGarage.view.veiculo.Tela": [
+    "widget.veiculo-tela"
+  ]
 });
 
 Ext.setVersion("ext-theme-base", "4.2.1");

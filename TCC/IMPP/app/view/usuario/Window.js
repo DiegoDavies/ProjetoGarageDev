@@ -88,10 +88,31 @@
                 store.sync({
                     success: function (batch) {
                         var rec = batch.operations[0].records[0];
-                        me.extraData.formType = 'Alterar';
-                        me.extraData.record = rec;
-                        me.getEl().unmask();
-                        me.onShowWindow();
+
+                        Ext.Ajax.request({
+                            url: '/Email',
+                            params: {
+                                EmailDestino: rec.get('Email'),
+                                TipoEmail: 2,
+                                UsuarioNome: rec.get('Nome'),
+                                Login: rec.get('Login'),
+                                Password: rec.get('Senha')
+                            },
+                            success: function (response) {
+                                me.extraData.formType = 'Alterar';
+                                me.extraData.record = rec;
+                                me.getEl().unmask();
+                                me.onShowWindow();
+                            },
+                            failure: function (retorno, request) {
+                                Ext.Msg.show({
+                                    title: 'Erro',
+                                    msg: 'Ocorreu um erro ao enviar o e-mail, Em breve um atendente te enviara os procedimentos por e-mail!',
+                                    buttons: Ext.Msg.OK,
+                                    icon: Ext.Msg.INFO
+                                });
+                            }
+                        });
                     },
                     failure: function () {
                         store.rejectChanges();

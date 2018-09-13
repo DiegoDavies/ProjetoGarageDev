@@ -17,6 +17,7 @@
                 name: 'Codigo',
                 itemId: 'txtCodigo',
                 width: 300,
+                allowBlank: false,
                 labelAlign: 'top',
                 enableKeyEvents: true,
                 listeners: {
@@ -30,6 +31,7 @@
                 fieldLabel: 'Nome',
                 xtype: 'textfield',
                 name: 'Nome',
+                allowBlank: false,
                 itemId: 'txtNome',
                 width: 300,
                 labelAlign: 'top',

@@ -18,6 +18,7 @@
                 itemId: 'txtNome',
                 width: 300,
                 labelAlign: 'top',
+                allowBlank: false,
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {

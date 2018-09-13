@@ -132,9 +132,9 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
     },
 
     removeValueWhenInvalid: function () {
-        if (this.clearWhenInvalid && this.inputTextElement.value.indexOf('_') > -1) {
-            this.inputTextElement.value = '';
-        }
+        //if (this.clearWhenInvalid && this.inputTextElement.value.indexOf('_') > -1) {
+        //    this.inputTextElement.value = '';
+        //}
     },
 
     managePaste: function () {
