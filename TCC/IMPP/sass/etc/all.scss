@@ -37,3 +37,43 @@ LabelLogin .label {
     color: blue;
     text-decoration: underline;
 }
+
+.x-tab-help-btn {
+    display: block;
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    background: no-repeat;
+}
+
+.x-tab-default .x-tab-help-btn {
+    width: 12px;
+    height: 12px;
+    background-image: url(images/helpsmall.png);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    opacity: 0.6;
+}
+
+.x-tab-default .x-tab-help-btn {
+    top: 2px;
+    right: 15px;
+}
+
+.x-tab-default .x-tab-help-btn-over {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+.x-rtl.x-tab-default .x-tab-help-btn {
+    right: auto;
+    left: 2px;
+}
+
+.x-tab-default-disabled .x-tab-help-btn {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+    opacity: 0.3;
+}
+
+.x-tab-default-pressed .x-tab-help-btn {
+    background-position: 0;
+}

@@ -149,7 +149,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'contaReceber-panel',
-            title: 'Conta à Receber: ' + record.get('Documento'),
+            title: 'Conta à Receber: ' + record.get('Documento') + '&nbsp;&nbsp;',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'contaReceber' + record.get('ContaReceberId'),
@@ -167,7 +167,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'contaReceber-panel',
-            title: 'Cadastro de Conta à Receber',
+            title: 'Cadastro de Conta à Receber' + '&nbsp;&nbsp;',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroContaReceber',

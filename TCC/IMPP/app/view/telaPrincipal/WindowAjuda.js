@@ -19,7 +19,7 @@
                 width: '100%',
                 height: '100%',
                 labelAlign: 'top',
-                emptyText: 'Preencha o campo abaixo com suas Dúvidas/Reclamações/Sugestões e etc.',
+                emptyText: 'Preencha o campo com suas Dúvidas/Reclamações/Sugestões e etc.',
                 name: 'Mensagem',
                 fieldStyle: 'border-radius: 4px;',
                 enableKeyEvents: true,

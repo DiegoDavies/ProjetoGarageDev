@@ -118,8 +118,9 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                     background: 'white'
                 },
                 items: [{
-                    title: 'Dashboard',
-                    closable: false
+                    title: 'Dashboard' + '&nbsp;&nbsp;',
+                    closable: false,
+                    helpable: false
                 }]
             }]
         });

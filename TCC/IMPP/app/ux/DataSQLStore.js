@@ -142,8 +142,8 @@
                 actionMethods: {
                     create: 'POST',
                     read: 'GET',
-                    update: 'PUT',
-                    destroy: 'DELETE'
+                    update: 'POST',
+                    destroy: 'POST'
                 },
                 reader: {
                     type: 'json',
@@ -201,6 +201,9 @@
             }
         });
         me.on('beforesync', function (options, eOpts) {
+            this.params.HttpMethod = "POST";
+            this.params.HttpMethod = options.destroy ? "DELETE" : this.params.HttpMethod;
+            this.params.HttpMethod = options.update ? "PUT" : this.params.HttpMethod;
             var urlSuffix = (!this.params ? '' : ('&params=' + encodeURI(JSON.stringify(this.params)))) +
                             (!this.remoteFilters ? '' : ('&remoteFilters=' + encodeURI(JSON.stringify(this.remoteFilters)))) +
                             (!this.smart ? '' : '&smart=true') +

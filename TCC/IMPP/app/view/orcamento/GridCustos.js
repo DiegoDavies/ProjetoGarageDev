@@ -33,7 +33,7 @@
                 summaryRenderer: function (value, summaryData, field) {
                     var somar = 0;
                     Ext.each(me.store.data.items, function (item) {
-                        if(item.get('Desconto') && item.get('Valor') > 0){
+                        if (item.get('Desconto') && item.get('Valor') > 0) {
                             somar -= item.get('Valor');
                         } else {
                             somar += item.get('Valor');
@@ -72,7 +72,8 @@
             scope: me,
             boxready: me.onBoxReady,
             itemdblclick: me.onItemDblClick,
-            edit: me.onEdit
+            edit: me.onEdit,
+            beforeedit: me.onBeforeEdit
         });
 
         me.btnNovo.on({
@@ -154,8 +155,18 @@
         }
     },
     onEdit: function (editor, context, eOpts) {
+        var me = this;
+
         if (context.record.get('Desconto') && context.record.get('Valor') > 0) {
             context.record.set('Valor', context.record.get('Valor') * -1);
         }
+    },
+    onBeforeEdit: function (editor, context, eOpts) {
+        var me = this;
+
+        if (context.record.get('Descricao') === 'Produtos') {
+            return false;
+        }
+        return true;
     }
 });

@@ -120,7 +120,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'veiculo-panel',
-            title: 'Veículo: ' + record.get('Placa'),
+            title: 'Veículo: ' + record.get('Placa') + '&nbsp;&nbsp;',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Veiculo' + record.get('VeiculoId'),
@@ -144,7 +144,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'veiculo-panel',
-            title: 'Cadastro de Veículo',
+            title: 'Cadastro de Veículo' + '&nbsp;&nbsp;',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroVeiculo',

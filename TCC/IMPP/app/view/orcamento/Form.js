@@ -67,6 +67,13 @@
                 flex: 1,
                 margin: '0 0 0 0',
                 panel: me.panel
+            }, {
+                xtype: 'tcc-mascaraTab',
+                itemId: 'orcamentoMasc',
+                flex: 1,
+                margin: '0 0 0 0',
+                width: '100%',
+                height: '100%'
             }]
         });
 

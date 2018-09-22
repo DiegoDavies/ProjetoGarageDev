@@ -49,6 +49,7 @@
         me.dtDataVencimento = me.down('#dtDataVencimento');
         me.txtDuracao = me.down('#txtDuracao');
         me.tabPanel = me.down('orcamento-tabPanel');
+        me.mascaraCad = me.down('#orcamentoMasc');
         me.gridCustos = me.down('orcamento-gridCustos');
         //
         me.btnSalvar = me.down('#btnSalvar');
@@ -72,11 +73,17 @@
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
-            //me.tabPanel.show();
+            me.tabPanel.show();
+            me.tabPanel.loadStores();
+            me.mascaraCad.hide();
             me.txtNumero.focus();
+            me.gridCustos.show();
+            me.cboCliente.store.load();
         } else {
-            //me.tabPanel.hide();
+            me.tabPanel.hide();
+            me.mascaraCad.show();
             me.txtNumero.focus();
+            me.gridCustos.hide();
         }
 
         dados = [{
@@ -127,21 +134,63 @@
         } else {
             tab.items.each(function (item) {
                 if (item.toggleGroup === 'orcamento') {
-                    //item.hide();
+                    item.hide();
                 }
             }, me);
         }
     },
     onBtnSalvarClick: function () {
-        var me = this;
+        var me = this,
+            store = me.extraData.grid.store;
 
-        if (me.extraData.formType === 'Cadastrar') {
-            var model = Ext.create('ProjetoGarage.model.orcamento.Model');
-            me.form.updateRecord(model);
-            me.extraData.grid.store.add(model);
+        if (me.form.isValid()) {
+            Ext.Msg.show({
+                title: 'Validação',
+                msg: 'Deseja realmente prosseguir com a operação?',
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.QUESTION,
+                fn: function (btn) {
+                    if (btn === 'yes') {
+
+                        if (me.extraData.formType === 'Cadastrar') {
+                            var model = Ext.create('ProjetoGarage.model.orcamento.Model');
+                            me.form.updateRecord(model);
+                            store.add(model);
+                        } else {
+                            me.form.updateRecord(me.extraData.record);
+                        }
+                        if (store.getModifiedRecords().length > 0 || store.getRemovedRecords().length > 0 || store.getNewRecords().length > 0) {
+                            me.getEl().mask('Salvando...');
+                            store.sync({
+                                success: function (batch) {
+                                    var rec = batch.operations[0].records[0];
+                                    me.extraData.formType = 'Alterar';
+                                    me.extraData.record = rec;
+                                    me.getEl().unmask();
+                                    me.onBoxReady();
+                                },
+                                failure: function () {
+                                    Ext.Msg.show({
+                                        title: 'Problema',
+                                        msg: 'Ocorreu um erro ao realizar a operação!',
+                                        buttons: Ext.Msg.OK,
+                                        icon: Ext.Msg.ERROR
+                                    });
+                                    store.rejectChanges();
+                                    me.getEl().unmask();
+                                }
+                            });
+                        }
+                    }
+                }
+            });
         } else {
-            me.form.updateRecord(me.extraData.record);
+            Ext.Msg.show({
+                title: 'Problema',
+                msg: 'Preencha os dados corretamente para prosseguir!',
+                buttons: Ext.Msg.OK,
+                icon: Ext.Msg.ERROR
+            });
         }
-        me.extraData.grid.store.sync();
     }
 });

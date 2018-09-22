@@ -35,7 +35,7 @@
                 summaryRenderer: function (value, summaryData, field) {
                     var somar = 0;
                     Ext.each(me.store.data.items, function (item) {
-                        if(item.get('Desconto') && item.get('Valor') > 0){
+                        if (item.get('Desconto') && item.get('Valor') > 0) {
                             somar -= item.get('Valor');
                         } else {
                             somar += item.get('Valor');
@@ -73,13 +73,8 @@
         me.on({
             scope: me,
             boxready: me.onBoxReady,
-            itemdblclick: me.onItemDblClick,
-            edit: me.onEdit
-        });
-
-        me.btnNovo.on({
-            scope: me,
-            click: me.onBtnNovoClick
+            edit: me.onEdit,
+            beforeedit: me.onBeforeEdit
         });
     },
     onBoxReady: function () {
@@ -87,34 +82,19 @@
 
         me.toolbar.up().hide();
     },
-    onItemDblClick: function (grid, record, item, index, e, eOpts) {
-        var me = this;
-
-        //Ext.create('ProjetoGarage.view.servico.WindowDependente', {
-        //    title: 'Dependente ' + record.get('Nome'),
-        //    extraData: {
-        //        formType: 'Alterar',
-        //        grid: me,
-        //        record: record
-        //    }
-        //}).show();
-        //return false;
-    },
-    onBtnNovoClick: function () {
-        var me = this;
-
-        //Ext.create('ProjetoGarage.view.servico.WindowDependente', {
-        //    title: 'Cadastro de Dependente',
-        //    extraData: {
-        //        formType: 'Cadastrar',
-        //        grid: me
-        //    }
-        //}).show();
-        //return false;
-    },
     onEdit: function (editor, context, eOpts) {
+        var me = this;
+
         if (context.record.get('Desconto') && context.record.get('Valor') > 0) {
             context.record.set('Valor', context.record.get('Valor') * -1);
         }
+    },
+    onBeforeEdit: function (editor, context, eOpts) {
+        var me = this;
+
+        if (context.record.get('Descricao') === 'Produtos') {
+            return false;
+        }
+        return true;
     }
 });

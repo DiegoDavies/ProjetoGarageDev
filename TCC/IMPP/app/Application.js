@@ -15,6 +15,7 @@ Ext.define('ProjetoGarage.Application', {
         'Ext.util.*',
         'Ext.state.*',
         'Ext.form.*',
+        'Ext.ux.TabScrollerMenu',
         'Ext.grid.plugin.RowEditing',
         'ProjetoGarage.ux.InputTextMask',
         'ProjetoGarage.ux.Store',
@@ -22,7 +23,8 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.ux.DataStoreHandler',
         'ProjetoGarage.ux.DataSQLStore',
         'ProjetoGarage.ux.TccCombo',
-        'ProjetoGarage.ux.MascaraTabPanel'
+        'ProjetoGarage.ux.MascaraTabPanel',
+        'ProjetoGarage.ux.WindowHelp'
     ],
 
     views: [

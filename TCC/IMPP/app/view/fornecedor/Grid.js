@@ -125,7 +125,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'fornecedor-panel',
-            title: 'Fornecedor: ' + (record.get('Fantasia') !== '' ? record.get('Fantasia') : record.get('RazaoSocial')),
+            title: 'Fornecedor: ' + (record.get('Fantasia') !== '' ? record.get('Fantasia') : record.get('RazaoSocial')) + '&nbsp;&nbsp;',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Fornecedor' + record.get('FornecedorId'),
@@ -149,7 +149,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'fornecedor-panel',
-            title: 'Cadastro de Fornecedor',
+            title: 'Cadastro de Fornecedor' + '&nbsp;&nbsp;',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroFornecedor',
