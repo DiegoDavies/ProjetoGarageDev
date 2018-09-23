@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.veiculo.Historico', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 25,
+    pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_VeiculoHistorico_L',

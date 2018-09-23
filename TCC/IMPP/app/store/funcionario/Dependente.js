@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.funcionario.Dependente', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 9999,
+    pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_FuncionarioDependente_L',

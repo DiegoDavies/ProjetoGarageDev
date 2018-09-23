@@ -1,4 +1,5 @@
-﻿Ext.define('ProjetoGarage.model.servico.Produto', {
+﻿//TODO ALTERAR
+Ext.define('ProjetoGarage.model.servico.Produto', {
     extend: 'Ext.data.Model',
     fields: [{
         name: 'ServicoProdutoId',

@@ -2,28 +2,43 @@
     extend: 'Ext.data.Model',
     fields: [{
         name: 'VeiculoId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'Placa',
         type: 'STRING'
     }, {
         name: 'ClienteId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'Cliente',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'MarcaId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'Marca',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'ModeloId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'Modelo',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'Ano',
         type: 'INT'
@@ -35,21 +50,27 @@
         type: 'STRING'
     }, {
         name: 'UsuarioIdInclusao',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNomeInclusao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraInclusao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }, {
         name: 'UsuarioIdAlteracao',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNomeAlteracao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraAlteracao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }]
 });

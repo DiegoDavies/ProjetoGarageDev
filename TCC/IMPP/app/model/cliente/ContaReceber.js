@@ -1,4 +1,5 @@
-﻿Ext.define('ProjetoGarage.model.cliente.ContaReceber', {
+﻿//TODO ALTERAR
+Ext.define('ProjetoGarage.model.cliente.ContaReceber', {
     extend: 'Ext.data.Model',
     fields: [{
         name: 'ClienteId',

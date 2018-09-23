@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.funcionario.Pagamento', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 9999,
+    pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_FuncionarioPagamento_L',

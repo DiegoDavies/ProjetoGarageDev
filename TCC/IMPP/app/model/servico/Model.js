@@ -2,16 +2,23 @@
     extend: 'Ext.data.Model',
     fields: [{
         name: 'ServicoId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'Numero',
         type: 'STRING'
     }, {
         name: 'ClienteId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'ClienteNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataRealizacao',
         type: 'DATE',
@@ -32,21 +39,27 @@
         type: 'FLOAT'
     }, {
         name: 'UsuarioIdInclusao',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNomeInclusao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraInclusao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }, {
         name: 'UsuarioIdAlteracao',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNomeAlteracao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraAlteracao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }]
 });

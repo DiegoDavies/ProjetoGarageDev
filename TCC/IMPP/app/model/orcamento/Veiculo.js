@@ -1,4 +1,5 @@
-﻿Ext.define('ProjetoGarage.model.orcamento.Veiculo', {
+﻿//TODO ALTERAR
+Ext.define('ProjetoGarage.model.orcamento.Veiculo', {
     extend: 'Ext.data.Model',
     fields: [{
         name: 'OrcamentoVeiculoId',

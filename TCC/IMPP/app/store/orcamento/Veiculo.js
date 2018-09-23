@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.orcamento.Veiculo', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 9999,
+    pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_OrcamentoVeiculo_L',

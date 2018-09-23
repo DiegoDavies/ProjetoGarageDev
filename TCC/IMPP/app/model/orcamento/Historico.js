@@ -1,11 +1,10 @@
-﻿//TODO ALTERAR
-Ext.define('ProjetoGarage.model.fornecedor.ContaPagar', {
+﻿Ext.define('ProjetoGarage.model.orcamento.Historico', {
     extend: 'Ext.data.Model',
     fields: [{
-        name: 'FornecedorContaPagarId',
+        name: 'OrcamentoHistoricoId',
         type: 'INT'
     }, {
-        name: 'FornecedorId',
+        name: 'OrcamentoId',
         type: 'INT'
     }, {
         name: 'Ocorrencia',
