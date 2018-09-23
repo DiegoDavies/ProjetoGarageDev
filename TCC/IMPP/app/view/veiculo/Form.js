@@ -29,7 +29,7 @@
                 items: [{
                     xtype: 'tcc-combo',
                     name: 'ClienteId',
-                    fieldLabel: 'Cliente',
+                    fieldLabel: 'Cliente *',
                     itemId: 'cboCliente',
                     displayField: 'Nome',
                     valueField: 'ClienteId',
@@ -38,7 +38,7 @@
                 }, {
                     xtype: 'textfield',
                     name: 'Placa',
-                    fieldLabel: 'Placa',
+                    fieldLabel: 'Placa *',
                     itemId: 'txtPlaca',
                     allowBlank: false,
                     plugins: [
@@ -47,7 +47,7 @@
                 }, {
                     xtype: 'tcc-combo',
                     name: 'MarcaId',
-                    fieldLabel: 'Marca',
+                    fieldLabel: 'Marca *',
                     itemId: 'cboMarca',
                     displayField: 'Nome',
                     valueField: 'MarcaId',
@@ -56,7 +56,7 @@
                 }, {
                     xtype: 'tcc-combo',
                     name: 'ModeloId',
-                    fieldLabel: 'Modelo',
+                    fieldLabel: 'Modelo *',
                     itemId: 'cboModelo',
                     displayField: 'Nome',
                     valueField: 'ModeloId',

@@ -149,7 +149,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'contaPagar-panel',
-            title: 'Conta à Pagar: ' + record.get('Documento') + '&nbsp;&nbsp;',
+            title: 'Conta à Pagar: ' + record.get('Documento'),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'ContaPagar' + record.get('ContaPagarId'),
@@ -167,7 +167,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'contaPagar-panel',
-            title: 'Cadastro de Conta à Pagar' + '&nbsp;&nbsp;',
+            title: 'Cadastro de Conta à Pagar',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroContaPagar',

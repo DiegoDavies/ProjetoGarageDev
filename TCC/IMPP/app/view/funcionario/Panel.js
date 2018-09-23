@@ -179,6 +179,7 @@
                                     me.extraData.record = rec;
                                     me.getEl().unmask();
                                     me.onBoxReady();
+                                    me.onAfterLayout();
                                 },
                                 failure: function () {
                                     Ext.Msg.show({
@@ -209,7 +210,7 @@
             string = '//viacep.com.br/ws/' + me.txtCep.getValue() + '/json/';
         me.cboEstado.getStore().load();
 
-        if (!me.txtEndereco.getValue() || me.txtCep.getValue() !== me.cep)
+        if ((!me.txtEndereco.getValue() || me.txtCep.getValue() !== me.cep) && me.txtCep.getValue() !== '' && me.txtCep.getValue() !== '_____-___')
             Ext.Msg.show({
                 title: 'Projeto Garage',
                 msg: 'Deseja preencher os dados de endereço automaticamente?',

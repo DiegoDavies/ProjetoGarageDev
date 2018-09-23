@@ -142,6 +142,7 @@
                                     me.extraData.record = rec;
                                     me.getEl().unmask();
                                     me.onBoxReady();
+                                    me.onAfterLayout();
                                 },
                                 failure: function () {
                                     Ext.Msg.show({

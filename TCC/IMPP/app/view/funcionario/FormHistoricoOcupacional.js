@@ -19,9 +19,10 @@
                 xtype: 'datefield',
                 altFormats: 'd/m/Y|dmy|dmY',
                 format: 'd/m/Y',
-                fieldLabel: 'Data',
+                fieldLabel: 'Data *',
                 itemId: 'dtDataOcorrencia',
                 name: 'DataOcorrencia',
+                allowBlank: false,
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {

@@ -125,7 +125,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'cliente-panel',
-            title: 'Cliente: ' + record.get('Nome') + '&nbsp;&nbsp;',
+            title: 'Cliente: ' + record.get('Nome'),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Cliente' + record.get('ClienteId'),
@@ -149,7 +149,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'cliente-panel',
-            title: 'Cadastro de Cliente' + '&nbsp;&nbsp;',
+            title: 'Cadastro de Cliente',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroCliente',

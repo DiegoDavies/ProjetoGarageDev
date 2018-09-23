@@ -14,7 +14,7 @@
             items: [{
                 xtype: 'tcc-combo',
                 name: 'MarcaId',
-                fieldLabel: 'Marca',
+                fieldLabel: 'Marca *',
                 itemId: 'cboMarca',
                 labelAlign: 'top',
                 width: 300,
@@ -23,7 +23,7 @@
                 store: Ext.create('ProjetoGarage.store.combos.Marca'),
                 allowBlank: false
             }, {
-                fieldLabel: 'Nome',
+                fieldLabel: 'Nome *',
                 xtype: 'textfield',
                 name: 'Nome',
                 itemId: 'txtNome',

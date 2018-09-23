@@ -17,7 +17,8 @@
         }
     }, {
         name: 'SituacaoNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'SexoId',
         type: 'INT',
@@ -26,7 +27,8 @@
         }
     }, {
         name: 'SexoNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'Cep',
         type: 'STRING'
@@ -53,7 +55,8 @@
         }
     }, {
         name: 'EstadoNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'CidadeId',
         type: 'INT',
@@ -62,19 +65,23 @@
         }
     }, {
         name: 'CidadeNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'Cpf',
         type: 'STRING',
-        convert: function (v, rec) {
+        convert: function (v) {
             if (v) {
-                v = v.toString();
+                v = v.toString().replace(/\./g, '').replace('-', '').replace('/', '');
                 if (v.length > 0) {
                     v = Ext.String.leftPad(v, 11, '0');
                     v = Ext.util.Format.substr(v, 0, 3) + '.' + Ext.util.Format.substr(v, 3, 3) + '.' + Ext.util.Format.substr(v, 6, 3) + '-' + Ext.util.Format.substr(v, 9, 2);
                 }
             }
             return v;
+        },
+        serialize: function (v) {
+            return v.replace(/\./g, '').replace('-', '').replace('/', '');
         }
     }, {
         name: 'Rg',
@@ -84,7 +91,10 @@
         type: 'STRING'
     }, {
         name: 'DataEmissaoRg',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'Email',
         type: 'STRING'
@@ -102,7 +112,10 @@
         type: 'STRING'
     }, {
         name: 'DataNascimento',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'EstadoCivilId',
         type: 'INT',
@@ -111,7 +124,8 @@
         }
     }, {
         name: 'EstadoCivilNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'FuncaoId',
         type: 'INT',
@@ -120,30 +134,37 @@
         }
     }, {
         name: 'FuncaoNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
-        }
+        },
+        persist: false
     }, {
         name: 'UsuarioNomeInclusao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraInclusao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }, {
         name: 'UsuarioIdAlteracao',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
-        }
+        },
+        persist: false
     }, {
         name: 'UsuarioNomeAlteracao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraAlteracao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }]
 });

@@ -146,7 +146,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'orcamento-panel',
-            title: 'Orçamento: ' + record.get('Numero') + '&nbsp;&nbsp;',
+            title: 'Orçamento: ' + record.get('Numero'),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Orcamento' + record.get('OrcamentoId'),
@@ -164,7 +164,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'orcamento-panel',
-            title: 'Cadastro de Orçamento' + '&nbsp;&nbsp;',
+            title: 'Cadastro de Orçamento',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroOrcamento',

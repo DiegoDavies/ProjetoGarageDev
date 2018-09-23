@@ -38,22 +38,11 @@
                         margin: '0 15 0 0',
                         labelWidth: 110,
                         width: 145
-                    }, {
-                        xtype: 'tcc-combo',
-                        flex: 1,
-                        name: 'StatusId',
-                        fieldLabel: 'Status',
-                        itemId: 'cboStatus',
-                        labelWidth: 45,
-                        displayField: 'Nome',
-                        valueField: 'StatusFornecedorId',
-                        store: Ext.create('ProjetoGarage.store.combos.StatusFornecedor'),
-                        allowBlank: false
                     }]
                 }, {
                     xtype: 'textfield',
                     name: 'RazaoSocial',
-                    fieldLabel: 'Razão Social',
+                    fieldLabel: 'Razão Social *',
                     itemId: 'txtRazaoSocial',
                     allowBlank: false
                 }, {
@@ -61,6 +50,15 @@
                     name: 'Fantasia',
                     fieldLabel: 'Fantasia',
                     itemId: 'txtFantasia'
+                }, {
+                    xtype: 'tcc-combo',
+                    name: 'StatusId',
+                    fieldLabel: 'Status *',
+                    itemId: 'cboStatus',
+                    displayField: 'Nome',
+                    valueField: 'StatusFornecedorId',
+                    store: Ext.create('ProjetoGarage.store.combos.StatusFornecedor'),
+                    allowBlank: false
                 }, {
                     xtype: 'textfield',
                     name: 'Cep',

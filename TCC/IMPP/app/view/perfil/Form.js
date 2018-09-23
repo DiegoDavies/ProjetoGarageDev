@@ -16,7 +16,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'textfield',
-                fieldLabel: 'Nome',
+                fieldLabel: 'Nome *',
                 name: 'Nome',
                 itemId: 'txtNome',
                 width: 500,

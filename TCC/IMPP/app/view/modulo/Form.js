@@ -13,7 +13,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'textfield',
-                fieldLabel: 'Módulo',
+                fieldLabel: 'Módulo *',
                 name: 'Nome',
                 itemId: 'txtModulo',
                 width: 300,

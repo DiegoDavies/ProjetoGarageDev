@@ -14,7 +14,6 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
         Ext.apply(me, {
             items: [{
                 region: 'north',
-                //html: '<h1 class="x-panel-header">Garage Centro Automotivo</h1>',
                 border: false,
                 height: 34,
                 margins: '0 0 5 0',
@@ -24,9 +23,9 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                     style: 'background-color: #dc6900',
                     items: ['->', {
                         xtype: 'button',
-                        icon: '/resources/images/help-white.png',
-                        itemId: 'btnAjuda',
-                        text: '<div style="color:white">Ajuda</div>',
+                        icon: '/resources/images/suport.png',
+                        itemId: 'btnSuporte',
+                        text: '<div style="color:white">Suporte</div>',
                         style: 'background:transparent;',
                         listeners: {
                             scope: this,
@@ -118,9 +117,8 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                     background: 'white'
                 },
                 items: [{
-                    title: 'Dashboard' + '&nbsp;&nbsp;',
-                    closable: false,
-                    helpable: false
+                    title: 'Dashboard',
+                    closable: false
                 }]
             }]
         });

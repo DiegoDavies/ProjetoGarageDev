@@ -14,7 +14,7 @@
             items: [{
                 xtype: 'tcc-combo',
                 name: 'ModuloId',
-                fieldLabel: 'Módulo',
+                fieldLabel: 'Módulo *',
                 itemId: 'cboModulo',
                 labelAlign: 'top',
                 width: 300,
@@ -24,7 +24,7 @@
                 allowBlank: false
             }, {
                 xtype: 'textfield',
-                fieldLabel: 'Menu',
+                fieldLabel: 'Menu *',
                 name: 'Menu',
                 itemId: 'txtMenu',
                 width: 300,
@@ -40,7 +40,7 @@
                 }
             }, {
                 xtype: 'textfield',
-                fieldLabel: 'Titulo',
+                fieldLabel: 'Titulo *',
                 name: 'Titulo',
                 itemId: 'txtTitulo',
                 width: 300,
@@ -56,7 +56,7 @@
                 }
             }, {
                 xtype: 'textfield',
-                fieldLabel: 'ClassName',
+                fieldLabel: 'ClassName *',
                 name: 'ClassName',
                 itemId: 'txtClassName',
                 width: 300,

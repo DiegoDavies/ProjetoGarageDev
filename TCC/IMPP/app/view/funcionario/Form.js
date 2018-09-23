@@ -52,13 +52,13 @@
                 }, {
                     xtype: 'textfield',
                     name: 'Nome',
-                    fieldLabel: 'Nome',
+                    fieldLabel: 'Nome *',
                     itemId: 'txtNome',
                     allowBlank: false
                 }, {
                     xtype: 'tcc-combo',
                     name: 'SexoId',
-                    fieldLabel: 'Sexo',
+                    fieldLabel: 'Sexo *',
                     itemId: 'cboSexo',
                     displayField: 'Nome',
                     valueField: 'SexoId',

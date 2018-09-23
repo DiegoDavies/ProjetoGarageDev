@@ -44,7 +44,7 @@
                     }
                 }
             }, {
-                fieldLabel: 'Email',
+                fieldLabel: 'Email *',
                 xtype: 'textfield',
                 name: 'Email',
                 vtype: 'email',

@@ -20,7 +20,8 @@
         }
     }, {
         name: 'StatusNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'Cep',
         type: 'STRING'
@@ -47,7 +48,8 @@
         }
     }, {
         name: 'EstadoNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'CidadeId',
         type: 'INT',
@@ -56,32 +58,39 @@
         }
     }, {
         name: 'CidadeNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'Cnpj',
         type: 'STRING',
         convert: function (v, rec) {
             if (v) {
-                v = v.toString();
+                v = v.toString().replace(/\./g, '').replace('-', '').replace('/', '');
                 if (v.length > 0) {
                     v = Ext.String.leftPad(v, 14, '0');
                     v = Ext.util.Format.substr(v, 0, 2) + '.' + Ext.util.Format.substr(v, 2, 3) + '.' + Ext.util.Format.substr(v, 5, 3) + '/' + Ext.util.Format.substr(v, 8, 4) + '-' + Ext.util.Format.substr(v, 12, 2);
                 }
             }
             return v;
+        },
+        serialize: function (v) {
+            return v.replace(/\./g, '').replace('-', '').replace('/', '');
         }
     }, {
         name: 'Cpf',
         type: 'STRING',
         convert: function (v, rec) {
             if (v) {
-                v = v.toString();
+                v = v.toString().replace(/\./g, '').replace('-', '').replace('/', '');
                 if (v.length > 0) {
                     v = Ext.String.leftPad(v, 11, '0');
                     v = Ext.util.Format.substr(v, 0, 3) + '.' + Ext.util.Format.substr(v, 3, 3) + '.' + Ext.util.Format.substr(v, 6, 3) + '-' + Ext.util.Format.substr(v, 9, 2);
                 }
             }
             return v;
+        },
+        serialize: function (v) {
+            return v.replace(/\./g, '').replace('-', '').replace('/', '');
         }
     }, {
         name: 'InscricaoEstadual',
@@ -109,24 +118,30 @@
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
-        }
+        },
+        persist: false
     }, {
         name: 'UsuarioNomeInclusao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraInclusao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }, {
         name: 'UsuarioIdAlteracao',
         type: 'INT',
         convert: function (v) {
             return v !== 0 ? v : '';
-        }
+        },
+        persist: false
     }, {
         name: 'UsuarioNomeAlteracao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraAlteracao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }]
 });

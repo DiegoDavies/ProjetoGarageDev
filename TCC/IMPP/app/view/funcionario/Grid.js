@@ -125,7 +125,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'funcionario-panel',
-            title: 'Funcionário: ' + record.get('Nome') + '&nbsp;&nbsp;',
+            title: 'Funcionário: ' + record.get('Nome'),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Funcionario' + record.get('FuncionarioId'),
@@ -149,7 +149,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'funcionario-panel',
-            title: 'Cadastro de Funcionário' + '&nbsp;&nbsp;',
+            title: 'Cadastro de Funcionário',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroFuncionario',

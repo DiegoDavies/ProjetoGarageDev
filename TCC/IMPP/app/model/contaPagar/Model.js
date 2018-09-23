@@ -11,36 +11,49 @@
         type: 'INT'
     }, {
         name: 'BeneficiarioNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataVencimento',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'Valor',
         type: 'FLOAT'
     }, {
         name: 'DataPagamento',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'ValorPago',
         type: 'FLOAT'
     }, {
         name: 'UsuarioIdInclusao',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNomeInclusao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraInclusao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }, {
         name: 'UsuarioIdAlteracao',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNomeAlteracao',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataHoraAlteracao',
-        type: 'DATE'
+        type: 'DATE',
+        persist: false
     }]
 });

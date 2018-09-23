@@ -288,12 +288,8 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
         if (!tab.down(tela.xtype)) {
             tab.add({
                 xtype: tela.xtype,
-                title: texto + '&nbsp;&nbsp;',
+                title: texto,
                 closable: true,
-                helpable: false,
-                renderData: {
-                    helpable: false,
-                },
                 tabPrincipal: tab,
                 itemId: 'funcionalidade' + tela.xtype
             });

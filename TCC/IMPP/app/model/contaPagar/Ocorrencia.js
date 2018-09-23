@@ -11,12 +11,18 @@
         type: 'STRING'
     }, {
         name: 'DataHora',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        },
+        persist: false
     }, {
         name: 'UsuarioId',
-        type: 'INT'
+        type: 'INT',
+        persist: false
     }, {
         name: 'UsuarioNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }]
 });

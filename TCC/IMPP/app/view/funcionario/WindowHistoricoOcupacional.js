@@ -70,26 +70,35 @@
         var me = this,
             store = me.extraData.grid.store;
 
-        if (me.extraData.formType === 'Cadastrar') {
-            var model = Ext.create('ProjetoGarage.model.funcionario.HistoricoOcupacional');
-            me.form.updateRecord(model);
-            store.add(model);
-        } else {
-            me.form.updateRecord(me.extraData.record);
-        }
+        if (me.form.isValid()) {
+            if (me.extraData.formType === 'Cadastrar') {
+                var model = Ext.create('ProjetoGarage.model.funcionario.HistoricoOcupacional');
+                me.form.updateRecord(model);
+                store.add(model);
+            } else {
+                me.form.updateRecord(me.extraData.record);
+            }
 
-        if (store.getModifiedRecords().length > 0 || store.getRemovedRecords().length > 0 || store.getNewRecords().length > 0) {
-            me.getEl().mask('Salvando...');
-            store.sync({
-                success: function () {
-                    store.load();
-                    me.getEl().unmask();
-                    me.close();
-                },
-                failure: function () {
-                    store.rejectChanges();
-                    me.getEl().unmask();
-                }
+            if (store.getModifiedRecords().length > 0 || store.getRemovedRecords().length > 0 || store.getNewRecords().length > 0) {
+                me.getEl().mask('Salvando...');
+                store.sync({
+                    success: function () {
+                        store.load();
+                        me.getEl().unmask();
+                        me.close();
+                    },
+                    failure: function () {
+                        store.rejectChanges();
+                        me.getEl().unmask();
+                    }
+                });
+            }
+        } else {
+            Ext.Msg.show({
+                title: 'Problema',
+                msg: 'Preencha os dados corretamente para prosseguir!',
+                buttons: Ext.Msg.OK,
+                icon: Ext.Msg.ERROR
             });
         }
     }

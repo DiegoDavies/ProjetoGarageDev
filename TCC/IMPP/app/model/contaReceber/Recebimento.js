@@ -14,10 +14,14 @@
         type: 'INT'
     }, {
         name: 'TipoPagamentoNome',
-        type: 'STRING'
+        type: 'STRING',
+        persist: false
     }, {
         name: 'DataPagamento',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'ValorPago',
         type: 'FLOAT'
@@ -29,7 +33,10 @@
         type: 'STRING'
     }, {
         name: 'DataHora',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'Estornado',
         type: 'BOOL'

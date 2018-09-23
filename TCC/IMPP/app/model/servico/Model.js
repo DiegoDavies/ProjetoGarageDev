@@ -14,10 +14,16 @@
         type: 'STRING'
     }, {
         name: 'DataRealizacao',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'DataVencimento',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'ValorTotal',
         type: 'FLOAT'

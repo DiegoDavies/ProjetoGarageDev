@@ -159,7 +159,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'servico-panel',
-            title: 'Serviço: ' + record.get('Numero') + '&nbsp;&nbsp;',
+            title: 'Serviço: ' + record.get('Numero'),
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Servico' + record.get('ServicoId'),
@@ -177,7 +177,7 @@
 
         me.tela.tabPrincipal.add({
             xtype: 'servico-panel',
-            title: 'Cadastro de Serviço' + '&nbsp;&nbsp;',
+            title: 'Cadastro de Serviço',
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroServico',

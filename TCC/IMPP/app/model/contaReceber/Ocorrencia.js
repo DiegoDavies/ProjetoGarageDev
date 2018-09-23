@@ -11,7 +11,10 @@
         type: 'STRING'
     }, {
         name: 'DataHora',
-        type: 'DATE'
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
     }, {
         name: 'UsuarioId',
         type: 'INT'

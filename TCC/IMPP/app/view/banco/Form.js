@@ -12,7 +12,7 @@
 
         Ext.applyIf(me, {
             items: [{
-                fieldLabel: 'Código',
+                fieldLabel: 'Código *',
                 xtype: 'textfield',
                 name: 'Codigo',
                 itemId: 'txtCodigo',
@@ -28,7 +28,7 @@
                     }
                 }
             }, {
-                fieldLabel: 'Nome',
+                fieldLabel: 'Nome *',
                 xtype: 'textfield',
                 name: 'Nome',
                 allowBlank: false,

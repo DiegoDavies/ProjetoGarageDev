@@ -12,7 +12,7 @@
 
         Ext.applyIf(me, {
             items: [{
-                fieldLabel: 'Nome',
+                fieldLabel: 'Nome *',
                 xtype: 'textfield',
                 name: 'Nome',
                 allowBlank: false,
