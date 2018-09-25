@@ -6,6 +6,7 @@
     ],
     layout: 'fit',
     varWidth: 0,
+    modal: true,
     initComponent: function () {
         var me = this;
 

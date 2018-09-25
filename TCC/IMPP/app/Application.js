@@ -113,13 +113,13 @@ Ext.define('ProjetoGarage.Application', {
         'orcamento.Custos',
         'orcamento.Produto',
         'orcamento.Veiculo',
-        'orcamento.Ocorrencia',
+        'orcamento.Historico',
 
         'servico.Store',
         'servico.Custos',
         'servico.Produto',
         'servico.Veiculo',
-        'servico.Ocorrencia',
+        'servico.Historico',
 
         'contaPagar.Store',
         'contaPagar.Ocorrencia',

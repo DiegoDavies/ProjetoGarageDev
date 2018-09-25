@@ -291,7 +291,16 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
                 title: texto,
                 closable: true,
                 tabPrincipal: tab,
-                itemId: 'funcionalidade' + tela.xtype
+                itemId: 'funcionalidade' + tela.xtype,
+                listeners: {
+                    beforetabchange: function (tabP, newCard, oldCard, eOpts) {
+                        if (newCard.xtype.endsWith("-tela")) {
+                            if (newCard.items.items[0].xtype.endsWith("-grid")) {
+                                arguments[0].items.items[0].getStore().load();
+                            }
+                        }
+                    }
+                }
             });
         }
         tab.setActiveTab('funcionalidade' + tela.xtype);

@@ -6,6 +6,7 @@
     ],
     layout: 'fit',
     varWidth: 0,
+    modal: true,
     initComponent: function () {
         var me = this;
 
@@ -91,6 +92,7 @@
 
                         Ext.Ajax.request({
                             url: '/Email',
+                            method: 'GET',
                             params: {
                                 EmailDestino: rec.get('Email'),
                                 TipoEmail: 2,

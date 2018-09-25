@@ -95,6 +95,7 @@
 
                                 Ext.Ajax.request({
                                     url: '/Email',
+                                    method: 'GET',
                                     params: {
                                         TipoEmail: 1,
                                         TextoProblema: rec.get('Mensagem')

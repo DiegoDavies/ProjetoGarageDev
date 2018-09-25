@@ -5,6 +5,7 @@
         'ProjetoGarage.view.funcionario.FormDependente'
     ],
     layout: 'fit',
+    modal: true,
     initComponent: function () {
         var me = this;
 

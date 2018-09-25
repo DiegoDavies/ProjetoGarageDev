@@ -1,11 +1,10 @@
-﻿Ext.define('ProjetoGarage.view.modulo.Window', {
+﻿Ext.define('ProjetoGarage.view.cliente.WindowVeiculo', {
     extend: 'Ext.window.Window',
-    xtype: 'modulo-window',
+    xtype: 'cliente-windowVeiculo',
     requires: [
-        'ProjetoGarage.view.modulo.Form'
+        'ProjetoGarage.view.cliente.FormVeiculo'
     ],
     layout: 'fit',
-    varWidth: 0,
     modal: true,
     initComponent: function () {
         var me = this;
@@ -13,10 +12,7 @@
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
-                xtype: 'modulo-form',
-                itemId: 'frmDados',
-                width: '100%',
-                height: '100%',
+                xtype: 'cliente-formVeiculo',
                 window: me
             }],
             bbar: ['->', {
@@ -34,9 +30,15 @@
     addReferences: function () {
         var me = this;
 
-        me.form = me.down('#frmDados');
-        me.txtModulo = me.down('#txtModulo');
-        //
+        me.form = me.down('cliente-formVeiculo');
+
+        me.txtPlaca = me.down('#txtPlaca');
+        me.cboMarca = me.down('#cboMarca');
+        me.cboModelo = me.down('#cboModelo');
+        me.txtCor = me.down('#txtCor');
+        me.txtAno = me.down('#txtAno');
+        me.txtObservacao = me.down('#txtObservacao');
+
         me.btnSalvar = me.down('#btnSalvar');
     },
     addEventHandler: function () {
@@ -44,27 +46,37 @@
 
         me.on({
             scope: me,
-            show: me.onShowWindow,
-            beforeclose: me.onBeforeClose
+            boxready: me.onBoxReady,
+            show: me.onShowWindow
         });
 
         me.btnSalvar.on({
             scope: me,
             click: me.onBtnSalvarClick
         });
+
+        me.cboMarca.on({
+            scope: me,
+            select: me.onCboMarcaSelect,
+            beforedeselect: me.onCboMarcaDeselect
+        });
     },
     onShowWindow: function () {
         var me = this;
 
-        if (me.extraData.formType === 'Alterar') {
-            me.form.loadRecord(me.extraData.record);
-        }
-        me.txtModulo.focus();
+        me.txtPlaca.focus();
     },
-    onBeforeClose: function () {
+    onBoxReady: function () {
         var me = this;
 
-
+        if (me.extraData.formType === 'Alterar') {
+            me.form.loadRecord(me.extraData.record);
+            me.cboMarca.store.load();
+            me.cboModelo.store.setParams({
+                MarcaId: me.cboMarca.getValue() ? me.cboMarca.getValue() : 0
+            });
+            me.cboModelo.store.load();
+        }
     },
     onBtnSalvarClick: function () {
         var me = this,
@@ -72,7 +84,7 @@
 
         if (me.form.isValid()) {
             if (me.extraData.formType === 'Cadastrar') {
-                var model = Ext.create('ProjetoGarage.model.modulo.Model');
+                var model = Ext.create('ProjetoGarage.model.cliente.Veiculo');
                 me.form.updateRecord(model);
                 store.add(model);
             } else {
@@ -95,11 +107,28 @@
             }
         } else {
             Ext.Msg.show({
-                title: 'Atenção',
-                msg: 'Preencha corretamente as informações para prosseguir!',
+                title: 'Problema',
+                msg: 'Preencha os dados corretamente para prosseguir!',
                 buttons: Ext.Msg.OK,
-                icon: Ext.Msg.WARNING
+                icon: Ext.Msg.ERROR
             });
         }
+    },
+    onCboMarcaSelect: function (combo, records, eOpts) {
+        var me = this;
+
+        me.cboModelo.setValue('');
+        me.cboModelo.store.setParams({
+            MarcaId: me.cboMarca.getValue()
+        });
+        me.cboModelo.store.load();
+    },
+    onCboMarcaDeselect: function (combo, record, index, eOpts) {
+        var me = this;
+
+        me.cboModelo.setValue('');
+        me.cboModelo.store.setParams({
+        });
+        me.cboModelo.store.load();
     }
 });

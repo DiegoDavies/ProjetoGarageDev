@@ -5,6 +5,7 @@
         'ProjetoGarage.view.fornecedor.FormPagamento'
     ],
     layout: 'fit',
+    modal: true,
     initComponent: function () {
         var me = this;
 

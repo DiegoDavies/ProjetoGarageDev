@@ -135,6 +135,7 @@
 
                                 Ext.Ajax.request({
                                     url: '/Email',
+                                    method: 'GET',
                                     params: {
                                         EmailDestino: rec.get('Email'),
                                         TipoEmail: 3,

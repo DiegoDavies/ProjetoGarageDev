@@ -5,6 +5,7 @@
         'ProjetoGarage.view.banco.Form'
     ],
     layout: 'fit',
+    modal: true,
     varWidth: 0,
     initComponent: function () {
         var me = this;

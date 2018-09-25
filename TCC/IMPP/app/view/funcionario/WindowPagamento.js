@@ -5,6 +5,7 @@
         'ProjetoGarage.view.funcionario.FormPagamento'
     ],
     layout: 'fit',
+    modal: true,
     initComponent: function () {
         var me = this;
 

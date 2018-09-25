@@ -2,7 +2,7 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-gridVeiculo',
     requires: [
-        //'ProjetoGarage.view.cliente.WindowVeiculo'
+        'ProjetoGarage.view.cliente.WindowVeiculo'
     ],
     esconderAtualizar: false,
     initComponent: function () {
@@ -15,31 +15,24 @@
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'ClienteVeiculoId',
+                dataIndex: 'VeiculoId',
                 hidden: true,
                 hideable: false
             }, {
-                text: 'Nome',
-                flex: 1,
-                minWidth: 150,
+                text: 'Placa',
+                width: 120,
                 style: 'text-align: center;',
-                dataIndex: 'Nome'
+                dataIndex: 'Placa'
             }, {
-                text: 'Banco',
-                flex: 1,
-                minWidth: 150,
-                style: 'text-align: center;',
-                dataIndex: 'BancoNome'
-            }, {
-                text: 'Agencia',
+                text: 'Marca',
                 width: 150,
                 style: 'text-align: center;',
-                dataIndex: 'Agencia'
+                dataIndex: 'Marca'
             }, {
-                text: 'Conta',
-                width: 150,
+                text: 'Modelo',
+                width: 180,
                 style: 'text-align: center;',
-                dataIndex: 'Conta'
+                dataIndex: 'Modelo'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -120,7 +113,7 @@
         var me = this;
 
         Ext.create('ProjetoGarage.view.cliente.WindowVeiculo', {
-            title: 'Veículo: ' + record.get('Nome'),
+            title: 'Veículo: ' + record.get('Placa'),
             extraData: {
                 formType: 'Alterar',
                 grid: me,
