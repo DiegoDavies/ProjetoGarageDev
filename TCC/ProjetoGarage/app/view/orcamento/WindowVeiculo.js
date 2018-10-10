@@ -8,7 +8,7 @@
     modal: true,
     initComponent: function () {
         var me = this;
-        
+
         Ext.applyIf(me, {
             bodyPadding: 10,
             items: [{
@@ -27,7 +27,7 @@
         me.addReferences();
         me.addEventHandler();
     },
-    addReferences: function() {
+    addReferences: function () {
         var me = this;
 
         me.form = me.down('orcamento-formVeiculo');
@@ -38,7 +38,7 @@
 
         me.btnSalvar = me.down('#btnSalvar');
     },
-    addEventHandler: function() {
+    addEventHandler: function () {
         var me = this;
 
         me.on({
@@ -68,25 +68,35 @@
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
-            me.rdgDesconto.setValue({ Desconto: me.extraData.record.get('Desconto') ? '1' : '2' })
         }
+        me.cboVeiculo.store.setParams({
+            ClienteId: me.extraData.clienteId
+        });
+        me.cboVeiculo.store.load();
     },
-    onSelectCboVeiculo: function(combo, records, eOpts) {
+    onSelectCboVeiculo: function (combo, records, eOpts) {
+        var me = this,
+            obs = records[0].get('Observacao');
+
+        me.txtObservacao.setValue(obs);
+        if (obs !== '') {
+            me.txtObservacao.setVisible(true);
+        }
+        me.center();
+    },
+    onBeforeDeselectCboVeiculo: function (combo, record, index, eOpts) {
         var me = this;
 
-
-    },
-    onBeforeDeselectCboVeiculo: function(combo, record, index, eOpts) {
-        var me = this;
-
-
+        me.txtObservacao.setValue('');
+        me.txtObservacao.setVisible(true);
+        me.center();
     },
     onBtnSalvarClick: function () {
         var me = this,
             store = me.extraData.grid.store;
 
         if (me.extraData.formType === 'Cadastrar') {
-            var model = Ext.create('ProjetoGarage.model.orcamento.Custos');
+            var model = Ext.create('ProjetoGarage.model.orcamento.Veiculo');
             me.form.updateRecord(model);
             store.add(model);
         } else {

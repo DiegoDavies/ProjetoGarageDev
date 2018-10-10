@@ -40,7 +40,7 @@
                 width: 150,
                 align: 'center',
                 style: 'text-align: center;',
-                format: 'd/m/Y H:i:s',
+                format: 'd/m/Y',
                 dataIndex: 'DataRealizacao'
             }, {
                 xtype: 'datecolumn',
@@ -48,7 +48,7 @@
                 width: 150,
                 align: 'center',
                 style: 'text-align: center;',
-                format: 'd/m/Y H:i:s',
+                format: 'd/m/Y',
                 dataIndex: 'DataVencimento'
             }, {
                 xtype: 'numbercolumn',

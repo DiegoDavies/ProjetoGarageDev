@@ -166,7 +166,7 @@
     onBeforeEdit: function (editor, context, eOpts) {
         var me = this;
 
-        if (context.record.get('Descricao') === 'Produtos') {
+        if (context.record.get('Descricao') === 'Produtos' || me.statusId !== 1) {
             return false;
         }
         return true;

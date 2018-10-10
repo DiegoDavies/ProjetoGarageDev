@@ -151,6 +151,7 @@ Ext.define('ProjetoGarage.Application', {
         'cliente.Historico',
         'cliente.Servico',
         'cliente.Veiculo',
+        'cliente.Orcamento',
 
         'marca.Store',
         'modelo.Store',
@@ -158,7 +159,9 @@ Ext.define('ProjetoGarage.Application', {
         'telaPrincipal.Ajuda',
 
         'veiculo.Store',
-        'veiculo.Historico'
+        'veiculo.Historico',
+
+        'excelConfig.Store'
     ]
 });
 

@@ -1,6 +1,7 @@
 ﻿Ext.define('ProjetoGarage.view.orcamento.GridHistorico', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'orcamento-gridHistorico',
+    esconderAtualizar: false,
     initComponent: function () {
         var me = this;
 
@@ -58,8 +59,10 @@
         var me = this;
 
         me.toolbar.hide();
+        me.btnRelatorio.hide();
         me.btnNovo.hide();
         me.btnDelete.hide();
-        me.btnRelatorio.hide();
+        me.txtQuery.hide();
+        me.btnPesquisar.hide();
     }
 });

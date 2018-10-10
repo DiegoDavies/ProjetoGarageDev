@@ -61,7 +61,7 @@
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
-            me.rdgDesconto.setValue({ Desconto: me.extraData.record.get('Desconto') ? '1' : '2' })
+            me.rdgDesconto.setValue({ Desconto: me.extraData.record.get('Desconto') ? '1' : '2' });
         }
     },
     onBtnSalvarClick: function () {

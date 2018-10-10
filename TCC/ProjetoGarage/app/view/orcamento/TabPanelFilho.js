@@ -26,13 +26,15 @@
                 title: 'Veículos',
                 itemId: 'pnlorcamento1',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                tabPanel: me
             }, {
                 xtype: 'orcamento-gridHistorico',
                 title: 'Histórico',
                 itemId: 'pnlorcamento2',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                tabPanel: me
             }]
         });
 

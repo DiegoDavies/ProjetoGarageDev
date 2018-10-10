@@ -15,7 +15,7 @@
             items: [{
                 xtype: 'orcamento-form',
                 panel: me,
-                statusId: me.extraData.record.get('StatusId'),
+                statusId: me.extraData.formType === 'Alterar' ? me.extraData.record.get('StatusId') : 1,
                 grid: me.extraData.grid
             }],
             bbar: ['->', {
@@ -112,6 +112,7 @@
             if (me.extraData.record.get('StatusId') === 1) {
                 me.btnReprovar.show();
                 me.btnAprovar.show();
+                me.fieldsDisabled(false);
             } else {
                 me.gridCustos.btnPesquisar.up().hide();
                 me.tabPanel.gridVeiculo.btnNovo.hide();
@@ -121,6 +122,7 @@
                 me.btnReprovar.hide();
                 me.btnAprovar.hide();
                 me.btnSalvar.hide();
+                me.fieldsDisabled(true);
             }
         } else {
             me.tabPanel.hide();
@@ -141,6 +143,16 @@
         }
 
         me.onVisibilidadeBotao();
+    },
+    fieldsDisabled: function (disabled) {
+        var me = this;
+
+        me.txtNumero.setDisabled(disabled);
+        me.cboCliente.setDisabled(disabled);
+        me.dtDataVencimento.setDisabled(disabled);
+        me.cboDuracao.setDisabled(disabled);
+        me.txtDuracao.setDisabled(disabled);
+        me.txtObservacao.setDisabled(disabled);
     },
     onAfterLayout: function () {
         var me = this,

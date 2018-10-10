@@ -1,9 +1,6 @@
 ﻿Ext.define('ProjetoGarage.view.cliente.GridHistorico', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-gridHistorico',
-    requires: [
-
-    ],
     esconderAtualizar: false,
     initComponent: function () {
         var me = this;

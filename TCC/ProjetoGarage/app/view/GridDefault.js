@@ -3,7 +3,7 @@
     xtype: 'gridDefault',
     viewConfig: {
         multiSelect: true,
-        stripeRows: true,
+        stripeRows: true
     },
     autoScroll: true,
     scroll: true,
@@ -85,7 +85,26 @@
                 xtype: 'button',
                 text: 'Gerar Relatório',
                 itemId: 'btnRelatorioGrid',
-                icon: '/resources/images/report.png'
+                icon: '/resources/images/report.png',
+                menu: {
+                    xtype: 'menu',
+                    plain: true,
+                    items: {
+                        xtype: 'buttongroup',
+                        columns: 1,
+                        items: [{
+                            xtype: 'button',
+                            text: 'Relatório em PDF',
+                            itemId: 'btnRelatorioPdf',
+                            icon: '/resources/images/pdfFile.png'
+                        }, {
+                            xtype: 'button',
+                            text: 'Relatório em Excel',
+                            itemId: 'btnRelatorioXls',
+                            icon: '/resources/images/xlsFile.png'
+                        }]
+                    }
+                }
             }, {
                 xtype: 'textfield',
                 itemId: 'queryField',
@@ -95,7 +114,7 @@
                 listeners: {
                     keyup: function (txt, e, eOpts) {
                         var btnPesquisar = this.up().up().down('#btnPesquisarGrid');
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             btnPesquisar.fireEvent('click', this);
                         }
                     }

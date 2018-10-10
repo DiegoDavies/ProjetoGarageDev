@@ -4,7 +4,8 @@
         'ProjetoGarage.view.cliente.GridContaReceber',
         'ProjetoGarage.view.cliente.GridServico',
         'ProjetoGarage.view.cliente.GridVeiculo',
-        'ProjetoGarage.view.cliente.GridHistorico'
+        'ProjetoGarage.view.cliente.GridHistorico',
+        'ProjetoGarage.view.cliente.GridOrcamento'
     ],
     xtype: 'cliente-tabPanel',
     layout: 'card',
@@ -23,24 +24,31 @@
                 width: '100%',
                 height: '100%'
             }, {
+                xtype: 'cliente-gridOrcamento',
+                icon: '/resources/images/contract.png',
+                title: 'Orçamento',
+                itemId: 'pnlCliente1',
+                width: '100%',
+                height: '100%'
+            }, {
                 xtype: 'cliente-gridServico',
                 icon: '/resources/images/contract.png',
                 title: 'Serviços',
-                itemId: 'pnlCliente1',
+                itemId: 'pnlCliente2',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'cliente-gridVeiculo',
                 icon: '/resources/images/wallet.png',
                 title: 'Veículos',
-                itemId: 'pnlCliente2',
+                itemId: 'pnlCliente3',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'cliente-gridHistorico',
                 icon: '/resources/images/history.png',
                 title: 'Histórico',
-                itemId: 'pnlCliente3',
+                itemId: 'pnlCliente4',
                 width: '100%',
                 height: '100%'
             }]
@@ -54,6 +62,7 @@
         var me = this;
 
         me.gridHistorico = me.down('cliente-gridHistorico');
+        me.gridOrcamento = me.down('cliente-gridOrcamento');
         me.gridServico = me.down('cliente-gridServico');
         me.gridVeiculo = me.down('cliente-gridVeiculo');
         me.gridContaReceber = me.down('cliente-gridContaReceber');
@@ -101,6 +110,7 @@
             clienteId = me.panel.extraData.record.get('ClienteId'),
             stores = [
                 me.gridHistorico.getStore(),
+                me.gridOrcamento.getStore(),
                 me.gridServico.getStore(),
                 me.gridVeiculo.getStore(),
                 me.gridContaReceber.getStore()

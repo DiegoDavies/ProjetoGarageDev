@@ -75,6 +75,7 @@
                     flex: 1,
                     height: 300,
                     minHeight: 300,
+                    statusId: me.statusId,
                     border: 1,
                     margin: '0 5 0 0'
                 }]

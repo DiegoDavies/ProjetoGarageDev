@@ -2,8 +2,9 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'orcamento-gridVeiculo',
     requires: [
-        //'ProjetoGarage.view.orcamento.WindowDependente'
+        'ProjetoGarage.view.orcamento.WindowVeiculo'
     ],
+    esconderAtualizar: false,
     initComponent: function () {
         var me = this;
 
@@ -15,20 +16,76 @@
                 style: 'text-align: center;',
                 dataIndex: 'Placa'
             }, {
-                text: 'Modelo',
+                text: 'Marca - Modelo',
                 flex: 1,
+                minWidth: 200,
                 style: 'text-align: center;',
-                dataIndex: 'Modelo'
+                dataIndex: 'MarcaModelo',
+                renderer: function (val, metaData, record) {
+                    metaData.tdAttr = 'data-qtip="' + val + '"';
+                    return val;
+                }
             }, {
                 text: 'Ano',
-                width: 110,
+                width: 80,
                 style: 'text-align: center;',
                 dataIndex: 'Ano'
             }, {
+                text: 'Observação',
+                flex: 1,
+                minWidth: 200,
+                style: 'text-align: center;',
+                dataIndex: 'Observacao',
+                renderer: function (val, metaData, record) {
+                    metaData.tdAttr = 'data-qtip="' + val + '"';
+                    return val;
+                }
+            }, {
                 text: 'Descrição do Problema',
                 flex: 1,
+                minWidth: 200,
                 style: 'text-align: center;',
-                dataIndex: 'Descricao'
+                dataIndex: 'Problema',
+                renderer: function (val, metaData, record) {
+                    metaData.tdAttr = 'data-qtip="' + val + '"';
+                    return val;
+                }
+            }, {
+                text: 'Inclusão',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeInclusao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraInclusao'
+                }]
+            }, {
+                text: 'Alteração',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeAlteracao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraAlteracao'
+                }]
             }]
         });
 
@@ -63,32 +120,56 @@
     onBoxReady: function () {
         var me = this;
 
-        me.btnRelatorio.hide();
         me.toolbar.hide();
+        me.btnRelatorio.hide();
+        me.txtQuery.hide();
+        me.btnPesquisar.hide();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
-        var me = this;
+        var me = this,
+            clienteId = me.tabPanel.panel.extraData.record.get('ClienteId');
 
-        //Ext.create('ProjetoGarage.view.orcamento.WindowDependente', {
-        //    title: 'Dependente ' + record.get('Nome'),
-        //    extraData: {
-        //        formType: 'Alterar',
-        //        grid: me,
-        //        record: record
-        //    }
-        //}).show();
-        //return false;
+        if (clienteId > 0) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowVeiculo', {
+                title: 'Veículo ' + record.get('Placa'),
+                extraData: {
+                    formType: 'Alterar',
+                    grid: me,
+                    record: record,
+                    clienteId: clienteId
+                }
+            }).show();
+        } else {
+            Ext.Msg.show({
+                title: 'Validação',
+                msg: 'Selecione um cliente e salve o registro para continuar',
+                buttons: Ext.Msg.OK,
+                icon: Ext.Msg.WARNING
+            });
+        }
+        return false;
     },
     onBtnNovoClick: function () {
-        var me = this;
+        var me = this,
+            clienteId = me.tabPanel.panel.extraData.record.get('ClienteId');
 
-        //Ext.create('ProjetoGarage.view.orcamento.WindowDependente', {
-        //    title: 'Cadastro de Dependente',
-        //    extraData: {
-        //        formType: 'Cadastrar',
-        //        grid: me
-        //    }
-        //}).show();
-        //return false;
+        if (clienteId > 0) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowVeiculo', {
+                title: 'Seleção de Veículo',
+                extraData: {
+                    formType: 'Cadastrar',
+                    grid: me,
+                    clienteId: clienteId
+                }
+            }).show();
+        } else {
+            Ext.Msg.show({
+                title: 'Validação',
+                msg: 'Selecione um cliente e salve o registro para continuar',
+                buttons: Ext.Msg.OK,
+                icon: Ext.Msg.WARNING
+            });
+        }
+        return false;
     }
 });

@@ -20,7 +20,7 @@
                 name: 'VeiculoId',
                 fieldLabel: 'Veículo',
                 itemId: 'cboVeiculo',
-                displayField: 'Placa',
+                displayField: 'Nome',
                 valueField: 'VeiculoId',
                 store: Ext.create('ProjetoGarage.store.combos.Veiculo'),
                 allowBlank: false
@@ -30,6 +30,7 @@
                 rows: 7,
                 itemId: 'txtObservacao',
                 fieldLabel: 'Observação',
+                hidden: true,
                 disabled: true
             }, {
                 xtype: 'htmleditor',

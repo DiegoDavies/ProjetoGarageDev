@@ -4,6 +4,7 @@
     requires: [
         //'ProjetoGarage.view.orcamento.WindowDependente'
     ],
+    esconderAtualizar: false,
     features: [{
         ftype: 'summary',
         dock: 'bottom'
@@ -96,8 +97,10 @@
     onBoxReady: function () {
         var me = this;
 
-        me.btnRelatorio.hide();
         me.toolbar.hide();
+        me.btnRelatorio.hide();
+        me.txtQuery.hide();
+        me.btnPesquisar.hide();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;

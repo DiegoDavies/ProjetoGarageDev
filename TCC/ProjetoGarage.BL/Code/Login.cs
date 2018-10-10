@@ -45,7 +45,7 @@ namespace ProjetoGarage.BL.Code
                     FormsAuthenticationTicket authticket = new FormsAuthenticationTicket(1,
                         modeloLogin.Login,
                         DateTime.Now,
-                        DateTime.Now.AddMinutes(20),
+                        DateTime.Now.AddMinutes(30),
                         true,
                         "",
                         FormsAuthentication.FormsCookiePath);
