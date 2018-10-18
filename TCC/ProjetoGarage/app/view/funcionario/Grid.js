@@ -8,6 +8,7 @@
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Funcionários',
             store: Ext.create('ProjetoGarage.store.funcionario.Store'),
             columns: [{
                 text: 'Código',
@@ -22,42 +23,27 @@
                 flex: 1,
                 minWidth: 250,
                 style: 'text-align: center;',
-                dataIndex: 'Nome',
-                excelConfig: {
-                    nomeExcel: 'Nome'
-                }
+                dataIndex: 'Nome'
             }, {
                 text: 'Situação',
                 width: 100,
                 style: 'text-align: center;',
-                dataIndex: 'SituacaoNome',
-                excelConfig: {
-                    nomeExcel: 'Situação'
-                }
+                dataIndex: 'SituacaoNome'
             }, {
                 text: 'CPF',
                 width: 150,
                 style: 'text-align: center;',
-                dataIndex: 'Cpf',
-                excelConfig: {
-                    nomeExcel: 'CPF'
-                }
+                dataIndex: 'Cpf'
             }, {
                 text: 'Email',
                 width: 180,
                 style: 'text-align: center;',
-                dataIndex: 'Email',
-                excelConfig: {
-                    nomeExcel: 'Email'
-                }
+                dataIndex: 'Email'
             }, {
                 text: 'Telefone',
                 width: 130,
                 style: 'text-align: center;',
-                dataIndex: 'Telefone',
-                excelConfig: {
-                    nomeExcel: 'Telefone'
-                }
+                dataIndex: 'Telefone'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -65,10 +51,7 @@
                     text: 'Usuário',
                     sortable: true,
                     style: 'text-align: center;',
-                    dataIndex: 'UsuarioNomeInclusao',
-                    excelConfig: {
-                        nomeExcel: 'Usuário Inclusão'
-                    }
+                    dataIndex: 'UsuarioNomeInclusao'
                 }, {
                     xtype: 'datecolumn',
                     sortable: true,
@@ -77,11 +60,7 @@
                     align: 'center',
                     style: 'text-align: center;',
                     format: 'd/m/Y H:i:s',
-                    dataIndex: 'DataHoraInclusao',
-                    excelConfig: {
-                        nomeExcel: 'Data Hora Inclusão',
-                        formatoExcel: 'Data'
-                    }
+                    dataIndex: 'DataHoraInclusao'
                 }]
             }, {
                 text: 'Alteração',
@@ -90,10 +69,7 @@
                     text: 'Usuário',
                     sortable: true,
                     style: 'text-align: center;',
-                    dataIndex: 'UsuarioNomeAlteracao',
-                    excelConfig: {
-                        nomeExcel: 'Usuário Alteração'
-                    }
+                    dataIndex: 'UsuarioNomeAlteracao'
                 }, {
                     xtype: 'datecolumn',
                     sortable: true,
@@ -102,12 +78,38 @@
                     align: 'center',
                     style: 'text-align: center;',
                     format: 'd/m/Y H:i:s',
-                    dataIndex: 'DataHoraAlteracao',
-                    excelConfig: {
-                        nomeExcel: 'Data Hora Alteração',
-                        formatoExcel: 'Data'
-                    }
+                    dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'Nome',
+                nomeExcel: 'Nome'
+            }, {
+                dataIndex: 'Situacao',
+                nomeExcel: 'Situação'
+            }, {
+                dataIndex: 'Cpf',
+                nomeExcel: 'CPF'
+            }, {
+                dataIndex: 'Email',
+                nomeExcel: 'Email'
+            }, {
+                dataIndex: 'Telefone',
+                nomeExcel: 'Telefone'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 
@@ -143,11 +145,6 @@
         me.btnRelatorioPdf.on({
             scope: me,
             click: me.onBtnRelatorioPdfClick
-        });
-
-        me.btnRelatorioXls.on({
-            scope: me,
-            click: me.onBtnRelatorioXlsClick
         });
     },
     onBoxReady: function () {
@@ -202,21 +199,6 @@
         me.tela.tabPrincipal.setActiveTab('CadastroFuncionario');
         return false;
     },
-    onBtnRelatorioXlsClick: function () {
-        var me = this;
-
-        Ext.Msg.alert({
-            title: 'Confirmação de Geração de Relatório',
-            msg: 'Deseja realmente prosseguir com a operação?',
-            buttons: Ext.Msg.YESNO,
-            icon: Ext.Msg.QUESTION,
-            fn: function (button) {
-                if (button === 'yes') {
-                    me.baixarXls();
-                }
-            }
-        });
-    },
     onBtnRelatorioPdfClick: function () {
         var me = this;
 
@@ -229,76 +211,6 @@
                 if (button === 'yes') {
                     me.baixarReport();
                 }
-            }
-        });
-    },
-    baixarXls: function () {
-        var me = this,
-            storeConfig = Ext.create('ProjetoGarage.store.excelConfig.Store'),
-            colunas = [];
-
-        Ext.each(me.columns, function (column) {
-            if (column.excelConfig) {
-                var model = Ext.create('ProjetoGarage.model.excelConfig.Model', {
-                    DataIndex: column.excelConfig.exportDataIndex ? column.excelConfig.exportDataIndex : column.dataIndex,
-                    Nome: column.text,
-                    ExcelFormat: column.excelConfig.formatoExcel ? column.excelConfig.formatoExcel : "Geral",
-                    ExcelFormatString: column.excelConfig.formatoExcelString ? column.excelConfig.formatoExcelString : "",
-                    ExcelNome: column.excelConfig.nomeExcel ? column.excelConfig.nomeExcel : column.text
-                });
-                storeConfig.add(model);
-            }
-        });
-
-        Ext.each(storeConfig.data.items, function (item) {
-            colunas.push({
-                dataIndex: item.get('DataIndex'),
-                nome: item.get('Nome'),
-                header: item.get('ExcelNome'),
-                format: item.get('ExcelFormat'),
-                formatString: item.get('ExcelFormatString')
-            });
-        });
-
-        var excelConfig = {
-            NomeArquivo: 'Funcionário',
-            Colunas: colunas,
-            Guid: Math.random().toString(36).substr(2)
-        }
-        me.excelExportRequirement(excelConfig);
-    },
-    excelExportRequirement: function (excelConfig) {
-        var me = this,
-            mascara = new Ext.LoadMask(me, { msg: "Gerando Planilha..." });
-
-        mascara.show();
-
-        Ext.Ajax.request({
-            url: '/GenerateXls',
-            method: 'POST',
-            params: {
-                procedure: me.store.procedures.select,
-                params: JSON.stringify(me.store.params),
-                remoteFilters: JSON.stringify(me.store.remoteFilters),
-                appliedFilters: JSON.stringify(me.store.appliedFilters),
-                security: me.store.security,
-                excelConfig: JSON.stringify(excelConfig)
-            },
-            success: function (response, eOpts) {
-                var tokenObj = Ext.decode(response.responseText);
-                window.open('/GenerateXls?GetToken=' + tokenObj.NomeArquivo + '&Guid=' + tokenObj.Guid);
-                mascara.hide();
-                mascara.destroy();
-            },
-            failure: function (response, eOpts) {
-                Ext.Msg.show({
-                    title: 'Erro',
-                    msg: 'Ocorreu um erro ao gerar o Arquivo!',
-                    buttons: Ext.Msg.OK,
-                    icon: Ext.Msg.ERROR
-                });
-                mascara.hide();
-                mascara.destroy();
             }
         });
     },

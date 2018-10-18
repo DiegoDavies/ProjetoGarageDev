@@ -12,6 +12,7 @@
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Serviços',
             store: Ext.create('ProjetoGarage.store.servico.Store'),
             columns: [{
                 text: 'Código',
@@ -25,7 +26,7 @@
                 text: 'Status',
                 width: 120,
                 style: 'text-align: center;',
-                dataIndex: 'Status'
+                dataIndex: 'StatusNome'
             }, {
                 text: 'Número',
                 flex: 1,
@@ -39,12 +40,9 @@
                 style: 'text-align: center;',
                 dataIndex: 'ClienteNome'
             }, {
-                xtype: 'numbercolumn',
-                format: '0,000',
-                align: 'right',
-                style: 'text-align: center;',
                 text: 'Duração',
-                width: 120,
+                style: 'text-align: center;',
+                width: 150,
                 dataIndex: 'Duracao'
             }, {
                 xtype: 'numbercolumn',
@@ -118,6 +116,49 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'StatusNome',
+                nomeExcel: 'Status'
+            }, {
+                dataIndex: 'Numero',
+                nomeExcel: 'Número'
+            }, {
+                dataIndex: 'ClienteNome',
+                nomeExcel: 'Cliente'
+            }, {
+                dataIndex: 'Duracao',
+                nomeExcel: 'Duração'
+            }, {
+                dataIndex: 'ValorTotal',
+                nomeExcel: 'ValorTotal',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'DataAprovacao',
+                nomeExcel: 'Data Aprovação',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'DataInicio',
+                nomeExcel: 'Data Inicio',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'DataFinalizacao',
+                nomeExcel: 'Data Finalização',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 

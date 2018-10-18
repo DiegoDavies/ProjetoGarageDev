@@ -8,6 +8,7 @@
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Clientes',
             store: Ext.create('ProjetoGarage.store.cliente.Store'),
             columns: [{
                 text: 'Código',
@@ -79,6 +80,36 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'Nome',
+                nomeExcel: 'Nome'
+            }, {
+                dataIndex: 'Situacao',
+                nomeExcel: 'Situação'
+            }, {
+                dataIndex: 'Cpf',
+                nomeExcel: 'CPF'
+            }, {
+                dataIndex: 'Email',
+                nomeExcel: 'Email'
+            }, {
+                dataIndex: 'Telefone',
+                nomeExcel: 'Telefone'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 
@@ -89,7 +120,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid')
+        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
         me.btnDelete = me.down('#btnDeleteGrid');
         me.btnRelatorio = me.down('#btnRelatorioGrid');
@@ -108,11 +139,6 @@
         me.btnNovo.on({
             scope: me,
             click: me.onBtnNovoClick
-        });
-
-        me.btnRelatorio.on({
-            scope: me,
-            click: me.onBtnRelatorioClick
         });
     },
     onBoxReady: function () {
@@ -166,9 +192,5 @@
         });
         me.tela.tabPrincipal.setActiveTab('CadastroCliente');
         return false;
-    },
-    onBtnRelatorioClick: function () {
-        var me = this;
-
     }
 });

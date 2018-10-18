@@ -8,6 +8,7 @@
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Veículos',
             store: Ext.create('ProjetoGarage.store.veiculo.Store'),
             columns: [{
                 text: 'Código',
@@ -74,6 +75,33 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'Cliente',
+                nomeExcel: 'Cliente'
+            }, {
+                dataIndex: 'Placa',
+                nomeExcel: 'Placa'
+            }, {
+                dataIndex: 'Marca',
+                nomeExcel: 'Marca'
+            }, {
+                dataIndex: 'Modelo',
+                nomeExcel: 'Modelo'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 

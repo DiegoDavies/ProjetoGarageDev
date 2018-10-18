@@ -38,6 +38,10 @@
         name: 'DuracaoValor',
         type: 'FLOAT'
     }, {
+        name: 'Duracao',
+        type: 'STRING',
+        persist: false
+    }, {
         name: 'StatusId',
         type: 'INT'
     }, {

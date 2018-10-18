@@ -4,10 +4,15 @@
     requires: [
         'ProjetoGarage.view.orcamento.Panel'
     ],
+    features: [{
+        ftype: 'summary',
+        dock: 'bottom'
+    }],
     initComponent: function () {
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Orçamentos',
             store: Ext.create('ProjetoGarage.store.orcamento.Store'),
             columns: [{
                 text: 'Código',
@@ -51,6 +56,11 @@
                 format: 'd/m/Y',
                 dataIndex: 'DataVencimento'
             }, {
+                text: 'Duração',
+                style: 'text-align: center;',
+                width: 150,
+                dataIndex: 'Duracao'
+            }, {
                 xtype: 'numbercolumn',
                 format: '0,000.00',
                 align: 'right',
@@ -58,7 +68,11 @@
                 text: 'Valor Total',
                 width: 120,
                 hidden: true,
-                dataIndex: 'ValorTotal'
+                dataIndex: 'ValorTotal',
+                summaryType: 'sum',
+                summaryRenderer: function (value, summaryData, field) {
+                    return Ext.util.Format.number(me.store.sum('ValorTotal'), '0,000.00');
+                }
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -95,6 +109,45 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'StatusNome',
+                nomeExcel: 'Status'
+            }, {
+                dataIndex: 'Numero',
+                nomeExcel: 'Número'
+            }, {
+                dataIndex: 'ClienteNome',
+                nomeExcel: 'Cliente'
+            }, {
+                dataIndex: 'DataRealizacao',
+                nomeExcel: 'Data do Orçamento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'DataVencimento',
+                nomeExcel: 'Data Vencimento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'Duracao',
+                nomeExcel: 'Duração'
+            }, {
+                dataIndex: 'ValorTotal',
+                nomeExcel: 'ValorTotal',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 
