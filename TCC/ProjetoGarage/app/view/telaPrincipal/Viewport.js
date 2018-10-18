@@ -5,7 +5,7 @@
 Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
     extend: 'Ext.container.Viewport',
     requires: [
-        'ProjetoGarage.view.telaPrincipal.Menu',
+        'ProjetoGarage.view.telaPrincipal.Menu'
     ],
     layout: 'border',
     initComponent: function () {
@@ -82,8 +82,6 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                                                     window.location.reload();
                                                 }
                                             });
-                                            //debugger;
-                                            //this.destroy();
                                         }
                                     }
                                 }]

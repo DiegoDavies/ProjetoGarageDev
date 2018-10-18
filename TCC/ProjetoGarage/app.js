@@ -16,12 +16,21 @@ Ext.application({
         Ext.setGlyphFontFamily('FontAwesome');
 
         Ext.Ajax.on({
+            beforerequest: function (conn, options, eOpts) {
+                if (options.url !== '/GravaLog' &&
+                    options.url !== '/Login' &&
+                    options.url !== '/VerificaSessao') {
+
+                }
+            },
             requestcomplete: function (conn, response, options, eOpts) {
-                //adicionar funcionalidade para verificar a sessão
-                if (options.url !== '/GravaLog' && options.url !== '/Login' && options.url !== '/Email' && options.url !== '/GenerateXls') {
-                    var init = options.url.indexOf('procedure=') + 10,
-                        finish = options.url.indexOf('&params'),
-                        procedure = options.url.substring(init, finish),
+                if (options.url !== '/GravaLog' &&
+                    options.url !== '/Login' &&
+                    options.url !== '/Email' &&
+                    options.url !== '/GenerateXls' &&
+                    options.url !== '/ReportPDF') {
+                    var procedure = options.proxy ? options.proxy.procedure : "",
+                        method = options.proxy ? options.proxy.methodUtil : "",
                         url = options.url.replace('/', '');
                     if (procedure || url) {
                         Ext.Ajax.request({
@@ -29,21 +38,32 @@ Ext.application({
                             params: {
                                 urlUtilizada: url,
                                 procedure: procedure,
-                                method: options.method,
-                                usuarioId: 1,
-                                usuario: "Diego",
+                                method: method,
                                 erro: ""
                             }
                         });
                     }
+                } else if (options.url !== '/GravaLog' &&
+                    options.url !== '/Login') {
+                    Ext.Ajax.request({
+                        url: '/GravaLog',
+                        params: {
+                            urlUtilizada: options.url.replace('/', ''),
+                            procedure: options.url,
+                            method: "",
+                            erro: ""
+                        }
+                    });
                 }
             },
             requestexception: function (conn, response, options, eOpts) {
-                if (options.url !== '/GravaLog' && options.url !== '/Email' && options.url !== '/GenerateXls') {
-                    var init = options.url.indexOf('procedure=') + 10,
-                        finish = options.url.indexOf('&params'),
-                        finish1 = options.url.indexOf('&operation'),
-                        procedure = options.url.substring(init, (finish1 < finish && finish1 > 0 ? finish1 : finish)),
+                if (options.url !== '/GravaLog' &&
+                    options.url !== '/Login' &&
+                    options.url !== '/Email' &&
+                    options.url !== '/GenerateXls' &&
+                    options.url !== '/ReportPDF') {
+                    var procedure = options.proxy ? options.proxy.procedure : "",
+                        method = options.proxy ? options.proxy.methodUtil : "",
                         url = options.url.replace('/', '');
                     if (procedure || url) {
                         Ext.Ajax.request({
@@ -51,9 +71,7 @@ Ext.application({
                             params: {
                                 urlUtilizada: url,
                                 procedure: procedure,
-                                method: options.method,
-                                usuarioId: 1,
-                                usuario: "Diego",
+                                method: method,
                                 erro: response.responseText
                             }
                         });
@@ -67,6 +85,17 @@ Ext.application({
                             icon: Ext.Msg.ERROR
                         });
                     }
+                } else if (options.url !== '/GravaLog' &&
+                    options.url !== '/Login') {
+                    Ext.Ajax.request({
+                        url: '/GravaLog',
+                        params: {
+                            urlUtilizada: options.url.replace('/', ''),
+                            procedure: options.url,
+                            method: "",
+                            erro: "ERRO"
+                        }
+                    });
                 }
             }
         });

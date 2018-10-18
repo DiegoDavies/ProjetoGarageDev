@@ -78,7 +78,7 @@
         me.txtSenha.on({
             scope: me,
             keypress: me.onKeyPress
-        })
+        });
 
         me.btnLogar.on({
             click: me.onBtnLogarClick,
@@ -120,8 +120,6 @@
                             urlUtilizada: 'Login',
                             procedure: '/Login',
                             method: "",
-                            usuarioId: result.UsuarioId,
-                            usuario: result.Nome,
                             erro: ""
                         }
                     });
@@ -140,9 +138,7 @@
                                     urlUtilizada: 'Login',
                                     procedure: '/Login',
                                     method: "",
-                                    usuarioId: -1,
-                                    usuario: me.txtLogin.getValue(),
-                                    erro: "Usuário e/ou Senha não encontrados. Tente novamente!"
+                                    erro: "Usuario e/ou Senha nao encontrados. Tente novamente!"
                                 }
                             });
                         }
@@ -162,8 +158,6 @@
                                 urlUtilizada: 'Login',
                                 procedure: '/Login',
                                 method: "",
-                                usuarioId: -1,
-                                usuario: me.txtLogin.getValue(),
                                 erro: "Ocorreu um problema. Por favor contate o suporte!"
                             }
                         });

@@ -121,6 +121,7 @@
         }
         //</debug>
         me.urls = config.urls ? config.urls : ProjetoGarage.ux.DataStoreHandler.urls;
+
         Ext.applyIf(me, {
             buffered: config.buffered ? config.buffered : false,
             pageSize: config.pageSize ? config.pageSize : 50,
@@ -138,6 +139,8 @@
             proxy: {
                 type: 'ajax',
                 url: config.procedures.select ? (config.urls.get + '?procedure=' + config.procedures.select) : config.urls.get,
+                procedure: config.procedures.select,
+                methodUtil: 'GET',
                 batchActions: true,
                 actionMethods: {
                     create: 'POST',
@@ -204,6 +207,8 @@
             this.params.HttpMethod = "POST";
             this.params.HttpMethod = options.destroy ? "DELETE" : this.params.HttpMethod;
             this.params.HttpMethod = options.update ? "PUT" : this.params.HttpMethod;
+            this.proxy.procedure = this.params.HttpMethod === 'POST' ? config.procedures.insert : this.params.HttpMethod === 'DELETE' ? config.procedures.destroy : config.procedures.update;
+            this.proxy.methodUtil = this.params.HttpMethod;
             var urlSuffix = (!this.params ? '' : ('&params=' + encodeURI(JSON.stringify(this.params)))) +
                             (!this.remoteFilters ? '' : ('&remoteFilters=' + encodeURI(JSON.stringify(this.remoteFilters)))) +
                             (!this.smart ? '' : '&smart=true') +

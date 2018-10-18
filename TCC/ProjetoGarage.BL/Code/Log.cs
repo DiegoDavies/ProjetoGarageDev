@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace ProjetoGarage.BL.Code
 {
@@ -16,22 +10,36 @@ namespace ProjetoGarage.BL.Code
 
         public void Processar(string procedure, string urlUtilizada, string method, int usuarioId, string usuario, string erro)
         {
-            string acao = string.Empty, problema = string.Empty;
-            string query = "INSERT INTO Log (UsuarioId, DataHora, Acao, Problema) VALUES";
+            int acaoId = 0;
+            string nomeAdc = string.Empty;
+            string query = "INSERT INTO Log (UsuarioId, DataHora, Id, NomeAdc) VALUES({0}, {1}, {2}, '{3}')";
             if (urlUtilizada != null)
             {
                 switch (urlUtilizada.ToUpper())
                 {
                     case "LOGIN":
-                        acao = erro == "" ? "Realizando Login do Usuário " + usuario : "";
-                        problema = erro == "" ? "" : "Problema ao realizar Login " + erro;
-                        query = string.Concat(query, string.Format("({0},{1},'{2}','{3}')", usuarioId.ToString(), "GETDATE()", acao, problema));
+                        acaoId = (erro == "" ? 1 : 2);
                         break;
                     case "VERIFICASESSAO":
-                        acao = erro == "" ? "Verificando Sessão do Usuário " + usuario : "";
-                        problema = erro == "" ? "" : "Problema ao verificar Sessão " + erro;
-                        query = string.Concat(query, string.Format("({0},{1},'{2}','{3}')", usuarioId.ToString(), "GETDATE()", acao, problema));
+                        acaoId = (erro == "" ? 11 : 12);
                         break;
+                    case "EMAIL":
+                        acaoId = (erro == "" ? 81 : 82);
+                        break;
+                    case "GENERATEXLS":
+                        acaoId = (erro == "" ? 91 : 92);
+                        break;
+                    case "REPORTPDF":
+                        acaoId = (erro == "" ? 101 : 102);
+                        break;
+                    case "AUDITORIATELA":
+                        acaoId = (erro == "" ? 21 : 22);
+                        nomeAdc = procedure;
+                        break;
+                }
+                if (acaoId > 0)
+                {
+                    query = string.Format(query, usuarioId.ToString(), "GETDATE()", acaoId, nomeAdc);
                 }
             }
             if (procedure.Contains("S_"))
@@ -39,28 +47,34 @@ namespace ProjetoGarage.BL.Code
                 switch (method.ToUpper())
                 {
                     case "GET":
-                        acao = erro == "" ? "Retornando select pela procedure " + procedure + " para o usuário " + usuario : "";
-                        problema = erro == "" ? "" : "Erro ao realizar consulta pela procedure " + procedure + " para o usuário " + usuario;
+                        acaoId = (erro == "" ? 23 : 24);
+                        nomeAdc = procedure;
                         break;
                     case "POST":
-                        acao = erro == "" ? "Realizando cadastro pela procedure " + procedure + " para o usuário " + usuario : "";
-                        problema = erro == "" ? "" : "Erro ao realizar cadastro pela procedure " + procedure + " para o usuário " + usuario;
+                        acaoId = (erro == "" ? 25 : 26);
+                        nomeAdc = procedure;
                         break;
                     case "PUT":
-                        acao = erro == "" ? "Realizando alteração pela procedure " + procedure + " para o usuário " + usuario : "";
-                        problema = erro == "" ? "" : "Erro ao realizar alteração pela procedure " + procedure + " para o usuário " + usuario;
+                        acaoId = (erro == "" ? 27 : 28);
+                        nomeAdc = procedure;
                         break;
                     case "DELETE":
-                        acao = erro == "" ? "Realizando delete pela procedure " + procedure + " para o usuário " + usuario : "";
-                        problema = erro == "" ? "" : "Erro ao realizar delete pela procedure " + procedure + " para o usuário " + usuario;
+                        acaoId = (erro == "" ? 29 : 30);
+                        nomeAdc = procedure;
                         break;
                 }
-                query = string.Concat(query, string.Format("({0},{1},'{2}','{3}')", usuarioId.ToString(), "GETDATE()", acao, problema));
+                if (acaoId > 0)
+                {
+                    query = string.Format(query, usuarioId.ToString(), "GETDATE()", acaoId, nomeAdc);
+                }
             }
-            con = db.OpenConnection();
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            db.CloseConnection(con);
+            if (query != "INSERT INTO Log (UsuarioId, DataHora, Id, NomeAdc) VALUES({0}, {1}, {2}, '{3}')")
+            {
+                con = db.OpenConnection();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                db.CloseConnection(con);
+            }
         }
     }
 }

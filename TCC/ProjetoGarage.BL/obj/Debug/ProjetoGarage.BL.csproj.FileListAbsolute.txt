@@ -69,14 +69,6 @@ C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Crys
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\CrystalDecisions.Shared.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\EPPlus.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\itextsharp.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Session.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -98,14 +90,6 @@ C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Crys
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\stdole.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\EPPlus.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\itextsharp.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.AspNetCore.Session.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
@@ -116,6 +100,6 @@ C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Micr
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\System.Text.Encodings.Web.xml
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.csprojResolveAssemblyReference.cache
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.pdb
+C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.csprojResolveAssemblyReference.cache

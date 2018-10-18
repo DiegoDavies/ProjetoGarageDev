@@ -317,7 +317,7 @@
             ExportName: text,
             Params: [{
                 Param: '@FuncionarioId',
-                Value: 1
+                Value: 0
             }]
         };
         return encodeURIComponent(JSON.stringify(report));

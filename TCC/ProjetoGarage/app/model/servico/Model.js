@@ -32,11 +32,38 @@
             return Ext.Date.format(v, 'Y-m-d H:i:s');
         }
     }, {
+        name: 'DataInicio',
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
+    }, {
+        name: 'DataFim',
+        type: 'DATE',
+        serialize: function (v) {
+            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        }
+    }, {
         name: 'ValorTotal',
         type: 'FLOAT'
     }, {
-        name: 'Duracao',
+        name: 'DuracaoId',
+        type: 'INT'
+    }, {
+        name: 'DuracaoNome',
+        type: 'STRING'
+    }, {
+        name: 'DuracaoValor',
         type: 'FLOAT'
+    }, {
+        name: 'StatusId',
+        type: 'INT'
+    }, {
+        name: 'StatusNome',
+        type: 'STRING'
+    }, {
+        name: 'Observacao',
+        type: 'STRING'
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',

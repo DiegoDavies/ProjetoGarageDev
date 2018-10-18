@@ -180,8 +180,6 @@ Ext.define('ProjetoGarage.view.login.Login', {
                             urlUtilizada: 'Login',
                             procedure: '/Login',
                             method: "",
-                            usuarioId: result.UsuarioId,
-                            usuario: result.Nome,
                             erro: ""
                         }
                     });
@@ -201,9 +199,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
                                     urlUtilizada: 'Login',
                                     procedure: '/Login',
                                     method: "",
-                                    usuarioId: -1,
-                                    usuario: me.txtLogin.getValue(),
-                                    erro: "Usuário e/ou Senha não encontrados. Tente novamente!"
+                                    erro: "Usuario e/ou Senha nao encontrados. Tente novamente!"
                                 }
                             });
                         }
@@ -223,8 +219,6 @@ Ext.define('ProjetoGarage.view.login.Login', {
                                 urlUtilizada: 'Login',
                                 procedure: '/Login',
                                 method: "",
-                                usuarioId: -1,
-                                usuario: me.txtLogin.getValue(),
                                 erro: "Ocorreu um problema. Por favor contate o suporte!"
                             }
                         });

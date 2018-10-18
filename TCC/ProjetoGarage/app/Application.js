@@ -59,7 +59,8 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.login.WindowResetar',
         'ProjetoGarage.view.marca.Tela',
         'ProjetoGarage.view.modelo.Tela',
-        'ProjetoGarage.view.veiculo.Tela'
+        'ProjetoGarage.view.veiculo.Tela',
+        'ProjetoGarage.view.auditoria.Tela'
     ],
 
     stores: [
@@ -161,7 +162,9 @@ Ext.define('ProjetoGarage.Application', {
         'veiculo.Store',
         'veiculo.Historico',
 
-        'excelConfig.Store'
+        'excelConfig.Store',
+
+        'auditoria.Store'
     ]
 });
 

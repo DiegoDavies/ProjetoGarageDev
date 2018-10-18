@@ -293,6 +293,9 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
                 tabPrincipal: tab,
                 itemId: 'funcionalidade' + tela.xtype,
                 listeners: {
+                    boxready: function () {
+                        me.registraAuditoria(texto);
+                    },
                     beforetabchange: function (tabP, newCard, oldCard, eOpts) {
                         if (newCard.xtype.endsWith("-tela")) {
                             if (newCard.items.items[0].xtype.endsWith("-grid")) {
@@ -304,5 +307,16 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
             });
         }
         tab.setActiveTab('funcionalidade' + tela.xtype);
+    },
+    registraAuditoria: function (tela) {
+        Ext.Ajax.request({
+            url: '/GravaLog',
+            params: {
+                urlUtilizada: "AUDITORIATELA",
+                procedure: tela,
+                method: "",
+                erro: ""
+            }
+        });
     }
 });
