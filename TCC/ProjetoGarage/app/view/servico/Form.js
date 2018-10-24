@@ -37,7 +37,7 @@
                     xtype: 'textfield',
                     name: 'ClienteNome',
                     fieldLabel: 'Cliente',
-                    itemId: 'txtCliente',
+                    itemId: 'txtCliente'
                 }, {
                     xtype: 'datefield',
                     altFormats: 'd/m/Y|dmy|dmY',
@@ -65,14 +65,16 @@
                     align: 'right',
                     format: '0,000',
                     fieldLabel: 'Duração (Dias)',
-                    itemId: 'txtDuracao'
+                    itemId: 'txtDuracao',
+                    fieldStyle: 'text-align:right'
                 }, {
                     xtype: 'numberfield',
                     name: 'ValorTotal',
                     align: 'right',
                     format: '0,000.00',
                     fieldLabel: 'Valor Total (R$)',
-                    itemId: 'txtValorTotal'
+                    itemId: 'txtValorTotal',
+                    fieldStyle: 'text-align:right'
                 }, {
                     xtype: 'servico-gridCustos',
                     title: 'Custos',

@@ -60,7 +60,8 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.marca.Tela',
         'ProjetoGarage.view.modelo.Tela',
         'ProjetoGarage.view.veiculo.Tela',
-        'ProjetoGarage.view.auditoria.Tela'
+        'ProjetoGarage.view.auditoria.Tela',
+        'ProjetoGarage.view.tipoPagamento.Tela'
     ],
 
     stores: [
@@ -81,6 +82,9 @@ Ext.define('ProjetoGarage.Application', {
         'combos.Marca',
         'combos.Modelo',
         'combos.Veiculo',
+        'combos.TipoPagamento',
+        'combos.Fornecedor',
+        'combos.Funcionario',
 
         'funcionario.Store',
         'funcionario.Historico',
@@ -106,6 +110,8 @@ Ext.define('ProjetoGarage.Application', {
         'formacao.Store',
 
         'etnia.Store',
+
+        'tipoPagamento.Store',
 
         'banco.Store',
 

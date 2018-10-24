@@ -1,78 +1,27 @@
-﻿Ext.define('ProjetoGarage.view.contaPagar.Grid', {
+﻿Ext.define('ProjetoGarage.view.tipoPagamento.Grid', {
     extend: 'ProjetoGarage.view.GridDefault',
-    xtype: 'contaPagar-grid',
+    xtype: 'tipoPagamento-grid',
     requires: [
-        'ProjetoGarage.view.contaPagar.Panel'
+        'ProjetoGarage.view.tipoPagamento.Window'
     ],
-    features: [{
-        ftype: 'summary',
-        dock: 'bottom'
-    }],
     initComponent: function () {
         var me = this;
 
         Ext.apply(me, {
-            store: Ext.create('ProjetoGarage.store.contaPagar.Store'),
+            store: Ext.create('ProjetoGarage.store.tipoPagamento.Store'),
             columns: [{
                 text: 'Código',
                 width: 100,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'ContaPagarId',
+                dataIndex: 'TipoPagamentoId',
                 hidden: true,
                 hideable: false
             }, {
-                text: 'Documento',
+                text: 'Nome',
                 flex: 1,
-                minWidth: 200,
                 style: 'text-align: center;',
-                dataIndex: 'Documento'
-            }, {
-                text: 'Beneficiário',
-                flex: 1,
-                minWidth: 200,
-                style: 'text-align: center;',
-                dataIndex: 'BeneficiarioNome'
-            }, {
-                xtype: 'datecolumn',
-                text: 'Data Vencimento',
-                width: 150,
-                align: 'center',
-                style: 'text-align: center;',
-                format: 'd/m/Y',
-                dataIndex: 'DataVencimento'
-            }, {
-                xtype: 'numbercolumn',
-                format: '0,000.00',
-                align: 'right',
-                style: 'text-align: center;',
-                text: 'Valor',
-                width: 120,
-                dataIndex: 'Valor',
-                summaryType: 'sum',
-                summaryRenderer: function (value, summaryData, field) {
-                    return Ext.util.Format.number(me.store.sum('Valor'), '0,000.00');
-                }
-            }, {
-                xtype: 'datecolumn',
-                text: 'Data Pagamento',
-                width: 150,
-                align: 'center',
-                style: 'text-align: center;',
-                format: 'd/m/Y',
-                dataIndex: 'DataPagamento'
-            }, {
-                xtype: 'numbercolumn',
-                format: '0,000.00',
-                align: 'right',
-                style: 'text-align: center;',
-                text: 'Valor Pago',
-                width: 120,
-                dataIndex: 'ValorPago',
-                summaryType: 'sum',
-                summaryRenderer: function (value, summaryData, field) {
-                    return Ext.util.Format.number(me.store.sum('ValorPago'), '0,000.00');
-                }
+                dataIndex: 'Nome'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -143,41 +92,32 @@
     onBoxReady: function () {
         var me = this;
 
+        me.btnRelatorio.hide();
         me.store.load();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
-            xtype: 'contaPagar-panel',
-            title: 'Conta à Pagar: ' + record.get('Documento'),
-            closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
-            itemId: 'ContaPagar' + record.get('ContaPagarId'),
+        Ext.create('ProjetoGarage.view.tipoPagamento.Window', {
+            title: 'Tipo de Pagamento: ' + record.get('Nome'),
             extraData: {
                 formType: 'Alterar',
                 grid: me,
                 record: record
             }
-        });
-        me.tela.tabPrincipal.setActiveTab('ContaPagar' + record.get('ContaPagarId'));
+        }).show();
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
-            xtype: 'contaPagar-panel',
-            title: 'Cadastro de Conta à Pagar',
-            closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
-            itemId: 'CadastroContaPagar',
+        Ext.create('ProjetoGarage.view.tipoPagamento.Window', {
+            title: 'Cadastro de Tipo de Pagamento',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me
             }
-        });
-        me.tela.tabPrincipal.setActiveTab('CadastroContaPagar');
+        }).show();
         return false;
     }
 });

@@ -5,8 +5,8 @@ Ext.define('ProjetoGarage.view.login.Login', {
     ],
     xtype: 'loginContainer',
     title: 'Por favor entre com seus dados',
-    width: screen.availWidth * 0.98,
-    height: screen.availHeight * 0.87,
+    width: screen.availWidth,
+    height: screen.availHeight,
     cls: 'ContainerLogin',
     layout: 'column',
     initComponent: function () {
@@ -17,7 +17,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
                 backgroundImage: 'url(/resources/images/fundologin.jpg)',
                 backgroundSize: '100% 100%',
                 backgroundRepeat: 'no-repeat',
-                position: 'absolute'
+                position: 'fixed'
             },
             overflowY: 'hidden',
             overflowX: 'hidden',
@@ -34,9 +34,9 @@ Ext.define('ProjetoGarage.view.login.Login', {
                 height: '100%',
                 items: [{
                     xtype: 'form',
-                    margin: '80 5 20 5',
-                    flex: 1,
-                    style: 'border-radius: 4px;',
+                    margin: '80 5 20',
+                    width: 400,
+                    style: 'border-radius: 4px;left: 15%;',
                     items: [{
                         xtype: 'container',
                         layout: 'column',

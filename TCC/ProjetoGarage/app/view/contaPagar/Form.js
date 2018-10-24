@@ -32,21 +32,36 @@
                     fieldLabel: 'Documento',
                     itemId: 'txtDocumento'
                 }, {
+                    xtype: 'radiogroup',
+                    itemId: 'rdbBeneficiarios',
+                    fieldLabel: 'Beneficiário',
+                    columns: 2,
+                    items: [{
+                        boxLabel: 'Funcionários',
+                        name: 'Benef',
+                        inputValue: 'Funcionario',
+                        checked: true
+                    }, {
+                        boxLabel: 'Fornecedores',
+                        name: 'Benef',
+                        inputValue: 'Fornecedor'
+                    }]
+                }, {
                     xtype: 'tcc-combo',
-                    name: 'BeneficiarioId',
+                    name: 'FuncionarioId',
                     fieldLabel: 'Funcionario',
                     itemId: 'cboFuncionario',
                     displayField: 'Nome',
                     valueField: 'FuncionarioId',
-                    store: Ext.create('ProjetoGarage.store.combos.Cliente')
+                    store: Ext.create('ProjetoGarage.store.combos.Funcionario')
                 }, {
                     xtype: 'tcc-combo',
-                    name: 'BeneficiarioId',
+                    name: 'FornecedorId',
                     fieldLabel: 'Fornecedor',
-                    itemId: 'cboForneceodr',
+                    itemId: 'cboFornecedor',
                     displayField: 'Nome',
                     valueField: 'FornecedorId',
-                    store: Ext.create('ProjetoGarage.store.combos.Cliente')
+                    store: Ext.create('ProjetoGarage.store.combos.Fornecedor')
                 }, {
                     xtype: 'datefield',
                     altFormats: 'd/m/Y|dmy|dmY',
@@ -60,7 +75,8 @@
                     align: 'right',
                     format: '0,000.00',
                     fieldLabel: 'Valor',
-                    itemId: 'txtValor'
+                    itemId: 'txtValor',
+                    fieldStyle: 'text-align:right'
                 }, {
                     xtype: 'datefield',
                     altFormats: 'd/m/Y|dmy|dmY',
@@ -76,13 +92,27 @@
                     format: '0,000.00',
                     fieldLabel: 'Valor Pago',
                     itemId: 'txtValorPago',
-                    readOnly: true
+                    readOnly: true,
+                    fieldStyle: 'text-align:right'
+                }, {
+                    xtype: 'htmleditor',
+                    name: 'Observacao',
+                    fieldLabel: 'Observação',
+                    itemId: 'txtObservacao',
+                    rows: 6
                 }]
             }, {
                 xtype: 'contaPagar-tabPanel',
                 flex: 1,
                 margin: '0 0 0 0',
                 panel: me.panel
+            }, {
+                xtype: 'tcc-mascaraTab',
+                itemId: 'contaPagarMasc',
+                flex: 1,
+                margin: '0 0 0 0',
+                width: '100%',
+                height: '100%'
             }]
         });
 

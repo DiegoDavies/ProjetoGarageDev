@@ -4,7 +4,7 @@
     pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
-        select: 'S_ContaReceberOcorrencia_L'
+        select: 'S_ContaReceberHistorico_L'
     },
     model: 'ProjetoGarage.model.contaReceber.Ocorrencia'
 });

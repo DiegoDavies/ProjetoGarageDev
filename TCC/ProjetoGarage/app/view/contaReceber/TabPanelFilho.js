@@ -36,6 +36,8 @@
     addReferences: function () {
         var me = this;
 
+        me.gridRecebimento = me.down('contaReceber-gridRecebimento');
+        me.gridOcorrencia = me.down('contaReceber-gridOcorrencia');
     },
     addEventHandler: function () {
         var me = this;
@@ -57,7 +59,7 @@
                 toggleGroup: 'contaReceber',
                 text: item.title,
                 contador: cont,
-                itemNome: item.xtype,
+                itemNome: item.itemId,
                 itemId: 'txtContaReceber' + cont,
                 listeners: {
                     scope: this,
@@ -71,7 +73,23 @@
     onBtnBarClick: function (btn) {
         var me = this;
 
-        me.getLayout().setActiveItem('pnlContaReceber' + btn.contador);
+        me.getLayout().setActiveItem(btn.itemNome);
         btn.pressed = true;
+    },
+    loadStores: function () {
+        var me = this,
+            contaReceberId = me.panel.extraData.record.get('ContaReceberId'),
+            stores = [
+                me.gridRecebimento.getStore(),
+                me.gridOcorrencia.getStore()
+            ];
+
+        Ext.each(stores, function (store) {
+            store.setParams({
+                ContaReceberId: contaReceberId
+            });
+
+            store.load();
+        });
     }
 });

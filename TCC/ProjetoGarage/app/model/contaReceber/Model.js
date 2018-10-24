@@ -8,7 +8,10 @@
         type: 'STRING'
     }, {
         name: 'BeneficiarioId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'BeneficiarioNome',
         type: 'STRING',
@@ -23,13 +26,13 @@
         name: 'Valor',
         type: 'FLOAT'
     }, {
-        name: 'DataPagamento',
+        name: 'DataRecebimento',
         type: 'DATE',
         serialize: function (v) {
             return Ext.Date.format(v, 'Y-m-d H:i:s');
         }
     }, {
-        name: 'ValorPago',
+        name: 'ValorRecebido',
         type: 'FLOAT'
     }, {
         name: 'UsuarioIdInclusao',

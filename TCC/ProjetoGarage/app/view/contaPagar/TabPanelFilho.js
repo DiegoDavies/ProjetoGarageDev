@@ -36,6 +36,8 @@
     addReferences: function () {
         var me = this;
 
+        me.gridPagamento = me.down('contaPagar-gridPagamento');
+        me.gridOcorrencia = me.down('contaPagar-gridOcorrencia');
     },
     addEventHandler: function () {
         var me = this;
@@ -57,7 +59,7 @@
                 toggleGroup: 'contaPagar',
                 text: item.title,
                 contador: cont,
-                itemNome: item.xtype,
+                itemNome: item.itemId,
                 itemId: 'txtContaPagar' + cont,
                 listeners: {
                     scope: this,
@@ -71,7 +73,23 @@
     onBtnBarClick: function (btn) {
         var me = this;
 
-        me.getLayout().setActiveItem('pnlContaPagar' + btn.contador);
+        me.getLayout().setActiveItem(btn.itemNome);
         btn.pressed = true;
+    },
+    loadStores: function() {
+        var me = this,
+            contaPagarId = me.panel.extraData.record.get('ContaPagarId'),
+            stores = [
+                me.gridPagamento.getStore(),
+                me.gridOcorrencia.getStore()
+            ];
+
+        Ext.each(stores, function (store) {
+            store.setParams({
+                ContaPagarId: contaPagarId
+            });
+
+            store.load();
+        });
     }
 });

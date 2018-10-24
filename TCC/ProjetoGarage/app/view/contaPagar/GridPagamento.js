@@ -2,12 +2,14 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'contaPagar-gridPagamento',
     requires: [
-        //'ProjetoGarage.view.contaPagar.WindowDependente'
+        'ProjetoGarage.view.contaPagar.WindowPagamento'
     ],
     features: [{
         ftype: 'summary',
         dock: 'bottom'
     }],
+    esconderEstorno: false,
+    esconderDelete: true,
     initComponent: function () {
         var me = this;
 
@@ -17,12 +19,24 @@
                 text: 'Documento',
                 flex: 1,
                 style: 'text-align: center;',
-                dataIndex: 'Documento'
+                dataIndex: 'Documento',
+                renderer: function (v, metaData, rec) {
+                    if (rec.get('Estornado')) {
+                        metaData.style = 'background-color: #FF6560 !important;';
+                    }
+                    return v;
+                }
             }, {
                 text: 'Tipo de Pagamento',
                 width: 160,
                 style: 'text-align: center;',
-                dataIndex: 'TipoPagamentoNome'
+                dataIndex: 'TipoPagamentoNome',
+                renderer: function (v, metaData, rec) {
+                    if (rec.get('Estornado')) {
+                        metaData.style = 'background-color: #FF6560 !important;';
+                    }
+                    return v;
+                }
             }, {
                 xtype: 'datecolumn',
                 text: 'Data Pagamento',
@@ -30,7 +44,13 @@
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y',
-                dataIndex: 'DataPagamento'
+                dataIndex: 'DataPagamento',
+                renderer: function (v, metaData, rec) {
+                    if (rec.get('Estornado')) {
+                        metaData.style = 'background-color: #FF6560 !important;';
+                    }
+                    return Ext.Date.format(v, 'd/m/Y');
+                }
             }, {
                 xtype: 'numbercolumn',
                 format: '0,000.00',
@@ -42,6 +62,12 @@
                 summaryType: 'sum',
                 summaryRenderer: function (value, summaryData, field) {
                     return '<b>' + Ext.util.Format.number(me.store.sum('ValorPago'), '0,000.00') + '</b>';
+                },
+                renderer: function (v, metaData, rec) {
+                    if (rec.get('Estornado')) {
+                        metaData.style = 'background-color: #FF6560 !important;';
+                    }
+                    return Ext.util.Format.number(v, '0,000.00');
                 }
             }, {
                 text: '',
@@ -72,6 +98,11 @@
             itemdblclick: me.onItemDblClick
         });
 
+        me.store.on({
+            scope: me,
+            load: me.onLoadStore
+        });
+
         me.btnNovo.on({
             scope: me,
             click: me.onBtnNovoClick
@@ -86,28 +117,31 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        //Ext.create('ProjetoGarage.view.contaPagar.WindowDependente', {
-        //    title: 'Dependente ' + record.get('Nome'),
-        //    extraData: {
-        //        formType: 'Alterar',
-        //        grid: me,
-        //        record: record
-        //    }
-        //}).show();
-        //return false;
-        //var encontrado = me.tabPanel.panel.gridCustos.store.query('Descricao', 'Produtos');
-        //encontrado.itens.itens.set('Valor', me.getStore().sum('ValorTotal'));
+        Ext.create('ProjetoGarage.view.contaPagar.WindowPagamento', {
+            title: 'Pagamento ' + record.get('Documento'),
+            extraData: {
+                formType: 'Alterar',
+                grid: me,
+                record: record
+            }
+        }).show();
+        return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        //Ext.create('ProjetoGarage.view.contaPagar.WindowDependente', {
-        //    title: 'Cadastro de Dependente',
-        //    extraData: {
-        //        formType: 'Cadastrar',
-        //        grid: me
-        //    }
-        //}).show();
-        //return false;
+        Ext.create('ProjetoGarage.view.contaPagar.WindowPagamento', {
+            title: 'Cadastro de Pagamento',
+            extraData: {
+                formType: 'Cadastrar',
+                grid: me
+            }
+        }).show();
+        return false;
+    },
+    onLoadStore: function (store, records, successful, eOpts) {
+        var me = this;
+
+        me.tabPanel.panel.txtValorPago.setValue(me.store.sum('ValorPago'));
     }
 });

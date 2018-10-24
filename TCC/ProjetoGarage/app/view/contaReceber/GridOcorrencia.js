@@ -1,9 +1,6 @@
 ﻿Ext.define('ProjetoGarage.view.contaReceber.GridOcorrencia', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'contaReceber-gridOcorrencia',
-    requires: [
-        //'ProjetoGarage.view.contaReceber.WindowDependente'
-    ],
     initComponent: function () {
         var me = this;
 
@@ -11,22 +8,28 @@
             store: Ext.create('ProjetoGarage.store.contaReceber.Ocorrencia'),
             columns: [{
                 xtype: 'datecolumn',
-                text: 'Data Hora',
-                width: 150,
+                text: 'Data',
+                width: 120,
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y',
-                dataIndex: 'DataHora'
+                dataIndex: 'DataOcorrencia'
             }, {
                 text: 'Usuario',
-                width: 150,
+                flex: 0.3,
+                minWidth: 120,
                 style: 'text-align: center;',
                 dataIndex: 'UsuarioNome'
             }, {
-                text: 'Observação',
+                text: 'Ocorrencia',
                 flex: 1,
+                minWidth: 280,
                 style: 'text-align: center;',
-                dataIndex: 'Observacao'
+                dataIndex: 'Ocorrencia',
+                renderer: function (val, metaData, record) {
+                    metaData.tdAttr = 'data-qtip="' + val + '"';
+                    return val;
+                }
             }]
         });
 

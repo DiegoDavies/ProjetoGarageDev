@@ -1,33 +1,11 @@
-﻿Ext.define('ProjetoGarage.model.contaPagar.Pagamento', {
+﻿Ext.define('ProjetoGarage.model.tipoPagamento.Model', {
     extend: 'Ext.data.Model',
     fields: [{
-        name: 'ContaPagarDetalheId',
-        type: 'INT'
-    }, {
-        name: 'ContaPagarId',
-        type: 'INT'
-    }, {
-        name: 'Documento',
-        type: 'STRING'
-    }, {
         name: 'TipoPagamentoId',
         type: 'INT'
     }, {
-        name: 'TipoPagamentoNome',
-        type: 'STRING',
-        persist: false
-    }, {
-        name: 'DataPagamento',
-        type: 'DATE',
-        serialize: function (v) {
-            return Ext.Date.format(v, 'Y-m-d H:i:s');
-        }
-    }, {
-        name: 'ValorPago',
-        type: 'FLOAT'
-    }, {
-        name: 'Estornado',
-        type: 'BOOL'
+        name: 'Nome',
+        type: 'STRING'
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',

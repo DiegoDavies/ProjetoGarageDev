@@ -62,7 +62,8 @@
                     format: '0,000',
                     margin: '0 0 10 0',
                     fieldLabel: 'Duração',
-                    itemId: 'txtDuracao'
+                    itemId: 'txtDuracao',
+                    fieldStyle: 'text-align:right'
                 }, {
                     xtype: 'htmleditor',
                     name: 'Observacao',

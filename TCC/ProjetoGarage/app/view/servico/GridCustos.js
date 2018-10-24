@@ -45,7 +45,8 @@
                 },
                 editor: {
                     xtype: 'numberfield',
-                    format: '0,000.00'
+                    format: '0,000.00',
+                    fieldStyle: 'text-align:right'
                 }
             }, {
                 text: '',

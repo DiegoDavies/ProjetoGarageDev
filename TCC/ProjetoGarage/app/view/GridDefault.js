@@ -14,6 +14,8 @@
         clicksToEdit: 2
     },
     esconderAtualizar: true,
+    esconderEstorno: true,
+    esconderDelete: false,
     initComponent: function () {
         var me = this;
 
@@ -46,6 +48,7 @@
                 xtype: 'button',
                 text: 'Excluir',
                 itemId: 'btnDeleteGrid',
+                hidden: me.esconderDelete,
                 icon: '/resources/images/delete.png',
                 listeners: {
                     click: function () {
@@ -60,6 +63,46 @@
                                 fn: function (btn) {
                                     if (btn === 'yes') {
                                         grid.store.remove(selection);
+                                        grid.store.sync({
+                                            success: function () {
+                                                grid.store.load();
+                                            },
+                                            failure: function () {
+                                                grid.store.rejectChanges();
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        } else {
+                            Ext.Msg.show({
+                                title: 'Atenção',
+                                msg: 'Selecione um item para prosseguir com a operação',
+                                buttons: Ext.Msg.OK,
+                                icon: Ext.Msg.WARNING
+                            });
+                        }
+                    }
+                }
+            }, {
+                xtype: 'button',
+                text: 'Estorno',
+                itemId: 'btnEstornarGrid',
+                hidden: me.esconderEstorno,
+                icon: '/resources/images/estorno.png',
+                listeners: {
+                    click: function () {
+                        var grid = this.up().up(),
+                            selection = grid.getView().getSelectionModel().getSelection()[0];
+                        if (selection) {
+                            Ext.Msg.show({
+                                title: 'Validação',
+                                msg: 'Deseja realmente prosseguir com a operação?',
+                                buttons: Ext.Msg.YESNO,
+                                icon: Ext.Msg.QUESTION,
+                                fn: function (btn) {
+                                    if (btn === 'yes') {
+                                        selection.set('Estornado', true);
                                         grid.store.sync({
                                             success: function () {
                                                 grid.store.load();
@@ -108,17 +151,19 @@
                                     var me = this,
                                         grid = arguments[0].up('grid');
 
-                                    Ext.Msg.alert({
-                                        title: 'Confirmação de Geração de Relatório',
-                                        msg: 'Deseja realmente prosseguir com a operação?',
-                                        buttons: Ext.Msg.YESNO,
-                                        icon: Ext.Msg.QUESTION,
-                                        fn: function (button) {
-                                            if (button === 'yes') {
-                                                me.baixarXls(grid);
+                                    if (grid.nomeExcel) {
+                                        Ext.Msg.alert({
+                                            title: 'Confirmação de Geração de Relatório',
+                                            msg: 'Deseja realmente prosseguir com a operação?',
+                                            buttons: Ext.Msg.YESNO,
+                                            icon: Ext.Msg.QUESTION,
+                                            fn: function (button) {
+                                                if (button === 'yes') {
+                                                    me.baixarXls(grid);
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                                    }
                                 }
                             }
                         }]
@@ -162,25 +207,24 @@
         var me = this,
             colunas = [];
 
-        if (grid.nomeExcel) {
-            Ext.each(grid.columnsExcel,
-                function (column) {
-                    colunas.push({
-                        dataIndex: column.dataIndex,
-                        nome: column.nomeExcel,
-                        format: column.formatoExcel ? column.formatoExcel : "Geral",
-                        formatString: column.formatoExcelString ? column.formatoExcelString : "",
-                        header: column.nomeExcel
-                    });
-                });
 
-            var excelConfig = {
-                NomeArquivo: grid.nomeExcel,
-                Colunas: colunas,
-                Guid: Math.random().toString(36).substr(2)
-            }
-            me.excelExportRequirement(excelConfig);
+        Ext.each(grid.columnsExcel,
+            function (column) {
+                colunas.push({
+                    dataIndex: column.dataIndex,
+                    nome: column.nomeExcel,
+                    format: column.formatoExcel ? column.formatoExcel : "Geral",
+                    formatString: column.formatoExcelString ? column.formatoExcelString : "",
+                    header: column.nomeExcel
+                });
+            });
+
+        var excelConfig = {
+            NomeArquivo: grid.nomeExcel,
+            Colunas: colunas,
+            Guid: Math.random().toString(36).substr(2)
         }
+        me.excelExportRequirement(excelConfig);
     },
     excelExportRequirement: function (excelConfig) {
         var me = this,

@@ -1,20 +1,17 @@
 ﻿Ext.define('ProjetoGarage.model.contaReceber.Ocorrencia', {
     extend: 'Ext.data.Model',
     fields: [{
-        name: 'ContaReceberOcorrenciaId',
+        name: 'ContaReceberHistoricoId',
         type: 'INT'
     }, {
         name: 'ContaReceberId',
         type: 'INT'
     }, {
-        name: 'Observacao',
-        type: 'STRING'
+        name: 'DataOcorrencia',
+        type: 'DATE'
     }, {
-        name: 'DataHora',
-        type: 'DATE',
-        serialize: function (v) {
-            return Ext.Date.format(v, 'Y-m-d H:i:s');
-        }
+        name: 'Ocorrencia',
+        type: 'STRING'
     }, {
         name: 'UsuarioId',
         type: 'INT'

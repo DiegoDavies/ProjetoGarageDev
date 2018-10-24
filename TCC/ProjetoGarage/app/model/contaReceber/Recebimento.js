@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.model.contaReceber.Recebimento', {
     extend: 'Ext.data.Model',
     fields: [{
-        name: 'ContaReceberRecebimentoId',
+        name: 'ContaReceberDetalheId',
         type: 'INT'
     }, {
         name: 'ContaReceberId',
@@ -26,19 +26,31 @@
         name: 'ValorPago',
         type: 'FLOAT'
     }, {
-        name: 'UsuarioId',
-        type: 'INT'
-    }, {
-        name: 'UsuarioNome',
-        type: 'STRING'
-    }, {
-        name: 'DataHora',
-        type: 'DATE',
-        serialize: function (v) {
-            return Ext.Date.format(v, 'Y-m-d H:i:s');
-        }
-    }, {
         name: 'Estornado',
         type: 'BOOL'
+    }, {
+        name: 'UsuarioIdInclusao',
+        type: 'INT',
+        persist: false
+    }, {
+        name: 'UsuarioNomeInclusao',
+        type: 'STRING',
+        persist: false
+    }, {
+        name: 'DataHoraInclusao',
+        type: 'DATE',
+        persist: false
+    }, {
+        name: 'UsuarioIdAlteracao',
+        type: 'INT',
+        persist: false
+    }, {
+        name: 'UsuarioNomeAlteracao',
+        type: 'STRING',
+        persist: false
+    }, {
+        name: 'DataHoraAlteracao',
+        type: 'DATE',
+        persist: false
     }]
 });

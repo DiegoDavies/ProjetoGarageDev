@@ -23,7 +23,8 @@
                 hideable: false
             }, {
                 text: 'Documento',
-                width: 120,
+                flex: 1,
+                minWidth: 200,
                 style: 'text-align: center;',
                 dataIndex: 'Documento'
             }, {
@@ -31,7 +32,7 @@
                 flex: 1,
                 minWidth: 200,
                 style: 'text-align: center;',
-                dataIndex: 'Beneficiario'
+                dataIndex: 'BeneficiarioNome'
             }, {
                 xtype: 'datecolumn',
                 text: 'Data Vencimento',
@@ -54,23 +55,23 @@
                 }
             }, {
                 xtype: 'datecolumn',
-                text: 'Data Pagamento',
+                text: 'Data Recebimento',
                 width: 150,
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y',
-                dataIndex: 'DataPagamento'
+                dataIndex: 'DataRecebimento'
             }, {
                 xtype: 'numbercolumn',
                 format: '0,000.00',
                 align: 'right',
                 style: 'text-align: center;',
-                text: 'Valor Pago',
+                text: 'Valor Recebido',
                 width: 120,
-                dataIndex: 'ValorPago',
+                dataIndex: 'ValorRecebido',
                 summaryType: 'sum',
                 summaryRenderer: function (value, summaryData, field) {
-                    return Ext.util.Format.number(me.store.sum('ValorPago'), '0,000.00');
+                    return Ext.util.Format.number(me.store.sum('ValorRecebido'), '0,000.00');
                 }
             }, {
                 text: 'Inclusão',
@@ -118,7 +119,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid')
+        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
         me.btnDelete = me.down('#btnDeleteGrid');
         me.btnRelatorio = me.down('#btnRelatorioGrid');
