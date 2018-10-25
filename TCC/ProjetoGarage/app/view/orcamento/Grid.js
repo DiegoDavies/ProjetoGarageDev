@@ -15,14 +15,6 @@
             nomeExcel: 'Orçamentos',
             store: Ext.create('ProjetoGarage.store.orcamento.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'OrcamentoId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Status',
                 width: 120,
                 style: 'text-align: center;',

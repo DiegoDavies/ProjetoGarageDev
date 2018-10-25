@@ -11,14 +11,6 @@
             nomeExcel: 'Veículos',
             store: Ext.create('ProjetoGarage.store.veiculo.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'VeiculoId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Cliente',
                 flex: 1,
                 minWidth: 250,
@@ -112,7 +104,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid')
+        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
         me.btnDelete = me.down('#btnDeleteGrid');
         me.btnRelatorio = me.down('#btnRelatorioGrid');

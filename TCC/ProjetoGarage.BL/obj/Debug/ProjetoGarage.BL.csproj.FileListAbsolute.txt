@@ -100,6 +100,6 @@ C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Micr
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.csprojResolveAssemblyReference.cache
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.dll
 C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.pdb
-C:\Users\diego\Source\Repos\ProjetoGarageDev\TCC\ProjetoGarage.BL\obj\Debug\ProjetoGarage.BL.csprojResolveAssemblyReference.cache

@@ -27,19 +27,6 @@
                     width: 400
                 },
                 items: [{
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 8 0',
-                    items: [{
-                        xtype: 'displayfield',
-                        name: 'FornecedorId',
-                        fieldLabel: 'Código',
-                        itemId: 'txtCodigo',
-                        margin: '0 15 0 0',
-                        labelWidth: 110,
-                        width: 145
-                    }]
-                }, {
                     xtype: 'textfield',
                     name: 'RazaoSocial',
                     fieldLabel: 'Razão Social *',

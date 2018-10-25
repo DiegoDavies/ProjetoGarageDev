@@ -11,14 +11,6 @@
             nomeExcel: 'Funcionários',
             store: Ext.create('ProjetoGarage.store.funcionario.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'FuncionarioId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Nome',
                 flex: 1,
                 minWidth: 250,

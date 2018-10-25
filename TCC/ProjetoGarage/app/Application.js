@@ -91,6 +91,7 @@ Ext.define('ProjetoGarage.Application', {
         'funcionario.HistoricoOcupacional',
         'funcionario.Dependente',
         'funcionario.Pagamento',
+        'funcionario.ContaPagar',
 
         'fornecedor.Store',
         'fornecedor.Historico',

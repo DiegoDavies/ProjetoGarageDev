@@ -16,6 +16,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'servico-gridProduto',
+                icon: '/resources/images/repair-tools.png',
                 title: 'Produtos',
                 itemId: 'pnlservico0',
                 width: '100%',
@@ -23,12 +24,14 @@
                 tabPanel: me
             }, {
                 xtype: 'servico-gridVeiculo',
+                icon: '/resources/images/car.png',
                 title: 'Veículos',
                 itemId: 'pnlservico1',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'servico-gridHistorico',
+                icon: '/resources/images/history.png',
                 title: 'Ocorrências',
                 itemId: 'pnlservico2',
                 width: '100%',
@@ -62,6 +65,7 @@
                 xtype: 'button',
                 pressed: cont === 0 ? true : false,
                 toggleGroup: 'servico',
+                icon: item.icon,
                 text: item.title,
                 contador: cont,
                 itemNome: item.xtype,

@@ -10,14 +10,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.perfil.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'PerfilId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Nome',
                 flex: 1,
                 style: 'text-align: center;',
@@ -32,7 +24,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid')
+        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
         me.btnDelete = me.down('#btnDeleteGrid');
         me.btnRelatorio = me.down('#btnRelatorioGrid');

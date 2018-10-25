@@ -16,6 +16,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'orcamento-gridProduto',
+                icon: '/resources/images/repair-tools.png',
                 title: 'Produtos',
                 itemId: 'pnlorcamento0',
                 width: '100%',
@@ -23,6 +24,7 @@
                 tabPanel: me
             }, {
                 xtype: 'orcamento-gridVeiculo',
+                icon: '/resources/images/car.png',
                 title: 'Veículos',
                 itemId: 'pnlorcamento1',
                 width: '100%',
@@ -30,6 +32,7 @@
                 tabPanel: me
             }, {
                 xtype: 'orcamento-gridHistorico',
+                icon: '/resources/images/history.png',
                 title: 'Histórico',
                 itemId: 'pnlorcamento2',
                 width: '100%',
@@ -67,6 +70,7 @@
                 xtype: 'button',
                 pressed: cont === 0 ? true : false,
                 toggleGroup: 'orcamento',
+                icon: item.icon,
                 text: item.title,
                 contador: cont,
                 itemNome: item.xtype,

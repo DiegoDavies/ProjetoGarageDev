@@ -18,28 +18,28 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'cliente-gridContaReceber',
-                icon: '/resources/images/dependent.png',
+                icon: '/resources/images/moneyin.png',
                 title: 'Contas à Receber',
                 itemId: 'pnlCliente0',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'cliente-gridOrcamento',
-                icon: '/resources/images/contract.png',
+                icon: '/resources/images/budget.png',
                 title: 'Orçamento',
                 itemId: 'pnlCliente1',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'cliente-gridServico',
-                icon: '/resources/images/contract.png',
+                icon: '/resources/images/execution.png',
                 title: 'Serviços',
                 itemId: 'pnlCliente2',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'cliente-gridVeiculo',
-                icon: '/resources/images/wallet.png',
+                icon: '/resources/images/car.png',
                 title: 'Veículos',
                 itemId: 'pnlCliente3',
                 width: '100%',

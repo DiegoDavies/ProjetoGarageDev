@@ -12,14 +12,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.perfil.Funcionalidade'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'PerfilFuncionalidadeId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Módulo',
                 flex: 0.7,
                 minWidth: 120,

@@ -10,14 +10,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.tipoPagamento.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'TipoPagamentoId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Nome',
                 flex: 1,
                 style: 'text-align: center;',

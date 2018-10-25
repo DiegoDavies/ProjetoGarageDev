@@ -4,10 +4,7 @@
     pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
-        select: 'S_ClienteOrcamento_L',
-        insert: 'S_ClienteOrcamento_E',
-        update: 'S_ClienteOrcamento_E',
-        destroy: 'S_ClienteOrcamento_E'
+        select: 'S_ClienteOrcamento_L'
     },
     model: 'ProjetoGarage.model.cliente.Orcamento'
 })

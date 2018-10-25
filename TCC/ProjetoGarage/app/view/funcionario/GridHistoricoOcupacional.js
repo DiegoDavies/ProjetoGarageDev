@@ -11,14 +11,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.funcionario.HistoricoOcupacional'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'FuncionarioHistoricoOcupacionalId',
-                hidden: true,
-                hideable: false
-            }, {
                 xtype: 'datecolumn',
                 text: 'Data',
                 width: 120,

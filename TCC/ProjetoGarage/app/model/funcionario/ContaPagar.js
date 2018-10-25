@@ -1,4 +1,4 @@
-﻿Ext.define('ProjetoGarage.model.fornecedor.ContaPagar', {
+﻿Ext.define('ProjetoGarage.model.funcionario.ContaPagar', {
     extend: 'Ext.data.Model',
     fields: [{
         name: 'ContaPagarId',

@@ -1,9 +1,6 @@
 ﻿Ext.define('ProjetoGarage.view.cliente.GridServico', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-gridServico',
-    requires: [
-        //'ProjetoGarage.view.cliente.WindowServico'
-    ],
     esconderAtualizar: false,
     initComponent: function () {
         var me = this;
@@ -11,35 +8,57 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.cliente.Servico'),
             columns: [{
-                text: 'Código',
-                width: 100,
+                text: 'Status',
+                width: 120,
+                style: 'text-align: center;',
+                dataIndex: 'Status'
+            }, {
+                text: 'Número',
+                flex: 1,
+                minWidth: 100,
+                style: 'text-align: center;',
+                dataIndex: 'Numero'
+            }, {
+                text: 'Duração',
+                style: 'text-align: center;',
+                width: 150,
+                dataIndex: 'Duracao'
+            }, {
+                xtype: 'numbercolumn',
+                format: '0,000.00',
+                align: 'right',
+                style: 'text-align: center;',
+                text: 'Valor Total',
+                width: 120,
+                dataIndex: 'ValorTotal',
+                summaryType: 'sum',
+                summaryRenderer: function (value, summaryData, field) {
+                    return Ext.util.Format.number(me.store.sum('ValorTotal'), '0,000.00');
+                }
+            }, {
+                xtype: 'datecolumn',
+                text: 'Data Aprovação',
+                width: 150,
                 align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'ClienteServicoId',
-                hidden: true,
-                hideable: false
+                format: 'd/m/Y H:i:s',
+                dataIndex: 'DataRealizacao'
             }, {
-                text: 'Nome',
-                flex: 1,
-                minWidth: 150,
-                style: 'text-align: center;',
-                dataIndex: 'Nome'
-            }, {
-                text: 'Banco',
-                flex: 1,
-                minWidth: 150,
-                style: 'text-align: center;',
-                dataIndex: 'BancoNome'
-            }, {
-                text: 'Agencia',
+                xtype: 'datecolumn',
+                text: 'Data Inicio',
                 width: 150,
+                align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'Agencia'
+                format: 'd/m/Y H:i:s',
+                dataIndex: 'DataInicio'
             }, {
-                text: 'Conta',
+                xtype: 'datecolumn',
+                text: 'Data Finalização',
                 width: 150,
+                align: 'center',
                 style: 'text-align: center;',
-                dataIndex: 'Conta'
+                format: 'd/m/Y H:i:s',
+                dataIndex: 'DataFinalizacao'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',

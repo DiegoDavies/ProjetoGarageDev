@@ -23,7 +23,7 @@
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }
@@ -39,15 +39,12 @@
             }, {
                 xtype: 'textfield',
                 name: 'Agencia',
-                //validator: function (v) {
-                //    return /^-?[0-9]*(\.[0-9]{1,2})?$/.test(v) ? true : 'Only positive/negative float (x.yy)/int formats allowed!';
-                //},
                 fieldLabel: 'Agência',
                 itemId: 'txtAgencia',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }
@@ -55,15 +52,12 @@
             }, {
                 xtype: 'textfield',
                 name: 'Conta',
-                //validator: function (v) {
-                //    return /^-?[0-9]*(\.[0-9]{1,2})?$/.test(v) ? true : 'Only positive/negative float (x.yy)/int formats allowed!';
-                //},
                 fieldLabel: 'Conta',
                 itemId: 'txtConta',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }

@@ -111,6 +111,7 @@
     <Content Include="app\model\funcao\Model.js" />
     <Content Include="app\model\combos\EstadoCivil.js" />
     <Content Include="app\model\funcionalidade\Model.js" />
+    <Content Include="app\model\funcionario\ContaPagar.js" />
     <Content Include="app\model\funcionario\Dependente.js" />
     <Content Include="app\model\funcionario\Historico.js" />
     <Content Include="app\model\funcionario\HistoricoOcupacional.js" />
@@ -189,6 +190,7 @@
     <Content Include="app\store\funcao\Store.js" />
     <Content Include="app\store\combos\EstadoCivil.js" />
     <Content Include="app\store\funcionalidade\Store.js" />
+    <Content Include="app\store\funcionario\ContaPagar.js" />
     <Content Include="app\store\funcionario\Dependente.js" />
     <Content Include="app\store\funcionario\Historico.js" />
     <Content Include="app\store\funcionario\HistoricoOcupacional.js" />
@@ -273,6 +275,7 @@
     <Content Include="app\view\estadoCivil\Grid.js" />
     <Content Include="app\view\estadoCivil\Window.js" />
     <Content Include="app\view\estadoCivil\Tela.js" />
+    <Content Include="app\view\funcionario\GridContaPagar.js" />
     <Content Include="app\view\tipoPagamento\Form.js" />
     <Content Include="app\view\tipoPagamento\Grid.js" />
     <Content Include="app\view\tipoPagamento\Tela.js" />
@@ -5665,6 +5668,10 @@
     <Content Include="ext\src\ZIndexManager.js" />
     <Content Include="app.json" />
     <Content Include="bootstrap.json" />
+    <Content Include="resources\images\budget.png" />
+    <Content Include="resources\images\car.png" />
+    <Content Include="resources\images\estorno.png" />
+    <Content Include="resources\images\execution.png" />
     <Content Include="resources\images\favicon.ico" />
     <Content Include="resources\images\check.png" />
     <Content Include="resources\images\check16.png" />
@@ -5683,13 +5690,19 @@
     <Content Include="resources\images\history.png" />
     <Content Include="resources\images\information.png" />
     <Content Include="resources\images\logout.png" />
+    <Content Include="resources\images\moneyin.png" />
+    <Content Include="resources\images\moneyout.png" />
+    <Content Include="resources\images\pdfFile.png" />
     <Content Include="resources\images\refresh.png" />
+    <Content Include="resources\images\repair-tools.png" />
     <Content Include="resources\images\report.png" />
     <Content Include="resources\images\search.png" />
     <Content Include="resources\images\start.png" />
+    <Content Include="resources\images\suport.png" />
     <Content Include="resources\images\UserLogin.png" />
     <Content Include="resources\images\loginWpp.png" />
     <Content Include="resources\images\wallet.png" />
+    <Content Include="resources\images\xlsFile.png" />
     <Content Include="sass\config.rb" />
     <Content Include="app\controller\Readme.md" />
     <Content Include="app\model\Readme.md" />

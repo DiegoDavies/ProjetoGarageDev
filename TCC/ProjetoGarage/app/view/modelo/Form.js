@@ -33,7 +33,7 @@
                 enableKeyEvents: true,
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }

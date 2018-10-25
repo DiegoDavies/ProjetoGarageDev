@@ -16,7 +16,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'fornecedor-gridContaPagar',
-                icon: '/resources/images/dependent.png',
+                icon: '/resources/images/moneyout.png',
                 title: 'Contas à Pagar',
                 itemId: 'pnlFornecedor0',
                 width: '100%',

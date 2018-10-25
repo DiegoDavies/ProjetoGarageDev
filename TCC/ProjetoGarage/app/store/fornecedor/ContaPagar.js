@@ -4,10 +4,7 @@
     pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
-        select: 'S_FornecedorContaPagar_L',
-        insert: 'S_FornecedorContaPagar_E',
-        update: 'S_FornecedorContaPagar_E',
-        destroy: 'S_FornecedorContaPagar_E'
+        select: 'S_FornecedorContaPagar_L'
     },
     model: 'ProjetoGarage.model.fornecedor.ContaPagar'
 })

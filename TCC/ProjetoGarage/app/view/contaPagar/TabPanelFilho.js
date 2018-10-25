@@ -15,6 +15,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'contaPagar-gridPagamento',
+                icon: '/resources/images/moneyout.png',
                 title: 'Pagamentos',
                 itemId: 'pnlContaPagar0',
                 width: '100%',
@@ -22,6 +23,7 @@
                 tabPanel: me
             }, {
                 xtype: 'contaPagar-gridOcorrencia',
+                icon: '/resources/images/history.png',
                 title: 'Ocorrências',
                 itemId: 'pnlContaPagar1',
                 width: '100%',
@@ -57,6 +59,7 @@
                 xtype: 'button',
                 pressed: cont === 0 ? true : false,
                 toggleGroup: 'contaPagar',
+                icon: item.icon,
                 text: item.title,
                 contador: cont,
                 itemNome: item.itemId,

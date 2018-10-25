@@ -15,6 +15,7 @@
         Ext.applyIf(me, {
             items: [{
                 xtype: 'contaReceber-gridRecebimento',
+                icon: '/resources/images/moneyin.png',
                 title: 'Recebimentos',
                 itemId: 'pnlContaReceber0',
                 width: '100%',
@@ -22,6 +23,7 @@
                 tabPanel: me
             }, {
                 xtype: 'contaReceber-gridOcorrencia',
+                icon: '/resources/images/history.png',
                 title: 'Ocorrências',
                 itemId: 'pnlContaReceber1',
                 width: '100%',
@@ -57,6 +59,7 @@
                 xtype: 'button',
                 pressed: cont === 0 ? true : false,
                 toggleGroup: 'contaReceber',
+                icon: item.icon,
                 text: item.title,
                 contador: cont,
                 itemNome: item.itemId,

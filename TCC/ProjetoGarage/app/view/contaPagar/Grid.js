@@ -14,14 +14,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.contaPagar.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'ContaPagarId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Documento',
                 flex: 1,
                 minWidth: 200,

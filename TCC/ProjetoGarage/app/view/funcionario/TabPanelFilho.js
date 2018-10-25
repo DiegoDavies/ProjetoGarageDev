@@ -2,6 +2,7 @@
     extend: 'Ext.panel.Panel',
     requires: [
         'ProjetoGarage.view.funcionario.GridDependente',
+        'ProjetoGarage.view.funcionario.GridContaPagar',
         'ProjetoGarage.view.funcionario.GridHistoricoOcupacional',
         'ProjetoGarage.view.funcionario.GridPagamento',
         'ProjetoGarage.view.funcionario.GridHistorico'
@@ -16,31 +17,38 @@
 
         Ext.applyIf(me, {
             items: [{
+                xtype: 'funcionario-gridContaPagar',
+                icon: '/resources/images/moneyout.png',
+                title: 'Contas à Pagar',
+                itemId: 'pnlFuncionario0',
+                width: '100%',
+                height: '100%'
+            }, {
                 xtype: 'funcionario-gridDependente',
                 icon: '/resources/images/dependent.png',
                 title: 'Dependentes',
-                itemId: 'pnlFuncionario0',
+                itemId: 'pnlFuncionario1',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'funcionario-gridHistoricoOcupacional',
                 icon: '/resources/images/contract.png',
                 title: 'Histórico Ocupacional',
-                itemId: 'pnlFuncionario1',
+                itemId: 'pnlFuncionario2',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'funcionario-gridPagamento',
                 icon: '/resources/images/wallet.png',
                 title: 'Pagamentos',
-                itemId: 'pnlFuncionario2',
+                itemId: 'pnlFuncionario3',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'funcionario-gridHistorico',
                 icon: '/resources/images/history.png',
                 title: 'Histórico',
-                itemId: 'pnlFuncionario3',
+                itemId: 'pnlFuncionario4',
                 width: '100%',
                 height: '100%'
             }]
@@ -53,6 +61,7 @@
     addReferences: function () {
         var me = this;
 
+        me.gridContaPagar = me.down('funcionario-gridContaPagar');
         me.gridHistorico = me.down('funcionario-gridHistorico');
         me.gridPagamento = me.down('funcionario-gridPagamento');
         me.gridDependente = me.down('funcionario-gridDependente');
@@ -93,7 +102,6 @@
     onBtnBarClick: function (btn) {
         var me = this;
 
-        //me.getLayout().setActiveItem('pnlFuncionario' + btn.contador);
         me.getLayout().setActiveItem(btn.itemNome);
         btn.pressed = true;
     },
@@ -101,6 +109,7 @@
         var me = this,
             funcionarioId = me.panel.extraData.record.get('FuncionarioId'),
             stores = [
+                me.gridContaPagar.getStore(),
                 me.gridHistorico.getStore(),
                 me.gridPagamento.getStore(),
                 me.gridDependente.getStore(),

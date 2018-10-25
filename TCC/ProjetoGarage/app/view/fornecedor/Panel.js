@@ -35,7 +35,6 @@
 
         me.form = me.down('fornecedor-form');
         //
-        me.txtCodigo = me.down('#txtCodigo');
         me.txtRazaoSocial = me.down('#txtRazaoSocial');
         me.txtFantasia = me.down('#txtFantasia');
         me.cboStatus = me.down('#cboStatus')
@@ -94,8 +93,7 @@
             me.mascaraCad.hide();
             me.tabPanel.show();
             me.tabPanel.loadStores();
-            me.txtCodigo.up().show();
-            me.txtCodigo.focus();
+            me.txtRazaoSocial.focus();
             me.cboStatus.store.load();
             me.cboEstado.store.load();
             me.cboCidade.store.setParams({
@@ -105,8 +103,7 @@
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();
-            me.txtCodigo.up().hide();
-            me.txtCodigo.focus();
+            me.txtRazaoSocial.focus();
         }
 
         me.onVisibilidadeBotao();

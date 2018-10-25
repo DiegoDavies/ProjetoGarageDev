@@ -27,28 +27,13 @@
                     width: 390
                 },
                 items: [{
-                    xtype: 'container',
-                    layout: 'hbox',
-                    margin: '0 0 8 0',
-                    items: [{
-                        xtype: 'displayfield',
-                        name: 'FuncionarioId',
-                        fieldLabel: 'Código',
-                        itemId: 'txtCodigo',
-                        margin: '0 15 0 0',
-                        labelWidth: 105,
-                        width: 145
-                    }, {
-                        xtype: 'tcc-combo',
-                        flex: 1,
-                        name: 'SituacaoId',
-                        fieldLabel: 'Situação',
-                        itemId: 'cboSituacao',
-                        labelWidth: 55,
-                        displayField: 'Nome',
-                        valueField: 'SituacaoId',
-                        store: Ext.create('ProjetoGarage.store.combos.Situacao')
-                    }]
+                    xtype: 'tcc-combo',
+                    name: 'SituacaoId',
+                    fieldLabel: 'Situação',
+                    itemId: 'cboSituacao',
+                    displayField: 'Nome',
+                    valueField: 'SituacaoId',
+                    store: Ext.create('ProjetoGarage.store.combos.Situacao')
                 }, {
                     xtype: 'textfield',
                     name: 'Nome',
@@ -325,7 +310,7 @@
                         name: 'ZonaEleitoral',
                         itemId: 'txtZonaEleitor',
                         width: 150,
-                        labelWidth: 40,
+                        labelWidth: 40
                     }]
                 }, {
                     xtype: 'container',

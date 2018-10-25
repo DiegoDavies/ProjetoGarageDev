@@ -35,7 +35,6 @@
 
         me.form = me.down('funcionario-form');
         //
-        me.txtCodigo = me.down('#txtCodigo');
         me.txtCep = me.down('#txtCep');
         me.txtEndereco = me.down('#txtEndereco');
         me.txtNumero = me.down('#txtNumero');
@@ -95,8 +94,7 @@
             me.mascaraCad.hide();
             me.tabPanel.show();
             me.tabPanel.loadStores();
-            me.txtCodigo.up().show();
-            me.txtCodigo.focus();
+            me.cboSituacao.focus();
             me.cboSituacao.store.load();
             me.cboSexo.store.load();
             me.cboEstado.store.load();
@@ -115,8 +113,7 @@
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();
-            me.txtCodigo.up().hide();
-            me.txtCodigo.focus();
+            me.cboSituacao.focus();
         }
 
         me.onVisibilidadeBotao();

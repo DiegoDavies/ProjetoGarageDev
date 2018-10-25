@@ -17,7 +17,7 @@
             defaults: {
                 width: 310,
                 enableKeyEvents: true,
-                labelAlign: 'top',
+                labelAlign: 'top'
             },
             items: [{
                 fieldLabel: 'Nome',
@@ -26,7 +26,7 @@
                 itemId: 'txtNome',
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }
@@ -38,7 +38,7 @@
                 itemId: 'txtLogin',
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }
@@ -53,7 +53,7 @@
                 allowBlank: false,
                 listeners: {
                     keyup: function (txt, e, eOpts) {
-                        if (e.keyCode == 13) {
+                        if (e.keyCode === 13) {
                             me.window.btnSalvar.fireEvent('click', this);
                         }
                     }
@@ -63,7 +63,7 @@
                 hidden: true,
                 width: 310,
                 height: 250,
-                window: me.window,
+                window: me.window
             }]
         });
 

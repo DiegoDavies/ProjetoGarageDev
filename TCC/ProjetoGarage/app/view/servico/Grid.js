@@ -15,14 +15,6 @@
             nomeExcel: 'Serviços',
             store: Ext.create('ProjetoGarage.store.servico.Store'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'ServicoId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Status',
                 width: 120,
                 style: 'text-align: center;',
@@ -63,7 +55,7 @@
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y H:i:s',
-                dataIndex: 'DataAprovacao'
+                dataIndex: 'DataRealizacao'
             }, {
                 xtype: 'datecolumn',
                 text: 'Data Inicio',

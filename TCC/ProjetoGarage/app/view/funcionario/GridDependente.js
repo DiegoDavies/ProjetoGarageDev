@@ -11,14 +11,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.funcionario.Dependente'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'FuncionarioDependenteId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Nome',
                 flex: 1,
                 minWidth: 150,

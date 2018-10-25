@@ -11,14 +11,6 @@
         Ext.apply(me, {
             store: Ext.create('ProjetoGarage.store.fornecedor.Pagamento'),
             columns: [{
-                text: 'Código',
-                width: 100,
-                align: 'center',
-                style: 'text-align: center;',
-                dataIndex: 'FornecedorPagamentoId',
-                hidden: true,
-                hideable: false
-            }, {
                 text: 'Nome',
                 flex: 1,
                 minWidth: 150,
