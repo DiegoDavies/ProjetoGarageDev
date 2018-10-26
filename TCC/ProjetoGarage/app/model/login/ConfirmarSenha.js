@@ -5,9 +5,15 @@
         type: 'STRING'
     }, {
         name: 'SenhaNova',
-        type: 'STRING'
+        type: 'STRING',
+        serialize: function (v) {
+            return v.hashCode();
+        }
     }, {
         name: 'SenhaRepetida',
-        type: 'STRING'
+        type: 'STRING',
+        serialize: function (v) {
+            return v.hashCode();
+        }
     }]
 });

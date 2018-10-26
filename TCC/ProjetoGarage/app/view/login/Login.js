@@ -168,7 +168,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
             url: '/Login',
             params: {
                 login: me.txtLogin.getValue(),
-                senha: me.txtSenha.getValue()
+                senha: me.txtSenha.getValue().hashCode()
             },
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);

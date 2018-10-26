@@ -2,12 +2,21 @@
     extend: 'Ext.data.Model',
     fields: [{
         name: 'SenhaAtual',
-        type: 'STRING'
+        type: 'STRING',
+        serialize: function (v) {
+            return v.hashCode();
+        }
     }, {
         name: 'SenhaNova',
-        type: 'STRING'
+        type: 'STRING',
+        serialize: function (v) {
+            return v.hashCode();
+        }
     }, {
         name: 'SenhaRepetida',
-        type: 'STRING'
+        type: 'STRING',
+        serialize: function(v) {
+            return v.hashCode();
+        }
     }]
 });
