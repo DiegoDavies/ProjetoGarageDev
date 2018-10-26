@@ -37,7 +37,7 @@
         //
         me.txtRazaoSocial = me.down('#txtRazaoSocial');
         me.txtFantasia = me.down('#txtFantasia');
-        me.cboStatus = me.down('#cboStatus')
+        me.cboStatus = me.down('#cboStatus');
         me.txtCep = me.down('#txtCep');
         me.txtEndereco = me.down('#txtEndereco');
         me.txtNumero = me.down('#txtNumero');

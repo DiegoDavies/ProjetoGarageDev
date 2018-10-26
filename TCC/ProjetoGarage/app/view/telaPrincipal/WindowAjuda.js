@@ -121,7 +121,7 @@
                                 });
                             },
                             failure: function () {
-                                me.storeAjuda.rejectChanges(); W
+                                me.storeAjuda.rejectChanges();
                                 me.getEl().unmask();
                             }
                         });

@@ -20,7 +20,6 @@
  * @param (String) mask The InputTextMask
  * @param (boolean) clearWhenInvalid True to clear the mask when the field blurs and the text is invalid. Optional, default is true.
  */
-
 Ext.define('ProjetoGarage.ux.InputTextMask', {
     xtype: 'ux-InputTextMask',
     constructor: function (mask, clearWhenInvalid) {
@@ -35,20 +34,20 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         var regexp = '';
         for (var i = 0; i < mask.length; i++) {
             if (regexp) {
-                if (regexp == 'X') {
+                if (regexp === 'X') {
                     regexp = '';
                 }
-                if (mask.charAt(i) == 'X') {
+                if (mask.charAt(i) === 'X') {
                     this.maskArray[mai] = regexp;
                     mai++;
                     regexp = '';
                 } else {
                     regexp += mask.charAt(i);
                 }
-            } else if (mask.charAt(i) == 'X') {
+            } else if (mask.charAt(i) === 'X') {
                 regexp += 'X';
                 this.viewMask += '_';
-            } else if (mask.charAt(i) == '9' || mask.charAt(i) == 'L' || mask.charAt(i) == 'l' || mask.charAt(i) == 'A') {
+            } else if (mask.charAt(i) === '9' || mask.charAt(i) === 'L' || mask.charAt(i) === 'l' || mask.charAt(i) === 'A') {
                 this.viewMask += '_';
                 this.maskArray[mai] = mask.charAt(i);
                 mai++;
@@ -80,6 +79,7 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         this.inputTextElement = this.field.inputEl.dom;
         this.field.inputEl.on('keypress', this.processKeyPress, this);
         this.field.inputEl.on('keydown', this.processKeyDown, this);
+
         if (Ext.isSafari || Ext.isIE) {
             this.field.inputEl.on('paste', this.startTask, this);
             this.field.inputEl.on('cut', this.startTask, this);
@@ -104,39 +104,34 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
             this.manageBackspaceAndDeleteOpera();
         }
     },
-
     manageBackspaceAndDeleteOpera: function () {
         this.inputTextElement.value = this.prevValueOpera.cursorPos.previousValue;
         this.manageTheText(this.prevValueOpera.keycode, this.prevValueOpera.cursorPos);
         this.prevValueOpera = null;
     },
-
-    setPreviousValue: function (event) {
+    setPreviousValue: function () {
         this.oldCursorPos = this.getCursorPosition();
     },
-
     getValidatedKey: function (keycode, cursorPosition) {
         var maskKey = this.maskArray[cursorPosition.start];
-        if (maskKey == '9') {
+        if (maskKey === '9') {
             return keycode.pressedKey.match(/[0-9]/);
-        } else if (maskKey == 'L') {
+        } else if (maskKey === 'L') {
             return (keycode.pressedKey.match(/[A-Za-z]/)) ? keycode.pressedKey.toUpperCase() : null;
-        } else if (maskKey == 'l') {
+        } else if (maskKey === 'l') {
             return (keycode.pressedKey.match(/[A-Za-z]/)) ? keycode.pressedKey.toLowerCase() : null;
-        } else if (maskKey == 'A') {
+        } else if (maskKey === 'A') {
             return keycode.pressedKey.match(/[A-Za-z0-9]/);
         } else if (maskKey) {
             return (keycode.pressedKey.match(new RegExp(maskKey)));
         }
         return (null);
     },
-
     removeValueWhenInvalid: function () {
         //if (this.clearWhenInvalid && this.inputTextElement.value.indexOf('_') > -1) {
         //    this.inputTextElement.value = '';
         //}
     },
-
     managePaste: function () {
         if (this.oldCursorPos == null) {
             return;
@@ -150,7 +145,7 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
             valuePasted = valuePasted.substr(0, this.oldCursorPos.end - this.oldCursorPos.start);
         }
         this.inputTextElement.value = this.oldCursorPos.previousValue;
-        keycode = {
+        var keycode = {
             unicode: '',
             isShiftPressed: false,
             isTab: false,
@@ -179,15 +174,12 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         this.oldCursorPos = null;
     },
-
     processKeyDown: function (e) {
         this.processMaskFormatting(e, 'keydown');
     },
-
     processKeyPress: function (e) {
         this.processMaskFormatting(e, 'keypress');
     },
-
     startTask: function (setOldCursor) {
         if (this.task == undefined) {
             this.task = new Ext.util.DelayedTask(this.managePaste, this);
@@ -197,9 +189,8 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         this.task.delay(0);
     },
-
     skipMaskCharacters: function (keycode, cursorPos) {
-        if (cursorPos.start != cursorPos.end && (keycode.isDelete || keycode.isBackspace))
+        if (cursorPos.start !== cursorPos.end && (keycode.isDelete || keycode.isBackspace))
             return (cursorPos);
         while (this.specialChars.match(RegExp.escape(this.viewMask.charAt(((keycode.isBackspace) ? cursorPos.start - 1 : cursorPos.start))))) {
             if (keycode.isBackspace) {
@@ -213,29 +204,27 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         return (cursorPos);
     },
-
     isManagedByKeyDown: function (keycode) {
         if (keycode.isDelete || keycode.isBackspace) {
             return (true);
         }
         return (false);
     },
-
     processMaskFormatting: function (e, type) {
         this.oldCursorPos = null;
         var cursorPos = this.getCursorPosition();
         var keycode = this.getKeyCode(e, type);
-        if (keycode.unicode == 0) {//?? sometimes on Safari
+        if (keycode.unicode === 0) {//?? sometimes on Safari
             return;
         }
-        if ((keycode.unicode == 67 || keycode.unicode == 99) && e.ctrlKey) {//Ctrl+c, let's the browser manage it!
+        if ((keycode.unicode === 67 || keycode.unicode === 99) && e.ctrlKey) {//Ctrl+c, let's the browser manage it!
             return;
         }
-        if ((keycode.unicode == 88 || keycode.unicode == 120) && e.ctrlKey) {//Ctrl+x, manage paste
+        if ((keycode.unicode === 88 || keycode.unicode === 120) && e.ctrlKey) {//Ctrl+x, manage paste
             this.startTask();
             return;
         }
-        if ((keycode.unicode == 86 || keycode.unicode == 118) && e.ctrlKey) {//Ctrl+v, manage paste....
+        if ((keycode.unicode === 86 || keycode.unicode === 118) && e.ctrlKey) {//Ctrl+v, manage paste....
             this.startTask();
             return;
         }
@@ -243,10 +232,10 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
             this.prevValueOpera = { cursorPos: cursorPos, keycode: keycode };
             return;
         }
-        if (type == 'keydown' && !this.isManagedByKeyDown(keycode)) {
+        if (type === 'keydown' && !this.isManagedByKeyDown(keycode)) {
             return true;
         }
-        if (type == 'keypress' && this.isManagedByKeyDown(keycode)) {
+        if (type === 'keypress' && this.isManagedByKeyDown(keycode)) {
             return true;
         }
         if (this.handleEventBubble(e, keycode, type)) {
@@ -254,7 +243,6 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         return (this.manageTheText(keycode, cursorPos));
     },
-
     manageTheText: function (keycode, cursorPos) {
         if (this.inputTextElement.value.length === 0) {
             this.inputTextElement.value = this.viewMask;
@@ -268,9 +256,8 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         return (false);
     },
-
     processMaskFocus: function () {
-        if (this.inputTextElement.value.length == 0) {
+        if (this.inputTextElement.value.length === 0) {
             var cursorPos = this.getCursorPosition();
             this.inputTextElement.value = this.viewMask;
             this.moveCursorToPosition(null, cursorPos);
@@ -278,26 +265,25 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
     },
 
     isManagedByBrowser: function (keyEvent, keycode, type) {
-        if (((type == 'keypress' && keyEvent.charCode === 0) ||
-           type == 'keydown') && (keycode.unicode == Ext.EventObject.TAB ||
-           keycode.unicode == Ext.EventObject.RETURN ||
-           keycode.unicode == Ext.EventObject.ENTER ||
-           keycode.unicode == Ext.EventObject.SHIFT ||
-           keycode.unicode == Ext.EventObject.CONTROL ||
-           keycode.unicode == Ext.EventObject.ESC ||
-           keycode.unicode == Ext.EventObject.PAGEUP ||
-           keycode.unicode == Ext.EventObject.PAGEDOWN ||
-           keycode.unicode == Ext.EventObject.END ||
-           keycode.unicode == Ext.EventObject.HOME ||
-           keycode.unicode == Ext.EventObject.LEFT ||
-           keycode.unicode == Ext.EventObject.UP ||
-           keycode.unicode == Ext.EventObject.RIGHT ||
-           keycode.unicode == Ext.EventObject.DOWN)) {
+        if (((type === 'keypress' && keyEvent.charCode === 0) ||
+           type === 'keydown') && (keycode.unicode === Ext.EventObject.TAB ||
+           keycode.unicode === Ext.EventObject.RETURN ||
+           keycode.unicode === Ext.EventObject.ENTER ||
+           keycode.unicode === Ext.EventObject.SHIFT ||
+           keycode.unicode === Ext.EventObject.CONTROL ||
+           keycode.unicode === Ext.EventObject.ESC ||
+           keycode.unicode === Ext.EventObject.PAGEUP ||
+           keycode.unicode === Ext.EventObject.PAGEDOWN ||
+           keycode.unicode === Ext.EventObject.END ||
+           keycode.unicode === Ext.EventObject.HOME ||
+           keycode.unicode === Ext.EventObject.LEFT ||
+           keycode.unicode === Ext.EventObject.UP ||
+           keycode.unicode === Ext.EventObject.RIGHT ||
+           keycode.unicode === Ext.EventObject.DOWN)) {
             return (true);
         }
         return (false);
     },
-
     handleEventBubble: function (keyEvent, keycode, type) {
         try {
             if (keycode && this.isManagedByBrowser(keyEvent, keycode, type)) {
@@ -309,7 +295,6 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
             alert(e.message);
         }
     },
-
     getCursorPosition: function () {
         var s, e, r;
         if (this.inputTextElement.createTextRange) {
@@ -329,7 +314,6 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         return this.CursorPosition(s, e, r, this.inputTextElement.value);
     },
-
     moveCursorToPosition: function (keycode, cursorPosition) {
         var p = (!keycode || (keycode && keycode.isBackspace)) ? cursorPosition.start : cursorPosition.start + 1;
         if (this.inputTextElement.createTextRange) {
@@ -340,15 +324,14 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
             this.inputTextElement.selectionEnd = p;
         }
     },
-
     injectValue: function (keycode, cursorPosition) {
-        if (!keycode.isDelete && keycode.unicode == cursorPosition.previousValue.charCodeAt(cursorPosition.start))
+        if (!keycode.isDelete && keycode.unicode === cursorPosition.previousValue.charCodeAt(cursorPosition.start))
             return true;
         var key;
         if (!keycode.isDelete && !keycode.isBackspace) {
             key = this.getValidatedKey(keycode, cursorPosition);
         } else {
-            if (cursorPosition.start == cursorPosition.end) {
+            if (cursorPosition.start === cursorPosition.end) {
                 key = '_';
                 if (keycode.isBackspace) {
                     cursorPosition.dec();
@@ -365,20 +348,18 @@ Ext.define('ProjetoGarage.ux.InputTextMask', {
         }
         return false;
     },
-
     getKeyCode: function (onKeyDownEvent, type) {
         var keycode = {};
         keycode.unicode = onKeyDownEvent.getKey();
         keycode.isShiftPressed = onKeyDownEvent.shiftKey;
 
-        keycode.isDelete = ((onKeyDownEvent.getKey() == Ext.EventObject.DELETE && type == 'keydown') || (type == 'keypress' && onKeyDownEvent.charCode === 0 && onKeyDownEvent.keyCode == Ext.EventObject.DELETE)) ? true : false;
-        keycode.isTab = (onKeyDownEvent.getKey() == Ext.EventObject.TAB) ? true : false;
-        keycode.isBackspace = (onKeyDownEvent.getKey() == Ext.EventObject.BACKSPACE) ? true : false;
-        keycode.isLeftOrRightArrow = (onKeyDownEvent.getKey() == Ext.EventObject.LEFT || onKeyDownEvent.getKey() == Ext.EventObject.RIGHT) ? true : false;
+        keycode.isDelete = ((onKeyDownEvent.getKey() === Ext.EventObject.DELETE && type === 'keydown') || (type === 'keypress' && onKeyDownEvent.charCode === 0 && onKeyDownEvent.keyCode === Ext.EventObject.DELETE)) ? true : false;
+        keycode.isTab = (onKeyDownEvent.getKey() === Ext.EventObject.TAB) ? true : false;
+        keycode.isBackspace = (onKeyDownEvent.getKey() === Ext.EventObject.BACKSPACE) ? true : false;
+        keycode.isLeftOrRightArrow = (onKeyDownEvent.getKey() === Ext.EventObject.LEFT || onKeyDownEvent.getKey() === Ext.EventObject.RIGHT) ? true : false;
         keycode.pressedKey = String.fromCharCode(keycode.unicode);
         return (keycode);
     },
-
     CursorPosition: function (start, end, range, previousValue) {
         var cursorPosition = {};
         cursorPosition.start = isNaN(start) ? 0 : start;

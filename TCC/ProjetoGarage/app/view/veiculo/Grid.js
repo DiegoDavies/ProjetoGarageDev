@@ -124,11 +124,6 @@
             scope: me,
             click: me.onBtnNovoClick
         });
-
-        me.btnRelatorio.on({
-            scope: me,
-            click: me.onBtnRelatorioClick
-        });
     },
     onBoxReady: function () {
         var me = this;
@@ -181,9 +176,5 @@
         });
         me.tela.tabPrincipal.setActiveTab('CadastroVeiculo');
         return false;
-    },
-    onBtnRelatorioClick: function () {
-        var me = this;
-
     }
 });

@@ -200,6 +200,12 @@
                 formType: 'Alterar',
                 grid: me,
                 record: record
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
         });
         me.tela.tabPrincipal.setActiveTab('Servico' + record.get('ServicoId'));
@@ -217,6 +223,12 @@
             extraData: {
                 formType: 'Cadastrar',
                 grid: me
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
         });
         me.tela.tabPrincipal.setActiveTab('CadastroServico');

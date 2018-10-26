@@ -93,8 +93,7 @@
                     if (store &&
                         store.proxy &&
                         store.proxy.reader &&
-                        store.proxy.reader.rawData
-                        ) {
+                        store.proxy.reader.rawData) {
 
                     }
                     if (!successful) {
@@ -133,27 +132,6 @@
 
                 if (this.pAcao > 0)
                     this.extraArgs.pACAO = this.pACAO;
-            },
-            exportaExcel: function (COD_ACAO) {
-                Ext.Ajax.request({
-                    url: 'ExportaExcelFinal',
-                    method: 'POST',
-                    params: {
-                        procedure: procedure,
-                        COD_ACAO: COD_ACAO,
-                        extraArgs: JSON.stringify(this.extraArgs),
-                        remoteFilters: JSON.stringify(this.remoteFilters),
-                        appliedFilters: JSON.stringify(this.appliedFilters),
-                        security: this.security
-                    },
-                    success: function (response, opts) {
-                        var obj = Ext.decode(response.responseText);
-                        window.open('/ExportaExcel?tempFileName=' + encodeURIComponent(obj.tempFileName));
-                    },
-                    failure: function (response, opts) {
-                        console.log('Falha ao exportar os dados!');
-                    }
-                });
             }
         });
         return store;
@@ -198,23 +176,23 @@
             };
         };
         //</debug>
-        var storeIndex = 0
-		   , storeResponse = []
-		   , storeCallBack = function (records, operation, success) {
+        var storeIndex = 0,
+            storeResponse = [],
+		    storeCallBack = function (records, operation, success) {
 
-		       storeResponse.push({
-		           records: records,
-		           operation: operation,
-		           success: success
-		       });
+		        storeResponse.push({
+		            records: records,
+		            operation: operation,
+		            success: success
+		        });
 
-		       storeIndex++;
+		        storeIndex++;
 
-		       if (storeIndex < stores.length)
-		           stores[storeIndex].load(storeCallBack);
-		       else
-		           callback(storeResponse);
-		   };
+		        if (storeIndex < stores.length)
+		            stores[storeIndex].load(storeCallBack);
+		        else
+		            callback(storeResponse);
+		    };
 
         stores[storeIndex].load(storeCallBack);
     },

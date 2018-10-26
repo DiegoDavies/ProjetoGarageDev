@@ -192,9 +192,7 @@
             if (store &&
                 store.proxy &&
                 store.proxy.reader &&
-                store.proxy.reader.rawData
-                ) {
-
+                store.proxy.reader.rawData) {
 
             }
 
@@ -209,6 +207,7 @@
             this.params.HttpMethod = options.update ? "PUT" : this.params.HttpMethod;
             this.proxy.procedure = this.params.HttpMethod === 'POST' ? config.procedures.insert : this.params.HttpMethod === 'DELETE' ? config.procedures.destroy : config.procedures.update;
             this.proxy.methodUtil = this.params.HttpMethod;
+
             var urlSuffix = (!this.params ? '' : ('&params=' + encodeURI(JSON.stringify(this.params)))) +
                             (!this.remoteFilters ? '' : ('&remoteFilters=' + encodeURI(JSON.stringify(this.remoteFilters)))) +
                             (!this.smart ? '' : '&smart=true') +
@@ -245,26 +244,6 @@
             this.params.pACAO = this.pACAO;
         }
 
-    },
-    exportaExcel: function () {
-        Ext.Ajax.request({
-            url: 'ExportaExcelFinal',
-            method: 'POST',
-            params: {
-                procedure: procedure,
-                params: JSON.stringify(this.params),
-                remoteFilters: JSON.stringify(this.remoteFilters),
-                appliedFilters: JSON.stringify(this.appliedFilters),
-                security: this.security
-            },
-            success: function (response, opts) {
-                var obj = Ext.decode(response.responseText);
-                window.open('/ExportaExcel?tempFileName=' + encodeURIComponent(obj.tempFileName));
-            },
-            failure: function (response, opts) {
-                console.log('Falha ao exportar os dados!');
-            }
-        });
     },
     handlerUrlConfig: function (config) {
         if (!config.urls) {

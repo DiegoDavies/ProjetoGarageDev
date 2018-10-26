@@ -35,7 +35,7 @@
                 hidden: true,
                 width: 500,
                 height: 300,
-                window: me.window,
+                window: me.window
             }]
         });
 

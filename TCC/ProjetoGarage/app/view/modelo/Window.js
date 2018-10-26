@@ -45,8 +45,7 @@
 
         me.on({
             scope: me,
-            show: me.onShowWindow,
-            beforeclose: me.onBeforeClose
+            show: me.onShowWindow
         });
 
         me.btnSalvar.on({
@@ -62,11 +61,6 @@
         }
         me.cboMarca.store.load();
         me.cboMarca.focus();
-    },
-    onBeforeClose: function () {
-        var me = this;
-
-
     },
     onBtnSalvarClick: function () {
         var me = this,

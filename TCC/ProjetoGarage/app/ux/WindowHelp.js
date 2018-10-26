@@ -27,7 +27,7 @@
                 itemId: 'cntMensagem',
                 width: '100%',
                 height: '100%',
-                fieldStyle: 'border-radius: 4px;',
+                fieldStyle: 'border-radius: 4px;'
             }]
         });
 

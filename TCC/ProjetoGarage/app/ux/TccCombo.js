@@ -3,7 +3,6 @@
     xtype: 'tcc-combo',
     typeAhead: true,
     enableKeyEvents: true,
-    //forceSelection: true,
     minChars: 2,
     listConfig: {
         loadingText: 'Procurando...',

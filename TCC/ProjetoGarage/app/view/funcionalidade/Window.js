@@ -47,8 +47,7 @@
 
         me.on({
             scope: me,
-            show: me.onShowWindow,
-            beforeclose: me.onBeforeClose
+            show: me.onShowWindow
         });
 
         me.btnSalvar.on({
@@ -64,11 +63,6 @@
             me.cboModulo.store.load();
         }
         me.cboModulo.focus();
-    },
-    onBeforeClose: function () {
-        var me = this;
-
-
     },
     onBtnSalvarClick: function () {
         var me = this,

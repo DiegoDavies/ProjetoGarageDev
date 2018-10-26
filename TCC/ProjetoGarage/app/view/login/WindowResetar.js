@@ -60,7 +60,7 @@
                         allowBlank: false,
                         validator: function (value) {
                             var nova = this.up('form').down('#txtSenhaNova').getValue();
-                            if (nova != value) {
+                            if (nova !== value) {
                                 return 'Repetir corretamente a senha.';
                             }
                             return true;

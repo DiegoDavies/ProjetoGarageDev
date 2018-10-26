@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.usuario.Perfil', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 25,
+    pageSize: 99999,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_UsuarioPerfil_L',

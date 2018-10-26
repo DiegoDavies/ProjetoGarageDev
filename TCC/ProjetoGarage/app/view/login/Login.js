@@ -142,7 +142,7 @@ Ext.define('ProjetoGarage.view.login.Login', {
         me.txtSenha.on({
             scope: me,
             keypress: me.onKeyPress
-        })
+        });
 
         me.btnLogar.on({
             click: me.onBtnLogarClick,

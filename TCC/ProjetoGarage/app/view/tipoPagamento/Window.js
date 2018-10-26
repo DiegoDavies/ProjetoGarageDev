@@ -44,8 +44,7 @@
 
         me.on({
             scope: me,
-            show: me.onShowWindow,
-            beforeclose: me.onBeforeClose
+            show: me.onShowWindow
         });
 
         me.btnSalvar.on({
@@ -60,11 +59,6 @@
             me.form.loadRecord(me.extraData.record);
         }
         me.txtNome.focus();
-    },
-    onBeforeClose: function () {
-        var me = this;
-
-
     },
     onBtnSalvarClick: function () {
         var me = this,

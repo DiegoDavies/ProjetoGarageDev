@@ -10,7 +10,7 @@
         name: 'Nome',
         type: 'STRING',
         convert: function (v, rec) {
-            return rec.get('Menu') + ' / ' + rec.get('Titulo')
+            return rec.get('Menu') + ' / ' + rec.get('Titulo');
         }
     }, {
         name: 'Menu',

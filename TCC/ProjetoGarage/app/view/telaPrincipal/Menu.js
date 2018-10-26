@@ -195,11 +195,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady
-        });
-
-        me.on({
-            scope: me,
+            boxready: me.onBoxReady,
             itemclick: me.onItemClick
         });
     },

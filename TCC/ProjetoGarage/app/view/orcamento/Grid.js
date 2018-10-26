@@ -189,6 +189,12 @@
                 formType: 'Alterar',
                 grid: me,
                 record: record
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
         });
         me.tela.tabPrincipal.setActiveTab('Orcamento' + record.get('OrcamentoId'));
@@ -206,6 +212,12 @@
             extraData: {
                 formType: 'Cadastrar',
                 grid: me
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
         });
         me.tela.tabPrincipal.setActiveTab('CadastroOrcamento');
