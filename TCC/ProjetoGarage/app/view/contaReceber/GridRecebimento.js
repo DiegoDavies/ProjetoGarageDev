@@ -70,8 +70,41 @@
                     return Ext.util.Format.number(v, '0,000.00');
                 }
             }, {
-                text: '',
-                width: 10
+                text: 'Inclusão',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeInclusao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraInclusao'
+                }]
+            }, {
+                text: 'Alteração',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeAlteracao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraAlteracao'
+                }]
             }]
         });
 
