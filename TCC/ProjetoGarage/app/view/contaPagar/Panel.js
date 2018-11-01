@@ -40,6 +40,7 @@
         me.cboFuncionario = me.down('#cboFuncionario');
         me.cboFornecedor = me.down('#cboFornecedor');
         me.rdbBeneficiarios = me.down('#rdbBeneficiarios');
+        me.dtDataPagamento = me.down('#dtDataPagamento');
         me.txtValorPago = me.down('#txtValorPago');
         //
         me.btnSalvar = me.down('#btnSalvar');

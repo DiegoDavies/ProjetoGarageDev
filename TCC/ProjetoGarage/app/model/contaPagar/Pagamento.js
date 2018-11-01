@@ -52,5 +52,8 @@
         name: 'DataHoraAlteracao',
         type: 'DATE',
         persist: false
+    }, {
+        name: 'DataPreenchimentoTela',
+        type: 'DATE'
     }]
 });

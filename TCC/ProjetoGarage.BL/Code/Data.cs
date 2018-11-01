@@ -61,7 +61,6 @@ namespace ProjetoGarage.BL.Code
 
         public string ProcessRequests(HttpContext app)
         {
-            string retorno = string.Empty;
             var postData = GetPostData(app);
             var queryString = app.Request.QueryString;
             string database = GetQueryValue(queryString, "database");
@@ -76,8 +75,7 @@ namespace ProjetoGarage.BL.Code
             string operation = app.Request.HttpMethod;
             string query = GetQueryValue(queryString, "query");
             string @params = GetQueryValue(queryString, "params");
-
-            string returnValue = string.Empty;
+            
             IJSONReaderRequestBody jsonReaderRequestBody = new SQLJSONReaderRequestBody()
             {
                 UserId = app.Session["UsuarioId"] != null ? Convert.ToInt32(app.Session["UsuarioId"]) : 0,
@@ -99,7 +97,7 @@ namespace ProjetoGarage.BL.Code
                 ServerVariables = app.Request.ServerVariables
             };
             JSONHandler js = new JSONHandler();
-            retorno = js.GetJson(jsonReaderRequestBody);
+            string retorno = js.GetJson(jsonReaderRequestBody);
             return retorno;
         }
 

@@ -38,6 +38,7 @@
         me.tabPanel = me.down('contaReceber-tabPanel');
         me.mascaraCad = me.down('#contaReceberMasc');
         me.cboCliente = me.down('#cboCliente');
+        me.dtDataPagamento = me.down('#dtDataPagamento');
         me.txtValorPago = me.down('#txtValorPago');
         //
         me.btnSalvar = me.down('#btnSalvar');

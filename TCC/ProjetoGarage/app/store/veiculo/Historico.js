@@ -4,10 +4,7 @@
     pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
-        select: 'S_VeiculoHistorico_L',
-        insert: 'S_VeiculoHistorico_E',
-        update: 'S_VeiculoHistorico_E',
-        destroy: 'S_VeiculoHistorico_E'
+        select: 'S_VeiculoHistorico_L'
     },
     model: 'ProjetoGarage.model.veiculo.Historico'
 })

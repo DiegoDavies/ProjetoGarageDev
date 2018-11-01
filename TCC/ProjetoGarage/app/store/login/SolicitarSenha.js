@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.login.SolicitarSenha', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 25,
+    pageSize: 40,
     database: 'ProjetoGarage',
     procedures: {
         insert: 'S_SolicitarSenha_E'

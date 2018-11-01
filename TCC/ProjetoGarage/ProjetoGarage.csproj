@@ -81,6 +81,9 @@
     <Content Include="app\model\combos\Duracao.js" />
     <Content Include="app\model\combos\Fornecedor.js" />
     <Content Include="app\model\combos\Funcionario.js" />
+    <Content Include="app\model\combos\GrupoCompra.js" />
+    <Content Include="app\model\combos\MarcaProduto.js" />
+    <Content Include="app\model\combos\ModeloProduto.js" />
     <Content Include="app\model\combos\TipoPagamento.js" />
     <Content Include="app\model\combos\Etnia.js" />
     <Content Include="app\model\combos\Formacao.js" />
@@ -92,6 +95,7 @@
     <Content Include="app\model\combos\Sexo.js" />
     <Content Include="app\model\combos\Situacao.js" />
     <Content Include="app\model\combos\StatusFornecedor.js" />
+    <Content Include="app\model\combos\UnidadeMedida.js" />
     <Content Include="app\model\combos\Veiculo.js" />
     <Content Include="app\model\contaPagar\Model.js" />
     <Content Include="app\model\contaPagar\Ocorrencia.js" />
@@ -101,6 +105,11 @@
     <Content Include="app\model\contaReceber\Recebimento.js" />
     <Content Include="app\model\duracao\Model.js" />
     <Content Include="app\model\estadoCivil\Model.js" />
+    <Content Include="app\model\grupoCompra\Model.js" />
+    <Content Include="app\model\marcaProduto\Model.js" />
+    <Content Include="app\model\modeloProduto\Model.js" />
+    <Content Include="app\model\produto\Fornecedor.js" />
+    <Content Include="app\model\unidadeMedida\Model.js" />
     <Content Include="app\model\etnia\Model.js" />
     <Content Include="app\model\excelConfig\Model.js" />
     <Content Include="app\model\formacao\Model.js" />
@@ -131,6 +140,8 @@
     <Content Include="app\model\parentesco\Model.js" />
     <Content Include="app\model\perfil\Funcionalidade.js" />
     <Content Include="app\model\perfil\Model.js" />
+    <Content Include="app\model\produto\Historico.js" />
+    <Content Include="app\model\produto\Model.js" />
     <Content Include="app\model\servico\Custos.js" />
     <Content Include="app\model\servico\Model.js" />
     <Content Include="app\model\servico\Historico.js" />
@@ -138,7 +149,7 @@
     <Content Include="app\model\servico\Veiculo.js" />
     <Content Include="app\model\situacao\Model.js" />
     <Content Include="app\model\statusFornecedor\Model.js" />
-    <Content Include="app\model\telaPrincipal\Ajuda.js" />
+    <Content Include="app\model\telaPrincipal\Suporte.js" />
     <Content Include="app\model\telaPrincipal\Menu.js" />
     <Content Include="app\model\tipoPagamento\Model.js" />
     <Content Include="app\model\usuario\Model.js" />
@@ -160,6 +171,9 @@
     <Content Include="app\store\combos\Duracao.js" />
     <Content Include="app\store\combos\Fornecedor.js" />
     <Content Include="app\store\combos\Funcionario.js" />
+    <Content Include="app\store\combos\GrupoCompra.js" />
+    <Content Include="app\store\combos\MarcaProduto.js" />
+    <Content Include="app\store\combos\ModeloProduto.js" />
     <Content Include="app\store\combos\TipoPagamento.js" />
     <Content Include="app\store\combos\Etnia.js" />
     <Content Include="app\store\combos\Formacao.js" />
@@ -171,6 +185,7 @@
     <Content Include="app\store\combos\Sexo.js" />
     <Content Include="app\store\combos\Situacao.js" />
     <Content Include="app\store\combos\StatusFornecedor.js" />
+    <Content Include="app\store\combos\UnidadeMedida.js" />
     <Content Include="app\store\combos\Veiculo.js" />
     <Content Include="app\store\contaPagar\Ocorrencia.js" />
     <Content Include="app\store\contaPagar\Pagamento.js" />
@@ -180,6 +195,11 @@
     <Content Include="app\store\contaReceber\Store.js" />
     <Content Include="app\store\duracao\Store.js" />
     <Content Include="app\store\estadoCivil\Store.js" />
+    <Content Include="app\store\grupoCompra\Store.js" />
+    <Content Include="app\store\marcaProduto\Store.js" />
+    <Content Include="app\store\modeloProduto\Store.js" />
+    <Content Include="app\store\produto\Fornecedor.js" />
+    <Content Include="app\store\unidadeMedida\Store.js" />
     <Content Include="app\store\etnia\Store.js" />
     <Content Include="app\store\excelConfig\Store.js" />
     <Content Include="app\store\formacao\Store.js" />
@@ -210,6 +230,8 @@
     <Content Include="app\store\parentesco\Store.js" />
     <Content Include="app\store\perfil\Funcionalidade.js" />
     <Content Include="app\store\perfil\Store.js" />
+    <Content Include="app\store\produto\Historico.js" />
+    <Content Include="app\store\produto\Store.js" />
     <Content Include="app\store\servico\Custos.js" />
     <Content Include="app\store\servico\Historico.js" />
     <Content Include="app\store\servico\Produto.js" />
@@ -217,7 +239,7 @@
     <Content Include="app\store\servico\Veiculo.js" />
     <Content Include="app\store\situacao\Store.js" />
     <Content Include="app\store\statusFornecedor\Store.js" />
-    <Content Include="app\store\telaPrincipal\Ajuda.js" />
+    <Content Include="app\store\telaPrincipal\Suporte.js" />
     <Content Include="app\store\telaPrincipal\Menu.js" />
     <Content Include="app\store\tipoPagamento\Store.js" />
     <Content Include="app\store\usuario\Perfil.js" />
@@ -275,7 +297,33 @@
     <Content Include="app\view\estadoCivil\Grid.js" />
     <Content Include="app\view\estadoCivil\Window.js" />
     <Content Include="app\view\estadoCivil\Tela.js" />
+    <Content Include="app\view\grupoCompra\Form.js" />
+    <Content Include="app\view\grupoCompra\Grid.js" />
+    <Content Include="app\view\grupoCompra\Tela.js" />
+    <Content Include="app\view\grupoCompra\Window.js" />
+    <Content Include="app\view\marcaProduto\Form.js" />
+    <Content Include="app\view\marcaProduto\Grid.js" />
+    <Content Include="app\view\marcaProduto\Tela.js" />
+    <Content Include="app\view\marcaProduto\Window.js" />
+    <Content Include="app\view\modeloProduto\Form.js" />
+    <Content Include="app\view\modeloProduto\Grid.js" />
+    <Content Include="app\view\modeloProduto\Tela.js" />
+    <Content Include="app\view\modeloProduto\Window.js" />
+    <Content Include="app\view\produto\FormFornecedor.js" />
+    <Content Include="app\view\produto\GridFornecedor.js" />
+    <Content Include="app\view\produto\WindowFornecedor.js" />
+    <Content Include="app\view\telaPrincipal\WindowSuporte.js" />
+    <Content Include="app\view\unidadeMedida\Form.js" />
+    <Content Include="app\view\unidadeMedida\Grid.js" />
+    <Content Include="app\view\unidadeMedida\Tela.js" />
+    <Content Include="app\view\unidadeMedida\Window.js" />
     <Content Include="app\view\funcionario\GridContaPagar.js" />
+    <Content Include="app\view\produto\Form.js" />
+    <Content Include="app\view\produto\Grid.js" />
+    <Content Include="app\view\produto\GridHistorico.js" />
+    <Content Include="app\view\produto\Panel.js" />
+    <Content Include="app\view\produto\TabPanelFilho.js" />
+    <Content Include="app\view\produto\Tela.js" />
     <Content Include="app\view\tipoPagamento\Form.js" />
     <Content Include="app\view\tipoPagamento\Grid.js" />
     <Content Include="app\view\tipoPagamento\Tela.js" />
@@ -7452,11 +7500,7 @@
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\model\produto\" />
-    <Folder Include="app\store\produto\" />
-    <Folder Include="app\view\produto\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ProjetoGarage.BL\ProjetoGarage.BL.csproj">
       <Project>{d09517c1-e719-4781-887b-c279c0c62800}</Project>

@@ -32,7 +32,7 @@
             }, {
                 xtype: 'servico-gridHistorico',
                 icon: '/resources/images/history.png',
-                title: 'Ocorrências',
+                title: 'Histórico',
                 itemId: 'pnlservico2',
                 width: '100%',
                 height: '100%'
@@ -83,6 +83,7 @@
         var me = this;
 
         me.getLayout().setActiveItem('pnlservico' + btn.contador);
+        me.down('#' + btn.itemNome).getStore().load();
         btn.pressed = true;
     }
 });

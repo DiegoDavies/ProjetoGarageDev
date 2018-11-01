@@ -40,7 +40,7 @@
             }, {
                 xtype: 'funcionario-gridPagamento',
                 icon: '/resources/images/wallet.png',
-                title: 'Pagamentos',
+                title: 'Bancos',
                 itemId: 'pnlFuncionario3',
                 width: '100%',
                 height: '100%'
@@ -103,6 +103,7 @@
         var me = this;
 
         me.getLayout().setActiveItem(btn.itemNome);
+        me.down('#' + btn.itemNome).getStore().load();
         btn.pressed = true;
     },
     loadStores: function () {

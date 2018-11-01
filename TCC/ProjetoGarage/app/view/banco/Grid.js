@@ -4,6 +4,7 @@
     requires: [
         'ProjetoGarage.view.banco.Window'
     ],
+    esconderRelatorio: true,
     initComponent: function () {
         var me = this;
 
@@ -66,12 +67,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
-        me.btnDelete = me.down('#btnDeleteGrid');
-        me.btnRelatorio = me.down('#btnRelatorioGrid');
-        me.txtQuery = me.down('#queryField');
-        me.btnPesquisar = me.down('#btnPesquisarGrid');
     },
     addEventHandler: function () {
         var me = this;
@@ -90,7 +86,6 @@
     onBoxReady: function () {
         var me = this;
 
-        me.btnRelatorio.hide();
         me.store.load();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {

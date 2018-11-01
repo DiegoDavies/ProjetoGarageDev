@@ -3,7 +3,7 @@
     xtype: 'usuario-gridPerfil',
     requires: [
     ],
-    esconderAtualizar: true,
+    esconderToolbar: true,
     height: '100%',
     width: '100%',
     initComponent: function () {
@@ -29,37 +29,6 @@
         });
 
         me.callParent(arguments);
-        me.addReferences();
-        me.addEventHandler();
-    },
-    addReferences: function () {
-        var me = this;
-
-        me.toolbar = me.down('#pagingToolbarGrid');
-        me.btnNovo = me.down('#btnNovoGrid');
-        me.btnDelete = me.down('#btnDeleteGrid');
-        me.btnRelatorio = me.down('#btnRelatorioGrid');
-        me.txtQuery = me.down('#queryField');
-        me.btnPesquisar = me.down('#btnPesquisarGrid');
-    },
-    addEventHandler: function () {
-        var me = this;
-
-        me.on({
-            scope: me,
-            boxready: me.onBoxReady
-        });
-    },
-    onBoxReady: function () {
-        var me = this;
-
-        me.toolbar.hide();
-        me.btnRelatorio.hide();
-        me.txtQuery.hide();
-        me.btnPesquisar.hide();
-        me.store.load();
-        me.btnNovo.hide();
-        me.btnDelete.up().hide();
     },
     onCheckChange: function (column, rowIndex, checked, eOpts) {
         var me = this,

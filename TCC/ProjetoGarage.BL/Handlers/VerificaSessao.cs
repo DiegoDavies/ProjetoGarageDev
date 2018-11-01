@@ -11,6 +11,7 @@ namespace ProjetoGarage.BL.Handlers
     {
         public void ProcessRequest(HttpContext context)
         {
+            Code.Log lg = new Code.Log();
             bool logout = Convert.ToBoolean(context.Request.Params["logout"]);
             if (!logout)
             {
@@ -56,6 +57,7 @@ namespace ProjetoGarage.BL.Handlers
                     context.Response.Cookies.Add(aspNetCookie);
                 }
             }
+
         }
 
         public bool IsReusable { get; } = false;

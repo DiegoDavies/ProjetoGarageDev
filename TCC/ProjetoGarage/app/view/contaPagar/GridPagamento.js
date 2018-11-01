@@ -10,6 +10,10 @@
     }],
     esconderEstorno: false,
     esconderDelete: true,
+    esconderAtualizar: false,
+    esconderPaging: true,
+    esconderRelatorio: true,
+    esconderPesquisa: true,
     initComponent: function () {
         var me = this;
 
@@ -18,6 +22,7 @@
             columns: [{
                 text: 'Documento',
                 flex: 1,
+                minWidth: 160,
                 style: 'text-align: center;',
                 dataIndex: 'Documento',
                 renderer: function (v, metaData, rec) {
@@ -76,7 +81,13 @@
                     text: 'Usuário',
                     sortable: true,
                     style: 'text-align: center;',
-                    dataIndex: 'UsuarioNomeInclusao'
+                    dataIndex: 'UsuarioNomeInclusao',
+                    renderer: function (v, metaData, rec) {
+                        if (rec.get('Estornado')) {
+                            metaData.style = 'background-color: #FF6560 !important;';
+                        }
+                        return v;
+                    }
                 }, {
                     xtype: 'datecolumn',
                     sortable: true,
@@ -85,7 +96,13 @@
                     align: 'center',
                     style: 'text-align: center;',
                     format: 'd/m/Y H:i:s',
-                    dataIndex: 'DataHoraInclusao'
+                    dataIndex: 'DataHoraInclusao',
+                    renderer: function (v, metaData, rec) {
+                        if (rec.get('Estornado')) {
+                            metaData.style = 'background-color: #FF6560 !important;';
+                        }
+                        return Ext.Date.format(v, 'd/m/Y H:i:s');
+                    }
                 }]
             }, {
                 text: 'Alteração',
@@ -94,7 +111,13 @@
                     text: 'Usuário',
                     sortable: true,
                     style: 'text-align: center;',
-                    dataIndex: 'UsuarioNomeAlteracao'
+                    dataIndex: 'UsuarioNomeAlteracao',
+                    renderer: function (v, metaData, rec) {
+                        if (rec.get('Estornado')) {
+                            metaData.style = 'background-color: #FF6560 !important;';
+                        }
+                        return v;
+                    }
                 }, {
                     xtype: 'datecolumn',
                     sortable: true,
@@ -103,7 +126,13 @@
                     align: 'center',
                     style: 'text-align: center;',
                     format: 'd/m/Y H:i:s',
-                    dataIndex: 'DataHoraAlteracao'
+                    dataIndex: 'DataHoraAlteracao',
+                    renderer: function (v, metaData, rec) {
+                        if (rec.get('Estornado')) {
+                            metaData.style = 'background-color: #FF6560 !important;';
+                        }
+                        return Ext.Date.format(v, 'd/m/Y H:i:s');
+                    }
                 }]
             }]
         });
@@ -115,19 +144,13 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
-        me.btnDelete = me.down('#btnDeleteGrid');
-        me.btnRelatorio = me.down('#btnRelatorioGrid');
-        me.txtQuery = me.down('#queryField');
-        me.btnPesquisar = me.down('#btnPesquisarGrid');
     },
     addEventHandler: function () {
         var me = this;
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady,
             itemdblclick: me.onItemDblClick
         });
 
@@ -140,12 +163,6 @@
             scope: me,
             click: me.onBtnNovoClick
         });
-    },
-    onBoxReady: function () {
-        var me = this;
-
-        me.btnRelatorio.hide();
-        me.toolbar.hide();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
@@ -175,6 +192,9 @@
     onLoadStore: function (store, records, successful, eOpts) {
         var me = this;
 
+        if (records.length > 0) {
+            me.tabPanel.panel.dtDataPagamento.setValue(Ext.Date.format(records[0].get('DataPreenchimentoTela'), 'd/m/Y'));
+        }
         me.tabPanel.panel.txtValorPago.setValue(me.store.sum('ValorPago'));
     }
 });

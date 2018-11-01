@@ -114,7 +114,7 @@
                 me.btnAprovar.show();
                 me.fieldsDisabled(false);
             } else {
-                me.gridCustos.btnPesquisar.up().hide();
+                me.gridCustos.btnDelete.up().hide();
                 me.tabPanel.gridVeiculo.btnNovo.hide();
                 me.tabPanel.gridVeiculo.btnDelete.hide();
                 me.tabPanel.gridProduto.btnNovo.hide();

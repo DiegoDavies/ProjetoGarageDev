@@ -67,6 +67,7 @@
         var me = this;
 
         me.getLayout().setActiveItem(btn.itemNome);
+        me.down('#' + btn.itemNome).getStore().load();
         btn.pressed = true;
     },
     loadStores: function () {

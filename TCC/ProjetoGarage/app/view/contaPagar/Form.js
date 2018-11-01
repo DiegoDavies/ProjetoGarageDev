@@ -84,7 +84,8 @@
                     name: 'DataPagamento',
                     fieldLabel: 'Data Pagamento',
                     itemId: 'dtDataPagamento',
-                    readOnly: true
+                    readOnly: true,
+                    emptyText: 'Preenchimento Automático'
                 }, {
                     xtype: 'numberfield',
                     name: 'ValorPago',
@@ -93,7 +94,8 @@
                     fieldLabel: 'Valor Pago',
                     itemId: 'txtValorPago',
                     readOnly: true,
-                    fieldStyle: 'text-align:right'
+                    fieldStyle: 'text-align:right',
+                    emptyText: 'Preenchimento Automático'
                 }, {
                     xtype: 'htmleditor',
                     name: 'Observacao',

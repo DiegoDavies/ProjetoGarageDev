@@ -4,6 +4,8 @@
     requires: [
         'ProjetoGarage.view.funcionalidade.Window'
     ],
+    esconderDelete: true,
+    esconderRelatorio: true,
     initComponent: function () {
         var me = this;
 
@@ -29,6 +31,11 @@
                 flex: 1,
                 style: 'text-align: center;',
                 dataIndex: 'ClassName'
+            }, {
+                text: 'Tratamento',
+                flex: 1,
+                style: 'text-align: center;',
+                dataIndex: 'Tratamento'
             }]
         });
 
@@ -39,12 +46,7 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
-        me.btnDelete = me.down('#btnDeleteGrid');
-        me.btnRelatorio = me.down('#btnRelatorioGrid');
-        me.txtQuery = me.down('#queryField');
-        me.btnPesquisar = me.down('#btnPesquisarGrid');
     },
     addEventHandler: function () {
         var me = this;
@@ -63,9 +65,7 @@
     onBoxReady: function () {
         var me = this;
 
-        me.btnRelatorio.hide();
         me.store.load();
-        me.btnDelete.hide();
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;

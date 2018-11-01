@@ -13,6 +13,9 @@
         name: 'ClassName',
         type: 'STRING'
     }, {
+        name: 'Tratamento',
+        type: 'STRING'
+    }, {
         name: 'ModuloId',
         type: 'INT'
     }, {

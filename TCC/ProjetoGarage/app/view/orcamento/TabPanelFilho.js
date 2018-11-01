@@ -88,6 +88,7 @@
         var me = this;
 
         me.getLayout().setActiveItem('pnlorcamento' + btn.contador);
+        me.down('#' + btn.itemNome).getStore().load();
         btn.pressed = true;
     },
     loadStores: function () {

@@ -18,14 +18,14 @@
             items: [{
                 xtype: 'container',
                 padding: 10,
-                width: 370,
+                width: 410,
                 border: 5,
                 height: '100%',
                 layout: 'vbox',
                 autoScroll: true,
                 defaults: {
-                    labelWidth: 80,
-                    width: 350
+                    labelWidth: 110,
+                    width: 390
                 },
                 items: [{
                     xtype: 'textfield',

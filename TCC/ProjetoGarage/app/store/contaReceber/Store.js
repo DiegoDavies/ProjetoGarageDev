@@ -1,7 +1,7 @@
 ﻿Ext.define('ProjetoGarage.store.contaReceber.Store', {
     extend: 'ProjetoGarage.ux.DataSQLStore',
     autoLoad: false,
-    pageSize: 25,
+    pageSize: 40,
     database: 'ProjetoGarage',
     procedures: {
         select: 'S_ContaReceber_L',

@@ -33,6 +33,7 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.telaPrincipal.Viewport',
         'ProjetoGarage.view.GridDefault',
         'ProjetoGarage.view.telaPrincipal.WindowAjuda',
+        'ProjetoGarage.view.telaPrincipal.WindowSuporte',
 
         'ProjetoGarage.view.funcionario.Tela',
         'ProjetoGarage.view.situacao.Tela',
@@ -61,7 +62,12 @@ Ext.define('ProjetoGarage.Application', {
         'ProjetoGarage.view.modelo.Tela',
         'ProjetoGarage.view.veiculo.Tela',
         'ProjetoGarage.view.auditoria.Tela',
-        'ProjetoGarage.view.tipoPagamento.Tela'
+        'ProjetoGarage.view.tipoPagamento.Tela',
+        'ProjetoGarage.view.produto.Tela',
+        'ProjetoGarage.view.unidadeMedida.Tela',
+        'ProjetoGarage.view.grupoCompra.Tela',
+        'ProjetoGarage.view.marcaProduto.Tela',
+        'ProjetoGarage.view.modeloProduto.Tela'
     ],
 
     stores: [
@@ -85,6 +91,10 @@ Ext.define('ProjetoGarage.Application', {
         'combos.TipoPagamento',
         'combos.Fornecedor',
         'combos.Funcionario',
+        'combos.UnidadeMedida',
+        'combos.GrupoCompra',
+        'combos.MarcaProduto',
+        'combos.ModeloProduto',
 
         'funcionario.Store',
         'funcionario.Historico',
@@ -111,6 +121,14 @@ Ext.define('ProjetoGarage.Application', {
         'formacao.Store',
 
         'etnia.Store',
+
+        'unidadeMedida.Store',
+
+        'grupoCompra.Store',
+
+        'marcaProduto.Store',
+
+        'modeloProduto.Store',
 
         'tipoPagamento.Store',
 
@@ -164,14 +182,18 @@ Ext.define('ProjetoGarage.Application', {
         'marca.Store',
         'modelo.Store',
 
-        'telaPrincipal.Ajuda',
+        'telaPrincipal.Suporte',
 
         'veiculo.Store',
         'veiculo.Historico',
 
         'excelConfig.Store',
 
-        'auditoria.Store'
+        'auditoria.Store',
+
+        'produto.Store',
+        'produto.Historico',
+        'produto.Fornecedor'
     ]
 });
 

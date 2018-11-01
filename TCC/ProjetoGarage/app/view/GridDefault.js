@@ -13,9 +13,14 @@
         ptype: 'cellediting',
         clicksToEdit: 2
     },
+    esconderToolbar: false,
     esconderAtualizar: true,
     esconderEstorno: true,
     esconderDelete: false,
+    esconderPaging: false,
+    esconderNew: false,
+    esconderRelatorio: false,
+    esconderPesquisa: false,
     initComponent: function () {
         var me = this;
 
@@ -26,7 +31,8 @@
                 dock: 'bottom',
                 displayInfo: true,
                 store: this.store,
-                emptyMsg: 'Nenhum registro'
+                emptyMsg: 'Nenhum registro',
+                hidden: me.esconderPaging
             }, {
                 xtype: 'button',
                 text: 'Atualizar',
@@ -43,7 +49,8 @@
                 xtype: 'button',
                 text: 'Novo',
                 itemId: 'btnNovoGrid',
-                icon: '/resources/images/add.png'
+                icon: '/resources/images/add.png',
+                hidden: me.esconderNew
             }, {
                 xtype: 'button',
                 text: 'Excluir',
@@ -129,6 +136,7 @@
                 text: 'Gerar Relatório',
                 itemId: 'btnRelatorioGrid',
                 icon: '/resources/images/report.png',
+                hidden: me.esconderRelatorio,
                 menu: {
                     xtype: 'menu',
                     plain: true,
@@ -175,6 +183,7 @@
                 flex: 1,
                 emptyText: 'Entre com a busca aqui',
                 enableKeyEvents: true,
+                hidden: me.esconderPesquisa,
                 listeners: {
                     keyup: function (txt, e, eOpts) {
                         var btnPesquisar = this.up().up().down('#btnPesquisarGrid');
@@ -188,6 +197,7 @@
                 text: 'Pesquisar',
                 itemId: 'btnPesquisarGrid',
                 icon: '/resources/images/search.png',
+                hidden: me.esconderPesquisa,
                 listeners: {
                     click: function () {
                         var grid = this.up().up(),
@@ -202,6 +212,9 @@
         });
 
         me.callParent(arguments);
+        if (me.esconderToolbar) {
+            me.down('#btnPesquisarGrid').up().hide();
+        }
     },
     baixarXls: function (grid) {
         var me = this,

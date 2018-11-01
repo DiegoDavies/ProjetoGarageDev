@@ -288,6 +288,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
                 closable: true,
                 tabPrincipal: tab,
                 itemId: 'funcionalidade' + tela.xtype,
+                tratamento: record.raw.tratamento,
                 listeners: {
                     boxready: function () {
                         me.registraAuditoria(texto);

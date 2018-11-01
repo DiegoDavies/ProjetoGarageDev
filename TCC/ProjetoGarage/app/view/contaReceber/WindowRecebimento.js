@@ -20,6 +20,10 @@
                 text: 'Salvar',
                 itemId: 'btnSalvar',
                 icon: '/resources/images/save.gif'
+            }],
+            tools: [{
+                type: 'help',
+                tooltip: 'Teste'
             }]
         });
 

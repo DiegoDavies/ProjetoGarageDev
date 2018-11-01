@@ -112,13 +112,8 @@
     addReferences: function () {
         var me = this;
 
-        me.toolbar = me.down('#pagingToolbarGrid');
         me.btnNovo = me.down('#btnNovoGrid');
-        me.btnDelete = me.down('#btnDeleteGrid');
         me.btnRelatorioPdf = me.down('#btnRelatorioPdf');
-        me.btnRelatorioXls = me.down('#btnRelatorioXls');
-        me.txtQuery = me.down('#queryField');
-        me.btnPesquisar = me.down('#btnPesquisarGrid');
     },
     addEventHandler: function () {
         var me = this;
@@ -153,6 +148,7 @@
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'Funcionario' + record.get('FuncionarioId'),
+            tratamento: 'AEFUNC',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -177,6 +173,7 @@
             closable: true,
             tabPrincipal: me.tela.tabPrincipal,
             itemId: 'CadastroFuncionario',
+            tratamento: 'CEFUNC',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

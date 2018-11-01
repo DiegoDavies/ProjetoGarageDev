@@ -1,4 +1,4 @@
-﻿Ext.define('ProjetoGarage.model.telaPrincipal.Ajuda', {
+﻿Ext.define('ProjetoGarage.model.telaPrincipal.Suporte', {
     extend: 'Ext.data.Model',
     fields: [{
         name: 'Mensagem',

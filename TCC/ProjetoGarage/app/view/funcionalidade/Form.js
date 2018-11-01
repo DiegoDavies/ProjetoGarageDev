@@ -70,6 +70,22 @@
                         }
                     }
                 }
+            }, {
+                xtype: 'textfield',
+                fieldLabel: 'Tratamento *',
+                name: 'Tratamento',
+                itemId: 'txtTratamento',
+                width: 300,
+                labelAlign: 'top',
+                allowBlank: false,
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: function (txt, e, eOpts) {
+                        if (e.keyCode === 13) {
+                            me.window.btnSalvar.fireEvent('click', this);
+                        }
+                    }
+                }
             }]
         });
 

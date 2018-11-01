@@ -23,6 +23,21 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                     style: 'background-color: #dc6900',
                     items: ['->', {
                         xtype: 'button',
+                        icon: '/resources/images/helpsmall.png',
+                        itemId: 'btnHelp',
+                        text: '<div style="color:white">Ajuda</div>',
+                        style: 'background:transparent;',
+                        listeners: {
+                            scope: this,
+                            click: function () {
+                                Ext.create('ProjetoGarage.view.telaPrincipal.WindowAjuda', {
+                                    viewport: me,
+                                    renderTo: Ext.getBody()
+                                }).show();
+                            }
+                        }
+                    }, {
+                        xtype: 'button',
                         icon: '/resources/images/suport.png',
                         itemId: 'btnSuporte',
                         text: '<div style="color:white">Suporte</div>',
@@ -30,7 +45,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                         listeners: {
                             scope: this,
                             click: function () {
-                                Ext.create('ProjetoGarage.view.telaPrincipal.WindowAjuda', {
+                                Ext.create('ProjetoGarage.view.telaPrincipal.WindowSuporte', {
                                     renderTo: Ext.getBody()
                                 }).show();
                             }
@@ -116,11 +131,13 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                 },
                 items: [{
                     title: 'Dashboard',
+                    tratamento: 'DS',
                     closable: false
                 }]
             }]
         });
 
         me.callParent(arguments);
+        me.tabPanelPrincipal = me.down('#tbpPrincipal');
     }
 });
