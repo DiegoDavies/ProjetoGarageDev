@@ -50,6 +50,7 @@
         me.dtDataVencimento = me.down('#dtDataVencimento');
         me.cboDuracao = me.down('#cboDuracao');
         me.txtDuracao = me.down('#txtDuracao');
+        me.txtValorTotal = me.down('#txtValorTotal');
         me.txtObservacao = me.down('#txtObservacao');
         me.tabPanel = me.down('orcamento-tabPanel');
         me.mascaraCad = me.down('#orcamentoMasc');
@@ -88,16 +89,22 @@
             select: me.onCboDuracaoSelect,
             beforedeselect: me.onCboDuracaoDeselect
         });
+
+        me.txtValorTotal.on({
+            scope: me,
+            change: me.onAtualizaValor
+        });
     },
     onBoxReady: function () {
-        var me = this;
+        var me = this,
+            isCliente = me.extraData.isCliente ? true : false;
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
             me.tabPanel.show();
             me.tabPanel.loadStores();
             me.mascaraCad.hide();
-            me.txtNumero.focus();
+            me.txtNumero.focus(false, true);
             me.gridCustos.show();
             me.cboCliente.store.load();
             me.cboDuracao.store.load({
@@ -109,16 +116,16 @@
                     me.cboDuracao.forceSelection = true;
                 }
             });
+            me.gridCustos.statusId = me.extraData.record.get('StatusId');
+            me.tabPanel.statusId = me.extraData.record.get('StatusId');
             if (me.extraData.record.get('StatusId') === 1) {
                 me.btnReprovar.show();
                 me.btnAprovar.show();
                 me.fieldsDisabled(false);
             } else {
                 me.gridCustos.btnDelete.up().hide();
-                me.tabPanel.gridVeiculo.btnNovo.hide();
-                me.tabPanel.gridVeiculo.btnDelete.hide();
-                me.tabPanel.gridProduto.btnNovo.hide();
-                me.tabPanel.gridProduto.btnDelete.hide();
+                me.tabPanel.gridVeiculo.btnNovo.up().hide();
+                me.tabPanel.gridProduto.btnNovo.up().hide();
                 me.btnReprovar.hide();
                 me.btnAprovar.hide();
                 me.btnSalvar.hide();
@@ -127,7 +134,7 @@
         } else {
             me.tabPanel.hide();
             me.mascaraCad.show();
-            me.txtNumero.focus();
+            me.txtNumero.focus(false, true);
             me.gridCustos.hide();
             me.btnReprovar.hide();
             me.btnAprovar.hide();
@@ -140,6 +147,10 @@
                     me.txtDuracao.setFieldLabel('Duração (em ' + me.cboDuracao.store.getAt(0).get('Nome') + ')');
                 }
             });
+        }
+
+        if (isCliente) {
+            me.cboCliente.setVisible(false);
         }
 
         me.onVisibilidadeBotao();
@@ -186,9 +197,10 @@
     },
     onBtnSalvarClick: function () {
         var me = this,
-            store = me.extraData.grid.store;
+            store = me.extraData.grid.store,
+            statusId = me.extraData.record ? me.extraData.record.get('StatusId') : 1;
 
-        if (me.form.isValid()) {
+        if (me.form.isValid() && statusId === 1) {
             Ext.Msg.show({
                 title: 'Validação',
                 msg: 'Deseja realmente prosseguir com a operação?',
@@ -330,6 +342,16 @@
                         }
                     });
                 }
+            }
+        });
+    },
+    onAtualizaValor: function () {
+        var me = this;
+
+        me.extraData.record.set('AtualizaValor', true);
+        me.extraData.grid.getStore().sync({
+            callback: function () {
+                me.extraData.record.set('AtualizaValor', false);
             }
         });
     }

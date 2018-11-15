@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.formacao.Window', {
             title: 'Formação: ' + record.get('Nome'),
+            tratamento: 'AGFORM',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.formacao.Window', {
             title: 'Cadastro de Formação',
+            tratamento: 'CGFORM',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

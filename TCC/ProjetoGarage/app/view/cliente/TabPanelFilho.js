@@ -26,7 +26,7 @@
             }, {
                 xtype: 'cliente-gridOrcamento',
                 icon: '/resources/images/budget.png',
-                title: 'Orçamento',
+                title: 'Orçamentos',
                 itemId: 'pnlCliente1',
                 width: '100%',
                 height: '100%'

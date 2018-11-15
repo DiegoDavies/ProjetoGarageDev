@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.marcaProduto.Window', {
             title: 'Marca: ' + record.get('Nome') + '(Produto)',
+            tratamento: 'AGMAPR',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.marcaProduto.Window', {
             title: 'Cadastro de Marca (Produto)',
+            tratamento: 'CGMAPR',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

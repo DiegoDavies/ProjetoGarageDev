@@ -226,8 +226,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
         });
     },
     onItemClick: function (tree, record, item, index, e, eOpts) {
-        var me = this,
-            tab = me.up().up().down('[region=center]');
+        var me = this;
 
         if (record.get('leaf')) {
             Ext.Ajax.request({
@@ -238,7 +237,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
                 success: function (response) {
                     var result = Ext.JSON.decode(response.responseText);
                     if (result.Logado.toUpperCase() === "TRUE") {
-                        me.abrirTela(tab, record);
+                        me.abrirTela(window.viewport.tabPanelPrincipal, record);
                     }
                     else {
                         Ext.create('ProjetoGarage.view.login.WindowLogin', {
@@ -250,7 +249,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
                                 scope: me,
                                 beforeclose: function () {
                                     if (me.ok) {
-                                        me.abrirTela(tab, record);
+                                        me.abrirTela(window.viewport.tabPanelPrincipal, record);
                                     }
                                 }
                             }
@@ -267,7 +266,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Menu', {
                             scope: me,
                             beforeclose: function () {
                                 if (me.ok) {
-                                    me.abrirTela(tab, record);
+                                    me.abrirTela(window.viewport.tabPanelPrincipal, record);
                                 }
                             }
                         }

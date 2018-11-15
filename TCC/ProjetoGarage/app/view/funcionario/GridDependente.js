@@ -103,6 +103,7 @@
 
         Ext.create('ProjetoGarage.view.funcionario.WindowDependente', {
             title: 'Dependente: ' + record.get('Nome'),
+            tratamento: 'AODEPE',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -116,6 +117,7 @@
 
         Ext.create('ProjetoGarage.view.funcionario.WindowDependente', {
             title: 'Cadastro de Dependente',
+            tratamento: 'CODEPE',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

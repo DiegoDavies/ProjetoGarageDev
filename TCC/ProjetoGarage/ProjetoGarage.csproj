@@ -84,6 +84,7 @@
     <Content Include="app\model\combos\GrupoCompra.js" />
     <Content Include="app\model\combos\MarcaProduto.js" />
     <Content Include="app\model\combos\ModeloProduto.js" />
+    <Content Include="app\model\combos\Produto.js" />
     <Content Include="app\model\combos\TipoPagamento.js" />
     <Content Include="app\model\combos\Etnia.js" />
     <Content Include="app\model\combos\Formacao.js" />
@@ -105,6 +106,7 @@
     <Content Include="app\model\contaReceber\Recebimento.js" />
     <Content Include="app\model\duracao\Model.js" />
     <Content Include="app\model\estadoCivil\Model.js" />
+    <Content Include="app\model\fornecedor\Produto.js" />
     <Content Include="app\model\grupoCompra\Model.js" />
     <Content Include="app\model\marcaProduto\Model.js" />
     <Content Include="app\model\modeloProduto\Model.js" />
@@ -174,6 +176,7 @@
     <Content Include="app\store\combos\GrupoCompra.js" />
     <Content Include="app\store\combos\MarcaProduto.js" />
     <Content Include="app\store\combos\ModeloProduto.js" />
+    <Content Include="app\store\combos\Produto.js" />
     <Content Include="app\store\combos\TipoPagamento.js" />
     <Content Include="app\store\combos\Etnia.js" />
     <Content Include="app\store\combos\Formacao.js" />
@@ -195,6 +198,7 @@
     <Content Include="app\store\contaReceber\Store.js" />
     <Content Include="app\store\duracao\Store.js" />
     <Content Include="app\store\estadoCivil\Store.js" />
+    <Content Include="app\store\fornecedor\Produto.js" />
     <Content Include="app\store\grupoCompra\Store.js" />
     <Content Include="app\store\marcaProduto\Store.js" />
     <Content Include="app\store\modeloProduto\Store.js" />
@@ -260,6 +264,9 @@
     <Content Include="app\view\banco\Tela.js" />
     <Content Include="app\view\banco\Window.js" />
     <Content Include="app\view\cliente\Form.js" />
+    <Content Include="app\view\cliente\FormContaReceber.js" />
+    <Content Include="app\view\cliente\FormOrcamento.js" />
+    <Content Include="app\view\cliente\FormServico.js" />
     <Content Include="app\view\cliente\FormVeiculo.js" />
     <Content Include="app\view\cliente\Grid.js" />
     <Content Include="app\view\cliente\GridContaReceber.js" />
@@ -270,6 +277,9 @@
     <Content Include="app\view\cliente\Panel.js" />
     <Content Include="app\view\cliente\TabPanelFilho.js" />
     <Content Include="app\view\cliente\Tela.js" />
+    <Content Include="app\view\cliente\WindowContaReceber.js" />
+    <Content Include="app\view\cliente\WindowOrcamento.js" />
+    <Content Include="app\view\cliente\WindowServico.js" />
     <Content Include="app\view\cliente\WindowVeiculo.js" />
     <Content Include="app\view\contaPagar\Form.js" />
     <Content Include="app\view\contaPagar\FormPagamento.js" />
@@ -297,6 +307,13 @@
     <Content Include="app\view\estadoCivil\Grid.js" />
     <Content Include="app\view\estadoCivil\Window.js" />
     <Content Include="app\view\estadoCivil\Tela.js" />
+    <Content Include="app\view\fornecedor\FormContaPagar.js" />
+    <Content Include="app\view\fornecedor\FormProduto.js" />
+    <Content Include="app\view\fornecedor\GridProduto.js" />
+    <Content Include="app\view\fornecedor\WindowContaPagar.js" />
+    <Content Include="app\view\fornecedor\WindowProduto.js" />
+    <Content Include="app\view\funcionario\FormContaPagar.js" />
+    <Content Include="app\view\funcionario\WindowContaPagar.js" />
     <Content Include="app\view\grupoCompra\Form.js" />
     <Content Include="app\view\grupoCompra\Grid.js" />
     <Content Include="app\view\grupoCompra\Tela.js" />
@@ -309,9 +326,17 @@
     <Content Include="app\view\modeloProduto\Grid.js" />
     <Content Include="app\view\modeloProduto\Tela.js" />
     <Content Include="app\view\modeloProduto\Window.js" />
+    <Content Include="app\view\orcamento\FormProduto.js" />
+    <Content Include="app\view\orcamento\WindowProduto.js" />
     <Content Include="app\view\produto\FormFornecedor.js" />
     <Content Include="app\view\produto\GridFornecedor.js" />
     <Content Include="app\view\produto\WindowFornecedor.js" />
+    <Content Include="app\view\servico\FormCustos.js" />
+    <Content Include="app\view\servico\FormProduto.js" />
+    <Content Include="app\view\servico\FormVeiculo.js" />
+    <Content Include="app\view\servico\WindowCustos.js" />
+    <Content Include="app\view\servico\WindowProduto.js" />
+    <Content Include="app\view\servico\WindowVeiculo.js" />
     <Content Include="app\view\telaPrincipal\WindowSuporte.js" />
     <Content Include="app\view\unidadeMedida\Form.js" />
     <Content Include="app\view\unidadeMedida\Grid.js" />

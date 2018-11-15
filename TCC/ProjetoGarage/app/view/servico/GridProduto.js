@@ -2,16 +2,16 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'servico-gridProduto',
     requires: [
-        //'ProjetoGarage.view.servico.WindowDependente'
+        'ProjetoGarage.view.servico.WindowProduto'
     ],
+    esconderAtualizar: false,
+    esconderRelatorio: true,
+    esconderPaging: true,
+    esconderPesquisa: true,
     features: [{
         ftype: 'summary',
         dock: 'bottom'
     }],
-    esconderPaging: true,
-    esconderRelatorio: true,
-    esconderAtualizar: false,
-    esconderPesquisa: true,
     initComponent: function () {
         var me = this;
 
@@ -20,6 +20,7 @@
             columns: [{
                 text: 'Descrição',
                 flex: 1,
+                minWidth: 200,
                 style: 'text-align: center;',
                 dataIndex: 'Descricao'
             }, {
@@ -64,8 +65,41 @@
                     return '<b>' + Ext.util.Format.number(me.store.sum('ValorTotal'), '0,000.00') + '</b>';
                 }
             }, {
-                text: '',
-                width: 10
+                text: 'Inclusão',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeInclusao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraInclusao'
+                }]
+            }, {
+                text: 'Alteração',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeAlteracao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraAlteracao'
+                }]
             }]
         });
 
@@ -84,6 +118,7 @@
 
         me.on({
             scope: me,
+            boxready: me.onBoxReady,
             itemdblclick: me.onItemDblClick
         });
 
@@ -92,71 +127,58 @@
             click: me.onBtnNovoClick
         });
 
-        me.btnDelete.on({
+        me.store.on({
             scope: me,
-            click: me.onBtnDeleteClick
+            load: me.onLoadStoreProduto
         });
+    },
+    onBoxReady: function () {
+        var me = this;
+
+        if (me.tabPanel.statusId !== 1 && me.tabPanel.statusId !== 2) {
+            me.btnNovo.up().hide();
+        } else {
+            me.btnNovo.up().show();
+        }
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        //Ext.create('ProjetoGarage.view.servico.WindowDependente', {
-        //    title: 'Dependente ' + record.get('Nome'),
-        //    extraData: {
-        //        formType: 'Alterar',
-        //        grid: me,
-        //        record: record
-        //    }
-        //}).show();
-        //return false;
-        //var encontrado = me.tabPanel.panel.gridCustos.store.query('Descricao', 'Produtos');
-        //encontrado.itens.itens.set('Valor', me.getStore().sum('ValorTotal'));
+        if (me.tabPanel.statusId === 1 || me.tabPanel.statusId === 2) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowProduto', {
+                title: 'Produto ' + record.get('Descricao'),
+                tratamento: 'AOVIPR',
+                extraData: {
+                    formType: 'Alterar',
+                    grid: me,
+                    record: record
+                }
+            }).show();
+        }
+        return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        //Ext.create('ProjetoGarage.view.servico.WindowDependente', {
-        //    title: 'Cadastro de Dependente',
-        //    extraData: {
-        //        formType: 'Cadastrar',
-        //        grid: me
-        //    }
-        //}).show();
-        //return false;
+        if (me.tabPanel.statusId === 1 || me.tabPanel.statusId === 2) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowProduto', {
+                title: 'Vínculo de Produto',
+                tratamento: 'COVIPR',
+                extraData: {
+                    formType: 'Cadastrar',
+                    grid: me
+                }
+            }).show();
+        }
+        return false;
     },
-    onBtnDeleteClick: function () {
+    onLoadStoreProduto: function (store, records, successfull, eOpts) {
         var me = this,
-            selection = me.getView().getSelectionModel().getSelection()[0];
+            storeCusto = me.tabPanel.panel.gridCustos.store,
+            recordIndex = storeCusto.find('Descricao', 'Produtos');
 
-        if (selection) {
-            if (selection.get('Delete')) {
-                Ext.Msg.show({
-                    title: 'Validação',
-                    msg: 'Deseja realmente prosseguir com a operação?',
-                    buttons: Ext.Msg.YESNO,
-                    icon: Ext.Msg.QUESTION,
-                    fn: function (btn) {
-                        if (btn === 'yes') {
-                            me.store.remove(selection);
-                            me.store.sync({
-                                success: function () {
-                                    me.store.load();
-                                },
-                                failure: function () {
-                                    me.store.rejectChanges();
-                                }
-                            });
-                        }
-                    }
-                });
-            } else {
-                Ext.Msg.show({
-                    title: 'Informação',
-                    msg: 'Impossível deletar esse item',
-                    buttons: Ext.Msg.OK,
-                    icon: Ext.Msg.INFO
-                });
-            }
+        if (records.length > 0 && storeCusto.data.length > 0) {
+            storeCusto.data.items[recordIndex].set('Valor', me.store.sum('ValorTotal'));
         }
     }
 });

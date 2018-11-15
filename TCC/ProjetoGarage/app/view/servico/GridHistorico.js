@@ -2,10 +2,11 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'servico-gridHistorico',
     esconderAtualizar: false,
-    esconderPaging: true,
     esconderRelatorio: true,
+    esconderPesquisa: true,
+    esconderNew: true,
+    esconderPaging: true,
     esconderDelete: true,
-    esconderNovo: true,
     initComponent: function () {
         var me = this;
 
@@ -14,34 +15,29 @@
             columns: [{
                 xtype: 'datecolumn',
                 text: 'Data Hora',
-                width: 150,
+                width: 120,
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y',
-                dataIndex: 'DataHora'
+                dataIndex: 'DataOcorrencia'
             }, {
                 text: 'Usuario',
                 width: 150,
                 style: 'text-align: center;',
                 dataIndex: 'UsuarioNome'
             }, {
-                text: 'Observação',
+                text: 'Ocorrencia',
                 flex: 1,
+                minWidth: 280,
                 style: 'text-align: center;',
-                dataIndex: 'Observacao'
+                dataIndex: 'Ocorrencia',
+                renderer: function (val, metaData, record) {
+                    metaData.tdAttr = 'data-qtip="' + val + '"';
+                    return val;
+                }
             }]
         });
 
         me.callParent(arguments);
-        me.addReferences();
-        me.addEventHandler();
-    },
-    addReferences: function () {
-        var me = this;
-
-    },
-    addEventHandler: function () {
-        var me = this;
-
     }
 });

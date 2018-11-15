@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.situacao.Window', {
             title: 'Situação: ' + record.get('Nome'),
+            tratamento: 'AGSITU',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.situacao.Window', {
             title: 'Cadastro de Situação',
+            tratamento: 'CGSITU',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

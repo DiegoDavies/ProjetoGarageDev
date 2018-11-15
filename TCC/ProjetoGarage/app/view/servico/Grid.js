@@ -55,7 +55,7 @@
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y H:i:s',
-                dataIndex: 'DataRealizacao'
+                dataIndex: 'DataAprovacao'
             }, {
                 xtype: 'datecolumn',
                 text: 'Data Inicio',
@@ -71,7 +71,7 @@
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y H:i:s',
-                dataIndex: 'DataFinalizacao'
+                dataIndex: 'DataFim'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -123,10 +123,10 @@
                 nomeExcel: 'Duração'
             }, {
                 dataIndex: 'ValorTotal',
-                nomeExcel: 'ValorTotal',
+                nomeExcel: 'Valor Total',
                 formatoExcel: 'Moeda'
             }, {
-                dataIndex: 'DataAprovacao',
+                dataIndex: 'DataRealizacao',
                 nomeExcel: 'Data Aprovação',
                 formatoExcel: 'Data'
             }, {
@@ -185,11 +185,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'servico-panel',
             title: 'Serviço: ' + record.get('Numero'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Servico' + record.get('ServicoId'),
             tratamento: 'AESERV',
             extraData: {
@@ -204,17 +204,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Servico' + record.get('ServicoId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Servico' + record.get('ServicoId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'servico-panel',
             title: 'Cadastro de Serviço',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroServico',
             tratamento: 'CESERV',
             extraData: {
@@ -228,7 +228,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroServico');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroServico');
         return false;
     }
 });

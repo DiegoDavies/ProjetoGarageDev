@@ -20,6 +20,15 @@
                 text: 'Salvar',
                 itemId: 'btnSalvar',
                 icon: '/resources/images/save.gif'
+            }],
+            tools: [{
+                type: 'help',
+                tooltip: 'Ajuda',
+                callback: function (panel, tool, event) {
+                    Ext.create('ProjetoGarage.view.telaPrincipal.WindowAjuda', {
+                        window: panel
+                    }).show();
+                }
             }]
         });
 
@@ -46,7 +55,6 @@
 
         me.on({
             scope: me,
-            boxready: me.onBoxReady,
             show: me.onShowWindow
         });
 
@@ -64,32 +72,16 @@
     onShowWindow: function () {
         var me = this;
 
-        me.txtPlaca.focus();
-    },
-    onBoxReady: function () {
-        var me = this;
-
-        if (me.extraData.formType === 'Alterar') {
-            me.form.loadRecord(me.extraData.record);
-            me.cboMarca.store.load();
-            me.cboModelo.store.setParams({
-                MarcaId: me.cboMarca.getValue() ? me.cboMarca.getValue() : 0
-            });
-            me.cboModelo.store.load();
-        }
+        me.txtPlaca.focus(false, true);
     },
     onBtnSalvarClick: function () {
         var me = this,
             store = me.extraData.grid.store;
 
         if (me.form.isValid()) {
-            if (me.extraData.formType === 'Cadastrar') {
-                var model = Ext.create('ProjetoGarage.model.cliente.Veiculo');
-                me.form.updateRecord(model);
-                store.add(model);
-            } else {
-                me.form.updateRecord(me.extraData.record);
-            }
+            var model = Ext.create('ProjetoGarage.model.cliente.Veiculo');
+            me.form.updateRecord(model);
+            store.add(model);
 
             if (store.getModifiedRecords().length > 0 || store.getRemovedRecords().length > 0 || store.getNewRecords().length > 0) {
                 me.getEl().mask('Salvando...');
@@ -114,7 +106,7 @@
             });
         }
     },
-    onCboMarcaSelect: function (combo, records, eOpts) {
+    onCboMarcaSelect: function () {
         var me = this;
 
         me.cboModelo.setValue('');
@@ -123,7 +115,7 @@
         });
         me.cboModelo.store.load();
     },
-    onCboMarcaDeselect: function (combo, record, index, eOpts) {
+    onCboMarcaDeselect: function () {
         var me = this;
 
         me.cboModelo.setValue('');

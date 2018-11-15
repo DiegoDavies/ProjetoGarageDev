@@ -1,12 +1,13 @@
 ﻿Ext.define('ProjetoGarage.view.cliente.GridContaReceber', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-gridContaReceber',
+    requires: [
+        'ProjetoGarage.view.cliente.WindowContaReceber'
+    ],
     esconderAtualizar: false,
-    esconderDelete: true,
-    esconderNew: true,
-    esconderPaging: true,
-    esconderPesquisa: true,
     esconderRelatorio: true,
+    esconderPesquisa: true,
+    esconderPaging: true,
     initComponent: function () {
         var me = this;
 
@@ -98,5 +99,64 @@
         });
 
         me.callParent(arguments);
+        me.addReferences();
+        me.addEventHandler();
+    },
+    addReferences: function () {
+        var me = this;
+
+        me.btnNovo = me.down('#btnNovoGrid');
+    },
+    addEventHandler: function () {
+        var me = this;
+
+        me.on({
+            scope: me,
+            itemdblclick: me.onItemDblClick
+        });
+
+        me.btnNovo.on({
+            scope: me,
+            click: me.onBtnNovoClick
+        });
+    },
+    onItemDblClick: function (grid, record, item, index, e, eOpts) {
+        var me = this;
+
+        window.viewport.tabPanelPrincipal.add({
+            xtype: 'contaReceber-panel',
+            title: 'Conta à Receber: ' + record.get('Documento'),
+            closable: true,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
+            itemId: 'contaReceber' + record.get('ContaReceberId'),
+            tratamento: 'AECREC',
+            extraData: {
+                formType: 'Alterar',
+                grid: me,
+                record: record,
+                isCliente: true
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
+            }
+        });
+        window.viewport.tabPanelPrincipal.setActiveTab('contaReceber' + record.get('ContaReceberId'));
+        return false;
+    },
+    onBtnNovoClick: function () {
+        var me = this;
+
+        Ext.create('ProjetoGarage.view.cliente.WindowContaReceber', {
+            title: 'Cadastro de Conta à Receber',
+            tratamento: 'CECREC',
+            extraData: {
+                formType: 'Cadastrar',
+                grid: me
+            }
+        }).show();
+        return false;
     }
 });

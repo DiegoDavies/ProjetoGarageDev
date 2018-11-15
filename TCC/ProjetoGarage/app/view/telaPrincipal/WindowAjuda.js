@@ -2,9 +2,9 @@
     extend: 'Ext.window.Window',
     xtype: 'ajudaWindow',
     title: 'Ajuda',
-    icon: '/resources/images/helpsmall.png',
+    icon: '/resources/images/help-white.png',
     width: 650,
-    height: screen.availHeight * 0.7,
+    maxHeight: screen.availHeight * 0.8,
     layout: 'fit',
     modal: true,
     closable: true,
@@ -14,7 +14,6 @@
         var me = this;
 
         Ext.apply(me, {
-            //storeAjuda: Ext.create('ProjetoGarage.store.telaPrincipal.Ajuda'),
             items: [{
                 xtype: 'container',
                 itemId: 'ctnMensagem',
@@ -47,7 +46,8 @@
 
         me.on({
             scope: me,
-            show: me.onShowWindow
+            show: me.onShowWindow,
+            resize: me.onResize
         });
 
         me.btnSuporte.on({
@@ -55,19 +55,237 @@
             scope: me
         });
     },
-    onShowWindow: function () {
-        var me = this,
-            tratamento = me.viewport.tabPanelPrincipal.getActiveTab().tratamento;
-
-        if (tratamento && tratamento !== '') {
-            me.setVariables(tratamento);
-        }
-    },
-    setVariables: function (tratamento) {
+    onResize: function () {
         var me = this;
 
-        var tratamentoInit = tratamento.substring(0, 2),
+        me.center();
+    },
+    onShowWindow: function () {
+        var me = this,
+            tratamentoViewport = (me.viewport ? (me.viewport.tabPanelPrincipal.getActiveTab().tratamento ? me.viewport.tabPanelPrincipal.getActiveTab().tratamento : '') : ''),
+            tratamentoWindow = (me.window ? (me.window.tratamento ? me.window.tratamento : '') : '');
+
+        if (tratamentoViewport !== '') {
+            me.setModelosViewport(tratamentoViewport);
+        }
+        if (tratamentoWindow !== '') {
+            me.setModelosWindow(tratamentoWindow);
+        }
+    },
+    setModelosWindow: function (tratamento) {
+        var me = this,
+            tratamentoInit = tratamento.substring(0, 2),
             tratamentoRest = tratamento.replace(tratamentoInit, '');
+
+        me.setWidth(400);
+
+        me.html = '';
+        me.title = '';
+        me.other = '';
+        me.objective = '';
+        if (tratamentoInit === 'AO' || tratamentoInit === 'CO') {
+            me.title = (tratamentoInit === 'AO' ? 'Alteração' : 'Cadastro');
+            me.objective = 'Tela de ' + (tratamentoInit === 'AO' ? 'Alteração' : 'Cadastro');
+            if (tratamentoRest === 'PAGT') {
+                me.title = me.title + ' de Pagamentos';
+                me.objective = me.objective + ' de Pagamentos';
+                me.other = 'Tela responsável por cadastrar Pagamentos a conta em questão, mantendo um histórico de toda a movimentação.';
+            }
+            else if (tratamentoRest === 'RECE') {
+                me.title = me.title + ' de Recebimentos';
+                me.objective = me.objective + ' de Recebimentos';
+                me.other = ' Tela responsável por cadastrar Recebimentos a conta em questão, mantendo um histórico de toda a movimentação.';
+            }
+            else if (tratamentoRest === 'PROD') {
+                me.title = me.title + ' de Vínculo de Produtos';
+                me.objective = me.objective + ' de Vínculo de Produtos';
+                me.other = ' Tela responsável por víncular produtos ao Fornecedor em questão';
+            }
+            else if (tratamentoRest === 'BANC') {
+                me.title = me.title + ' de Pagamentos';
+                me.objective = me.objective + ' de Pagamentos';
+                me.other = ' Tela responsável por cadastrar as contas para efetuação de pagamentos.';
+            }
+            else if (tratamentoRest === 'DEPE') {
+                me.title = me.title + ' de Dependentes';
+                me.objective = me.objective + ' de Dependentes';
+                me.other = ' Tela responsável por cadastrar os dependentes do Funcionário em questão. Com seus respectivos graus de parentesco.';
+            }
+            else if (tratamentoRest === 'OCUP') {
+                me.title = me.title + ' de Histórico Ocupacional';
+                me.objective = me.objective + ' de Histórico Ocupacional';
+                me.other = ' Tela responsável por cadastrar o histórico completo do funcionário na empresa, com seus afastamentos, data de admissão, demissão e etc.';
+            }
+            else if (tratamentoRest === 'FORN') {
+                me.title = me.title + ' de Vínculo com Fornecedor';
+                me.objective = me.objective + ' de Vínculo com Fornecedor';
+                me.other = ' Tela responsável por víncular Fornecedores ao produto em questão, determinando nomes do Produto para cada Fornecedor.';
+            }
+            else if (tratamentoRest === 'VIPR') {
+                me.title = me.title + ' de Seleção de Produtos';
+                me.objective = me.objective + ' de Seleção de Produtos';
+                me.other = ' Tela responsável por adicionar Produtos ao Orçamento/Serviço em questão, determinando quais produtos serão utilizados para a realização da manutenção.';
+            }
+            else if (tratamentoRest === 'VIVE') {
+                me.title = me.title + ' de Seleção de Veículos';
+                me.objective = me.objective + ' de Seleção de Veículos';
+                me.other = ' Tela responsável por adicionar Veículos ao Orçamento/Serviço em questão, determinando o veículo que será realizado a manutenção.';
+            }
+            else if (tratamentoRest === 'CUST') {
+                me.title = me.title + ' de Custos';
+                me.objective = me.objective + ' de Custos';
+                me.other = ' Tela responsável por adicionar custos extras caso necessário, e responsável por definir se o custo é positivo ou negativo.';
+            }
+            me.html = '<div>' +
+                '<div style="text-align: center;">' +
+                    '<span><strong>' + me.title + '</strong></span>' +
+                '</div>' +
+                '<div style="line-height: 1.5">' +
+                    '<p><b>Descritivo:</b> ' + me.objective + ', preencha a(s) informação(ões) desejada(s) no(s) campo(s) abaixo e posteriormente clique no botão Salvar. ' + me.other + '</p>' +
+                '</div>' +
+            '</div>';
+        }
+        else if (tratamentoInit === 'AG' || tratamentoInit === 'CG') {
+            me.title = (tratamentoInit === 'AG' ? 'Alteração' : 'Cadastro');
+            me.objective = 'Tela de ' + (tratamentoInit === 'AG' ? 'Alteração' : 'Cadastro');
+            if (tratamentoRest === 'ETNI') {
+                me.title = me.title + ' de Etnia';
+                me.objective = me.objective + ' de Etnia';
+            }
+            else if (tratamentoRest === 'ESCI') {
+                me.title = me.title + ' de Estado Civil';
+                me.objective = me.objective + ' de Estado Civil';
+            }
+            else if (tratamentoRest === 'DURA') {
+                me.title = me.title + ' de Duração';
+                me.objective = me.objective + ' de Duração';
+            }
+            else if (tratamentoRest === 'BANC') {
+                me.title = me.title + ' de Banco';
+                me.objective = me.objective + ' de Banco';
+            }
+            else if (tratamentoRest === 'FUNÇ') {
+                me.title = me.title + ' de Função';
+                me.objective = me.objective + ' de Função';
+            }
+            else if (tratamentoRest === 'GRCO') {
+                me.title = me.title + ' de Grupo de Compra';
+                me.objective = me.objective + ' de Grupo de Compra';
+            }
+            else if (tratamentoRest === 'MARC') {
+                me.title = me.title + ' de Marca (Veículo)';
+                me.objective = me.objective + ' de Marca (Veículo)';
+            }
+            else if (tratamentoRest === 'MAPR') {
+                me.title = me.title + ' de Marca (Produto)';
+                me.objective = me.objective + ' de Marca (Produto)';
+            }
+            else if (tratamentoRest === 'MODE') {
+                me.title = me.title + ' de Modelo (Veículo)';
+                me.objective = me.objective + ' de Modelo (Veículo)';
+                me.other = 'É necessário cadastrar anteriormente as Marcas para poder utilizar.';
+            }
+            else if (tratamentoRest === 'MOPR') {
+                me.title = me.title + ' de Modelo (Produto)';
+                me.objective = me.objective + ' de Modelo (Produto)';
+            }
+            else if (tratamentoRest === 'PARE') {
+                me.title = me.title + ' de Parentesco';
+                me.objective = me.objective + ' de Parentesco';
+            }
+            else if (tratamentoRest === 'SITU') {
+                me.title = me.title + ' de Situação';
+                me.objective = me.objective + ' de Situação';
+            }
+            else if (tratamentoRest === 'STFO') {
+                me.title = me.title + ' de Status de Fornecedor';
+                me.objective = me.objective + ' de Status de Fornecedor';
+            }
+            else if (tratamentoRest === 'TIPO') {
+                me.title = me.title + ' de Tipo de Pagamento';
+                me.objective = me.objective + ' de Tipo de Pagamento';
+            }
+            else if (tratamentoRest === 'UNMD') {
+                me.title = me.title + ' de Unidade de Medida';
+                me.objective = me.objective + ' de Unidade de Medida';
+            }
+            else if (tratamentoRest === 'FORM') {
+                me.title = me.title + ' de Formação';
+                me.objective = me.objective + ' de Formação';
+            }
+            me.html = '<div>' +
+                    '<div style="text-align: center;">' +
+                        '<span><strong>' + me.title + '</strong></span>' +
+                    '</div>' +
+                    '<div style="line-height: 1.5">' +
+                        '<p><b>Descritivo:</b> ' + me.objective + ', para realizar alguma alteração preencha a(s) informação(ões) desejada(s) no(s) campo(s) abaixo e posteriormente clique no botão Salvar. ' + me.other + '</p>' +
+                    '</div>' +
+                '</div>';
+        }
+        else if (tratamentoInit === 'CE') {
+            if (tratamentoRest === 'CREC') {
+                me.title = 'Cadastro de Conta à Receber';
+                me.objective = 'Tela de Cadastro de Contas à Receber';
+                me.other = 'Recebimentos e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'CLIE') {
+                me.title = 'Cadastro de Cliente';
+                me.objective = 'Tela de Cadastro de Cliente';
+                me.other = 'Contas à Receber, Orçamentos, Serviços, Veículos e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'CPAG') {
+                me.title = 'Cadastro de Conta à Pagar';
+                me.objective = 'Tela de Cadastro de Contas à Pagar';
+                me.other = 'Pagamentos e Históricos de todas as alterações';
+            }
+            else if (tratamentoRest === 'FORN') {
+                me.title = 'Cadastro de Fornecedor';
+                me.objective = 'Tela de Cadastro de Fornecedor';
+                me.other = 'Contas à Pagar, Bancos para pagamentos do Fornecedor e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'FUNC') {
+                me.title = 'Cadastro de Funcionário';
+                me.objective = 'Tela de Cadastro de Funcionário';
+                me.other = 'Contas à Pagar, Dependentes do Funcionário, Histórico Ocupacional na empresa, Bancos para pagamentos do Funcionário e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'PROD') {
+                me.title = 'Cadastro de Produto';
+                me.objective = 'Tela de Cadastro de Produto';
+                me.other = 'Nome pelo Fornecedor (que será o vínculo do produto com o Fornecedor) e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'ORÇA') {
+                me.title = 'Cadastro de Orçamento';
+                me.objective = 'Tela de Cadastro de Orçamento';
+                me.other = 'Custos, Produtos que serão necessários, Veículos que serão realizados a manutenção e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'SERV') {
+                me.title = 'Cadastro de Serviços';
+                me.objective = 'Tela de Cadastro de Serviços';
+                me.other = 'Custos, Produtos que serão necessários, Veículos que serão realizados a manutenção e Histórico de todas as alterações';
+            }
+            else if (tratamentoRest === 'VEIC') {
+                me.title = 'Cadastro de Veículo';
+                me.objective = 'Tela de Cadastro de Veículo';
+                me.other = 'Histórico de todas as alterações';
+            }
+            me.html = '<div>' +
+                    '<div style="text-align: center;">' +
+                        '<span><strong>' + me.title + '</strong></span>' +
+                    '</div>' +
+                    '<div style="line-height: 1.5">' +
+                        '<p><b>Descritivo:</b> ' + me.objective + ', preencha as informações necessárias no Formulário abaixo e posteriormente clique no botão Salvar. Ao clicar em Salvar, a tela será fechada e será exibido o novo registro na tabela, selecionando o mesmo e dando dois cliques, abrirá uma nova tela onde será possivel realizar a alteração dos registros e visualização de ' + me.other + '.</p>' +
+                    '</div>' +
+                '</div>';
+        }
+
+        me.ctnMensagem.update(me.html);
+    },
+    setModelosViewport: function (tratamento) {
+        var me = this,
+            tratamentoInit = tratamento.substring(0, 2),
+            tratamentoRest = tratamento.replace(tratamentoInit, '');
+
+        me.setWidth(650);
 
         me.html = '';
         me.title = '';
@@ -82,6 +300,7 @@
                         '<p><b>Objetivo:</b> Exibição dos dados de Contas à Pagar, Contas à Receber, números de Serviços a serem entregues e números de Orçamentos a serem respondidos.</p>' +
                     '</div>' +
                 '</div>';
+            me.setWidth(400);
         }
         else if (tratamentoInit === 'LA') {
             me.html = '<div>' +
@@ -294,53 +513,100 @@
                         '<p><b>Descritivo:</b> ' + me.objective + ', preencha as informações necessárias no Formulário a esquerda e posteriormente clique no botão Salvar. Ao clicar em Salvar, o formulário será recarregado e novas funcionalidades serão disponibilizadas, como visualização de ' + me.other + '.</p>' +
                     '</div>' +
                 '</div>';
+            me.setWidth(450);
         }
         else if (tratamentoInit === 'AE') {
             if (tratamentoRest === 'CREC') {
                 me.title = 'Alteração de Conta à Receber';
                 me.objective = 'Tela de Alteração de Contas à Receber';
-                me.other = 'Para realizar a inclusão de um novo recebimento, vá a aba de Recebimentos e clique em Novo e preencha as informações necessárias; ' +
-                    'Para realizar a alteração de um recebimento, vá a aba de Recebimentos e de dois cliques na linha desejada; ' +
-                    'Para realizar a exclusão do recebimento, é necessário selecionar o item desejado e clicar em estorno, o mesmo será cancelado e lançado um novo recebimento com o valor negativo.';
+                me.other = '<p><b>Recebimentos</b></p><ul><li>Para realizar a inclusão de um novo recebimento, vá a aba de <b><i>Recebimentos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um recebimento, vá a aba de <b><i>Recebimentos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão do recebimento, vá a aba de <b><i>Recebimentos</i></b> e selecione o item desejado, clique em estorno, o mesmo será cancelado e lançado um novo recebimento com o valor negativo.</li></ul>';
             }
             else if (tratamentoRest === 'CLIE') {
                 me.title = 'Alteração de Cliente';
                 me.objective = 'Tela de Alteração de Cliente';
-                me.other = '';
+                me.other = '<p><b>Contas à Receber:</b></p><ul><li>Para realizar a inclusão de uma Conta à Receber para esse Cliente, vá a aba de <b><i>Contas à Receber</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de uma Conta à Receber, vá a aba de <b><i>Contas à Receber</i></b> e de dois cliques na linha desejada, posteriormente preencha as informações na nova aba que irá abrir; </li>' +
+                    '<li>Para realizar a exclusão de uma Conta à Receber, vá a aba de <b><i>Contas à Receber</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Orçamentos:</b></p><ul><li>Para realizar a inclusão de um Orçamento para esse Cliente, vá a aba de <b><i>Orçamentos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Orçamento, vá a aba de <b><i>Orçamento</i></b> e de dois cliques na linha desejada, posteriormente preencha as informações na nova aba que irá abrir; </li>' +
+                    '<li>Para realizar a exclusão de um Orçamento, vá a aba de <b><i>Orçamento</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Serviços:</b></p><ul><li>Para realizar a inclusão de um Serviço para esse Cliente, vá a aba de <b><i>Serviço</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Serviço, vá a aba de <b><i>Serviço</i></b> e de dois cliques na linha desejada, posteriormente preencha as informações na nova aba que irá abrir; </li>' +
+                    '<li>Para realizar a exclusão de um Serviço, vá a aba de <b><i>Serviço</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Veículos:</b></p><ul><li>Para realizar a inclusão de um Veículo para esse Cliente, vá a aba de <b><i>Veículos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Veículo, vá a aba de <b><i>Veículos</i></b> e de dois cliques na linha desejada, posteriormente preencha as informações na nova aba que irá abrir; </li>' +
+                    '<li>Para realizar a exclusão de um Veículo, vá a aba de <b><i>Veículos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>';
             }
             else if (tratamentoRest === 'CPAG') {
                 me.title = 'Alteração de Conta à Pagar';
                 me.objective = 'Tela de Alteração de Conta à Pagar';
-                me.other = 'Para realizar a inclusão de um novo pagamento, vá a aba de Pagamentos e clique em Novo e preencha as informações necessárias; ' +
-                    'Para realizar a alteração de um pagamento, vá a aba de Pagamentos e de dois cliques na linha desejada; ' +
-                    'Para realizar a exclusão do pagamento, é necessário selecionar o item desejado e clicar em estorno, o mesmo será cancelado e lançado um novo pagamento com o valor negativo.';
+                me.other = '<p><b>Pagamentos:</b></p><ul><li>Para realizar a inclusão de um novo pagamento, vá a aba de <b><i>Pagamentos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um pagamento, vá a aba de <b><i>Pagamentos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão do pagamento, vá a aba de <b><i>Pagamentos</i></b> e selecione o item desejado, clique em estorno, o mesmo será cancelado e lançado um novo pagamento com o valor negativo. </li></ul>';
             }
             else if (tratamentoRest === 'FORN') {
                 me.title = 'Alteração de Fornecedor';
                 me.objective = 'Tela de Alteração de Fornecedor';
-                me.other = '';
+                me.other = '<p><b>Contas à Pagar:</b></p><ul><li>Para realizar a inclusão de uma Conta à Pagar para esse Fornecedor, vá a aba de <b><i>Contas à Pagar</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                        '<li>Para realizar a alteração de uma Conta à Pagar, vá a aba de <b><i>Contas à Pagar</i></b> e de dois cliques na linha desejada, posteriormente preencha as informações na nova aba que irá abrir; </li>' +
+                        '<li>Para realizar a exclusão de uma Conta à Pagar, vá a aba de <b><i>Contas à Pagar</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                        '<p><b>Produtos:</b></p><ul><li>Para realizar o vínculo de um Produto para esse Fornecedor, vá a aba de <b><i>Produtos</i></b> e clique em Novo e selecione o produto desejado; </li>' +
+                        '<li>Para realizar a alteração de um vínculo de Produto, vá a aba de <b><i>Produtos</i></b> e de dois cliques na linha desejada, posteriormente selecione o novo produto desejado; </li>' +
+                        '<li>Para realizar a exclusão de um vínculo de Prouto, vá a aba de <b><i>Produtos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                        '<p><b>Bancos:</b></p><ul><li>Para realizar a inclusão de um Banco para esse Fornecedor, vá a aba de <b><i>Bancos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                        '<li>Para realizar a alteração de um Banco, vá a aba de <b><i>Bancos</i></b> e de dois cliques na linha desejada; </li>' +
+                        '<li>Para realizar a exclusão de um Banco, vá a aba de <b><i>Bancos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>';
             }
             else if (tratamentoRest === 'FUNC') {
                 me.title = 'Alteração de Funcionário';
                 me.objective = 'Tela de Alteração de Funcionários';
-                me.other = '';
+                me.other = '<p><b>Contas à Pagar:</b></p><ul><li>Para realizar a inclusão de uma Conta à Pagar para esse Funcionário, vá a aba de <b><i>Contas à Pagar</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de uma Conta à Pagar, vá a aba de <b><i>Contas à Pagar</i></b> e de dois cliques na linha desejada, posteriormente preencha as informações na nova aba que irá abrir; </li>' +
+                    '<li>Para realizar a exclusão de uma Conta à Pagar, vá a aba de <b><i>Contas à Pagar</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Dependentes:</b></p><ul><li>Para realizar a inclusão de um Dependente para esse Funcionário, vá a aba de <b><i>Dependentes</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Dependente, vá a aba de <b><i>Dependentes</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Dependente, vá a aba de <b><i>Dependentes</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Histórico Ocupacional:</b></p><ul><li>Para realizar a inclusão de um Histórico Ocupacional para esse Funcionário, vá a aba de <b><i>Histórico Ocupacional</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Histórico Ocupacional, vá a aba de <b><i>Histórico Ocupacional</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Histórico Ocupacional, vá a aba de <b><i>Histórico Ocupacional</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Bancos:</b></p><ul><li>Para realizar a inclusão de um Banco para esse Funcionário, vá a aba de <b><i>Bancos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Banco, vá a aba de <b><i>Bancos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Banco, vá a aba de <b><i>Bancos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>';
             }
             else if (tratamentoRest === 'PROD') {
                 me.title = 'Alteração de Produto';
                 me.objective = 'Tela de Alteração de Produto';
-                me.other = 'Para realizar a inclusão de um novo vínculo do produto com um Fornecedor, vá a aba de Nome pelo Fornecedor e clique em Novo e preencha as informações necessárias; ' +
-                    'Para realizar a alteração de um vínculo, vá a aba de Nome pelo Fornecedor e de dois cliques na linha desejada; ' +
-                    'Para realizar a exclusão de um vínculo, vá a aba, selecione o item desejado e clique no botão Excluir.';
+                me.other = '<p><b>Vínculo com Fornecedor:</b></p><ul><li>Para realizar a inclusão de um novo vínculo do produto com um Fornecedor, vá a aba de <b><i>Nome pelo Fornecedor</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um vínculo, vá a aba de <b><i>Nome pelo Fornecedor</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um vínculo, vá a aba de <b><i>Nome pelo Fornecedor</i></b>, selecione o item desejado e clique no botão Excluir. </li></ul>';
             }
             else if (tratamentoRest === 'ORÇA') {
                 me.title = 'Alteração de Orçamento';
                 me.objective = 'Tela de Alteração de Orçamento';
-                me.other = '';
+                me.other = '<p><b>Custos:</b></p><ul><li>Para realizar a inclusão de um Custo para esse Orçamento, vá a tabela de <b><i>Custos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Custo, vá a tabela de <b><i>Custos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Custo, vá a tabela de <b><i>Custos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Produtos:</b></p><ul><li>Para realizar a inclusão de um Produto para esse Orçamento, vá a aba de <b><i>Produtos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Produto, vá a aba de <b><i>Produtos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Produto, vá a aba de <b><i>Produtos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Veículos:</b></p><ul><li>Para realizar a inclusão de um Veículo para esse Orçamento, vá a aba de <b><i>Veículos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Veículo, vá a aba de <b><i>Veículos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Veículo, vá a aba de <b><i>Veículos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>';
             }
             else if (tratamentoRest === 'SERV') {
                 me.title = 'Alteração de Serviço';
                 me.objective = 'Tela de Alteração de Serviço';
-                me.other = '';
+                me.other = '<p><b>Custos:</b></p><ul><li>Para realizar a inclusão de um Custo para esse Serviço, vá a tabela de <b><i>Custos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Custo, vá a tabela de <b><i>Custos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Custo, vá a tabela de <b><i>Custos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Produtos:</b></p><ul><li>Para realizar a inclusão de um Produto para esse Serviço, vá a aba de <b><i>Produtos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Produto, vá a aba de <b><i>Produtos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Produto, vá a aba de <b><i>Produtos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>' +
+                    '<p><b>Veículos:</b></p><ul><li>Para realizar a inclusão de um Veículo para esse Serviço, vá a aba de <b><i>Veículos</i></b> e clique em Novo e preencha as informações necessárias; </li>' +
+                    '<li>Para realizar a alteração de um Veículo, vá a aba de <b><i>Veículos</i></b> e de dois cliques na linha desejada; </li>' +
+                    '<li>Para realizar a exclusão de um Veículo, vá a aba de <b><i>Veículos</i></b> e selecione o item desejado, clique em Excluir, o mesmo será excluido.</li></ul>';
             }
             else if (tratamentoRest === 'VEIC') {
                 me.title = 'Alteração de Veículo';
@@ -352,9 +618,11 @@
                         '<span><strong>' + me.title + '</strong></span>' +
                     '</div>' +
                     '<div style="line-height: 1.5">' +
-                        '<p><b>Descritivo:</b> ' + me.objective + ', para realizar alguma alteração preencha as informações desejadas no Formulário a esquerda e posteriormente clique no botão Salvar. ' + me.other + '</p>' +
+                        '<p><b>Descritivo:</b> ' + me.objective + ', para realizar alguma alteração preencha as informações desejadas no Formulário a esquerda e posteriormente clique no botão Salvar. </p> ' +
+                        me.other +
                     '</div>' +
                 '</div>';
+            me.setWidth(600);
         }
         me.ctnMensagem.update(me.html);
     },

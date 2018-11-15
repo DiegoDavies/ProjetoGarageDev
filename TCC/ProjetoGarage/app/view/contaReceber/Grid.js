@@ -12,6 +12,7 @@
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Contas à Receber',
             store: Ext.create('ProjetoGarage.store.contaReceber.Store'),
             columns: [{
                 text: 'Documento',
@@ -101,6 +102,43 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'Documento',
+                nomeExcel: 'Documento'
+            }, {
+                dataIndex: 'BeneficiarioNome',
+                nomeExcel: 'Beneficiário'
+            }, {
+                dataIndex: 'DataVencimento',
+                nomeExcel: 'Data Vencimento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'Valor',
+                nomeExcel: 'Valor',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'DataRecebimento',
+                nomeExcel: 'Data Recebimento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'ValorRecebido',
+                nomeExcel: 'Valor Recebido',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 
@@ -135,11 +173,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'contaReceber-panel',
             title: 'Conta à Receber: ' + record.get('Documento'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'contaReceber' + record.get('ContaReceberId'),
             tratamento: 'AECREC',
             extraData: {
@@ -154,17 +192,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('contaReceber' + record.get('ContaReceberId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('contaReceber' + record.get('ContaReceberId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'contaReceber-panel',
             title: 'Cadastro de Conta à Receber',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroContaReceber',
             tratamento: 'CECREC',
             extraData: {
@@ -178,7 +216,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroContaReceber');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroContaReceber');
         return false;
     }
 });

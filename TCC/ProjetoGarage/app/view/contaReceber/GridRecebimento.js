@@ -169,6 +169,7 @@
 
         Ext.create('ProjetoGarage.view.contaReceber.WindowRecebimento', {
             title: 'Recebimento ' + record.get('Documento'),
+            tratamento: 'AORECE',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -182,6 +183,7 @@
 
         Ext.create('ProjetoGarage.view.contaReceber.WindowRecebimento', {
             title: 'Cadastro de Recebimento',
+            tratamento: 'CORECE',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

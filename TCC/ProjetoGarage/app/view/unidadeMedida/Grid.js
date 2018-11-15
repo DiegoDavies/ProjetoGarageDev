@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.unidadeMedida.Window', {
             title: 'Unidade de Medida: ' + record.get('Nome'),
+            tratamento: 'AGUNMD',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.unidadeMedida.Window', {
             title: 'Cadastro de Unidade de Medida',
+            tratamento: 'CGUNMD',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

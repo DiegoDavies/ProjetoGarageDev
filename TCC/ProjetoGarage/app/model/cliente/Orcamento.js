@@ -7,6 +7,13 @@
         name: 'Numero',
         type: 'STRING'
     }, {
+        name: 'ClienteId',
+        type: 'INT'
+    }, {
+        name: 'ClienteNome',
+        type: 'STRING',
+        persist: false
+    }, {
         name: 'DataRealizacao',
         type: 'DATE',
         serialize: function (v) {
@@ -40,6 +47,18 @@
     }, {
         name: 'StatusNome',
         type: 'STRING'
+    }, {
+        name: 'Observacao',
+        type: 'STRING'
+    }, {
+        name: 'Aprovar',
+        type: 'BOOL'
+    }, {
+        name: 'Reprovar',
+        type: 'BOOL'
+    }, {
+        name: 'AtualizaValor',
+        type: 'BOOL'
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',

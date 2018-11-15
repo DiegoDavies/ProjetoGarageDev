@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.statusFornecedor.Window', {
             title: 'Status: ' + record.get('Nome'),
+            tratamento: 'AGSTFO',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.statusFornecedor.Window', {
             title: 'Cadastro de Status',
+            tratamento: 'CGSTFO',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

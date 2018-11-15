@@ -93,6 +93,7 @@
 
         Ext.create('ProjetoGarage.view.banco.Window', {
             title: 'Banco: ' + record.get('Nome'),
+            tratamento: 'AGBANC',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -106,6 +107,7 @@
 
         Ext.create('ProjetoGarage.view.banco.Window', {
             title: 'Cadastro de Banco',
+            tratamento: 'CGBANC',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

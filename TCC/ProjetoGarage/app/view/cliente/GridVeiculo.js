@@ -92,14 +92,27 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.cliente.WindowVeiculo', {
+        window.viewport.tabPanelPrincipal.add({
+            xtype: 'veiculo-panel',
             title: 'Veículo: ' + record.get('Placa'),
+            closable: true,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
+            itemId: 'Veiculo' + record.get('VeiculoId'),
+            tratamento: 'AEVEIC',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
-                record: record
+                record: record,
+                isCliente: true
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
-        }).show();
+        });
+        window.viewport.tabPanelPrincipal.setActiveTab('Veiculo' + record.get('VeiculoId'));
         return false;
     },
     onBtnNovoClick: function () {
@@ -107,6 +120,7 @@
 
         Ext.create('ProjetoGarage.view.cliente.WindowVeiculo', {
             title: 'Cadastro de Veículo',
+            tratamento: 'CEVEIC',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

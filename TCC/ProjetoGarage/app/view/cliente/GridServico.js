@@ -1,6 +1,9 @@
 ﻿Ext.define('ProjetoGarage.view.cliente.GridServico', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-gridServico',
+    requires: [
+        'ProjetoGarage.view.cliente.WindowServico'
+    ],
     esconderAtualizar: false,
     esconderRelatorio: true,
     esconderPesquisa: true,
@@ -14,7 +17,7 @@
                 text: 'Status',
                 width: 120,
                 style: 'text-align: center;',
-                dataIndex: 'Status'
+                dataIndex: 'StatusNome'
             }, {
                 text: 'Número',
                 flex: 1,
@@ -45,7 +48,7 @@
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y H:i:s',
-                dataIndex: 'DataRealizacao'
+                dataIndex: 'DataAprovacao'
             }, {
                 xtype: 'datecolumn',
                 text: 'Data Inicio',
@@ -61,7 +64,7 @@
                 align: 'center',
                 style: 'text-align: center;',
                 format: 'd/m/Y H:i:s',
-                dataIndex: 'DataFinalizacao'
+                dataIndex: 'DataFim'
             }, {
                 text: 'Inclusão',
                 style: 'text-align: center;',
@@ -126,14 +129,27 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.cliente.WindowServico', {
-            title: 'Serviço: ' + record.get('Nome'),
+        window.viewport.tabPanelPrincipal.add({
+            xtype: 'servico-panel',
+            title: 'Serviço: ' + record.get('Numero'),
+            closable: true,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
+            itemId: 'Servico' + record.get('ServicoId'),
+            tratamento: 'AESERV',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
-                record: record
+                record: record,
+                isCliente: true
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
-        }).show();
+        });
+        window.viewport.tabPanelPrincipal.setActiveTab('Servico' + record.get('ServicoId'));
         return false;
     },
     onBtnNovoClick: function () {
@@ -141,6 +157,7 @@
 
         Ext.create('ProjetoGarage.view.cliente.WindowServico', {
             title: 'Cadastro de Serviço',
+            tratamento: 'CESERV',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

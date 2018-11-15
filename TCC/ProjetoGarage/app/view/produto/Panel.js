@@ -78,7 +78,7 @@
             me.mascaraCad.show();
             me.tabPanel.hide();
         }
-        me.txtNome.focus();
+        me.txtNome.focus(false, true);
 
         me.onVisibilidadeBotao();
     },

@@ -58,7 +58,8 @@
         });
     },
     onBoxReady: function () {
-        var me = this;
+        var me = this,
+            isCliente = me.extraData.isCliente ? true : false;
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
@@ -66,11 +67,15 @@
             me.tabPanel.show();
             me.tabPanel.loadStores();
             me.cboCliente.store.load();
-            me.txtDocumento.focus();
+            me.txtDocumento.focus(false, true);
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();
-            me.txtDocumento.focus();
+            me.txtDocumento.focus(false, true);
+        }
+
+        if (isCliente) {
+            me.cboCliente.setVisible(false);
         }
 
         me.onVisibilidadeBotao();

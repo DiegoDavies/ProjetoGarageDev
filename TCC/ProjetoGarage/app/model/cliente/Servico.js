@@ -10,13 +10,17 @@
         name: 'Numero',
         type: 'STRING'
     }, {
-        name: 'DataRealizacao',
-        type: 'DATE',
-        serialize: function (v) {
-            return Ext.Date.format(v, 'Y-m-d H:i:s');
+        name: 'ClienteId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
         }
     }, {
-        name: 'DataVencimento',
+        name: 'ClienteNome',
+        type: 'STRING',
+        persist: false
+    }, {
+        name: 'DataAprovacao',
         type: 'DATE',
         serialize: function (v) {
             return Ext.Date.format(v, 'Y-m-d H:i:s');
@@ -37,6 +41,15 @@
         name: 'ValorTotal',
         type: 'FLOAT'
     }, {
+        name: 'DuracaoId',
+        type: 'INT'
+    }, {
+        name: 'DuracaoNome',
+        type: 'STRING'
+    }, {
+        name: 'DuracaoValor',
+        type: 'FLOAT'
+    }, {
         name: 'Duracao',
         type: 'STRING',
         persist: false
@@ -44,8 +57,23 @@
         name: 'StatusId',
         type: 'INT'
     }, {
-        name: 'Status',
+        name: 'StatusNome',
         type: 'STRING'
+    }, {
+        name: 'Observacao',
+        type: 'STRING'
+    }, {
+        name: 'Iniciar',
+        type: 'BOOL'
+    }, {
+        name: 'Finalizar',
+        type: 'BOOL'
+    }, {
+        name: 'Cancelar',
+        type: 'BOOL'
+    }, {
+        name: 'AtualizaValor',
+        type: 'BOOL'
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',

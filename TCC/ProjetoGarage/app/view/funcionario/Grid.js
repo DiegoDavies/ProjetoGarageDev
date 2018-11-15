@@ -77,17 +77,108 @@
                 dataIndex: 'Nome',
                 nomeExcel: 'Nome'
             }, {
-                dataIndex: 'Situacao',
+                dataIndex: 'SituacaoNome',
                 nomeExcel: 'Situação'
+            }, {
+                dataIndex: 'SexoNome',
+                nomeExcel: 'Sexo'
+            }, {
+                dataIndex: 'Cep',
+                nomeExcel: 'CEP'
+            }, {
+                dataIndex: 'Endereco',
+                nomeExcel: 'Endereço'
+            }, {
+                dataIndex: 'Numero',
+                nomeExcel: 'Número'
+            }, {
+                dataIndex: 'Complemento',
+                nomeExcel: 'Complemento'
+            }, {
+                dataIndex: 'Bairro',
+                nomeExcel: 'Bairro'
+            }, {
+                dataIndex: 'EstadoNome',
+                nomeExcel: 'Estado'
+            }, {
+                dataIndex: 'CidadeNome',
+                nomeExcel: 'Cidade'
             }, {
                 dataIndex: 'Cpf',
                 nomeExcel: 'CPF'
+            }, {
+                dataIndex: 'Rg',
+                nomeExcel: 'RG'
+            }, {
+                dataIndex: 'EstadoRg',
+                nomeExcel: 'Estado RG'
+            }, {
+                dataIndex: 'DataEmissaoRg',
+                nomeExcel: 'Data Emissão RG',
+                formatoExcel: 'Data'
             }, {
                 dataIndex: 'Email',
                 nomeExcel: 'Email'
             }, {
                 dataIndex: 'Telefone',
                 nomeExcel: 'Telefone'
+            }, {
+                dataIndex: 'Celular',
+                nomeExcel: 'Celular'
+            }, {
+                dataIndex: 'DataNascimento',
+                nomeExcel: 'Data Nascimento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'EstadoNascNome',
+                nomeExcel: 'Estado Nascimento'
+            }, {
+                dataIndex: 'CidadeNascNome',
+                nomeExcel: 'Cidade Nascimento'
+            }, {
+                dataIndex: 'EstadoCivilNome',
+                nomeExcel: 'Estado Civil'
+            }, {
+                dataIndex: 'NomeConjuge',
+                nomeExcel: 'Nome Cônjuge'
+            }, {
+                dataIndex: 'NomePai',
+                nomeExcel: 'Nome Pai'
+            }, {
+                dataIndex: 'NomeMae',
+                nomeExcel: 'Nome Mãe'
+            }, {
+                dataIndex: 'NumeroPis',
+                nomeExcel: 'Número Pis'
+            }, {
+                dataIndex: 'DataEmissaoPis',
+                nomeExcel: 'Data Emissão Pis',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'Reservista',
+                nomeExcel: 'Reservista'
+            }, {
+                dataIndex: 'Categoria',
+                nomeExcel: 'Categoria'
+            }, {
+                dataIndex: 'TituloEleitor',
+                nomeExcel: 'Titulo Eleitor'
+            }, {
+                dataIndex: 'ZonaEleitoral',
+                nomeExcel: 'Zona Eleitoral'
+            }, {
+                dataIndex: 'SecaoEleitoral',
+                nomeExcel: 'Secao Eleitoral'
+            }, {
+                dataIndex: 'DataEmissaoEleitoral',
+                nomeExcel: 'Data Emissão Eleitoral',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'FormacaoNome',
+                nomeExcel: 'Formação'
+            }, {
+                dataIndex: 'EtniaNome',
+                nomeExcel: 'Etnia'
             }, {
                 dataIndex: 'UsuarioNomeInclusao',
                 nomeExcel: 'Usuário Inclusão'
@@ -142,11 +233,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'funcionario-panel',
             title: 'Funcionário: ' + record.get('Nome'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Funcionario' + record.get('FuncionarioId'),
             tratamento: 'AEFUNC',
             extraData: {
@@ -161,17 +252,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Funcionario' + record.get('FuncionarioId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Funcionario' + record.get('FuncionarioId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'funcionario-panel',
             title: 'Cadastro de Funcionário',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroFuncionario',
             tratamento: 'CEFUNC',
             extraData: {
@@ -185,7 +276,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroFuncionario');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroFuncionario');
         return false;
     },
     onBtnRelatorioPdfClick: function () {

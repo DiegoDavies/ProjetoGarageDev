@@ -2,7 +2,7 @@
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'orcamento-gridProduto',
     requires: [
-        //'ProjetoGarage.view.orcamento.WindowDependente'
+        'ProjetoGarage.view.orcamento.WindowProduto'
     ],
     esconderAtualizar: false,
     esconderRelatorio: true,
@@ -20,6 +20,7 @@
             columns: [{
                 text: 'Descrição',
                 flex: 1,
+                minWidth: 200,
                 style: 'text-align: center;',
                 dataIndex: 'Descricao'
             }, {
@@ -64,8 +65,41 @@
                     return '<b>' + Ext.util.Format.number(me.store.sum('ValorTotal'), '0,000.00') + '</b>';
                 }
             }, {
-                text: '',
-                width: 10
+                text: 'Inclusão',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeInclusao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraInclusao'
+                }]
+            }, {
+                text: 'Alteração',
+                style: 'text-align: center;',
+                columns: [{
+                    text: 'Usuário',
+                    sortable: true,
+                    style: 'text-align: center;',
+                    dataIndex: 'UsuarioNomeAlteracao'
+                }, {
+                    xtype: 'datecolumn',
+                    sortable: true,
+                    text: 'Data Hora',
+                    width: 150,
+                    align: 'center',
+                    style: 'text-align: center;',
+                    format: 'd/m/Y H:i:s',
+                    dataIndex: 'DataHoraAlteracao'
+                }]
             }]
         });
 
@@ -84,6 +118,7 @@
 
         me.on({
             scope: me,
+            boxready: me.onBoxReady,
             itemdblclick: me.onItemDblClick
         });
 
@@ -91,32 +126,59 @@
             scope: me,
             click: me.onBtnNovoClick
         });
+
+        me.store.on({
+            scope: me,
+            load: me.onLoadStoreProduto
+        });
+    },
+    onBoxReady: function () {
+        var me = this;
+
+        if (me.tabPanel.statusId !== 1) {
+            me.btnNovo.up().hide();
+        } else {
+            me.btnNovo.up().show();
+        }
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        //Ext.create('ProjetoGarage.view.orcamento.WindowDependente', {
-        //    title: 'Dependente ' + record.get('Nome'),
-        //    extraData: {
-        //        formType: 'Alterar',
-        //        grid: me,
-        //        record: record
-        //    }
-        //}).show();
-        //return false;
-        //var encontrado = me.tabPanel.panel.gridCustos.store.query('Descricao', 'Produtos');
-        //encontrado.itens.itens.set('Valor', me.getStore().sum('ValorTotal'));
+        if (me.tabPanel.statusId === 1) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowProduto', {
+                title: 'Produto ' + record.get('Descricao'),
+                tratamento: 'AOVIPR',
+                extraData: {
+                    formType: 'Alterar',
+                    grid: me,
+                    record: record
+                }
+            }).show();
+        }
+        return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        //Ext.create('ProjetoGarage.view.orcamento.WindowDependente', {
-        //    title: 'Cadastro de Dependente',
-        //    extraData: {
-        //        formType: 'Cadastrar',
-        //        grid: me
-        //    }
-        //}).show();
-        //return false;
+        if (me.tabPanel.statusId === 1) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowProduto', {
+                title: 'Vínculo de Produto',
+                tratamento: 'COVIPR',
+                extraData: {
+                    formType: 'Cadastrar',
+                    grid: me
+                }
+            }).show();
+        }
+        return false;
+    },
+    onLoadStoreProduto: function(store, records, successfull, eOpts) {
+        var me = this,
+            storeCusto = me.tabPanel.panel.gridCustos.store,
+            recordIndex = storeCusto.find('Descricao', 'Produtos');
+
+        if (records.length > 0 && storeCusto.data.length > 0) {
+            storeCusto.data.items[recordIndex].set('Valor', me.store.sum('ValorTotal'));
+        }
     }
 });

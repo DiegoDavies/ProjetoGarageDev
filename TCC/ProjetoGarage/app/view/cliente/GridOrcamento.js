@@ -1,6 +1,9 @@
 ﻿Ext.define('ProjetoGarage.view.cliente.GridOrcamento', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'cliente-gridOrcamento',
+    requires: [
+        'ProjetoGarage.view.cliente.WindowOrcamento'
+    ],
     esconderAtualizar: false,
     esconderRelatorio: true,
     esconderPesquisa: true,
@@ -119,21 +122,35 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.cliente.WindowOrcamento', {
-            title: 'Serviço: ' + record.get('Nome'),
+        window.viewport.tabPanelPrincipal.add({
+            xtype: 'orcamento-panel',
+            title: 'Orçamento: ' + record.get('Numero'),
+            closable: true,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
+            itemId: 'Orcamento' + record.get('OrcamentoId'),
+            tratamento: 'AEORÇA',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
-                record: record
+                record: record,
+                isCliente: true
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
             }
-        }).show();
+        });
+        window.viewport.tabPanelPrincipal.setActiveTab('Orcamento' + record.get('OrcamentoId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
         Ext.create('ProjetoGarage.view.cliente.WindowOrcamento', {
-            title: 'Cadastro de Serviço',
+            title: 'Cadastro de Orçamento',
+            tratamento: 'CEORÇA',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

@@ -77,17 +77,59 @@
                 dataIndex: 'RazaoSocial',
                 nomeExcel: 'Razão Social'
             }, {
+                dataIndex: 'Fantasia',
+                nomeExcel: 'Fantasia'
+            }, {
                 dataIndex: 'Cnpj',
                 nomeExcel: 'CNPJ'
             }, {
+                dataIndex: 'Cpf',
+                nomeExcel: 'CPF'
+            }, {
                 dataIndex: 'StatusNome',
                 nomeExcel: 'Status'
+            }, {
+                dataIndex: 'Cep',
+                nomeExcel: 'CEP'
+            }, {
+                dataIndex: 'Endereco',
+                nomeExcel: 'Endereço'
+            }, {
+                dataIndex: 'Numero',
+                nomeExcel: 'Número'
+            }, {
+                dataIndex: 'Complemento',
+                nomeExcel: 'Complemento'
+            }, {
+                dataIndex: 'Bairro',
+                nomeExcel: 'Bairro'
+            }, {
+                dataIndex: 'EstadoNome',
+                nomeExcel: 'Estado'
+            }, {
+                dataIndex: 'CidadeNome',
+                nomeExcel: 'Cidade'
+            }, {
+                dataIndex: 'InscricaoEstadual',
+                nomeExcel: 'Inscricao Estadual'
+            }, {
+                dataIndex: 'Rg',
+                nomeExcel: 'RG'
             }, {
                 dataIndex: 'Email',
                 nomeExcel: 'Email'
             }, {
                 dataIndex: 'Telefone',
                 nomeExcel: 'Telefone'
+            }, {
+                dataIndex: 'Celular',
+                nomeExcel: 'Celular'
+            }, {
+                dataIndex: 'Website',
+                nomeExcel: 'WebSite'
+            }, {
+                dataIndex: 'Observacao',
+                nomeExcel: 'Observação'
             }, {
                 dataIndex: 'UsuarioNomeInclusao',
                 nomeExcel: 'Usuário Inclusão'
@@ -136,11 +178,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'fornecedor-panel',
             title: 'Fornecedor: ' + (record.get('Fantasia') !== '' ? record.get('Fantasia') : record.get('RazaoSocial')),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Fornecedor' + record.get('FornecedorId'),
             tratamento: 'AEFORN',
             extraData: {
@@ -155,17 +197,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Fornecedor' + record.get('FornecedorId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Fornecedor' + record.get('FornecedorId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'fornecedor-panel',
             title: 'Cadastro de Fornecedor',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroFornecedor',
             tratamento: 'CEFORN',
             extraData: {
@@ -179,7 +221,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroFornecedor');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroFornecedor');
         return false;
     }
 });

@@ -18,15 +18,14 @@
             items: [{
                 xtype: 'container',
                 padding: 10,
-                width: 370,
+                width: 410,
                 border: 5,
                 height: '100%',
                 layout: 'vbox',
                 autoScroll: true,
                 defaults: {
                     labelWidth: 110,
-                    width: 350,
-                    readOnly: true
+                    width: 380
                 },
                 items: [{
                     xtype: 'textfield',
@@ -34,10 +33,13 @@
                     fieldLabel: 'Número',
                     itemId: 'txtNumero'
                 }, {
-                    xtype: 'textfield',
-                    name: 'ClienteNome',
+                    xtype: 'tcc-combo',
+                    name: 'ClienteId',
                     fieldLabel: 'Cliente',
-                    itemId: 'txtCliente'
+                    itemId: 'cboCliente',
+                    displayField: 'Nome',
+                    valueField: 'ClienteId',
+                    store: Ext.create('ProjetoGarage.store.combos.Cliente')
                 }, {
                     xtype: 'datefield',
                     altFormats: 'd/m/Y|dmy|dmY',
@@ -51,20 +53,31 @@
                     format: 'd/m/Y',
                     name: 'DataInicio',
                     fieldLabel: 'Data Início',
-                    itemId: 'dtDataInicio'
+                    itemId: 'dtDataInicio',
+                    readOnly: true
                 }, {
                     xtype: 'datefield',
                     altFormats: 'd/m/Y|dmy|dmY',
                     format: 'd/m/Y',
                     name: 'DataFinalizacao',
                     fieldLabel: 'Data Finalização',
-                    itemId: 'dtDataFinalizacao'
+                    itemId: 'dtDataFinalizacao',
+                    readOnly: true
+                }, {
+                    xtype: 'tcc-combo',
+                    name: 'DuracaoId',
+                    fieldLabel: 'Duração',
+                    itemId: 'cboDuracao',
+                    displayField: 'Nome',
+                    valueField: 'DuracaoId',
+                    store: Ext.create('ProjetoGarage.store.combos.Duracao')
                 }, {
                     xtype: 'numberfield',
-                    name: 'Duracao',
+                    name: 'DuracaoValor',
                     align: 'right',
                     format: '0,000',
-                    fieldLabel: 'Duração (Dias)',
+                    margin: '0 0 10 0',
+                    fieldLabel: 'Duração',
                     itemId: 'txtDuracao',
                     fieldStyle: 'text-align:right'
                 }, {
@@ -74,20 +87,38 @@
                     format: '0,000.00',
                     fieldLabel: 'Valor Total (R$)',
                     itemId: 'txtValorTotal',
-                    fieldStyle: 'text-align:right'
+                    fieldStyle: 'text-align:right',
+                    readOnly: true
+                }, {
+                    xtype: 'htmleditor',
+                    name: 'Observacao',
+                    rows: 7,
+                    itemId: 'txtObservacao',
+                    fieldLabel: 'Observação'
                 }, {
                     xtype: 'servico-gridCustos',
                     title: 'Custos',
                     flex: 1,
-                    minHeight: 250,
-                    border: 10,
-                    margin: '0 5 5 0'
+                    height: 300,
+                    minHeight: 300,
+                    statusId: me.statusId,
+                    panel: me.panel,
+                    border: 1,
+                    margin: '0 5 0 0'
                 }]
             }, {
                 xtype: 'servico-tabPanel',
                 flex: 1,
                 margin: '0 0 0 0',
+                statusId: me.statusId,
                 panel: me.panel
+            }, {
+                xtype: 'tcc-mascaraTab',
+                itemId: 'servicoMasc',
+                flex: 1,
+                margin: '0 0 0 0',
+                width: '100%',
+                height: '100%'
             }]
         });
 

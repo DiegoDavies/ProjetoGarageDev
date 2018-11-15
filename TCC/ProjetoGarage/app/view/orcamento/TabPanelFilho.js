@@ -73,7 +73,7 @@
                 icon: item.icon,
                 text: item.title,
                 contador: cont,
-                itemNome: item.xtype,
+                itemNome: item.itemId,
                 itemId: 'txtorcamento' + cont,
                 listeners: {
                     scope: this,

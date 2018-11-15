@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.marca.Window', {
             title: 'Marca: ' + record.get('Nome'),
+            tratamento: 'AGMARC',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.marca.Window', {
             title: 'Cadastro de Marca de Veículo',
+            tratamento: 'CGMARC',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

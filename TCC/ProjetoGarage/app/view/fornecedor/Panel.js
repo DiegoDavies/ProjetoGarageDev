@@ -93,7 +93,7 @@
             me.mascaraCad.hide();
             me.tabPanel.show();
             me.tabPanel.loadStores();
-            me.txtRazaoSocial.focus();
+            me.txtRazaoSocial.focus(false, true);
             me.cboStatus.store.load();
             me.cboEstado.store.load();
             me.cboCidade.store.setParams({
@@ -103,7 +103,7 @@
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();
-            me.txtRazaoSocial.focus();
+            me.txtRazaoSocial.focus(false, true);
         }
 
         me.onVisibilidadeBotao();

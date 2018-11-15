@@ -12,5 +12,8 @@
     }, {
         name: 'Desconto',
         type: 'BOOL'
+    }, {
+        name: 'Delete',
+        type: 'BOOL'
     }]
 });

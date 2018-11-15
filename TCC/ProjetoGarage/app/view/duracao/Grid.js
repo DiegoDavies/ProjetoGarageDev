@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.duracao.Window', {
             title: 'Duração: ' + record.get('Nome'),
+            tratamento: 'AGDURA',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.duracao.Window', {
             title: 'Cadastro de Duração',
+            tratamento: 'CGDURA',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

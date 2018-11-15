@@ -7,6 +7,22 @@
         name: 'Documento',
         type: 'STRING'
     }, {
+        name: 'FuncionarioId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'FornecedorId',
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
+    }, {
+        name: 'BeneficiarioNome',
+        type: 'STRING',
+        persist: false
+    }, {
         name: 'DataVencimento',
         type: 'DATE',
         serialize: function (v) {

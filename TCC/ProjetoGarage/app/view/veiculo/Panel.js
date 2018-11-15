@@ -38,6 +38,7 @@
         me.cboMarca = me.down('#cboMarca');
         me.cboModelo = me.down('#cboModelo');
         me.cboCliente = me.down('#cboCliente');
+        me.txtPlaca = me.down('#txtPlaca');
         me.tabPanel = me.down('veiculo-tabPanel');
         me.mascaraCad = me.down('#veiculoMasc');
         //
@@ -64,7 +65,8 @@
         });
     },
     onBoxReady: function () {
-        var me = this;
+        var me = this,
+            isCliente = me.extraData.isCliente ? true : false;
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
@@ -80,6 +82,13 @@
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();
+        }
+
+        if (isCliente) {
+            me.cboCliente.setVisible(false);
+            me.txtPlaca.focus(false, true);
+        } else {
+            me.cboCliente.focus(false, true);
         }
 
         me.onVisibilidadeBotao();

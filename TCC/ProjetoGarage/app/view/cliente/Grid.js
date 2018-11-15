@@ -77,17 +77,69 @@
                 dataIndex: 'Nome',
                 nomeExcel: 'Nome'
             }, {
-                dataIndex: 'Situacao',
+                dataIndex: 'SituacaoNome',
                 nomeExcel: 'Situação'
+            }, {
+                dataIndex: 'SexoNome',
+                nomeExcel: 'Sexo'
+            }, {
+                dataIndex: 'Cep',
+                nomeExcel: 'CEP'
+            }, {
+                dataIndex: 'Endereco',
+                nomeExcel: 'Endereço'
+            }, {
+                dataIndex: 'Numero',
+                nomeExcel: 'Número'
+            }, {
+                dataIndex: 'Complemento',
+                nomeExcel: 'Complemento'
+            }, {
+                dataIndex: 'Bairro',
+                nomeExcel: 'Bairro'
+            }, {
+                dataIndex: 'EstadoNome',
+                nomeExcel: 'Estado'
+            }, {
+                dataIndex: 'CidadeNome',
+                nomeExcel: 'Cidade'
             }, {
                 dataIndex: 'Cpf',
                 nomeExcel: 'CPF'
+            }, {
+                dataIndex: 'Rg',
+                nomeExcel: 'RG'
+            }, {
+                dataIndex: 'EstadoRg',
+                nomeExcel: 'Estado RG'
+            }, {
+                dataIndex: 'DataEmissaoRg',
+                nomeExcel: 'Data Emissão RG'
             }, {
                 dataIndex: 'Email',
                 nomeExcel: 'Email'
             }, {
                 dataIndex: 'Telefone',
                 nomeExcel: 'Telefone'
+            }, {
+                dataIndex: 'Celular',
+                nomeExcel: 'Celular'
+            }, {
+                dataIndex: 'TelefoneAdc',
+                nomeExcel: 'Telefone Adicional'
+            }, {
+                dataIndex: 'CelularAdc',
+                nomeExcel: 'Celular Adicional'
+            }, {
+                dataIndex: 'DataNascimento',
+                nomeExcel: 'Data Nascimento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'EstadoCivilNome',
+                nomeExcel: 'Estado Civil'
+            }, {
+                dataIndex: 'FuncaoNome',
+                nomeExcel: 'Função Nome'
             }, {
                 dataIndex: 'UsuarioNomeInclusao',
                 nomeExcel: 'Usuário Inclusão'
@@ -136,11 +188,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'cliente-panel',
             title: 'Cliente: ' + record.get('Nome'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Cliente' + record.get('ClienteId'),
             tratamento: 'AECLIE',
             extraData: {
@@ -155,17 +207,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Cliente' + record.get('ClienteId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Cliente' + record.get('ClienteId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'cliente-panel',
             title: 'Cadastro de Cliente',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroCliente',
             tratamento: 'CECLIE',
             extraData: {
@@ -179,7 +231,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroCliente');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroCliente');
         return false;
     }
 });

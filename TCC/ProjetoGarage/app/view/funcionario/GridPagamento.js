@@ -101,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
             title: 'Conta: ' + record.get('Nome'),
+            tratamento: 'AOBANC',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -114,6 +115,7 @@
 
         Ext.create('ProjetoGarage.view.funcionario.WindowPagamento', {
             title: 'Cadastro de Conta',
+            tratamento: 'COBANC',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

@@ -2,6 +2,7 @@
     extend: 'Ext.panel.Panel',
     requires: [
         'ProjetoGarage.view.fornecedor.GridPagamento',
+        'ProjetoGarage.view.fornecedor.GridProduto',
         'ProjetoGarage.view.fornecedor.GridHistorico',
         'ProjetoGarage.view.fornecedor.GridContaPagar'
     ],
@@ -22,17 +23,24 @@
                 width: '100%',
                 height: '100%'
             }, {
+                xtype: 'fornecedor-gridProduto',
+                icon: '/resources/images/repair-tools.png',
+                title: 'Produtos',
+                itemId: 'pnlFornecedor1',
+                width: '100%',
+                height: '100%'
+            }, {
                 xtype: 'fornecedor-gridPagamento',
                 icon: '/resources/images/wallet.png',
                 title: 'Bancos',
-                itemId: 'pnlFornecedor1',
+                itemId: 'pnlFornecedor2',
                 width: '100%',
                 height: '100%'
             }, {
                 xtype: 'fornecedor-gridHistorico',
                 icon: '/resources/images/history.png',
                 title: 'Histórico',
-                itemId: 'pnlFornecedor2',
+                itemId: 'pnlFornecedor3',
                 width: '100%',
                 height: '100%'
             }]
@@ -46,6 +54,7 @@
         var me = this;
 
         me.gridHistorico = me.down('fornecedor-gridHistorico');
+        me.gridProduto = me.down('fornecedor-gridProduto');
         me.gridPagamento = me.down('fornecedor-gridPagamento');
         me.gridContaPagar = me.down('fornecedor-gridContaPagar');
     },
@@ -93,6 +102,7 @@
             fornecedorId = me.panel.extraData.record.get('FornecedorId'),
             stores = [
                 me.gridHistorico.getStore(),
+                me.gridProduto.getStore(),
                 me.gridPagamento.getStore(),
                 me.gridContaPagar.getStore()
             ];

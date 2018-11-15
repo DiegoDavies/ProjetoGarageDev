@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.tipoPagamento.Window', {
             title: 'Tipo de Pagamento: ' + record.get('Nome'),
+            tratamento: 'AGTIPO',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.tipoPagamento.Window', {
             title: 'Cadastro de Tipo de Pagamento',
+            tratamento: 'CGTIPO',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

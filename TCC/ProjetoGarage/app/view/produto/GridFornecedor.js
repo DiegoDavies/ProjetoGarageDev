@@ -91,6 +91,7 @@
 
         Ext.create('ProjetoGarage.view.produto.WindowFornecedor', {
             title: 'Fornecedor: ' + record.get('Fornecedor'),
+            tratamento: 'AOFORN',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -104,6 +105,7 @@
 
         Ext.create('ProjetoGarage.view.produto.WindowFornecedor', {
             title: 'Vínculo de Fornecedor',
+            tratamento: 'COFORN',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me,

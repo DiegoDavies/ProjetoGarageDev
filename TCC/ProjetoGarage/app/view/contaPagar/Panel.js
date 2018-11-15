@@ -65,7 +65,8 @@
         });
     },
     onBoxReady: function () {
-        var me = this;
+        var me = this,
+            isFornFunc = me.extraData.isFornFunc ? true : false;
 
         if (me.extraData.formType === 'Alterar') {
             me.form.loadRecord(me.extraData.record);
@@ -74,17 +75,23 @@
             me.tabPanel.loadStores();
             me.cboFornecedor.store.load();
             me.cboFuncionario.store.load();
-            me.txtDocumento.focus();
+            me.txtDocumento.focus(false, true);
             me.rdbBeneficiarios.setValue({
                 Benef: me.extraData.record.get('FuncionarioId') > 0 ? 'Funcionario' : 'Fornecedor'
             });
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();
-            me.txtDocumento.focus();
+            me.txtDocumento.focus(false, true);
             me.cboFornecedor.hide();
             me.cboFornecedor.setValue('');
             me.cboFuncionario.show();
+        }
+
+        if (isFornFunc) {
+            me.cboFuncionario.setVisible(false);
+            me.cboFornecedor.setVisible(false);
+            me.rdbBeneficiarios.setVisible(false);
         }
 
         me.onVisibilidadeBotao();

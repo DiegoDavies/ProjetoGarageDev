@@ -28,14 +28,16 @@
                 title: 'Veículos',
                 itemId: 'pnlservico1',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                tabPanel: me
             }, {
                 xtype: 'servico-gridHistorico',
                 icon: '/resources/images/history.png',
                 title: 'Histórico',
                 itemId: 'pnlservico2',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                tabPanel: me
             }]
         });
 
@@ -46,6 +48,9 @@
     addReferences: function () {
         var me = this;
 
+        me.gridProduto = me.down('servico-gridProduto');
+        me.gridVeiculo = me.down('servico-gridVeiculo');
+        me.gridHistorico = me.down('servico-gridHistorico');
     },
     addEventHandler: function () {
         var me = this;
@@ -68,7 +73,7 @@
                 icon: item.icon,
                 text: item.title,
                 contador: cont,
-                itemNome: item.xtype,
+                itemNome: item.itemId,
                 itemId: 'txtServico' + cont,
                 listeners: {
                     scope: this,
@@ -85,5 +90,23 @@
         me.getLayout().setActiveItem('pnlservico' + btn.contador);
         me.down('#' + btn.itemNome).getStore().load();
         btn.pressed = true;
+    },
+    loadStores: function () {
+        var me = this,
+            servicoId = me.panel.extraData.record.get('ServicoId'),
+            stores = [
+                me.panel.gridCustos.getStore(),
+                me.gridHistorico.getStore(),
+                me.gridProduto.getStore(),
+                me.gridVeiculo.getStore()
+            ];
+
+        Ext.each(stores, function (store) {
+            store.setParams({
+                ServicoId: servicoId
+            });
+
+            store.load();
+        });
     }
 });

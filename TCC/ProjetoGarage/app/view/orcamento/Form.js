@@ -65,6 +65,15 @@
                     itemId: 'txtDuracao',
                     fieldStyle: 'text-align:right'
                 }, {
+                    xtype: 'numberfield',
+                    name: 'ValorTotal',
+                    align: 'right',
+                    format: '0,000.00',
+                    fieldLabel: 'Valor Total (R$)',
+                    itemId: 'txtValorTotal',
+                    fieldStyle: 'text-align:right',
+                    readOnly: true
+                }, {
                     xtype: 'htmleditor',
                     name: 'Observacao',
                     rows: 7,
@@ -77,6 +86,7 @@
                     height: 300,
                     minHeight: 300,
                     statusId: me.statusId,
+                    panel: me.panel,
                     border: 1,
                     margin: '0 5 0 0'
                 }]
@@ -84,6 +94,7 @@
                 xtype: 'orcamento-tabPanel',
                 flex: 1,
                 margin: '0 0 0 0',
+                statusId: me.statusId,
                 panel: me.panel
             }, {
                 xtype: 'tcc-mascaraTab',

@@ -1,10 +1,11 @@
 ﻿Ext.define('ProjetoGarage.view.fornecedor.GridContaPagar', {
     extend: 'ProjetoGarage.view.GridDefault',
     xtype: 'fornecedor-gridContaPagar',
+    requires: [
+        'ProjetoGarage.view.fornecedor.WindowContaPagar'
+    ],
     esconderAtualizar: false,
     esconderRelatorio: true,
-    esconderDelete: true,
-    esconderNew: true,
     esconderPesquisa: true,
     esconderPaging: true,
     initComponent: function () {
@@ -98,5 +99,64 @@
         });
 
         me.callParent(arguments);
+        me.addReferences();
+        me.addEventHandler();
+    },
+    addReferences: function () {
+        var me = this;
+
+        me.btnNovo = me.down('#btnNovoGrid');
+    },
+    addEventHandler: function () {
+        var me = this;
+
+        me.on({
+            scope: me,
+            itemdblclick: me.onItemDblClick
+        });
+
+        me.btnNovo.on({
+            scope: me,
+            click: me.onBtnNovoClick
+        });
+    },
+    onItemDblClick: function (grid, record, item, index, e, eOpts) {
+        var me = this;
+
+        window.viewport.tabPanelPrincipal.add({
+            xtype: 'contaPagar-panel',
+            title: 'Conta à Pagar: ' + record.get('Documento'),
+            closable: true,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
+            itemId: 'ContaPagar' + record.get('ContaPagarId'),
+            tratamento: 'AECPAG',
+            extraData: {
+                formType: 'Alterar',
+                grid: me,
+                record: record,
+                isFornFunc: true
+            },
+            listeners: {
+                scope: me,
+                beforeclose: function () {
+                    this.getStore().load();
+                }
+            }
+        });
+        window.viewport.tabPanelPrincipal.setActiveTab('ContaPagar' + record.get('ContaPagarId'));
+        return false;
+    },
+    onBtnNovoClick: function () {
+        var me = this;
+
+        Ext.create('ProjetoGarage.view.fornecedor.WindowContaPagar', {
+            title: 'Cadastro de Conta à Pagar',
+            tratamento: 'CECPAG',
+            extraData: {
+                formType: 'Cadastrar',
+                grid: me
+            }
+        }).show();
+        return false;
     }
 });

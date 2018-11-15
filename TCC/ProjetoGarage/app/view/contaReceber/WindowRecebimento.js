@@ -23,7 +23,12 @@
             }],
             tools: [{
                 type: 'help',
-                tooltip: 'Teste'
+                tooltip: 'Ajuda',
+                callback: function (panel, tool, event) {
+                    Ext.create('ProjetoGarage.view.telaPrincipal.WindowAjuda', {
+                        window: panel
+                    }).show();
+                }
             }]
         });
 

@@ -147,7 +147,8 @@
                             xtype: 'button',
                             text: 'Relatório em PDF',
                             itemId: 'btnRelatorioPdf',
-                            icon: '/resources/images/pdfFile.png'
+                            icon: '/resources/images/pdfFile.png',
+                            hidden: true
                         }, {
                             xtype: 'button',
                             text: 'Relatório em Excel',

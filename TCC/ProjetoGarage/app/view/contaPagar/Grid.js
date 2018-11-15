@@ -12,6 +12,7 @@
         var me = this;
 
         Ext.apply(me, {
+            nomeExcel: 'Contas à Pagar',
             store: Ext.create('ProjetoGarage.store.contaPagar.Store'),
             columns: [{
                 text: 'Documento',
@@ -101,6 +102,43 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'Documento',
+                nomeExcel: 'Documento'
+            }, {
+                dataIndex: 'BeneficiarioNome',
+                nomeExcel: 'Beneficiário'
+            }, {
+                dataIndex: 'DataVencimento',
+                nomeExcel: 'Data Vencimento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'Valor',
+                nomeExcel: 'Valor',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'DataPagamento',
+                nomeExcel: 'Data Pagamento',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'ValorPago',
+                nomeExcel: 'Valor Pago',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 
@@ -135,11 +173,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'contaPagar-panel',
             title: 'Conta à Pagar: ' + record.get('Documento'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'ContaPagar' + record.get('ContaPagarId'),
             tratamento: 'AECPAG',
             extraData: {
@@ -154,17 +192,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('ContaPagar' + record.get('ContaPagarId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('ContaPagar' + record.get('ContaPagarId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'contaPagar-panel',
             title: 'Cadastro de Conta à Pagar',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroContaPagar',
             tratamento: 'CECPAG',
             extraData: {
@@ -178,7 +216,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroContaPagar');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroContaPagar');
         return false;
     }
 });

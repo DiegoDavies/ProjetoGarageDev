@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.estadoCivil.Window', {
             title: 'Estado Civil: ' + record.get('Nome'),
+            tratamento: 'AGESCI',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.estadoCivil.Window', {
             title: 'Cadastro de Estado Civil',
+            tratamento: 'CGESCI',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

@@ -169,6 +169,7 @@
 
         Ext.create('ProjetoGarage.view.contaPagar.WindowPagamento', {
             title: 'Pagamento ' + record.get('Documento'),
+            tratamento: 'AOPAGT',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -182,6 +183,7 @@
 
         Ext.create('ProjetoGarage.view.contaPagar.WindowPagamento', {
             title: 'Cadastro de Pagamento',
+            tratamento: 'COPAGT',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

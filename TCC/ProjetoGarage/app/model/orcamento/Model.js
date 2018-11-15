@@ -57,6 +57,9 @@
         name: 'Reprovar',
         type: 'BOOL'
     }, {
+        name: 'AtualizaValor',
+        type: 'BOOL'
+    }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',
         persist: false

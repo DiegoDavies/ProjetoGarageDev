@@ -92,6 +92,7 @@
 
         Ext.create('ProjetoGarage.view.modelo.Window', {
             title: 'Modelo: ' + record.get('Nome'),
+            tratamento: 'AGMODE',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -105,6 +106,7 @@
 
         Ext.create('ProjetoGarage.view.modelo.Window', {
             title: 'Cadastro de Modelo de Veículo',
+            tratamento: 'CGMODE',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

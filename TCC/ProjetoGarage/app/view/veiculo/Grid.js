@@ -81,6 +81,16 @@
                 dataIndex: 'Modelo',
                 nomeExcel: 'Modelo'
             }, {
+                dataIndex: 'Ano',
+                nomeExcel: 'Ano',
+                formatoExcel: 'Numero'
+            }, {
+                dataIndex: 'Cor',
+                nomeExcel: 'Cor'
+            }, {
+                dataIndex: 'Observacao',
+                nomeExcel: 'Observação'
+            }, {
                 dataIndex: 'UsuarioNomeInclusao',
                 nomeExcel: 'Usuário Inclusão'
             }, {
@@ -128,11 +138,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'veiculo-panel',
             title: 'Veículo: ' + record.get('Placa'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Veiculo' + record.get('VeiculoId'),
             tratamento: 'AEVEIC',
             extraData: {
@@ -147,17 +157,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Veiculo' + record.get('VeiculoId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Veiculo' + record.get('VeiculoId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'veiculo-panel',
             title: 'Cadastro de Veículo',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroVeiculo',
             tratamento: 'CEVEIC',
             extraData: {
@@ -171,7 +181,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroVeiculo');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroVeiculo');
         return false;
     }
 });

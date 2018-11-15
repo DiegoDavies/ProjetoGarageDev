@@ -95,6 +95,7 @@ Ext.define('ProjetoGarage.Application', {
         'combos.GrupoCompra',
         'combos.MarcaProduto',
         'combos.ModeloProduto',
+        'combos.Produto',
 
         'funcionario.Store',
         'funcionario.Historico',

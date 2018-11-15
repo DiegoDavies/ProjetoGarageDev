@@ -161,6 +161,7 @@
 
         Ext.create('ProjetoGarage.view.funcionario.WindowHistoricoOcupacional', {
             title: 'Histórico: ' + Ext.Date.format(record.get('Data'), 'd/m/Y'),
+            tratamento: 'AOOCUP',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -174,6 +175,7 @@
 
         Ext.create('ProjetoGarage.view.funcionario.WindowHistoricoOcupacional', {
             title: 'Cadastro de Histórico Ocupacional',
+            tratamento: 'COOCUP',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

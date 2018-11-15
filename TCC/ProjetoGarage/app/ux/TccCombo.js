@@ -15,6 +15,9 @@
             listeners: {
                 expand: function (field, eOpts) {
                     this.store.load();
+                },
+                change: function() {
+                    this.store.load();
                 }
             }
         });

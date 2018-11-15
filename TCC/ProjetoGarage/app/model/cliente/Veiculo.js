@@ -2,7 +2,10 @@
     extend: 'Ext.data.Model',
     fields: [{
         name: 'VeiculoId',
-        type: 'INT'
+        type: 'INT',
+        convert: function (v) {
+            return v !== 0 ? v : '';
+        }
     }, {
         name: 'Placa',
         type: 'STRING'
@@ -48,9 +51,6 @@
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',
-        convert: function (v) {
-            return v !== 0 ? v : '';
-        },
         persist: false
     }, {
         name: 'UsuarioNomeInclusao',
@@ -63,9 +63,6 @@
     }, {
         name: 'UsuarioIdAlteracao',
         type: 'INT',
-        convert: function (v) {
-            return v !== 0 ? v : '';
-        },
         persist: false
     }, {
         name: 'UsuarioNomeAlteracao',

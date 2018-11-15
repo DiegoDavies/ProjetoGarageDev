@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.etnia.Window', {
             title: 'Etnia: ' + record.get('Nome'),
+            tratamento: 'AGETNI',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.etnia.Window', {
             title: 'Cadastro de Etnia',
+            tratamento: 'CGETNI',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

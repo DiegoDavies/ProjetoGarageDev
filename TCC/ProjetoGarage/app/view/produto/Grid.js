@@ -80,6 +80,46 @@
                     format: 'd/m/Y H:i:s',
                     dataIndex: 'DataHoraAlteracao'
                 }]
+            }],
+            columnsExcel: [{
+                dataIndex: 'Nome',
+                nomeExcel: 'Nome'
+            }, {
+                dataIndex: 'ModeloProdutoNome',
+                nomeExcel: 'Modelo'
+            }, {
+                dataIndex: 'MarcaProdutoNome',
+                nomeExcel: 'Marca'
+            }, {
+                dataIndex: 'UnidadeMedidaNome',
+                nomeExcel: 'Unidade de Medida'
+            }, {
+                dataIndex: 'GrupoCompraNome',
+                nomeExcel: 'Grupo de Compra'
+            }, {
+                dataIndex: 'ValorCompra',
+                nomeExcel: 'Valor Compra',
+                formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'Especificacao',
+                nomeExcel: 'Especificação'
+            }, {
+                dataIndex: 'Observacao',
+                nomeExcel: 'Observação'
+            }, {
+                dataIndex: 'UsuarioNomeInclusao',
+                nomeExcel: 'Usuário Inclusão'
+            }, {
+                dataIndex: 'DataHoraInclusao',
+                nomeExcel: 'Data Hora Inclusão',
+                formatoExcel: 'Data'
+            }, {
+                dataIndex: 'UsuarioNomeAlteracao',
+                nomeExcel: 'Usuário Alteração'
+            }, {
+                dataIndex: 'DataHoraAlteracao',
+                nomeExcel: 'Data Hora Alteração',
+                formatoExcel: 'Data'
             }]
         });
 
@@ -114,11 +154,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'produto-panel',
             title: 'Produto: ' + record.get('Nome'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Produto' + record.get('produtoId'),
             tratamento: 'AEPROD',
             extraData: {
@@ -133,17 +173,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Produto' + record.get('produtoId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Produto' + record.get('produtoId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'produto-panel',
             title: 'Cadastro de Produto',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroProduto',
             tratamento: 'CEPROD',
             extraData: {
@@ -157,7 +197,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroProduto');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroProduto');
         return false;
     }
 });

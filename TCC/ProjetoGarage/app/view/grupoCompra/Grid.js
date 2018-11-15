@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.grupoCompra.Window', {
             title: 'Grupo de Compra: ' + record.get('Nome'),
+            tratamento: 'AGGRCO',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.grupoCompra.Window', {
             title: 'Cadastro de Grupo de Compra',
+            tratamento: 'CGGRCO',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

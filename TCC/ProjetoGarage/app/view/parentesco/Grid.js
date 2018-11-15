@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.parentesco.Window', {
             title: 'Parentesco: ' + record.get('Nome'),
+            tratamento: 'AGPARE',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.parentesco.Window', {
             title: 'Cadastro de Parentesco',
+            tratamento: 'CGPARE',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

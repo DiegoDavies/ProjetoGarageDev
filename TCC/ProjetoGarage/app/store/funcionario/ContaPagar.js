@@ -4,7 +4,10 @@
     pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
-        select: 'S_FuncionarioContaPagar_L'
+        select: 'S_FuncionarioContaPagar_L',
+        insert: 'S_FuncionarioContaPagar_E',
+        update: 'S_FuncionarioContaPagar_E',
+        destroy: 'S_FuncionarioContaPagar_E'
     },
     model: 'ProjetoGarage.model.funcionario.ContaPagar'
 })

@@ -20,13 +20,7 @@
         type: 'STRING',
         persist: false
     }, {
-        name: 'DataRealizacao',
-        type: 'DATE',
-        serialize: function (v) {
-            return Ext.Date.format(v, 'Y-m-d H:i:s');
-        }
-    }, {
-        name: 'DataVencimento',
+        name: 'DataAprovacao',
         type: 'DATE',
         serialize: function (v) {
             return Ext.Date.format(v, 'Y-m-d H:i:s');
@@ -68,6 +62,18 @@
     }, {
         name: 'Observacao',
         type: 'STRING'
+    }, {
+        name: 'Iniciar',
+        type: 'BOOL'
+    }, {
+        name: 'Finalizar',
+        type: 'BOOL'
+    }, {
+        name: 'Cancelar',
+        type: 'BOOL'
+    }, {
+        name: 'AtualizaValor',
+        type: 'BOOL'
     }, {
         name: 'UsuarioIdInclusao',
         type: 'INT',

@@ -107,6 +107,7 @@
 
         me.on({
             scope: me,
+            boxready: me.onBoxReady,
             itemdblclick: me.onItemDblClick
         });
 
@@ -115,27 +116,39 @@
             click: me.onBtnNovoClick
         });
     },
+    onBoxReady: function () {
+        var me = this;
+
+        if (me.tabPanel.statusId !== 1) {
+            me.btnNovo.up().hide();
+        } else {
+            me.btnNovo.up().show();
+        }
+    },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this,
             clienteId = me.tabPanel.panel.extraData.record.get('ClienteId');
 
-        if (clienteId > 0) {
-            Ext.create('ProjetoGarage.view.orcamento.WindowVeiculo', {
-                title: 'Veículo ' + record.get('Placa'),
-                extraData: {
-                    formType: 'Alterar',
-                    grid: me,
-                    record: record,
-                    clienteId: clienteId
-                }
-            }).show();
-        } else {
-            Ext.Msg.show({
-                title: 'Validação',
-                msg: 'Selecione um cliente e salve o registro para continuar',
-                buttons: Ext.Msg.OK,
-                icon: Ext.Msg.WARNING
-            });
+        if (me.tabPanel.statusId === 1) {
+            if (clienteId > 0) {
+                Ext.create('ProjetoGarage.view.orcamento.WindowVeiculo', {
+                    title: 'Veículo ' + record.get('Placa'),
+                    tratamento: 'AOVIVE',
+                    extraData: {
+                        formType: 'Alterar',
+                        grid: me,
+                        record: record,
+                        clienteId: clienteId
+                    }
+                }).show();
+            } else {
+                Ext.Msg.show({
+                    title: 'Validação',
+                    msg: 'Selecione um cliente e salve o registro para continuar',
+                    buttons: Ext.Msg.OK,
+                    icon: Ext.Msg.WARNING
+                });
+            }
         }
         return false;
     },
@@ -146,6 +159,7 @@
         if (clienteId > 0) {
             Ext.create('ProjetoGarage.view.orcamento.WindowVeiculo', {
                 title: 'Seleção de Veículo',
+                tratamento: 'COVIVE',
                 extraData: {
                     formType: 'Cadastrar',
                     grid: me,

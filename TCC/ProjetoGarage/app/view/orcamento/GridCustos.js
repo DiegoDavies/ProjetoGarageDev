@@ -11,6 +11,10 @@
     esconderPaging: true,
     esconderRelatorio: true,
     esconderPesquisa: true,
+    plugins: {
+        ptype: 'cellediting',
+        clicksToEdit: 1
+    },
     initComponent: function () {
         var me = this;
 
@@ -42,7 +46,17 @@
                             somar += item.get('Valor');
                         }
                     });
+                    me.panel.extraData.record.set('ValorTotal', somar);
+                    me.panel.txtValorTotal.setValue(Ext.util.Format.number(somar, '000.00'));
                     return '<b>' + Ext.util.Format.number(somar, '0,000.00') + '</b>';
+                },
+                renderer: function (val, metaData, record) {
+                    var tool = '';
+                    if (record.get('Descricao') !== 'Produtos' && me.statusId === 1) {
+                        tool = '1 clique para editar o valor';
+                    }
+                    metaData.tdAttr = 'data-qtip="' + tool + '"';
+                    return Ext.util.Format.number(val, '0,000.00');
                 },
                 editor: {
                     xtype: 'numberfield',
@@ -70,6 +84,7 @@
 
         me.on({
             scope: me,
+            boxready: me.onBoxReady,
             itemdblclick: me.onItemDblClick,
             edit: me.onEdit,
             beforeedit: me.onBeforeEdit
@@ -84,13 +99,28 @@
             scope: me,
             click: me.onBtnDeleteClick
         });
+
+        me.store.on({
+            scope: me,
+            load: me.onStoreLoadCusto
+        });
+    },
+    onBoxReady: function () {
+        var me = this;
+
+        if (me.statusId !== 1) {
+            me.btnNovo.up().hide();
+        } else {
+            me.btnNovo.up().show();
+        }
     },
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        if (!record.get('Delete')) {
+        if (!record.get('Delete') && me.statusId === 1) {
             Ext.create('ProjetoGarage.view.orcamento.WindowCustos', {
                 title: 'Custo: ' + record.get('Descricao'),
+                tratamento: 'AOCUST',
                 extraData: {
                     formType: 'Alterar',
                     grid: me,
@@ -103,20 +133,23 @@
     onBtnNovoClick: function () {
         var me = this;
 
-        Ext.create('ProjetoGarage.view.orcamento.WindowCustos', {
-            title: 'Cadastro de Custo',
-            extraData: {
-                formType: 'Cadastrar',
-                grid: me
-            }
-        }).show();
+        if (me.statusId === 1) {
+            Ext.create('ProjetoGarage.view.orcamento.WindowCustos', {
+                title: 'Cadastro de Custo',
+                tratamento: 'COCUST',
+                extraData: {
+                    formType: 'Cadastrar',
+                    grid: me
+                }
+            }).show();
+        }
         return false;
     },
     onBtnDeleteClick: function () {
         var me = this,
             selection = me.getView().getSelectionModel().getSelection()[0];
 
-        if (selection) {
+        if (selection && me.statusId === 1) {
             if (!selection.get('Delete')) {
                 Ext.Msg.show({
                     title: 'Validação',
@@ -153,6 +186,7 @@
         if (context.record.get('Desconto') && context.record.get('Valor') > 0) {
             context.record.set('Valor', context.record.get('Valor') * -1);
         }
+        me.store.sync();
     },
     onBeforeEdit: function (editor, context, eOpts) {
         var me = this;
@@ -161,5 +195,14 @@
             return false;
         }
         return true;
+    },
+    onStoreLoadCusto: function(store, records, successfull, eOpts) {
+        var me = this,
+            storeProduto = me.panel.tabPanel.gridProduto.store;
+
+        if (records.length > 0 && storeProduto.data.length > 0) {
+            var recordIndex = store.find('Descricao', 'Produtos');
+            store.data.items[recordIndex].set('Valor', storeProduto.sum('ValorTotal'));
+        }
     }
 });

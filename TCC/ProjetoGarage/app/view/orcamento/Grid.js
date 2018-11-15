@@ -59,7 +59,6 @@
                 style: 'text-align: center;',
                 text: 'Valor Total',
                 width: 120,
-                hidden: true,
                 dataIndex: 'ValorTotal',
                 summaryType: 'sum',
                 summaryRenderer: function (value, summaryData, field) {
@@ -124,8 +123,11 @@
                 nomeExcel: 'Duração'
             }, {
                 dataIndex: 'ValorTotal',
-                nomeExcel: 'ValorTotal',
+                nomeExcel: 'Valor Total',
                 formatoExcel: 'Moeda'
+            }, {
+                dataIndex: 'Observacao',
+                nomeExcel: 'Observação'
             }, {
                 dataIndex: 'UsuarioNomeInclusao',
                 nomeExcel: 'Usuário Inclusão'
@@ -174,11 +176,11 @@
     onItemDblClick: function (grid, record, item, index, e, eOpts) {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'orcamento-panel',
             title: 'Orçamento: ' + record.get('Numero'),
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'Orcamento' + record.get('OrcamentoId'),
             tratamento: 'AEORÇA',
             extraData: {
@@ -193,17 +195,17 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('Orcamento' + record.get('OrcamentoId'));
+        window.viewport.tabPanelPrincipal.setActiveTab('Orcamento' + record.get('OrcamentoId'));
         return false;
     },
     onBtnNovoClick: function () {
         var me = this;
 
-        me.tela.tabPrincipal.add({
+        window.viewport.tabPanelPrincipal.add({
             xtype: 'orcamento-panel',
             title: 'Cadastro de Orçamento',
             closable: true,
-            tabPrincipal: me.tela.tabPrincipal,
+            tabPrincipal: window.viewport.tabPanelPrincipal,
             itemId: 'CadastroOrcamento',
             tratamento: 'CEORÇA',
             extraData: {
@@ -217,7 +219,7 @@
                 }
             }
         });
-        me.tela.tabPrincipal.setActiveTab('CadastroOrcamento');
+        window.viewport.tabPanelPrincipal.setActiveTab('CadastroOrcamento');
         return false;
     }
 });

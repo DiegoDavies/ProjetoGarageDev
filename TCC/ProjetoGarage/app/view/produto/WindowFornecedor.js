@@ -20,6 +20,15 @@
                 text: 'Salvar',
                 itemId: 'btnSalvar',
                 icon: '/resources/images/save.gif'
+            }],
+            tools: [{
+                type: 'help',
+                tooltip: 'Ajuda',
+                callback: function (panel, tool, event) {
+                    Ext.create('ProjetoGarage.view.telaPrincipal.WindowAjuda', {
+                        window: panel
+                    }).show();
+                }
             }]
         });
 

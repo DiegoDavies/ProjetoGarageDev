@@ -87,6 +87,7 @@
 
         Ext.create('ProjetoGarage.view.funcao.Window', {
             title: 'Função: ' + record.get('Nome'),
+            tratamento: 'AGFUNÇ',
             extraData: {
                 formType: 'Alterar',
                 grid: me,
@@ -100,6 +101,7 @@
 
         Ext.create('ProjetoGarage.view.funcao.Window', {
             title: 'Cadastro de Função',
+            tratamento: 'CGFUNÇ',
             extraData: {
                 formType: 'Cadastrar',
                 grid: me

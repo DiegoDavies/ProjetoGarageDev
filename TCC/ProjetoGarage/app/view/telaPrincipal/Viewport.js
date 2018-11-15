@@ -23,7 +23,7 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                     style: 'background-color: #dc6900',
                     items: ['->', {
                         xtype: 'button',
-                        icon: '/resources/images/helpsmall.png',
+                        icon: '/resources/images/help-white.png',
                         itemId: 'btnHelp',
                         text: '<div style="color:white">Ajuda</div>',
                         style: 'background:transparent;',
@@ -129,15 +129,21 @@ Ext.define('ProjetoGarage.view.telaPrincipal.Viewport', {
                 style: {
                     background: 'white'
                 },
-                items: [{
-                    title: 'Dashboard',
-                    tratamento: 'DS',
-                    closable: false
-                }]
+                //items: [{
+                //    title: 'Dashboard',
+                //    tratamento: 'DS',
+                //    closable: false
+                //}],
+                listeners: {
+                    beforeadd: function (cmp, newValue) {
+                        return !(cmp.items.keys.includes(newValue.itemId));
+                    }
+                }
             }]
         });
 
         me.callParent(arguments);
         me.tabPanelPrincipal = me.down('#tbpPrincipal');
+        window.viewport = me;
     }
 });

@@ -4,10 +4,10 @@
     pageSize: 999999,
     database: 'ProjetoGarage',
     procedures: {
-        select: 'S_ServicoCustos_L',
-        insert: 'S_ServicoCustos_E',
-        update: 'S_ServicoCustos_E',
-        destroy: 'S_ServicoCustos_E'
+        select: 'S_ServicoCusto_L',
+        insert: 'S_ServicoCusto_E',
+        update: 'S_ServicoCusto_E',
+        destroy: 'S_ServicoCusto_E'
     },
     model: 'ProjetoGarage.model.servico.Custos'
 });
