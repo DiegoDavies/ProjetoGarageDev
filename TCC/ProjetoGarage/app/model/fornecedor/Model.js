@@ -80,7 +80,7 @@
         name: 'Cpf',
         type: 'STRING',
         convert: function (v, rec) {
-            if (v) {
+            if (v !== "" && v) {
                 v = v.toString().replace(/\./g, '').replace('-', '').replace('/', '');
                 if (v.length > 0) {
                     v = Ext.String.leftPad(v, 11, '0');
@@ -90,7 +90,7 @@
             return v;
         },
         serialize: function (v) {
-            return v.replace(/\./g, '').replace('-', '').replace('/', '');
+            return v !== "" && v ? v.replace(/\./g, '').replace('-', '').replace('/', '') : v;
         }
     }, {
         name: 'InscricaoEstadual',

@@ -134,10 +134,12 @@
             if (me.extraData.record.get('StatusId') === 1) {
                 me.btnIniciar.show();
                 me.btnFinalizar.hide();
+                me.btnCancelar.show();
                 me.fieldsDisabled(false);
             } else if (me.extraData.record.get('StatusId') === 2) {
                 me.btnIniciar.hide();
                 me.btnFinalizar.show();
+                me.btnCancelar.show();
                 me.fieldsDisabled(false);
             } else if (me.extraData.record.get('StatusId') === 3 || me.extraData.record.get('StatusId') === 4) {
                 me.btnIniciar.hide();

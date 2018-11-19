@@ -39,7 +39,8 @@
                     itemId: 'cboCliente',
                     displayField: 'Nome',
                     valueField: 'ClienteId',
-                    store: Ext.create('ProjetoGarage.store.combos.Cliente')
+                    store: Ext.create('ProjetoGarage.store.combos.Cliente'),
+                    allowBlank: false
                 }, {
                     xtype: 'datefield',
                     altFormats: 'd/m/Y|dmy|dmY',
@@ -72,6 +73,7 @@
                     fieldLabel: 'Valor Total (R$)',
                     itemId: 'txtValorTotal',
                     fieldStyle: 'text-align:right',
+                    emptyText: 'Preenchimento Automático',
                     readOnly: true
                 }, {
                     xtype: 'htmleditor',
