@@ -337,6 +337,7 @@
     <Content Include="app\view\servico\WindowCustos.js" />
     <Content Include="app\view\servico\WindowProduto.js" />
     <Content Include="app\view\servico\WindowVeiculo.js" />
+    <Content Include="app\view\telaPrincipal\Dashboard.js" />
     <Content Include="app\view\telaPrincipal\WindowSuporte.js" />
     <Content Include="app\view\unidadeMedida\Form.js" />
     <Content Include="app\view\unidadeMedida\Grid.js" />

@@ -62,7 +62,8 @@
     },
     onShowWindow: function () {
         var me = this,
-            tratamentoViewport = (me.viewport ? (me.viewport.tabPanelPrincipal.getActiveTab().tratamento ? me.viewport.tabPanelPrincipal.getActiveTab().tratamento : '') : ''),
+            activeTab = (me.viewport ? me.viewport.tabPanelPrincipal.getActiveTab() : null),
+            tratamentoViewport = (activeTab !== null && activeTab !== undefined ? (activeTab.tratamento ? activeTab.tratamento : '') : ''),
             tratamentoWindow = (me.window ? (me.window.tratamento ? me.window.tratamento : '') : '');
 
         if (tratamentoViewport !== '') {
@@ -71,6 +72,26 @@
         if (tratamentoWindow !== '') {
             me.setModelosWindow(tratamentoWindow);
         }
+        if (tratamentoWindow === '' && tratamentoViewport === '') {
+            me.setMensagemPadrao();
+        }
+    },
+    setMensagemPadrao: function() {
+        var me = this;
+
+        me.setWidth(400);
+
+        me.html = '<div>' +
+                '<div style="text-align: center;">' +
+                    '<span><strong>Tela de Ajuda</strong></span>' +
+                '</div>' +
+                '<div style="line-height: 1.5">' +
+                    '<p>Selecione uma tela no menu do lado esquerdo para ter acesso ao cadastro desejado.</p>' +
+                    '<p>Caso já esteja em uma tela, e essa mensagem está aparecendo, clique no botão abaixo e envie um comentário detalhado para que possam entrar em contato com você e resolver o seu problema.</p>' +
+                '</div>' +
+            '</div>';
+
+        me.ctnMensagem.update(me.html);
     },
     setModelosWindow: function (tratamento) {
         var me = this,

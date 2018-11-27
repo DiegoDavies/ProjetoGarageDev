@@ -25,13 +25,6 @@ Ext.application({
         };
 
         Ext.Ajax.on({
-            beforerequest: function (conn, options, eOpts) {
-                if (options.url !== '/GravaLog' &&
-                    options.url !== '/Login' &&
-                    options.url !== '/VerificaSessao') {
-
-                }
-            },
             requestcomplete: function (conn, response, options, eOpts) {
                 if (options.url !== '/GravaLog' &&
                     options.url !== '/Login' &&

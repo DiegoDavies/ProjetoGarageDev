@@ -163,6 +163,7 @@
         me.dtDataVencimento.setDisabled(disabled);
         me.cboDuracao.setDisabled(disabled);
         me.txtDuracao.setDisabled(disabled);
+        me.txtValorTotal.setDisabled(disabled);
         me.txtObservacao.setDisabled(disabled);
     },
     onAfterLayout: function () {
