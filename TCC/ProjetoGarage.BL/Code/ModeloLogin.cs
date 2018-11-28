@@ -14,5 +14,6 @@ namespace ProjetoGarage.BL.Code
         public string Senha { get; set; }
         public int PerfilId { get; set; }
         public bool Resultado { get; set; }
+        public bool PrimeiroAcesso { get; set; }
     }
 }

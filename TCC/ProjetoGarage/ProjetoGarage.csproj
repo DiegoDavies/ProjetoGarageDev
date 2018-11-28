@@ -111,6 +111,7 @@
     <Content Include="app\model\marcaProduto\Model.js" />
     <Content Include="app\model\modeloProduto\Model.js" />
     <Content Include="app\model\produto\Fornecedor.js" />
+    <Content Include="app\model\telaPrincipal\dashboard\ContaPagar.js" />
     <Content Include="app\model\unidadeMedida\Model.js" />
     <Content Include="app\model\etnia\Model.js" />
     <Content Include="app\model\excelConfig\Model.js" />
@@ -203,6 +204,7 @@
     <Content Include="app\store\marcaProduto\Store.js" />
     <Content Include="app\store\modeloProduto\Store.js" />
     <Content Include="app\store\produto\Fornecedor.js" />
+    <Content Include="app\store\telaPrincipal\dashboard\ContaPagar.js" />
     <Content Include="app\store\unidadeMedida\Store.js" />
     <Content Include="app\store\etnia\Store.js" />
     <Content Include="app\store\excelConfig\Store.js" />
@@ -337,7 +339,8 @@
     <Content Include="app\view\servico\WindowCustos.js" />
     <Content Include="app\view\servico\WindowProduto.js" />
     <Content Include="app\view\servico\WindowVeiculo.js" />
-    <Content Include="app\view\telaPrincipal\Dashboard.js" />
+    <Content Include="app\view\telaPrincipal\dashboard\ChartContaPagar.js" />
+    <Content Include="app\view\telaPrincipal\dashboard\TabDashboard.js" />
     <Content Include="app\view\telaPrincipal\WindowSuporte.js" />
     <Content Include="app\view\unidadeMedida\Form.js" />
     <Content Include="app\view\unidadeMedida\Grid.js" />
@@ -5773,6 +5776,7 @@
     <Content Include="resources\images\search.png" />
     <Content Include="resources\images\start.png" />
     <Content Include="resources\images\suport.png" />
+    <Content Include="resources\images\supply.png" />
     <Content Include="resources\images\UserLogin.png" />
     <Content Include="resources\images\loginWpp.png" />
     <Content Include="resources\images\wallet.png" />
@@ -7458,6 +7462,7 @@
     <Content Include="sass\etc\all.scss" />
     <Content Include="sass\var\Component.scss" />
     <None Include="Properties\PublishProfiles\ProjetoGarage.pubxml" />
+    <Content Include="resources\Termo de Uso.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -7491,11 +7496,6 @@
     <Content Include="bootstrap.js" />
     <Content Include="build.xml" />
     <Content Include="index.html" />
-    <Content Include="php\atualizaContato.php" />
-    <Content Include="php\connect.php" />
-    <Content Include="php\criaContato.php" />
-    <Content Include="php\deletaContato.php" />
-    <Content Include="php\listaContatos.php" />
     <Content Include="resources\css\app.css" />
     <Content Include="resources\images\add.png" />
     <Content Include="resources\images\delete.png" />

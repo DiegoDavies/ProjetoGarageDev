@@ -173,37 +173,38 @@ Ext.define('ProjetoGarage.view.login.Login', {
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);
                 if (result.Resultado) {
-                    me.destroy();
-                    Ext.Ajax.request({
-                        url: '/GravaLog',
-                        params: {
-                            urlUtilizada: 'Login',
-                            procedure: '/Login',
-                            method: "",
-                            erro: ""
-                        }
-                    });
-                    Ext.create('ProjetoGarage.view.telaPrincipal.Viewport', {
-                        textUser: result.Nome
-                    });
-                } else {
-                    Ext.Msg.show({
-                        title: 'Problema',
-                        msg: 'Usu\u00E1rio e/ou Senha n\u00E3o encontrados. Tente novamente!',
-                        buttons: Ext.Msg.OK,
-                        icons: Ext.Msg.WARNING,
-                        fn: function () {
-                            Ext.Ajax.request({
-                                url: '/GravaLog',
-                                params: {
-                                    urlUtilizada: 'Login',
-                                    procedure: '/Login',
-                                    method: "",
-                                    erro: "Usuario e/ou Senha nao encontrados. Tente novamente!"
+                    if (result.PrimeiroAcesso) {
+                        Ext.create('Ext.window.Window', {
+                            height: 400,
+                            width: 515,
+                            layout: 'fit',
+                            acepted: false,
+                            html: '<embed src="/resources/Termo de Uso.pdf" width="500" height="375" type="application/pdf">',
+                            bbar: ['->', {
+                                xtype: 'button',
+                                text: 'Aceitar',
+                                icon: '/resources/images/check16.png',
+                                handler: function () {
+                                    var win = this.up().up();
+                                    win.acepted = true;
+                                    win.close();
                                 }
-                            });
-                        }
-                    });
+                            }],
+                            listeners: {
+                                close: function () {
+                                    if (this.acepted) {
+                                        me.onSuccess(result);
+                                    } else {
+                                        me.onError('Termo de uso do sistema n\u00E3o foi aceito');
+                                    }
+                                }
+                            }
+                        }).show();
+                    } else {
+                        me.onSuccess(result);
+                    }
+                } else {
+                    me.onError('Usu\u00E1rio e/ou Senha n\u00E3o encontrados. Tente novamente!');
                 }
             },
             failure: function (retorno, request) {
@@ -222,6 +223,47 @@ Ext.define('ProjetoGarage.view.login.Login', {
                                 erro: "Ocorreu um problema. Por favor contate o suporte!"
                             }
                         });
+                    }
+                });
+            }
+        });
+    },
+    onSuccess: function (result) {
+        var me = this;
+        me.destroy();
+        Ext.Ajax.request({
+            url: '/Login',
+            params: {
+                login: ''
+            }
+        });
+        Ext.Ajax.request({
+            url: '/GravaLog',
+            params: {
+                urlUtilizada: 'Login',
+                procedure: '/Login',
+                method: "GRAVAR PRIMEIRO ACESSO",
+                erro: ""
+            }
+        });
+        Ext.create('ProjetoGarage.view.telaPrincipal.Viewport', {
+            textUser: result.Nome
+        });
+    },
+    onError: function(mensagem) {
+        Ext.Msg.show({
+            title: 'Problema',
+            msg: mensagem,
+            buttons: Ext.Msg.OK,
+            icons: Ext.Msg.WARNING,
+            fn: function () {
+                Ext.Ajax.request({
+                    url: '/GravaLog',
+                    params: {
+                        urlUtilizada: 'Login',
+                        procedure: '/Login',
+                        method: "",
+                        erro: mensagem
                     }
                 });
             }

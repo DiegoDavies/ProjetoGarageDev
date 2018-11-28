@@ -12,6 +12,7 @@ namespace ProjetoGarage.BL.Code
         {
             int acaoId = 0;
             string nomeAdc = string.Empty;
+            string queryAdc = "UPDATE Usuario SET PrimeiroAcesso = 0 WHERE UsuarioId = " + usuarioId;
             string query = "INSERT INTO Log (UsuarioId, DataHora, Id, NomeAdc) VALUES({0}, {1}, {2}, '{3}')";
             if (urlUtilizada != null)
             {
@@ -70,6 +71,13 @@ namespace ProjetoGarage.BL.Code
             }
             if (query != "INSERT INTO Log (UsuarioId, DataHora, Id, NomeAdc) VALUES({0}, {1}, {2}, '{3}')")
             {
+                if (urlUtilizada != null)
+                {
+                    if (urlUtilizada.ToUpper() == "LOGIN" && method.ToUpper() == "GRAVAR PRIMEIRO ACESSO")
+                    {
+                        query = queryAdc + "; " + query;
+                    }
+                }
                 con = db.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();

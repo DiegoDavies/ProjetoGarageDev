@@ -79,6 +79,8 @@
             me.rdbBeneficiarios.setValue({
                 Benef: me.extraData.record.get('FuncionarioId') > 0 ? 'Funcionario' : 'Fornecedor'
             });
+            me.cboFornecedor.setVisible(me.extraData.record.get('FuncionarioId') > 0 ? false : true);
+            me.cboFuncionario.setVisible(me.extraData.record.get('FuncionarioId') > 0 ? true : false);
         } else {
             me.mascaraCad.show();
             me.tabPanel.hide();

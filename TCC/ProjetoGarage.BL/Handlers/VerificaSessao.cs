@@ -19,7 +19,7 @@ namespace ProjetoGarage.BL.Handlers
                 string session = string.Empty;
                 if (context.Session != null)
                 {
-                    if (Convert.ToDateTime(context.Session["DataExpires"]) <= DateTime.Now)
+                    if (Convert.ToDateTime(context.Session["DataExpires"]) <= DateTime.Now || context.Request.Cookies.Count <= 1)
                     {
                         if (context.Session["UsuarioNome"] != null)
                         {
